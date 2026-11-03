@@ -46,7 +46,7 @@ export function ShareDialog({ dashboard, onClose }: { dashboard: Dashboard | nul
       <div className="dashboards-share__tools">
         <div className="stack stack--sm">
           <RadioGroup row ariaLabel="Share with" value={kind} options={KINDS} onChange={(v) => { setKind(v as ShareKind); setNames([]); }} />
-          <Checkbox label="Select All" checked={selectAll} onChange={setSelectAll} />
+          <Checkbox label="Select all" checked={selectAll} onChange={setSelectAll} />
         </div>
         <div className="row">
           <Button icon="users" onClick={() => setBrowse(true)}>Browse</Button>
@@ -84,7 +84,7 @@ function PickerDialog({ kind: initialKind, names, onClose, onDone }: {
       footer={<Button variant="primary" disabled={picked.length === 0} onClick={() => onDone(kind, list.map((p) => p.name).filter((x) => picked.includes(x)))}>Done</Button>}>
       <div className="dashboards-share__tools">
         <RadioGroup row ariaLabel="Share with" value={kind} options={KINDS} onChange={(v) => { setKind(v as ShareKind); setPicked([]); }} />
-        <Checkbox label="Select All" checked={all} indeterminate={picked.length > 0} onChange={(on) => setPicked(on ? list.map((p) => p.name) : [])} />
+        <Checkbox label="Select all" checked={all} indeterminate={picked.length > 0} onChange={(on) => setPicked(on ? list.map((p) => p.name) : [])} />
       </div>
       <PrincipalTable kind={kind}>
         {list.map((p) => (

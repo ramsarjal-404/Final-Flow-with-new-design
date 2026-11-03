@@ -20,11 +20,11 @@ export default function LepideIqPage() {
   const [pendingDelete, setPendingDelete] = useState<IqCredential | null>(null);
 
   const cols = useMemo<Col<IqCredential>[]>(() => [
-    { key: 'name', header: 'Lepide IQ Name', sortable: true, tip: true, minWidth: 160 },
-    { key: 'endpoint', header: 'API End Point URL', sortable: true, tip: true, minWidth: 260 },
-    { key: 'apiKey', header: 'API Key', text: () => '', minWidth: 150,
+    { key: 'name', header: 'Lepide IQ name', sortable: true, tip: true, minWidth: 160 },
+    { key: 'endpoint', header: 'API end point URL', sortable: true, tip: true, minWidth: 260 },
+    { key: 'apiKey', header: 'API key', text: () => '', minWidth: 150,
       render: (c) => <span role="img" aria-label="API key hidden" style={{ letterSpacing: '.08em' }}>{mask(c.apiKey)}</span> },
-    { key: 'model', header: 'Deployed Model Name', sortable: true, minWidth: 160 },
+    { key: 'model', header: 'Deployed model name', sortable: true, minWidth: 160 },
   ], []);
   const model = useTable(creds, cols);
 
@@ -110,10 +110,10 @@ function CredentialDialog({ state, others, onClose }: {
       title={editing ? 'Edit Credentials for Lepide IQ' : 'Add Credentials for Lepide IQ'}
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={apply}>Apply</Button></>}>
       <form noValidate onSubmit={(e) => { e.preventDefault(); apply(); }} style={{ display: 'contents' }}>
-        <TextField id="iq-name" label="Lepide IQ Name" placeholder={SAMPLE.name} value={f.name} onChange={upd('name')} error={show('name')} />
-        <TextField id="iq-endpoint" label="API End Point URL" placeholder={SAMPLE.endpoint} value={f.endpoint} onChange={upd('endpoint')} error={show('endpoint')} />
-        <PasswordField id="iq-apiKey" label="API Key" autoComplete="off" value={f.apiKey} onChange={upd('apiKey')} error={show('apiKey')} />
-        <TextField id="iq-model" label="Deployed Model Name" placeholder={SAMPLE.model} value={f.model} onChange={upd('model')} error={show('model')} />
+        <TextField id="iq-name" label="Lepide IQ name" placeholder={SAMPLE.name} value={f.name} onChange={upd('name')} error={show('name')} />
+        <TextField id="iq-endpoint" label="API end point URL" placeholder={SAMPLE.endpoint} value={f.endpoint} onChange={upd('endpoint')} error={show('endpoint')} />
+        <PasswordField id="iq-apiKey" label="API key" autoComplete="off" value={f.apiKey} onChange={upd('apiKey')} error={show('apiKey')} />
+        <TextField id="iq-model" label="Deployed model name" placeholder={SAMPLE.model} value={f.model} onChange={upd('model')} error={show('model')} />
         <button type="submit" hidden />
       </form>
     </Modal>

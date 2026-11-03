@@ -68,8 +68,8 @@ export function ProfileSettingsStep({ source, draft, patch, errors, enumerated, 
 
   const menu: { label: string; kind: MenuKind | 'all' }[] =
     source.kind === 'share' ? [
-      { label: 'All Share', kind: 'server' }, { label: 'Import from Existing Dataset', kind: 'dataset' }, { label: 'Import from CSV', kind: 'csv' },
-      { label: 'Set UNC Path', kind: 'unc' }, { label: 'Scan Share From Audited File Server', kind: 'folders' },
+      { label: 'All share', kind: 'server' }, { label: 'Import from existing dataset', kind: 'dataset' }, { label: 'Import from CSV', kind: 'csv' },
+      { label: 'Set UNC path', kind: 'unc' }, { label: 'Scan share from audited file server', kind: 'folders' },
     ] : source.kind === 'sharepointServer' ? [{ label: 'Add manually', kind: 'site' }, { label: 'Import from CSV', kind: 'csv' }]
       : [{ label: 'Add manually', kind: 'folder' }, { label: 'All', kind: 'all' }, { label: 'Import from CSV', kind: 'csv' }];
 
@@ -77,7 +77,7 @@ export function ProfileSettingsStep({ source, draft, patch, errors, enumerated, 
     <>
       <h3 className="identify-step-h">Profile Name &amp; Object Selection</h3>
       <div className="fld-row">
-        <TextField label="Profile Name" note="Required" value={draft.name} error={errors.name} maxLength={100} placeholder="Enter profile name"
+        <TextField label="Profile name" note="Required" value={draft.name} error={errors.name} maxLength={100} placeholder="Enter profile name"
           onChange={(v) => patch({ name: v })} />
         <TextField label="Description" value={draft.description} maxLength={200} placeholder="Enter description" onChange={(v) => patch({ description: v })} />
       </div>

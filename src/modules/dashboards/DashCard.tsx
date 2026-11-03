@@ -79,7 +79,7 @@ export function DashCard({ title, subtitle, titleEdit, tools = ['calendar'], sta
         </p>
       )}
       <div className="dashboards-card__body">
-        {state === 'nodata' ? <EmptyState compact icon="file-search" title="No Data Generated Yet" />
+        {state === 'nodata' ? <EmptyState compact icon="file-search" title="No data generated yet" />
           : state === 'notconfigured' ? <EmptyState compact icon="settings" title="Component is not configured." />
           : table ? (
             <div className="tbl-wrap dashboards-card__table" style={{ maxHeight: height }}>

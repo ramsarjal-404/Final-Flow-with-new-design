@@ -165,7 +165,7 @@ export function DataSetWizard({ source, editing, onClose, onSave }: {
   /* ---------- step bodies ---------- */
   const nameRows = (
     <div className="fld-row">
-      <TextField label="Data Set Name" placeholder="Enter data set name" value={d.name} error={isBad('name') ? 'Please enter the data set name.' : null}
+      <TextField label="Data set name" placeholder="Enter data set name" value={d.name} error={isBad('name') ? 'Please enter the data set name.' : null}
         onChange={(v) => set({ name: v })} maxLength={200} />
       <TextField label="Description" placeholder="Enter description" value={d.description} onChange={(v) => set({ description: v })} maxLength={500} />
     </div>
@@ -191,9 +191,9 @@ export function DataSetWizard({ source, editing, onClose, onSave }: {
             {d.validated && <Chip tone="good" icon="check">Validated</Chip>}
           </div>
           {source.kind === 'sharepoint-online' && d.validated && (
-            <CheckTable label="Site Collection URL" rows={SPO_SITES} rowKey={(r) => r} checked={d.objects} onChecked={(o) => set({ objects: o })}
+            <CheckTable label="Site collection URL" rows={SPO_SITES} rowKey={(r) => r} checked={d.objects} onChecked={(o) => set({ objects: o })}
               filter={filter} onFilter={setFilter} empty="No site collections." maxHeight={300}
-              cols={[{ key: 'url', header: 'Site Collection URL', cell: (r) => r, text: (r) => r }]} />
+              cols={[{ key: 'url', header: 'Site collection URL', cell: (r) => r, text: (r) => r }]} />
           )}
         </>
       );
@@ -225,9 +225,9 @@ export function DataSetWizard({ source, editing, onClose, onSave }: {
             <Button icon="plus" onClick={() => setDlg('site')}>Add</Button>
             <Button icon="refresh" onClick={() => toast({ variant: 'success', title: 'Refreshed', message: 'Site collection list is up to date.' })}>Refresh</Button>
           </div>
-          <CheckTable label="Site Collection URL" rows={d.sites} rowKey={(r) => r} checked={d.objects} onChecked={(o) => set({ objects: o })}
+          <CheckTable label="Site collection URL" rows={d.sites} rowKey={(r) => r} checked={d.objects} onChecked={(o) => set({ objects: o })}
             filter={filter} onFilter={setFilter} empty="No site collections." maxHeight={300}
-            cols={[{ key: 'url', header: 'Site Collection URL', cell: (r) => r, text: (r) => r }]} />
+            cols={[{ key: 'url', header: 'Site collection URL', cell: (r) => r, text: (r) => r }]} />
         </>
       );
     }
@@ -241,7 +241,7 @@ export function DataSetWizard({ source, editing, onClose, onSave }: {
         <Menu align="right" label="Add from" items={[
           { label: 'All Shares', icon: 'server', onSelect: () => setDlg('shares') },
           { label: 'Import from CSV', icon: 'upload', onSelect: () => setDlg('csv') },
-          { label: 'Scan Shares from Audited File Servers', icon: 'folder', onSelect: () => setDlg('folders') },
+          { label: 'Scan shares from audited file servers', icon: 'folder', onSelect: () => setDlg('folders') },
           { label: 'Export to CSV', icon: 'download', onSelect: exportCsv },
         ]} trigger={(p) => <Button icon="plus" iconEnd="chevron" {...p}>Add from</Button>} />
       }
@@ -268,7 +268,7 @@ export function DataSetWizard({ source, editing, onClose, onSave }: {
       <CheckTable label="Database mapping" rows={mappingRows} rowKey={(r) => r.server} checked={mapSel} onChecked={setMapSel} empty="No file servers."
         cols={[{ key: 'fs', header: 'File Server', cell: (r) => r.server },
           { key: 'sql', header: 'SQL Server', cell: (r) => r.m?.sqlServer ?? <span className="lf-na">—</span> },
-          { key: 'db', header: 'Database Name', cell: (r) => r.m?.database ?? <span className="lf-na">—</span> }]} />
+          { key: 'db', header: 'Database name', cell: (r) => r.m?.database ?? <span className="lf-na">—</span> }]} />
     </>
   );
 
@@ -287,7 +287,7 @@ export function DataSetWizard({ source, editing, onClose, onSave }: {
       <div className={'trust-summary' + (isBad('schedule') ? ' is-bad' : '') + (d.scheduled ? '' : ' is-off')} aria-live="polite" aria-label="Schedule summary">
         {d.schedule ? scheduleSummary(d.schedule) : d.scheduled ? <span className="muted">Pick Daily, Weekly or Monthly to set the schedule.</span> : <span className="lf-na">—</span>}
       </div>
-      <Checkbox label="Scan on Remote Agent" checked={d.remote} onChange={(v) => set({ remote: v })} />
+      <Checkbox label="Scan on remote agent" checked={d.remote} onChange={(v) => set({ remote: v })} />
       <div className="trust-inline">
         <SelectField className="grow" label="Agent Location/IP" placeholder="Select" options={agents} value={d.agent} disabled={!d.remote}
           error={isBad('agent') ? 'Please select the agent location/IP or add an agent.' : null} onChange={(v) => set({ agent: v })} />
@@ -312,7 +312,7 @@ export function DataSetWizard({ source, editing, onClose, onSave }: {
 
   return (
     <div className="stack">
-      <SubHeader back={{ label: 'Back to Data Set', onClick: onClose }} logo={source.logo}
+      <SubHeader back={{ label: 'Back to data set', onClick: onClose }} logo={source.logo}
         crumbs={[{ label: 'Trust Settings', to: '/settings/trust' }, { label: source.label, onClick: onClose }, { label: 'Data Set', onClick: onClose }, { label: crumb }]}
         title={crumb} subtitle={`Step ${step + 1} of ${steps.length} · ${steps[step]}`} />
       <ol className="steps steps--page" aria-label="Progress">

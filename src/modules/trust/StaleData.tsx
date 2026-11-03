@@ -88,7 +88,7 @@ export default function StaleData() {
 
   const toggle = (
     <Segmented mode="pressed" hug ariaLabel="Switch between General View and Tree View" value={view} onChange={askSwitch}
-      items={[{ value: 'general', label: 'General View' }, { value: 'tree', label: 'Tree View' }]} />
+      items={[{ value: 'general', label: 'General view' }, { value: 'tree', label: 'Tree view' }]} />
   );
 
   const owners = tally(files.map((f) => f.owner));

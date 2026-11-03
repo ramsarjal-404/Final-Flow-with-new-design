@@ -21,12 +21,12 @@ type View = null | { k: 'add'; type: ServerType; multiple: boolean } | { k: 'mod
 const PANE: PaneItem[] = [
   { id: 'install', label: 'Install agent', icon: 'download' },
   { id: 'uninstall', label: 'Uninstall agent', icon: 'x' },
-  { id: 'start', label: 'Start Auditing', icon: 'play' },
-  { id: 'stop', label: 'Stop Auditing', icon: 'pause' },
-  { id: 'update', label: 'Update Agent', icon: 'refresh' },
-  { id: 'upgrade', label: 'Upgrade Agent', icon: 'upload' },
-  { id: 'modify', label: 'Modify File Server', icon: 'edit' },
-  { id: 'remove', label: 'Remove File Servers', icon: 'trash' },
+  { id: 'start', label: 'Start auditing', icon: 'play' },
+  { id: 'stop', label: 'Stop auditing', icon: 'pause' },
+  { id: 'update', label: 'Update agent', icon: 'refresh' },
+  { id: 'upgrade', label: 'Upgrade agent', icon: 'upload' },
+  { id: 'modify', label: 'Modify file server', icon: 'edit' },
+  { id: 'remove', label: 'Remove file servers', icon: 'trash' },
   { id: 'dc', label: 'Domain Controllers', icon: 'building' },
 ];
 
@@ -96,14 +96,14 @@ export default function FileServers() {
 
   const columns: Column<FileServer>[] = [
     { key: 'name', header: 'File Server Name/IP', sortable: true, filterable: true, minWidth: 170 },
-    { key: 'type', header: 'Server Type', sortable: true, filterable: true, value: (s) => SERVER_TYPE_LABEL[s.type], minWidth: 150 },
+    { key: 'type', header: 'Server type', sortable: true, filterable: true, value: (s) => SERVER_TYPE_LABEL[s.type], minWidth: 150 },
     { key: 'domain', header: 'Domain/Workgroup', sortable: true, filterable: true, minWidth: 150 },
     {
-      key: 'agentStatus', header: 'Agent Status', sortable: true, filterable: true, minWidth: 170,
+      key: 'agentStatus', header: 'Agent status', sortable: true, filterable: true, minWidth: 170,
       render: (s) => <span data-tip={s.agentStatus} tabIndex={0} className="add-data-source-tipwrap"><ToneTag tone={agentTone(s.agentStatus)}>{s.agentStatus}</ToneTag></span>,
     },
-    { key: 'auditStatus', header: 'Auditing Status', sortable: true, filterable: true, minWidth: 150 },
-    { key: 'lastUpdate', header: 'Last Update', sortable: true, filterable: true, minWidth: 170 },
+    { key: 'auditStatus', header: 'Auditing status', sortable: true, filterable: true, minWidth: 150 },
+    { key: 'lastUpdate', header: 'Last update', sortable: true, filterable: true, minWidth: 170 },
     {
       key: 'actions', header: 'Actions', width: 90,
       render: (s) => (
@@ -119,7 +119,7 @@ export default function FileServers() {
               },
             },
             { label: 'Properties', onSelect: () => setProps(s.id) },
-            ...(s.type === 'netapp7' ? [{ label: 'Agent Properties', onSelect: () => setAgentProps(s.id) }] : []),
+            ...(s.type === 'netapp7' ? [{ label: 'Agent properties', onSelect: () => setAgentProps(s.id) }] : []),
           ]}
           trigger={(p) => <IconButton ref={p.ref} icon="more" label={`Actions for ${s.name}`} bordered onClick={p.onClick} aria-expanded={p['aria-expanded']} aria-haspopup="menu" />} />
       ),

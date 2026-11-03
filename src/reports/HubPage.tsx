@@ -51,7 +51,7 @@ export default function HubPage() {
 
   const columns = useMemo<RCol<ReportRow>[]>(() => [
     {
-      key: 'name', header: 'Report Name', width: 330, sortable: true, filterable: true, value: (r) => displayTitle(r),
+      key: 'name', header: 'Report name', width: 330, sortable: true, filterable: true, value: (r) => displayTitle(r),
       render: (r) => r.disabled
         ? <span className="rep-link off" data-tip={`${displayTitle(r)} (not available)`} aria-disabled="true"><span>{displayTitle(r)}</span></span>
         : <button type="button" className="rep-link" data-tip={displayTitle(r)} onClick={() => open(r)}><span>{displayTitle(r)}</span><Icon name="arrow" size={14} /></button>,
@@ -76,7 +76,7 @@ export default function HubPage() {
       ),
     },
     {
-      key: 'type', header: 'Report Type', width: 150, sortable: true, filterable: true, value: (r) => r.type,
+      key: 'type', header: 'Report type', width: 150, sortable: true, filterable: true, value: (r) => r.type,
       render: (r) => <span className={'lf-chip' + (r.type === 'Custom' ? ' lf-chip--brand' : '')}>{r.type}</span>,
     },
     { key: 'addedBy', header: 'Added By', width: 150, sortable: true, filterable: true, value: (r) => r.addedBy },
@@ -152,7 +152,7 @@ export default function HubPage() {
       <ConfirmDialog open={!!removeRow} onClose={() => setRemoveRow(null)} title="Are you sure?" confirmLabel="Remove"
         message="If selected report is associated with a chart in the dashboard and you remove this report then the chart will also be removed. Do you want to continue?"
         onConfirm={() => {
-          if (removeRow) { reportActions.removeReport(module.key, removeRow.id); toast({ variant: 'success', title: 'Remove Report', message: `"${removeRow.name}" removed.` }); }
+          if (removeRow) { reportActions.removeReport(module.key, removeRow.id); toast({ variant: 'success', title: 'Remove report', message: `"${removeRow.name}" removed.` }); }
           setRemoveRow(null);
         }} />
       <ShareDialog row={shareRow} moduleKey={module.key} sharer={user?.name ?? 'Console User'} onClose={() => setShareRow(null)} />

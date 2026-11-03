@@ -61,7 +61,7 @@ export function NotifyPanel({ component, onClose }: { component: NotifyComponent
           </div>
           <fieldset className="configure-notifications-fieldset" disabled={cfg.options.length === 0}>
             <legend className="sr-only">Notification delivery</legend>
-            <Field label="Notification Every" htmlFor={everyId}>
+            <Field label="Notification every" htmlFor={everyId}>
               <div className="row">
                 <Dropdown id={everyId} value={cfg.every} onChange={(v) => set('every', v)} style={{ maxWidth: 120 }} options={NOTIFY_HOURS} search={false} />
                 <span className="muted text-sm">Hour(s)</span>
@@ -73,7 +73,7 @@ export function NotifyPanel({ component, onClose }: { component: NotifyComponent
             <TextAreaField label="Recipient Email Address(es):" rows={5} placeholder="name@company.com" value={cfg.recipients}
               help="Separate multiple email addresses with a comma." onChange={(v) => set('recipients', v)} />
           </fieldset>
-          <SettingRow title="Notification Status">
+          <SettingRow title="Notification status">
             <Toggle label="Notification status" checked={cfg.enabled} onChange={(v) => set('enabled', v)} />
           </SettingRow>
         </div>

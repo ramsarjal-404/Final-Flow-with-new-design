@@ -86,7 +86,7 @@ export default function ListPage() {
   }, [dashboards, q]);
 
   const columns: Column<Dashboard>[] = [
-    { key: 'name', header: 'Dashboard Name', sortable: true, filterable: true, minWidth: 200, value: (d) => d.name,
+    { key: 'name', header: 'Dashboard name', sortable: true, filterable: true, minWidth: 200, value: (d) => d.name,
       render: (d) => <Link className="lf-link" to={`/dashboards/${d.id}`}>{d.name}</Link> },
     { key: 'description', header: 'Description', sortable: true, filterable: true, minWidth: 200, value: (d) => d.description, render: (d) => d.description },
     { key: 'sharedWith', header: 'Shared With', sortable: true, filterable: true, minWidth: 150, value: (d) => d.sharedWith, render: (d) => <SharedWith value={d.sharedWith} /> },

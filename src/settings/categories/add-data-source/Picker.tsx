@@ -39,7 +39,7 @@ export default function Picker() {
         </HeaderActions>
       )}
       {!wizardOpen && (
-        <SetCard title="Data Source">
+        <SetCard title="Data source">
           {tiles.length ? (
             <div className="pick-grid add-data-source-tiles">
               {tiles.map((t) => {

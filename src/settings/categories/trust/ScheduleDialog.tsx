@@ -53,7 +53,7 @@ export function ScheduleDialog({ type, initial, onClose, onDone }: {
         <div className="trust-time">{sel('Hour', 'h', 24)}{sel('Minute', 'm', 60)}{sel('Second', 's', 60)}</div>
       </Field>
       {type === 'Weekly' && (
-        <Field label="Select Days">
+        <Field label="Select days">
           <div className="trust-chipset">
             {WEEKDAY_NAMES.map((w) => (
               <button key={w} type="button" className="trust-pickchip" aria-pressed={weekdays.includes(w)}

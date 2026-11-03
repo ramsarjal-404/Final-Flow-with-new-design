@@ -56,7 +56,7 @@ export function FiltersStep({ d, set, active, setActive }: { d: Draft; set: (p: 
 
       {/* ENT-DET-Threshold */}
       <div className="detect-box stack stack--sm">
-        <Checkbox checked={t.enabled} onChange={(v) => setT({ enabled: v })} label="Threshold Alert" />
+        <Checkbox checked={t.enabled} onChange={(v) => setT({ enabled: v })} label="Threshold alert" />
         <Checkbox checked={t.sameUser} disabled={!t.enabled} onChange={(v) => setT({ sameUser: v })} label="Send Alert when all changes made by same user" />
         <div className="detect-threshold">
           <span>Send alert only if event occurs</span>

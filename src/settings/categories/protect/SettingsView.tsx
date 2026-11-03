@@ -41,7 +41,7 @@ function RetentionCard() {
         <div className="setrow" style={{ alignItems: 'flex-start' }}>
           <div className="setrow__text"><b>Policy Backup Retention Limit</b></div>
           <div className="row" style={{ alignItems: 'flex-start' }}>
-            <TextField aria-label="Policy Backup Retention Limit" value={val} inputMode="numeric" maxLength={3} style={{ width: 120 }}
+            <TextField aria-label="Policy backup retention limit" value={val} inputMode="numeric" maxLength={3} style={{ width: 120 }}
               error={err} help="Note: Backup limit can be set between 2 and 12."
               onChange={(v) => { setVal(v); if (err) setErr(null); }} onKeyDown={(e) => e.key === 'Enter' && submit()} />
             <Button variant="primary" onClick={submit} style={{ marginTop: 4 }}>Submit</Button>
@@ -71,7 +71,7 @@ function ShareDialog({ open, onClose }: { open: boolean; onClose: () => void }) 
   return (
     <Modal open={open} onClose={onClose} size="sm" icon="folder" title="Configure Communication Share path"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
-      <TextField label="Communication Path" placeholder="\\192.168.10.141\HR Doc" value={path} error={err.path} maxLength={260}
+      <TextField label="Communication path" placeholder="\\192.168.10.141\HR Doc" value={path} error={err.path} maxLength={260}
         onChange={(v) => { setPath(v); setErr((x) => ({ ...x, path: undefined })); }} />
       <TextField label="User Name" placeholder="Chily/Max" value={user} maxLength={255} onChange={(v) => { setUser(v); setErr((x) => ({ ...x, pw: undefined })); }} />
       <PasswordField label="Password" value={pw} error={err.pw} autoComplete="new-password" onChange={(v) => { setPw(v); setErr((x) => ({ ...x, pw: undefined })); }} />
@@ -91,9 +91,9 @@ function EditAgentDialog({ agent, onClose }: { agent: ProtectAgent; onClose: () 
     onClose();
   };
   return (
-    <Modal open onClose={onClose} size="sm" icon="server" title="Lepide Protect Agent Configuration"
+    <Modal open onClose={onClose} size="sm" icon="server" title="Lepide Protect agent configuration"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
-      <TextField label="File Server IP" value={agent.fileServer} readOnly disabled />
+      <TextField label="File server IP" value={agent.fileServer} readOnly disabled />
       <TextField label="User Name" value={user} maxLength={255} onChange={(v) => { setUser(v); setErr(null); }} />
       <PasswordField label="Password" value={pw} error={err} autoComplete="new-password" onChange={(v) => { setPw(v); setErr(null); }} />
     </Modal>
@@ -103,7 +103,7 @@ function EditAgentDialog({ agent, onClose }: { agent: ProtectAgent; onClose: () 
 /* Agent table with a page-owned filter row (Agent Status matches from the start of the status, so
    "Installed" doesn't also match "Not installed"; other columns match any substring). */
 const AGENT_COLS: { key: 'fileServer' | 'status' | 'uncPath'; header: string }[] = [
-  { key: 'fileServer', header: 'File Server' }, { key: 'status', header: 'Agent Status' }, { key: 'uncPath', header: 'Agent UNC Path' },
+  { key: 'fileServer', header: 'File Server' }, { key: 'status', header: 'Agent status' }, { key: 'uncPath', header: 'Agent UNC path' },
 ];
 function AgentTable({ agents, actions }: { agents: ProtectAgent[]; actions: (a: ProtectAgent) => ReactNode }) {
   const [f, setF] = useState<Record<string, string>>({});
@@ -208,7 +208,7 @@ function AgentPanel() {
 function WinrmPanel() {
   const [open, setOpen] = useState<string | null>('trusted-hosts');
   return (
-    <SetCard title="WinRM Configuration Requirements"
+    <SetCard title="WinRM configuration requirements"
       description="To enable remote policy execution and communication between components, complete the following configuration steps on both the client and target server machines.">
       <div className="protect-acc">
         {WINRM_STEPS.map((s) => {

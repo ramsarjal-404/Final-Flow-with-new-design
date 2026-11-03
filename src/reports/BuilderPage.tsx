@@ -150,7 +150,7 @@ export default function BuilderPage() {
                     </li>
                   ))}
                 </ol>
-                <Menu align="left" label="Select Columns" items={removed.map((c) => ({ label: c, icon: 'plus', onSelect: () => reAdd(c) }))}
+                <Menu align="left" label="Select columns" items={removed.map((c) => ({ label: c, icon: 'plus', onSelect: () => reAdd(c) }))}
                   trigger={(p) => <button type="button" className="addrow" disabled={!removed.length} aria-label={removed.length ? 'Select Columns' : 'All columns added'} {...p}>
                     <Icon name="plus" size={14} /><span>{removed.length ? 'Select Columns' : 'All columns added'}</span></button>} />
               </div>
@@ -168,7 +168,7 @@ export default function BuilderPage() {
                   ))}
                 </div>
                 <Button block onClick={() => toast({ variant: 'info', title: 'Condition', message: "Condition groups aren't part of this prototype yet." })}>Condition</Button>
-                <Menu align="left" label="Select Filters" items={freeFields.map((f) => ({ label: f, icon: 'plus', onSelect: () => { setCards((cs) => [...cs, { field: f, value: '', op: 'Contains' }]); setFocusField(f); } }))}
+                <Menu align="left" label="Select filters" items={freeFields.map((f) => ({ label: f, icon: 'plus', onSelect: () => { setCards((cs) => [...cs, { field: f, value: '', op: 'Contains' }]); setFocusField(f); } }))}
                   trigger={(p) => <button type="button" className="addrow" disabled={!freeFields.length} aria-label={freeFields.length ? 'Select Filters' : 'All filters added'} {...p}>
                     <Icon name="plus" size={14} /><span>{freeFields.length ? 'Select Filters' : 'All filters added'}</span></button>} />
               </div>

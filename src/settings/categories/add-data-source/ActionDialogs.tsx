@@ -60,7 +60,7 @@ export function AgentActionDialog({ action, fixedId, onClose }: { action: AgentA
 
   if (phase === 'confirm') {
     return (
-      <ConfirmDialog open destructive={false} icon="upload" title="Upgrade Agent" message="Do you want to reinstall the agent for all file server"
+      <ConfirmDialog open destructive={false} icon="upload" title="Upgrade agent" message="Do you want to reinstall the agent for all file server"
         cancelLabel="No" confirmLabel="Yes" onClose={onClose}
         onConfirm={() => {
           const inst = servers.filter(isInstalled);
@@ -278,10 +278,10 @@ export function ModifyWizard({ req, onClose }: { req: ModifyReq; onClose: () => 
         </div>
         <Note lead="Note:" sep=" ">Use "Domain\UserName" format for User Name</Note>
         {req.opts.share && <>
-          <Checkbox label="Common Share and Logical Path" checked={common} onChange={setCommon} />
+          <Checkbox label="Common share and logical path" checked={common} onChange={setCommon} />
           <div className="add-data-source-two">
-            <TextField label="Share Name" value={shareName} disabled={!common} maxLength={256} onChange={setShareName} />
-            <TextField label="Share Logical Path" value={logical} disabled={!common} maxLength={256} onChange={setLogical} />
+            <TextField label="Share name" value={shareName} disabled={!common} maxLength={256} onChange={setShareName} />
+            <TextField label="Share logical path" value={logical} disabled={!common} maxLength={256} onChange={setLogical} />
           </div>
         </>}
       </>
@@ -433,7 +433,7 @@ export function DomainControllersFrame({ onClose }: { onClose: () => void }) {
       footer={<><span className="spacer" /><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       <h4 className="add-data-source-step-title">Domain Controller(s) information for file server(s)</h4>
       <div className="add-data-source-three">
-        <TextField label="Domain Controller Name/IP" value={dc} maxLength={256} aria-invalid={v.inv('dc')} onChange={(val) => { setDc(val); v.clear('dc'); }} />
+        <TextField label="Domain controller name/IP" value={dc} maxLength={256} aria-invalid={v.inv('dc')} onChange={(val) => { setDc(val); v.clear('dc'); }} />
         <TextField label="User Name" value={user} placeholder="Domain name\User Name" maxLength={256} aria-invalid={v.inv('user')} onChange={(val) => { setUser(val); v.clear('user'); }} />
         <div className="add-data-source-inline">
           <PasswordField label="Password" value={password} maxLength={256} aria-invalid={v.inv('password')} onChange={(val) => { setPassword(val); v.clear('password'); }} autoComplete="new-password" />
@@ -495,9 +495,9 @@ export function PropertiesDialog({ serverId, onClose }: { serverId: string; onCl
       <div className="add-data-source-two">
         <TextField label="File Server" value={s.name} readOnly disabled />
         <TextField label="Domain/Workgroup" value={domain} maxLength={256} aria-invalid={v.inv('domain')} onChange={(val) => { setDomain(val); v.clear('domain'); }} />
-        <TextField label="Agent Status" value={s.agentStatus} readOnly disabled />
+        <TextField label="Agent status" value={s.agentStatus} readOnly disabled />
         {/* GAP-SDS-11 intended: the suffix only shows when no rule names this server. */}
-        <TextField label="Audit Status" value={s.auditStatus + (hasRule ? '' : ' (No rule applied)')} readOnly disabled />
+        <TextField label="Audit status" value={s.auditStatus + (hasRule ? '' : ' (No rule applied)')} readOnly disabled />
       </div>
       <div className="stack stack--sm">
         <Checkbox label="Cluster Name/IP" checked={clusterOn} onChange={setClusterOn} />
@@ -508,7 +508,7 @@ export function PropertiesDialog({ serverId, onClose }: { serverId: string; onCl
       <div className="add-data-source-three">
         <TextField label="User Name" value={user} disabled={cred !== 'specified'} maxLength={256} aria-invalid={v.inv('user')} onChange={(val) => { setUser(val); v.clear('user'); }} />
         <PasswordField label="Password" value={password} disabled={cred !== 'specified'} maxLength={256} aria-invalid={v.inv('password')} onChange={(val) => { setPassword(val); v.clear('password'); }} autoComplete="new-password" />
-        <PasswordField label="Confirm Password" value={confirm} disabled={cred !== 'specified'} maxLength={256} aria-invalid={v.inv('confirm') || mismatch || undefined}
+        <PasswordField label="Confirm password" value={confirm} disabled={cred !== 'specified'} maxLength={256} aria-invalid={v.inv('confirm') || mismatch || undefined}
           onChange={(val) => { setConfirm(val); v.clear('confirm'); }} autoComplete="new-password" />
       </div>
       <span className="row" style={{ gap: 4 }}>
@@ -540,7 +540,7 @@ export function AgentPropertiesDialog({ serverId, onClose }: { serverId: string;
     onClose();
   };
   return (
-    <Modal open onClose={onClose} title="Agent Properties" icon="cpu" size="sm"
+    <Modal open onClose={onClose} title="Agent properties" icon="cpu" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       <TextField label="IP Address" value={ip} maxLength={256} aria-invalid={v.inv('ip')} onChange={(val) => { setIp(val); v.clear('ip'); }} />
       <TextField label="Agent Path" value={path} maxLength={256} help={'Use "\\\\server name\\share name" format'} aria-invalid={v.inv('path')} onChange={(val) => { setPath(val); v.clear('path'); }} />

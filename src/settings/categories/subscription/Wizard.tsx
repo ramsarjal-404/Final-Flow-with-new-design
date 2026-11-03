@@ -17,7 +17,7 @@ const STEPS: { label: string; icon: IconName }[] = [
   { label: 'General', icon: 'settings' },
   { label: 'Filters', icon: 'filter' },
   { label: 'Delivery Settings', icon: 'send' },
-  { label: 'Subscription Schedule', icon: 'calendar' },
+  { label: 'Subscription schedule', icon: 'calendar' },
 ];
 const SOURCES = SUB.SUB_SOURCES;
 const productOf = (report: string | undefined) => SOURCES.find((s) => report && s.reports.includes(report))?.id ?? SOURCES[0].id;
@@ -116,7 +116,7 @@ export default function SubscriptionWizard({ editing, onClose, onSaved }: {
   const general = (
     <div className="stack">
       <div className="grid2" style={{ alignItems: 'end' }}>
-        <TextField label="Subscription Name" maxLength={100} placeholder="Subscription name" value={name} onChange={setName} />
+        <TextField label="Subscription name" maxLength={100} placeholder="Subscription name" value={name} onChange={setName} />
         <div className="fld">
           <span className="fld__lbl">Status</span>
           <div className="row" style={{ minHeight: 46 }}><Toggle label="Status" checked={enabled} onChange={setEnabled} />

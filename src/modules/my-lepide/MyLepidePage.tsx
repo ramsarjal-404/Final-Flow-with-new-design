@@ -65,7 +65,7 @@ export default function MyLepidePage() {
 
   const columns = useMemo<RCol<MyLepideRow>[]>(() => [
     {
-      key: 'name', header: 'Report Name', width: 330, sortable: true, filterable: true, value: (m) => displayTitle(m.row),
+      key: 'name', header: 'Report name', width: 330, sortable: true, filterable: true, value: (m) => displayTitle(m.row),
       render: (m) => (
         <button type="button" className="rep-link" data-tip={displayTitle(m.row)} onClick={() => open(m)}>
           <span>{displayTitle(m.row)}</span><Icon name="arrow" size={14} />

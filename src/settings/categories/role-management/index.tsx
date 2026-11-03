@@ -95,7 +95,7 @@ function ChangeRoleDialog({ member, onClose }: { member: Member | null; onClose:
   };
 
   return (
-    <Modal open={!!member} onClose={onClose} title="Change Role" icon="users" size="xs"
+    <Modal open={!!member} onClose={onClose} title="Change role" icon="users" size="xs"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={update}>Update</Button></>}>
       {member && (
         <>

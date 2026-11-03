@@ -81,7 +81,7 @@ export function GeneralStep({ d, set }: { d: Draft; set: (p: Partial<Draft>) => 
           </div>
         </div>
         <div className="detect-picker__main">
-          <ClearableSearch value={q} onChange={setQ} placeholder="Search Reports" ariaLabel="Search reports" />
+          <ClearableSearch value={q} onChange={setQ} placeholder="Search reports" ariaLabel="Search reports" />
           <p className="detect-picker__head">Reports{query && <span className="muted"> matching "{q.trim()}"</span>}</p>
           <div className="detect-pick" role="group" aria-label="Reports">
             {query ? (

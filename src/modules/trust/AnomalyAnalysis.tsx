@@ -25,7 +25,7 @@ const text = <T,>(key: keyof T & string, header: string, minWidth = 150): DCol<T
 const USER_COLS: DCol<U>[] = [
   { ...text<U>('user', 'User', 240), render: (r) => <Person name={r.user} /> },
   text<U>('components', 'Component(s)', 240),
-  { key: 'total', header: 'Total Anomalies', sortable: true, filterable: true, minWidth: 150, value: (r) => r.total, cls: 'lf-num' },
+  { key: 'total', header: 'Total anomalies', sortable: true, filterable: true, minWidth: 150, value: (r) => r.total, cls: 'lf-num' },
 ];
 const ANOMALY_COLS: DCol<A>[] = [
   { ...text<A>('when', 'Date Time', 190), cls: 'lf-num' },
@@ -64,7 +64,7 @@ export default function AnomalyAnalysis() {
       <DeepTable model={am} columns={ANOMALY_COLS} rowKey={(r) => r.k} title={user && ready ? `Anomaly · ${user}` : 'Anomaly'} titleId="tru-an-anomaly" status={status}
         emptyText={user ? 'No anomaly records for this user in the demo dataset.' : 'Select a user to view their anomalies.'}
         onRowOpen={ready ? (r) => setAnomaly(r.k) : undefined} selectedKey={anomaly} rowLabel={(r) => `${r.when}: ${r.details}`} />
-      <DeepTable model={dm} columns={DETAIL_COLS} rowKey={(r) => r.k} title="Anomaly Details" titleId="tru-an-details" status={status}
+      <DeepTable model={dm} columns={DETAIL_COLS} rowKey={(r) => r.k} title="Anomaly details" titleId="tru-an-details" status={status}
         emptyText="Select an anomaly to view its details." />
 
       {ready && (

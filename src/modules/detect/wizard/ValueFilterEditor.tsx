@@ -109,8 +109,8 @@ export function ValueFilterEditor({ vf, onChange }: { vf: ValueFilter; onChange:
         onChange(next);
         setBackup(false);
         // GAP-DET-06 intended: an info "No new values" variant when every pick already existed.
-        toast(n ? { variant: 'success', title: 'Import From Backup', message: `${n} value(s) imported.` }
-          : { variant: 'info', title: 'Import From Backup', message: 'No new values were imported.' });
+        toast(n ? { variant: 'success', title: 'Import from backup', message: `${n} value(s) imported.` }
+          : { variant: 'info', title: 'Import from backup', message: 'No new values were imported.' });
       }} />
     </div>
   );
@@ -132,7 +132,7 @@ function ManualPanel({ field, onClose, onDone }: { field: string; onClose: () =>
       <PopHead title={field} onClose={onClose} />
       <div className="detect-pop__body">
         <span className="lf-input lf-input--pill">
-          <input autoFocus value={draft} placeholder="Please Enter" aria-label={`${field} value`} onChange={(e) => setDraft(e.target.value)}
+          <input autoFocus value={draft} placeholder="Please enter" aria-label={`${field} value`} onChange={(e) => setDraft(e.target.value)}
             onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); push(); } }} />
           <button type="button" className="detect-search__x" aria-label="Add value" onClick={push}><Icon name="plus" size={14} /></button>
         </span>
@@ -163,7 +163,7 @@ function PickPanel({ field, options, current, onClose, onDone }: { field: string
     <div className="pop detect-pop detect-pop--panel" role="dialog" aria-label={`Select ${field}`}>
       <PopHead title={field} onClose={onClose} />
       <div className="detect-pop__body">
-        <ClearableSearch value={q} onChange={setQ} placeholder="Please Enter" ariaLabel={`Search ${field}`} autoFocus />
+        <ClearableSearch value={q} onChange={setQ} placeholder="Please enter" ariaLabel={`Search ${field}`} autoFocus />
         <div className="detect-pop__list" role="group" aria-label={field}>
           {shown.map((o) => (
             <Checkbox key={o} label={o} checked={picked.includes(o)}
@@ -191,12 +191,12 @@ function ExploreBackup({ open, field, onClose, onDone }: { open: boolean; field:
   const reset = () => { setGenerated(false); setPicked([]); setQPath(''); setQCls(''); };
   const rows = BACKUP_OBJECTS.filter((o) => o.path.toLowerCase().includes(qPath.trim().toLowerCase()) && o.cls.toLowerCase().includes(qCls.trim().toLowerCase()));
   return (
-    <Drawer open={open} onClose={onClose} title="Explore Backup" width={620}
+    <Drawer open={open} onClose={onClose} title="Explore backup" width={620}
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={!picked.length} onClick={() => onDone(picked)}>Done</Button></>}>
       <div className="page-form stack">
-        <SelectField label="Select Server" placeholder="Select" options={BACKUP_SERVERS} value={server} onChange={(v) => { setServer(v); reset(); }} />
+        <SelectField label="Select server" placeholder="Select" options={BACKUP_SERVERS} value={server} onChange={(v) => { setServer(v); reset(); }} />
         <div className="detect-inline-field">
-          <Field label="Select Backup" htmlFor="detect-backup-date">
+          <Field label="Select backup" htmlFor="detect-backup-date">
             <input id="detect-backup-date" type="date" aria-label="Backup date" value={date} onChange={(e) => { setDate(e.target.value); reset(); }} />
           </Field>
           <Button icon="refresh" disabled={!server || !date} onClick={() => setGenerated(true)}>Generate</Button>

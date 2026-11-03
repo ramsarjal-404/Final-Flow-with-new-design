@@ -124,7 +124,7 @@ export function ProfileWizard({ source, initial, onClose }: { source: IdfSource;
 
   return (
     <Console source={source} rail={false} title={edit ? 'Edit Profile' : 'Create profile'} subtitle={`Step ${step + 1} of ${steps.length} · ${STEP_LABEL[cur]}`}
-      crumbs={[{ label: 'Profile List', onClick: cancel }, { label: edit ? 'Edit Profile' : 'Create profile' }]}
+      crumbs={[{ label: 'Profile list', onClick: cancel }, { label: edit ? 'Edit Profile' : 'Create profile' }]}
       actions={<Button variant="ghost" icon="chevron-left" onClick={cancel}>Back to profile list</Button>}>
       <div className="identify-wizard">
         <nav className="lf-card identify-wsteps" aria-label="Profile wizard steps">
@@ -177,7 +177,7 @@ export function ProfileWizard({ source, initial, onClose }: { source: IdfSource;
               <>
                 <h3 className="identify-step-h">Select file types to be included for classification</h3>
                 <div className="row row--wrap">
-                  <Menu label="File Criteria" align="left" items={(['All', 'Include', 'Exclude'] as FileCriteria[]).map((c) => ({
+                  <Menu label="File criteria" align="left" items={(['All', 'Include', 'Exclude'] as FileCriteria[]).map((c) => ({
                     label: c, selected: d.fileCriteria === c,
                     onSelect: () => { patch(c === 'All' ? { fileCriteria: c, extensions: [] } : { fileCriteria: c }); if (c === 'All') setMarked([]); },
                   }))}
@@ -218,7 +218,7 @@ export function ProfileWizard({ source, initial, onClose }: { source: IdfSource;
                   )}
                 </div>
                 {errors.extensions && <small className="fld__err" role="alert">{errors.extensions}</small>}
-                <Field label="File Size Limit" error={errors.size}>
+                <Field label="File size limit" error={errors.size}>
                   <div className="identify-size">
                     <Dropdown ariaLabel="Size condition" value={d.sizeOp} onChange={(v) => patch({ sizeOp: v })} options={['Less Than or Equal', 'Greater Than or Equal']} />
                     <input aria-label="File size" inputMode="numeric" maxLength={6} value={d.sizeValue} aria-invalid={!!errors.size || undefined}
@@ -244,9 +244,9 @@ export function ProfileWizard({ source, initial, onClose }: { source: IdfSource;
                 <h3 className="identify-step-h">Select the Classification method and server</h3>
                 <div className={'stack stack--sm' + (errors.methods ? ' identify-bad-group' : '')}>
                   <Checkbox label="On the fly Classification" checked={d.onTheFly} onChange={(v) => patch({ onTheFly: v })} />
-                  <Checkbox label="Classify Now" checked={d.classifyNow} onChange={(v) => patch({ classifyNow: v })} />
+                  <Checkbox label="Classify now" checked={d.classifyNow} onChange={(v) => patch({ classifyNow: v })} />
                   <div className="row row--wrap">
-                    <Checkbox label="Classification Schedule" checked={d.scheduled} onChange={(v) => patch({ scheduled: v })} />
+                    <Checkbox label="Classification schedule" checked={d.scheduled} onChange={(v) => patch({ scheduled: v })} />
                     {(['weekly', 'monthly'] as const).map((k) => (
                       <button key={k} type="button" className="identify-chip" disabled={!d.scheduled} aria-pressed={d.schedule?.kind === k} onClick={() => setSched(k)}>
                         {k === 'weekly' ? 'Weekly' : 'Monthly'}
@@ -261,7 +261,7 @@ export function ProfileWizard({ source, initial, onClose }: { source: IdfSource;
                 {errors.schedule && <small className="fld__err" role="alert">{errors.schedule}</small>}
                 <div className="identify-inline form-col">
                   <Field label="Classification Server :" error={errors.classificationServer} className="grow">
-                    <Dropdown ariaLabel="Classification Server" placeholder="Select" clearable value={d.classificationServer}
+                    <Dropdown ariaLabel="Classification server" placeholder="Select" clearable value={d.classificationServer}
                       onChange={(v) => patch({ classificationServer: v })} options={servers} />
                   </Field>
                   <Button icon="plus" onClick={() => setAgentDlg(true)}>Add agent</Button>

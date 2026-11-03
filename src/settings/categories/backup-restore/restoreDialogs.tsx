@@ -19,7 +19,7 @@ export function BackupListDialog({ backups, current, onClose, onDone }: {
   const keys = backups.map(backupLabel);
   const [pick, setPick] = useState(keys.includes(current) ? current : '');
   return (
-    <Modal open onClose={onClose} title="Backup List" icon="calendar" size="sm"
+    <Modal open onClose={onClose} title="Backup list" icon="calendar" size="sm"
       footer={<>
         <Button onClick={onClose}>Cancel</Button>
         <Button variant="primary" disabled={!pick} onClick={() => onDone(pick)}>Done</Button>
@@ -65,8 +65,8 @@ export function ObjectClassDialog({ backup, onClose, onDone }: { backup: string;
         <div className="grid2">
           <div className="stack stack--sm">
             <p className="section-label">Select Class</p>
-            <RadioGroup row ariaLabel="Select Class" value={classMode} onChange={(v) => setClassMode(v as 'all' | 'selected')}
-              options={[{ value: 'all', label: 'All Classes' }, { value: 'selected', label: 'Selected Classes' }]} />
+            <RadioGroup row ariaLabel="Select class" value={classMode} onChange={(v) => setClassMode(v as 'all' | 'selected')}
+              options={[{ value: 'all', label: 'All classes' }, { value: 'selected', label: 'Selected classes' }]} />
             <div className="backup-restore-checks" role="group" aria-label="Classes">
               {SUB.OBJECT_CLASSES.map((c) => (
                 <Checkbox key={c} label={c} disabled={classMode === 'all'} checked={classMode === 'all' || classes.includes(c)}
@@ -76,7 +76,7 @@ export function ObjectClassDialog({ backup, onClose, onDone }: { backup: string;
           </div>
           <div className="stack stack--sm">
             <p className="section-label">Select Operation</p>
-            <div className="backup-restore-checks" role="group" aria-label="Select Operation">
+            <div className="backup-restore-checks" role="group" aria-label="Select operation">
               {SUB.OBJECT_OPERATIONS.map((o) => <Checkbox key={o} label={o} checked={ops.includes(o)} onChange={() => setOps((xs) => toggle(xs, o))} />)}
             </div>
           </div>
@@ -122,14 +122,14 @@ function ExploreBackupDialog({ backup, onClose, onDone }: { backup: string; onCl
   const [q, setQ] = useState('');
   const shown = SUB.BACKUP_OUS.filter((o) => !q.trim() || o.toLowerCase().includes(q.trim().toLowerCase()));
   return (
-    <Modal open onClose={onClose} title="Explore Backup" icon="search" size="lg"
+    <Modal open onClose={onClose} title="Explore backup" icon="search" size="lg"
       footer={<>
         <Button onClick={onClose}>Cancel</Button>
         <Button variant="primary" disabled={picked.length === 0} onClick={() => onDone(picked)}>Done</Button>
       </>}>
       {/* GAP-SAD-05 intended: the inert calendar control is absent; the field is read-only. */}
       <div className="backup-restore-inline">
-        <TextField label="Select Backup" value={backup} readOnly className="grow" />
+        <TextField label="Select backup" value={backup} readOnly className="grow" />
         <Button icon="refresh" onClick={() => setGenerated(true)}>Generate</Button>
       </div>
       <div className="backup-restore-box">
@@ -190,11 +190,11 @@ export function GpExtractorDialog({ path, onPath, onClose }: { path: string; onP
 
   return (
     <>
-      <Modal open={!done} onClose={onClose} title="Group Policy Backup Extractor" icon="archive" size="lg"
+      <Modal open={!done} onClose={onClose} title="Group Policy backup extractor" icon="archive" size="lg"
         footer={extracting
           ? <Button variant="primary" icon="pause" onClick={stop}>Stop</Button>
           : <Button variant="primary" disabled={!sel} onClick={extract}>Extract</Button>}>
-        <Field label="Group Policy Backup">
+        <Field label="Group Policy backup">
           <div className="backup-restore-inline">
             <input aria-label="Group Policy backup path" value={path} disabled={extracting} onChange={(e) => onPath(e.target.value)} />
             <IconButton icon="refresh" label="Refresh backups" bordered disabled={extracting}

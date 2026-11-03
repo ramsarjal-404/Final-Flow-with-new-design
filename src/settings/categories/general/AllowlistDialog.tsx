@@ -37,7 +37,7 @@ export function AllowlistDialog({ open, onClose }: { open: boolean; onClose: () 
   };
 
   return (
-    <Modal open={open} onClose={onClose} title="API White Listing" icon="shield" size="sm"
+    <Modal open={open} onClose={onClose} title="API white listing" icon="shield" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={save}>Save</Button></>}>
       <p className="muted" style={{ margin: 0 }}>Only the addresses listed here can call the Lepide API.</p>
       <form className="allow-form" noValidate onSubmit={(e) => { e.preventDefault(); add(); }}>

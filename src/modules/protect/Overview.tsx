@@ -117,13 +117,13 @@ function OverviewGrid({ seed }: { seed: number }) {
   });
   return (
     <div className="panels protect-overview">
-      <Panel title="Least Privileges by Shared Folder" sub={`Last ${win.c1} day${win.c1 === 1 ? '' : 's'}`} tools={tools('c1')}>
-        <Chart kind="multiArea" title="Least Privileges by Shared Folder" data={two('c1', ['Excessive Privilege', 'Applied Least Privilege'])} options={yk(12000, 6)} />
+      <Panel title="Least privileges by shared folder" sub={`Last ${win.c1} day${win.c1 === 1 ? '' : 's'}`} tools={tools('c1')}>
+        <Chart kind="multiArea" title="Least privileges by shared folder" data={two('c1', ['Excessive Privilege', 'Applied Least Privilege'])} options={yk(12000, 6)} />
       </Panel>
-      <Panel title="Top Users with Least Privilege" sub={`Last ${win.c2} day${win.c2 === 1 ? '' : 's'}`} tools={tools('c2')}>
-        <Chart kind="multiArea" title="Top Users with Least Privilege" data={two('c2', ['Excessive Privilege', 'Applied Least Privilege'])} options={{ y: { min: 0, max: 35, ticks: 7 } }} />
+      <Panel title="Top users with least privilege" sub={`Last ${win.c2} day${win.c2 === 1 ? '' : 's'}`} tools={tools('c2')}>
+        <Chart kind="multiArea" title="Top users with least privilege" data={two('c2', ['Excessive Privilege', 'Applied Least Privilege'])} options={{ y: { min: 0, max: 35, ticks: 7 } }} />
       </Panel>
-      <Panel title="Comprehensive Policy Overview" sub="Permission policy outcomes" tools={<Button size="sm" onClick={() => nav('/protect/policies')}>Manage</Button>}>
+      <Panel title="Comprehensive policy overview" sub="Permission policy outcomes" tools={<Button size="sm" onClick={() => nav('/protect/policies')}>Manage</Button>}>
         <ul className="protect-po">
           {POLICY_OVERVIEW.map((r) => (
             <li key={r.label}>
@@ -136,15 +136,15 @@ function OverviewGrid({ seed }: { seed: number }) {
           ))}
         </ul>
       </Panel>
-      <Panel title="Folder Risk Reduction by Policy Actions" sub={`Last ${win.c4} day${win.c4 === 1 ? '' : 's'}`} tools={tools('c4')}>
-        <Chart kind="line" title="Folder Risk Reduction by Policy Actions" data={two('c4', ['Remove Least Privilege', 'Stale Users'])} options={yk(70000, 7)} />
+      <Panel title="Folder risk reduction by policy actions" sub={`Last ${win.c4} day${win.c4 === 1 ? '' : 's'}`} tools={tools('c4')}>
+        <Chart kind="line" title="Folder risk reduction by policy actions" data={two('c4', ['Remove Least Privilege', 'Stale Users'])} options={yk(70000, 7)} />
       </Panel>
-      <Panel title="Stale Users Across File Servers" sub={`Last ${win.c5} day${win.c5 === 1 ? '' : 's'}`} tools={tools('c5')}>
-        <Chart kind="dateColumns" title="Stale Users Across File Servers" data={{ labels: DCS, name: 'Stale Users', values: scale(OVERVIEW.c5, win.c5, j('c5', 0)) }}
+      <Panel title="Stale users across file servers" sub={`Last ${win.c5} day${win.c5 === 1 ? '' : 's'}`} tools={tools('c5')}>
+        <Chart kind="dateColumns" title="Stale users across file servers" data={{ labels: DCS, name: 'Stale Users', values: scale(OVERVIEW.c5, win.c5, j('c5', 0)) }}
           options={{ legend: true, y: { min: 0, max: 40, ticks: 4 } }} />
       </Panel>
-      <Panel title="Team Management Insights" sub="Enrolment across the hierarchy">
-        <Chart kind="donut" title="Team Management Insights" data={{ caption: 'Total Members', value: 113, segments: TEAM }} />
+      <Panel title="Team Management insights" sub="Enrolment across the hierarchy">
+        <Chart kind="donut" title="Team Management insights" data={{ caption: 'Total Members', value: 113, segments: TEAM }} />
       </Panel>
     </div>
   );

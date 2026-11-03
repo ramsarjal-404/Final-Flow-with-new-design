@@ -198,9 +198,9 @@ export function SqlBlock({ value, onChange, errors = {}, onBrowse, onTest }: {
           onChange={(v) => set({ server: v })} />
         <Button icon="search" onClick={onBrowse}>Browse</Button>
       </div>
-      <Field label="Authentication Type">
-        <RadioGroup row ariaLabel="Authentication Type" value={value.auth} onChange={(v) => set({ auth: v as SqlValue['auth'] })}
-          options={[{ value: 'windows', label: 'Windows Authentication' }, { value: 'sql', label: 'SQL Authentication (Recommended)' }]} />
+      <Field label="Authentication type">
+        <RadioGroup row ariaLabel="Authentication type" value={value.auth} onChange={(v) => set({ auth: v as SqlValue['auth'] })}
+          options={[{ value: 'windows', label: 'Windows authentication' }, { value: 'sql', label: 'SQL Authentication (Recommended)' }]} />
       </Field>
       <div className="fld-row">
         <TextField label="User Name" value={value.user} disabled={!sql} error={errors.user ? ' ' : null} onChange={(v) => set({ user: v })} />
@@ -210,20 +210,20 @@ export function SqlBlock({ value, onChange, errors = {}, onBrowse, onTest }: {
       <Field label="Database" error={errors.database ? ' ' : null}>
         <div className="trust-db">
           <RadioGroup row ariaLabel="Database" value={value.mode} onChange={(v) => set({ mode: v as SqlValue['mode'], database: '' })}
-            options={[{ value: 'create', label: 'Create Database' }, { value: 'select', label: 'Select Database' }]} />
+            options={[{ value: 'create', label: 'Create database' }, { value: 'select', label: 'Select database' }]} />
           {value.mode === 'create' ? (
-            <input aria-label="Create Database" placeholder="Enter database name" value={value.database} aria-invalid={errors.database || undefined}
+            <input aria-label="Create database" placeholder="Enter database name" value={value.database} aria-invalid={errors.database || undefined}
               onChange={(e) => set({ database: e.target.value })} />
           ) : (
-            <Dropdown ariaLabel="Select Database" value={value.database} invalid={!!errors.database} placeholder="Select" clearable
+            <Dropdown ariaLabel="Select database" value={value.database} invalid={!!errors.database} placeholder="Select" clearable
               onChange={(v) => set({ database: v })} options={DATABASES} />
           )}
         </div>
       </Field>
       <p className="section-label">Time Out Settings</p>
       <div className="fld-row">
-        <DigitsField label="Connection Time Out" unit="Seconds" value={value.connTimeout} onChange={(v) => set({ connTimeout: v })} />
-        <DigitsField label="Query Time Out" unit="Seconds" value={value.queryTimeout} onChange={(v) => set({ queryTimeout: v })} />
+        <DigitsField label="Connection time out" unit="Seconds" value={value.connTimeout} onChange={(v) => set({ connTimeout: v })} />
+        <DigitsField label="Query time out" unit="Seconds" value={value.queryTimeout} onChange={(v) => set({ queryTimeout: v })} />
       </div>
     </div>
   );

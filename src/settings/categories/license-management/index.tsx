@@ -36,10 +36,10 @@ export default function LicenseManagementPage() {
   const statusOf = (r: LicenseRow) => (expired && r.expired ? 'Expired' : r.licensed ? 'Licensed' : 'Not Licensed');
   const columns: Column<LicenseRow>[] = [
     { key: 'platform', header: 'Platform', sortable: true, minWidth: 160 },
-    { key: 'type', header: 'License Type', sortable: true },
-    { key: 'acquired', header: 'License Acquired', sortable: true },
+    { key: 'type', header: 'License type', sortable: true },
+    { key: 'acquired', header: 'License acquired', sortable: true },
     {
-      key: 'available', header: 'License Available', value: (r) => `${r.available} of ${r.total} available`, minWidth: 170,
+      key: 'available', header: 'License available', value: (r) => `${r.available} of ${r.total} available`, minWidth: 170,
       render: (r) => (
         <span className="license-management-meter">
           <span className="progress__track" role="meter" aria-valuemin={0} aria-valuemax={r.total} aria-valuenow={r.available}
@@ -50,8 +50,8 @@ export default function LicenseManagementPage() {
         </span>
       ),
     },
-    { key: 'validUntil', header: 'Valid Until', sortable: true },
-    { key: 'supportUntil', header: 'Support Until', sortable: true },
+    { key: 'validUntil', header: 'Valid until', sortable: true },
+    { key: 'supportUntil', header: 'Support until', sortable: true },
     {
       key: 'status', header: 'Status', value: statusOf,
       render: (r) => { const s = statusOf(r); return <ToneTag tone={s === 'Expired' ? 'bad' : s === 'Licensed' ? 'good' : 'none'}>{s}</ToneTag>; },
@@ -79,7 +79,7 @@ export default function LicenseManagementPage() {
         <Button variant="primary" icon="key" onClick={() => setActivating(true)}>{expired ? 'Upgrade License' : 'Add License'}</Button>
       </HeaderActions>
 
-      <SetCard title="License Overview"
+      <SetCard title="License overview"
         actions={state !== 'none' ? <SearchField value={q} onChange={setQ} placeholder="Search" ariaLabel="Search platforms" style={{ width: 240 }} /> : undefined}>
         {state === 'none' ? (
           <EmptyState icon="key" title="We couldn’t find a license for this account." message="Add a license now or get in touch and we’ll sort it out." />
@@ -91,17 +91,17 @@ export default function LicenseManagementPage() {
               </Banner>
             )}
             <div className="license-management-stats" role="list" aria-label="License summary">
-              <Stat label="Total Licenses" value={total.toLocaleString('en-US')} />
-              <Stat label="Total Products" value={String(LICENSE_PRODUCTS.length)}
+              <Stat label="Total licenses" value={total.toLocaleString('en-US')} />
+              <Stat label="Total products" value={String(LICENSE_PRODUCTS.length)}
                 foot={<span className="license-management-tiles">{LICENSE_PRODUCTS.map((p) => <ProductGlyph key={p} product={p} size={16} tile />)}</span>} />
-              <Stat label="Total Platform" value={String(LICENSE_ROWS.length)} />
+              <Stat label="Total platform" value={String(LICENSE_ROWS.length)} />
               <Stat label="Activated" value={String(activeCount)} tone="good" />
               <Stat label="Expired" tone={expiredCount ? 'bad' : undefined}
                 value={expiredCount ? (
                   <button type="button" className="license-management-statlink" onClick={() => setShowExpired(true)}
                     aria-label={`${expiredCount} expired licenses — view details`}>{expiredCount}</button>
                 ) : '0'} />
-              <Stat label="Not Licensed" value={String(notLicensed)} />
+              <Stat label="Not licensed" value={String(notLicensed)} />
             </div>
             {groups.length === 0 ? (
               <EmptyState icon="search" title="No results match your search or filters." compact />

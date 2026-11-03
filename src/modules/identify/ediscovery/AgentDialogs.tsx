@@ -35,7 +35,7 @@ function useProgress() {
 
 /* ---------- DLG-IDN-11 ---------- */
 export function ServerDialog({ open, title, initial, onClose, onApply }: {
-  open: boolean; title: 'Add Server' | 'Update Server' | 'Update Agent'; initial?: Partial<ServerForm>;
+  open: boolean; title: 'Add server' | 'Update server' | 'Update agent'; initial?: Partial<ServerForm>;
   onClose: () => void; onApply: (f: ServerForm) => boolean;
 }) {
   const toast = useToast();
@@ -43,7 +43,7 @@ export function ServerDialog({ open, title, initial, onClose, onApply }: {
   const [tried, setTried] = useState(false);
   // GAP-IDN-04: capture the initial values once, when the dialog opens.
   useEffect(() => { if (open) { setF({ ...EMPTY, ...initial, password: '' }); setTried(false); } }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
-  const locked = title !== 'Add Server';
+  const locked = title !== 'Add server';
   const rules: [keyof ServerForm, boolean, string][] = [
     ['ip', HOST.test(f.ip.trim()), 'Enter the server IP address or name.'],
     ['path', UNC.test(f.path.trim()), 'Use the "\\\\server name\\share name" format for the agent path.'],
@@ -80,7 +80,7 @@ export function InstallAgentDialog({ open, onClose }: { open: boolean; onClose: 
   const [rows, setRows] = useState<Candidate[]>([]);
   const [checked, setChecked] = useState<string[]>([]);
   const [busyIds, setBusyIds] = useState<string[]>([]);
-  const [server, setServer] = useState<null | { mode: 'Add Server' | 'Update Server'; row?: Candidate }>(null);
+  const [server, setServer] = useState<null | { mode: 'Add server' | 'Update server'; row?: Candidate }>(null);
   const prog = useProgress();
   useEffect(() => { if (open) { setRows([]); setChecked([]); setBusyIds([]); setServer(null); } }, [open]);
 
@@ -109,16 +109,16 @@ export function InstallAgentDialog({ open, onClose }: { open: boolean; onClose: 
           <Button variant="primary" disabled={!checkedReady.length || prog.running} loading={prog.running} onClick={install}>Install</Button>
         </>}>
         <div className="row row--between identify-bar">
-          <Checkbox label="Select All" disabled={!ready.length || prog.running}
+          <Checkbox label="Select all" disabled={!ready.length || prog.running}
             checked={ready.length > 0 && ready.every((r) => checked.includes(r.id))}
             indeterminate={checkedReady.length > 0 && checkedReady.length < ready.length}
             onChange={(on) => setChecked(on ? ready.map((r) => r.id) : [])} />
           <div className="row">
             <IconButton icon="info" label="About installing agents" bordered
               onClick={() => toast({ variant: 'info', title: 'Install agent', message: 'The agent is installed on the server from the Agent Path share using the given account. The account needs local administrator rights.' })} />
-            <IconButton icon="plus" label="Add server" bordered disabled={prog.running} onClick={() => setServer({ mode: 'Add Server' })} />
+            <IconButton icon="plus" label="Add server" bordered disabled={prog.running} onClick={() => setServer({ mode: 'Add server' })} />
             <IconButton icon="edit" label="Edit checked server" data-tip="Edit the checked server" bordered disabled={checkedReady.length !== 1 || prog.running}
-              onClick={() => setServer({ mode: 'Update Server', row: checkedReady[0] })} />
+              onClick={() => setServer({ mode: 'Update server', row: checkedReady[0] })} />
           </div>
         </div>
         <MiniTable label="Servers to install" head={[<span key="c" className="sr-only">Select</span>, 'IP Address', 'Agent Path', 'User Name', 'Status']}
@@ -132,9 +132,9 @@ export function InstallAgentDialog({ open, onClose }: { open: boolean; onClose: 
         {prog.pct !== null && <ProgressBar value={prog.pct} label="Installing agents" />}
       </EdModal>
 
-      <ServerDialog open={!!server} title={server?.mode ?? 'Add Server'} initial={server?.row} onClose={() => setServer(null)}
+      <ServerDialog open={!!server} title={server?.mode ?? 'Add server'} initial={server?.row} onClose={() => setServer(null)}
         onApply={(f) => {
-          if (server?.mode === 'Update Server' && server.row) {
+          if (server?.mode === 'Update server' && server.row) {
             const id = server.row.id;
             setRows((rs) => rs.map((r) => (r.id === id ? { ...r, path: f.path, user: f.user, password: f.password } : r)));
             return true;

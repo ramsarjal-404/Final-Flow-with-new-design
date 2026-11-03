@@ -49,7 +49,7 @@ export default function AlertConfiguration() {
   const alertCols: Column<ThreatAlert>[] = [
     { key: 'name', header: 'Alert Name', sortable: true, minWidth: 220 },
     { key: 'description', header: 'Description', sortable: true, minWidth: 220 },
-    { key: 'agentStatus', header: 'Agent Status', sortable: true, width: 150 },
+    { key: 'agentStatus', header: 'Agent status', sortable: true, width: 150 },
     { key: 'status', header: 'Status', sortable: true, width: 130, render: (a) => <ToneTag tone={a.status === 'Enabled' ? 'good' : 'bad'}>{a.status}</ToneTag> },
   ];
   const alertActions = (a: ThreatAlert) => (
@@ -98,23 +98,23 @@ export default function AlertConfiguration() {
 
   return (
     <div className="sub">
-      <PageHeader title="Alert Configuration"
+      <PageHeader title="Alert configuration"
         actions={tab === 'threat'
           ? <Button variant="primary" icon="plus" onClick={() => { setOpenId(null); setWiz({ mode: 'add' }); }}>Add alert</Button>
           : <Menu label="Add account" items={[
               { label: 'Add Email Account', icon: 'mail', onSelect: () => setAccDialog({ kind: 'Email' }) },
               { label: 'Add app account', icon: 'user', onSelect: () => setAccDialog({ kind: 'App' }) },
-              { label: 'Add SIEM Account', icon: 'server', onSelect: () => setAccDialog({ kind: 'SIEM' }) },
+              { label: 'Add SIEM account', icon: 'server', onSelect: () => setAccDialog({ kind: 'SIEM' }) },
             ]} trigger={(p) => <Button variant="primary" icon="plus" iconEnd="chevron" {...p}>Add</Button>} />}>
         <div className="detect-tabs">
-          <Segmented ariaLabel="Alert Configuration" value={tab} onChange={switchTab}
-            items={[{ value: 'threat', label: 'Threat Models' }, { value: 'email', label: 'Email Settings' }]} />
+          <Segmented ariaLabel="Alert configuration" value={tab} onChange={switchTab}
+            items={[{ value: 'threat', label: 'Threat models' }, { value: 'email', label: 'Email settings' }]} />
         </div>
       </PageHeader>
 
       {tab === 'threat' ? (
         <div className={open ? 'with-detail' : undefined}>
-          <DataTable key={'t' + tableKey} className="detect-nopager detect-actions3" title="Threat Models" noun={['alert', 'alerts']} toolbar={searchBox}
+          <DataTable key={'t' + tableKey} className="detect-nopager detect-actions3" title="Threat models" noun={['alert', 'alerts']} toolbar={searchBox}
             columns={alertCols} rows={alertRows} rowKey={(a) => a.id} pageSizes={[1000]} activeKey={openId}
             onRowOpen={(a) => setOpenId((cur) => (cur === a.id ? null : a.id))} rowActions={alertActions}
             empty={alerts.length === 0 ? (
@@ -127,7 +127,7 @@ export default function AlertConfiguration() {
           )}
         </div>
       ) : (
-        <DataTable key={'e' + tableKey} className="detect-nopager" title="Email Settings" noun={['account', 'accounts']} toolbar={searchBox}
+        <DataTable key={'e' + tableKey} className="detect-nopager" title="Email settings" noun={['account', 'accounts']} toolbar={searchBox}
           columns={accCols} rows={accRows} rowKey={(a) => a.id} pageSizes={[1000]} rowActions={accActions}
           empty={accounts.length === 0 ? <EmptyState icon="mail" title="No accounts yet. Click Add to configure one." /> : undefined} />
       )}

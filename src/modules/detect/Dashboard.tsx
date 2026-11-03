@@ -32,12 +32,12 @@ const POINTS: Record<Range, number> = { Day: 2, Week: 6, Month: 13 };
 
 type W = { id: string; title: string; filter?: boolean; refreshOnly?: boolean; noStamp?: boolean };
 const WIDGETS: W[] = [
-  { id: 'threat', title: 'Alerts By Threat Models' },
-  { id: 'anomalies', title: 'Anomalies Detected', filter: true, noStamp: true },
-  { id: 'criticality', title: 'Alert By Criticality' },
-  { id: 'feed', title: 'Live Feed', refreshOnly: true },
-  { id: 'responses', title: 'Responses Initiated By Names' },
-  { id: 'type', title: 'Alert By Type' },
+  { id: 'threat', title: 'Alerts by threat models' },
+  { id: 'anomalies', title: 'Anomalies detected', filter: true, noStamp: true },
+  { id: 'criticality', title: 'Alert by criticality' },
+  { id: 'feed', title: 'Live feed', refreshOnly: true },
+  { id: 'responses', title: 'Responses initiated by names' },
+  { id: 'type', title: 'Alert by type' },
 ];
 
 export default function Dashboard() {
@@ -108,7 +108,7 @@ export default function Dashboard() {
         actions={
           <span className="row detect-dashlist">
             <span className="fld__lbl">Dashboards List</span>
-            <SearchSelect pill ariaLabel="Dashboards List" options={DASHBOARDS} value="detect" onChange={(v) => { if (v !== 'detect') navigate(`/dashboards/${v}`); }} />
+            <SearchSelect pill ariaLabel="Dashboards list" options={DASHBOARDS} value="detect" onChange={(v) => { if (v !== 'detect') navigate(`/dashboards/${v}`); }} />
           </span>
         } />
       <div className="panels">

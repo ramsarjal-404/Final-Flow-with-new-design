@@ -19,11 +19,11 @@ import { agentTone, saveNewServers } from './FileServers';
 const PANE: PaneItem[] = [
   { id: 'install', label: 'Install agent', icon: 'download' },
   { id: 'uninstall', label: 'Uninstall agent', icon: 'x' },
-  { id: 'start', label: 'Start Auditing', icon: 'play' },
-  { id: 'stop', label: 'Stop Auditing', icon: 'pause' },
-  { id: 'update', label: 'Update Agent', icon: 'refresh' },
+  { id: 'start', label: 'Start auditing', icon: 'play' },
+  { id: 'stop', label: 'Stop auditing', icon: 'pause' },
+  { id: 'update', label: 'Update agent', icon: 'refresh' },
   { id: 'dbwizard', label: 'Database Wizard', icon: 'database' },
-  { id: 'advance', label: 'Advance Settings', icon: 'sliders' },
+  { id: 'advance', label: 'Advance settings', icon: 'sliders' },
 ];
 const LIST = '/settings/add-data-source/file-server';
 
@@ -47,7 +47,7 @@ export default function ServerDetail() {
   if (!s) {
     // SCR-SDS-04 (GAP-SDS-06 intended: keep the console chrome so the rail stays reachable).
     return (
-      <ConsoleChrome current="list" title="File Server" crumbs={[{ label: 'All File Server', to: LIST }]}>
+      <ConsoleChrome current="list" title="File Server" crumbs={[{ label: 'All file server', to: LIST }]}>
         <section className="lf-card tablecard" style={{ minHeight: 360 }}>
           <EmptyState icon="server" title="This file server isn't in the list any more."
             action={<Button variant="primary" onClick={() => nav(LIST)}>All file servers</Button>} />
@@ -91,7 +91,7 @@ export default function ServerDetail() {
   const dash = (x: string) => (x ? x : '-');
 
   return (
-    <ConsoleChrome current="list" title={`File Server - ${s.name}`} crumbs={[{ label: 'All File Server', to: LIST }, { label: s.name }]}
+    <ConsoleChrome current="list" title={`File Server - ${s.name}`} crumbs={[{ label: 'All file server', to: LIST }, { label: s.name }]}
       actions={<>
         <Button variant="danger" icon="trash" onClick={() => setDel(true)}>Delete</Button>
         <Button icon="edit" onClick={() => setEdit(true)}>Edit</Button>
@@ -105,27 +105,27 @@ export default function ServerDetail() {
         <ActionPane items={PANE} current={pane} onPick={onPane} />
         <div className="stack">
           <div className="add-data-source-panels">
-            <SetCard title="Agent Management">
+            <SetCard title="Agent management">
               <KeyValues items={[
-                { label: 'File Server Name', value: s.name },
+                { label: 'File server name', value: s.name },
                 { label: 'Domain Name', value: s.domain },
-                { label: 'Agent Status', value: <ToneTag tone={agentTone(s.agentStatus)}>{s.agentStatus}</ToneTag> },
-                { label: 'Audit Status', value: s.auditStatus + (mine.length ? '' : ' (No Rule Applied)') },
-                { label: 'Last Agent Update', value: s.lastUpdate, wide: true },
+                { label: 'Agent status', value: <ToneTag tone={agentTone(s.agentStatus)}>{s.agentStatus}</ToneTag> },
+                { label: 'Audit status', value: s.auditStatus + (mine.length ? '' : ' (No Rule Applied)') },
+                { label: 'Last agent update', value: s.lastUpdate, wide: true },
               ]} />
             </SetCard>
-            <SetCard title="Database Management">
+            <SetCard title="Database management">
               <KeyValues items={[
                 { label: 'SQL Server', value: dash(s.sqlServer) },
-                { label: 'Database Name', value: dash(s.database) },
-                { label: 'Authentication Mode', value: s.authMode },
-                { label: 'Time Gap', value: String(s.timeGap) },
-                { label: 'Pattern Mode', value: s.patternMode ? 'ON' : 'OFF' },
-                { label: 'Data Insertion', value: s.dataInsertion },
+                { label: 'Database name', value: dash(s.database) },
+                { label: 'Authentication mode', value: s.authMode },
+                { label: 'Time gap', value: String(s.timeGap) },
+                { label: 'Pattern mode', value: s.patternMode ? 'ON' : 'OFF' },
+                { label: 'Data insertion', value: s.dataInsertion },
               ]} />
             </SetCard>
           </div>
-          <SetCard title="Rule Management" actions={<Button size="sm" icon="plus" onClick={() => setView({ k: 'rule' })}>Add rule</Button>}>
+          <SetCard title="Rule management" actions={<Button size="sm" icon="plus" onClick={() => setView({ k: 'rule' })}>Add rule</Button>}>
             <MiniTable label="Rules applied to this file server"
               head={<><th>Rule Name</th><th>Users</th><th>Assigned Policies</th><th>Rule Status</th><th>Priority</th><th style={{ width: 80 }}>Actions</th></>}>
               {mine.length === 0 ? <tr className="add-data-source-empty-row"><td colSpan={6}>No rule applied. Click Add Rule to apply one.</td></tr>
@@ -182,7 +182,7 @@ function AdvanceSettings({ server, onClose }: { server: FileServer; onClose: () 
     onClose();
   };
   return (
-    <Modal open onClose={onClose} title="Advance Settings" icon="sliders" size="sm"
+    <Modal open onClose={onClose} title="Advance settings" icon="sliders" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       <NumberField label="Define time gap to prevent duplicate entries" value={gap} min={1} max={3600} suffix="Seconds"
         error={bad ? ' ' : undefined} onChange={(v) => { setGap(v); setBad(false); }} />
@@ -194,10 +194,10 @@ function AdvanceSettings({ server, onClose }: { server: FileServer; onClose: () 
 /* ---------------- DLG-SDS-18 Database Wizard ---------------- */
 type Task = 'create' | 'modify' | 'shrink' | 'checkpoint';
 const TASKS: { value: Task; label: string; desc: string }[] = [
-  { value: 'create', label: 'Create Database', desc: 'Creates a new database for Lepide DSP for File Server.' },
-  { value: 'modify', label: 'Modify Database', desc: 'Points the file server at another existing database.' },
-  { value: 'shrink', label: 'Shrink Database', desc: 'Releases unused space in the database and log files.' },
-  { value: 'checkpoint', label: 'Check Point and Truncate Log', desc: 'Writes a checkpoint and truncates the transaction log.' },
+  { value: 'create', label: 'Create database', desc: 'Creates a new database for Lepide DSP for File Server.' },
+  { value: 'modify', label: 'Modify database', desc: 'Points the file server at another existing database.' },
+  { value: 'shrink', label: 'Shrink database', desc: 'Releases unused space in the database and log files.' },
+  { value: 'checkpoint', label: 'Check point and truncate log', desc: 'Writes a checkpoint and truncates the transaction log.' },
 ];
 
 function DatabaseWizard({ server, onClose }: { server: FileServer; onClose: () => void }) {
@@ -270,7 +270,7 @@ function DatabaseWizard({ server, onClose }: { server: FileServer; onClose: () =
             value={insert} options={['Yes', 'No']} onChange={setInsert} />
         </div>
         <RadioGroup row ariaLabel="Authentication" value={auth} onChange={setAuth}
-          options={[{ value: 'windows', label: 'Windows Authentication' }, { value: 'sql', label: 'SQL Server Authentication' }]} />
+          options={[{ value: 'windows', label: 'Windows authentication' }, { value: 'sql', label: 'SQL Server authentication' }]} />
         <div className="add-data-source-two">
           <TextField label="User Name" value={user} maxLength={256} onChange={setUser} />
           <div className="add-data-source-inline">
@@ -300,8 +300,8 @@ function DatabaseWizard({ server, onClose }: { server: FileServer; onClose: () =
         <h4 className="add-data-source-sub">Database and log file paths</h4>
         <Checkbox label="Check if you want to change default database location" checked={custom} onChange={setCustom} />
         <div className="add-data-source-two">
-          <TextField label="Data File Path" value={dataPath} disabled={!custom} placeholder="<Enter text here>" maxLength={260} aria-invalid={v.inv('dataPath')} onChange={(x) => { setDataPath(x); v.clear('dataPath'); }} />
-          <TextField label="Log File Path" value={logPath} disabled={!custom} placeholder="<Enter text here>" maxLength={260} aria-invalid={v.inv('logPath')} onChange={(x) => { setLogPath(x); v.clear('logPath'); }} />
+          <TextField label="Data file path" value={dataPath} disabled={!custom} placeholder="<Enter text here>" maxLength={260} aria-invalid={v.inv('dataPath')} onChange={(x) => { setDataPath(x); v.clear('dataPath'); }} />
+          <TextField label="Log file path" value={logPath} disabled={!custom} placeholder="<Enter text here>" maxLength={260} aria-invalid={v.inv('logPath')} onChange={(x) => { setLogPath(x); v.clear('logPath'); }} />
         </div>
       </>
     );

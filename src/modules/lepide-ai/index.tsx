@@ -55,8 +55,8 @@ function Page() {
     <div className="sub sub--fill sub--ai">
       {header(<>
         <Menu label="History" width={200} items={[
-          { label: 'Chat History', icon: 'clock', onSelect: () => setLeftView('chat-history') },
-          { label: 'Alert History', icon: 'alert', onSelect: () => setLeftView('alert-history') },
+          { label: 'Chat history', icon: 'clock', onSelect: () => setLeftView('chat-history') },
+          { label: 'Alert history', icon: 'alert', onSelect: () => setLeftView('alert-history') },
         ]} trigger={(p) => <IconButton icon="history" label="History" bordered className={p['aria-expanded'] ? 'is-active' : undefined} {...p} />} />
         <Button variant="primary" icon="plus" onClick={newChat}>New chat</Button>
       </>)}

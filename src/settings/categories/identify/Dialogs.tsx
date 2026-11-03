@@ -46,7 +46,7 @@ export function SqlFields({ value, onChange, tested, setTested, errors = {} }: {
       </div>
       <Field label="Authentication">
         <RadioGroup row ariaLabel="Authentication" value={value.auth} onChange={(v) => conn({ auth: v as SqlValue['auth'] })}
-          options={[{ value: 'windows', label: 'Windows Authentication' }, { value: 'sql', label: 'SQL Authentication (Recommended)' }]} />
+          options={[{ value: 'windows', label: 'Windows authentication' }, { value: 'sql', label: 'SQL Authentication (Recommended)' }]} />
       </Field>
       <div className="fld-row">
         <TextField label="User Name" value={value.user} disabled={!sql} error={errors.user} onChange={(v) => conn({ user: v })} />
@@ -61,12 +61,12 @@ export function SqlFields({ value, onChange, tested, setTested, errors = {} }: {
       <Field label="Database" error={errors.db}>
         <RadioGroup row ariaLabel="Database" value={value.dbMode}
           onChange={(m) => onChange({ ...value, dbMode: m as SqlValue['dbMode'], db: m === 'select' ? SQL_DATABASES[0] : '' })}
-          options={[{ value: 'select', label: 'Select Database', disabled: !tested }, { value: 'create', label: 'Create Database', disabled: !tested }]} />
+          options={[{ value: 'select', label: 'Select database', disabled: !tested }, { value: 'create', label: 'Create database', disabled: !tested }]} />
         {value.dbMode === 'select' ? (
-          <Dropdown ariaLabel="Select Database" value={value.db} disabled={!tested} invalid={!!errors.db} placeholder="Select" clearable
+          <Dropdown ariaLabel="Select database" value={value.db} disabled={!tested} invalid={!!errors.db} placeholder="Select" clearable
             onChange={(v) => onChange({ ...value, db: v })} options={SQL_DATABASES} />
         ) : (
-          <input aria-label="Create Database" value={value.db} disabled={!tested} placeholder="Enter database name" aria-invalid={!!errors.db || undefined}
+          <input aria-label="Create database" value={value.db} disabled={!tested} placeholder="Enter database name" aria-invalid={!!errors.db || undefined}
             onChange={(e) => onChange({ ...value, db: e.target.value })} />
         )}
       </Field>
@@ -85,13 +85,13 @@ export function EnumerateSqlDialog({ open, onClose, onPick }: { open: boolean; o
     if (!s) { toast({ variant: 'error', title: 'No server selected', message: 'Select a SQL Server from the list.' }); return; }
     onPick(s);
   };
-  const groups = [{ id: 'local', label: 'Local Server', items: SQL_LOCAL }, { id: 'network', label: 'Network Server', items: SQL_NETWORK }];
+  const groups = [{ id: 'local', label: 'Local server', items: SQL_LOCAL }, { id: 'network', label: 'Network server', items: SQL_NETWORK }];
   return (
     <Modal open={open} onClose={onClose} title="Enumerate SQL Server" icon="database" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={() => ok()}>OK</Button></>}>
       <p className="section-label">Select Location</p>
       <div className="identify-treebox">
-        <ul className="tree" role="tree" aria-label="SQL Servers">
+        <ul className="tree" role="tree" aria-label="SQL servers">
           {groups.map((g) => (
             <TreeGroup key={g.id} label={g.label} icon="server" open={!!openG[g.id]} onToggle={() => setOpenG((o) => ({ ...o, [g.id]: !o[g.id] }))}>
               {g.items.map((s) => <TreeLeaf key={s} label={s} icon="database" selected={sel === s} onSelect={() => setSel(s)} onDouble={() => { setSel(s); ok(s); }} />)}
@@ -115,7 +115,7 @@ export function AddFileTypeDialog({ open, onClose, existing, onAdd }: { open: bo
     onAdd(t.toLowerCase());
   };
   return (
-    <Modal open={open} onClose={onClose} title="Add File Type" icon="file" size="xs"
+    <Modal open={open} onClose={onClose} title="Add file type" icon="file" size="xs"
       footer={<Button variant="primary" onClick={add}>Add</Button>}>
       <TextField label="File Type :" placeholder=".tv" value={v} error={err} maxLength={11} autoFocus
         onChange={(x) => { setV(x); setErr(null); }} onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); add(); } }} />
@@ -186,15 +186,15 @@ export function ScheduleDialog({ open, kind, initial, onClose, onDone }: {
         </div>
       </Field>
       {kind === 'weekly' ? (
-        <Field label="Select Days">
-          <div className="identify-chips" role="group" aria-label="Select Days">
+        <Field label="Select days">
+          <div className="identify-chips" role="group" aria-label="Select days">
             {WEEKDAYS.map((d) => <button key={d} type="button" className="identify-chip" aria-pressed={s.days.includes(d)} onClick={() => up({ days: tog(s.days, d) })}>{d}</button>)}
           </div>
         </Field>
       ) : (
         <>
-          <Field label="Select Month">
-            <div className="identify-chips" role="group" aria-label="Select Month">
+          <Field label="Select month">
+            <div className="identify-chips" role="group" aria-label="Select month">
               {MONTHS.map((m) => <button key={m} type="button" className="identify-chip" aria-pressed={s.months.includes(m)} aria-label={m} onClick={() => up({ months: tog(s.months, m) })}>{m.slice(0, 3)}</button>)}
             </div>
           </Field>

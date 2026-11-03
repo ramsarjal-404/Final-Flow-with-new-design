@@ -19,7 +19,7 @@ const PICTO: Record<ChartStyle, JSX.Element> = {
   donut: <><circle cx="12" cy="12" r="7.5" /><circle cx="12" cy="12" r="3.5" /><path d="M12 4.5V8.5" /><path d="m18.5 15.8-3.3-1.9" /></>,
 };
 const STYLES: { value: ChartStyle; label: string }[] = [
-  { value: 'bar', label: 'Bar' }, { value: 'stacked', label: 'Stacked Column' }, { value: 'line', label: 'Line' }, { value: 'donut', label: 'Donuts' },
+  { value: 'bar', label: 'Bar' }, { value: 'stacked', label: 'Stacked column' }, { value: 'line', label: 'Line' }, { value: 'donut', label: 'Donuts' },
 ];
 
 export function AddGraphWizard({ open, initial, onClose, onSubmit }: {
@@ -102,10 +102,10 @@ export function AddGraphWizard({ open, initial, onClose, onSubmit }: {
               })}
             </div>
           </div>
-          <TextField label="Chart Title" placeholder="Type Here" value={cfg.title} onChange={(v) => set({ title: v })} />
+          <TextField label="Chart title" placeholder="Type here" value={cfg.title} onChange={(v) => set({ title: v })} />
           <div className="dashboards-two">
             <SelectField label="Label" placeholder="Select" options={LABELS} value={cfg.label} onChange={(v) => set({ label: v })} />
-            <SelectField label="Select Top" placeholder="Select" options={TOPS} value={cfg.top} onChange={(v) => set({ top: v })} />
+            <SelectField label="Select top" placeholder="Select" options={TOPS} value={cfg.top} onChange={(v) => set({ top: v })} />
           </div>
           <SelectField label="Column" placeholder="Select" options={COLUMNS} value={cfg.column} onChange={(v) => set({ column: v })} />
         </>

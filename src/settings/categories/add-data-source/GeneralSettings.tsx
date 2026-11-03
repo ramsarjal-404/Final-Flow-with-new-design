@@ -36,9 +36,9 @@ export default function GeneralSettings() {
   const isBackup = section === 'backup';
 
   const backupCols: Column<Backup>[] = [
-    { key: 'name', header: 'Backup Name', minWidth: 160 },
-    { key: 'path', header: 'Backup Path', minWidth: 200 },
-    { key: 'created', header: 'Backup Creation Time', minWidth: 190 },
+    { key: 'name', header: 'Backup name', minWidth: 160 },
+    { key: 'path', header: 'Backup path', minWidth: 200 },
+    { key: 'created', header: 'Backup creation time', minWidth: 190 },
     { key: 'actions', header: 'Actions', width: 90, render: (b) => <IconButton icon="trash" danger label={`Delete ${b.name}`} onClick={() => setDel(b)} /> },
   ];
 
@@ -53,36 +53,36 @@ export default function GeneralSettings() {
       <div className="add-data-source-body">
         <ActionPane current={section} onPick={(id) => switchTo(id as Section)}
           items={[
-            { id: 'port', label: 'Port Settings', icon: 'plug' },
-            { id: 'service', label: 'Service Rights', icon: 'key' },
+            { id: 'port', label: 'Port settings', icon: 'plug' },
+            { id: 'service', label: 'Service rights', icon: 'key' },
             { id: 'notify', label: `Audit Notifications: ${general.notify ? 'on' : 'off'}`, icon: 'bell' },
             { id: 'backup', label: 'Backup & Restore', icon: 'archive' },
           ]} />
         <div className="stack">
           {section === 'port' && (
-            <SetCard title="Port Settings"
+            <SetCard title="Port settings"
               footer={<>
                 <Button onClick={() => { setPort(general.port); v.mark([]); }}>Cancel</Button>
                 <Button variant="primary" onClick={() => {
-                  if (portBad) { v.mark(['port']); toast({ variant: 'error', title: 'Port Number', message: 'Enter a port between 1 and 65535.' }); return; }
+                  if (portBad) { v.mark(['port']); toast({ variant: 'error', title: 'Port number', message: 'Enter a port between 1 and 65535.' }); return; }
                   const n = String(Number(port.trim()));
                   dsStore.set((s) => ({ ...s, general: { ...s.general, port: n } })); setPort(n);
                   toast({ variant: 'success', title: 'Port saved', message: `The file server service listens on port ${n}.` });
                 }}>Done</Button>
               </>}>
               <div className="page-form form-col">
-                <TextField label="Port Number" value={port} inputMode="numeric" maxLength={5} aria-invalid={portBad || undefined} onChange={setPort} />
+                <TextField label="Port number" value={port} inputMode="numeric" maxLength={5} aria-invalid={portBad || undefined} onChange={setPort} />
               </div>
             </SetCard>
           )}
           {section === 'service' && (
-            <SetCard title="Service Rights" description="It is recommended to use the admin user's credentials"
+            <SetCard title="Service rights" description="It is recommended to use the admin user's credentials"
               footer={<>
                 <Button onClick={() => { setSvc({ account: general.serviceAccount, user: general.serviceUser, password: '' }); v.mark([]); }}>Cancel</Button>
                 <Button variant="primary" icon="play" onClick={() => {
                   if (svc.account === 'user' && (!svc.user.trim() || !svc.password)) {
                     v.mark([!svc.user.trim() && 'user', !svc.password && 'password'].filter(Boolean) as string[]);
-                    toast({ variant: 'error', title: 'Service Rights', message: 'Enter the user name and password.' }); return;
+                    toast({ variant: 'error', title: 'Service rights', message: 'Enter the user name and password.' }); return;
                   }
                   dsStore.set((s) => ({ ...s, general: { ...s.general, serviceAccount: svc.account, serviceUser: svc.account === 'user' ? svc.user.trim() : s.general.serviceUser } }));
                   toast({ variant: 'success', title: 'Service rights applied', message: svc.account === 'user' ? `The service now runs as ${svc.user.trim()}.` : 'The service runs as the service user account.' });
@@ -90,7 +90,7 @@ export default function GeneralSettings() {
               </>}>
               <div className="page-form form-col">
                 <RadioGroup ariaLabel="Service account" value={svc.account} onChange={(x) => { setSvc((s) => ({ ...s, account: x as 'service' | 'user' })); v.mark([]); }}
-                  options={[{ value: 'service', label: 'Service User Account' }, { value: 'user', label: 'This User' }]} />
+                  options={[{ value: 'service', label: 'Service user account' }, { value: 'user', label: 'This user' }]} />
                 <div className="add-data-source-two">
                   <TextField label="User Name" value={svc.user} disabled={svc.account !== 'user'} maxLength={256} aria-invalid={v.inv('user')}
                     onChange={(x) => { setSvc((s) => ({ ...s, user: x })); v.clear('user'); }} />
@@ -103,11 +103,11 @@ export default function GeneralSettings() {
             </SetCard>
           )}
           {section === 'notify' && (
-            <SetCard title="Audit Notifications"
+            <SetCard title="Audit notifications"
               footer={<>
                 <Button onClick={() => { setNotify({ on: general.notify, email: general.notifyEmail }); v.mark([]); }}>Cancel</Button>
                 <Button variant="primary" onClick={() => {
-                  if (emailBad) { v.mark(['email']); toast({ variant: 'error', title: 'Email Address', message: 'Enter a valid email address.' }); return; }
+                  if (emailBad) { v.mark(['email']); toast({ variant: 'error', title: 'Email address', message: 'Enter a valid email address.' }); return; }
                   dsStore.set((s) => ({ ...s, general: { ...s.general, notify: notify.on, notifyEmail: notify.email.trim() } }));
                   toast(notify.on
                     ? { variant: 'success', title: 'Audit notifications on', message: `Status notifications go to ${notify.email.trim()}.` }
@@ -115,9 +115,9 @@ export default function GeneralSettings() {
                 }}>Done</Button>
               </>}>
               <div className="page-form form-col">
-                <Checkbox label="Send Audit Status Notifications to" checked={notify.on} onChange={(x) => setNotify((n) => ({ ...n, on: x }))} />
+                <Checkbox label="Send audit status notifications to" checked={notify.on} onChange={(x) => setNotify((n) => ({ ...n, on: x }))} />
                 <div className="add-data-source-inline">
-                  <TextField label="Email Address" type="email" value={notify.email} disabled={!notify.on} maxLength={256} aria-invalid={emailBad || undefined}
+                  <TextField label="Email address" type="email" value={notify.email} disabled={!notify.on} maxLength={256} aria-invalid={emailBad || undefined}
                     onChange={(x) => setNotify((n) => ({ ...n, email: x }))} />
                   <Button icon="mail" onClick={() => toast({ variant: 'info', title: 'Server settings', message: 'SMTP server settings live in Configure Notifications.' })}>Server settings</Button>
                 </div>
@@ -165,8 +165,8 @@ function CreateBackup({ onClose }: { onClose: () => void }) {
   return (
     <Modal open onClose={onClose} title="Create backup" icon="archive" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={create}>Create</Button></>}>
-      <TextField label="Backup Name" value={name} maxLength={128} aria-invalid={v.inv('name')} onChange={(x) => { setName(x); v.clear('name'); }} />
-      <TextField label="Backup Path" value={path} maxLength={260} aria-invalid={v.inv('path')} onChange={(x) => { setPath(x); v.clear('path'); }} />
+      <TextField label="Backup name" value={name} maxLength={128} aria-invalid={v.inv('name')} onChange={(x) => { setName(x); v.clear('name'); }} />
+      <TextField label="Backup path" value={path} maxLength={260} aria-invalid={v.inv('path')} onChange={(x) => { setPath(x); v.clear('path'); }} />
     </Modal>
   );
 }

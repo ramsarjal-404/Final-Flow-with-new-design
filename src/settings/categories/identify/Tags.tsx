@@ -20,13 +20,13 @@ export function TagsPage({ source }: { source: IdfSource }) {
   const usedIn = del ? st.templates.filter((t) => t.tagIds.includes(del.id)).length : 0;
 
   return (
-    <Console source={source} title="Create Tags" crumbs={[{ label: 'Tag List' }]}
+    <Console source={source} title="Create tags" crumbs={[{ label: 'Tag list' }]}
       actions={<Button variant="primary" icon="plus" onClick={() => nav(`/settings/identify/${source.id}/tags/new`)}>Create tag</Button>}>
       <div className={cur ? 'with-detail' : undefined}>
         <DataTable title="Tags" noun={['tag', 'tags']} rows={st.tags} rowKey={(t) => t.id}
           activeKey={sel} onRowOpen={(t) => setSel(t.id === sel ? null : t.id)}
           columns={[
-            { key: 'name', header: 'Tag Name', sortable: true, filterable: true },
+            { key: 'name', header: 'Tag name', sortable: true, filterable: true },
             { key: 'description', header: 'Description', sortable: true, filterable: true },
             { key: 'patterns', header: 'Patterns', sortable: true, filterable: true, value: patterns },
             { key: 'kind', header: 'Type', sortable: true, filterable: true },
@@ -44,7 +44,7 @@ export function TagsPage({ source }: { source: IdfSource }) {
           }}
           empty={<EmptyState icon="tag" title="No tags yet. Click Create Tag to add one." />} />
         {cur && (
-          <DetailPanel title="Tag Information" subtitle={cur.name} onClose={() => setSel(null)}>
+          <DetailPanel title="Tag information" subtitle={cur.name} onClose={() => setSel(null)}>
             <KeyValues items={[
               { label: 'Name', value: cur.name, wide: true },
               { label: 'Description', value: cur.description, wide: true },
@@ -107,12 +107,12 @@ export function TagEditor({ source }: { source: IdfSource }) {
       <section className="lf-card set-card page-form">
         <div className="set-card__body">
           <div className="fld-row">
-            <TextField label="Tag Name" note="Required" value={name} error={errs.name} maxLength={100} placeholder="Enter tag name"
+            <TextField label="Tag name" note="Required" value={name} error={errs.name} maxLength={100} placeholder="Enter tag name"
               onChange={(v) => { setName(v); setErrs({}); }} />
             <TextField label="Description" value={description} maxLength={200} placeholder="Enter description" onChange={setDescription} />
           </div>
           <div className="fld-row">
-            <SelectField label="Select Tag" options={['All', 'Default', 'Custom']} value={filter} onChange={setFilter} />
+            <SelectField label="Select tag" options={['All', 'Default', 'Custom']} value={filter} onChange={setFilter} />
           </div>
           <PickDrop<Pattern> rows={rows} rowKey={(p) => p.id} rowName={(p) => p.name} noun="patterns" container="tag"
             leftTitle="Patterns" rightTitle="Tag Patterns" dropText="Drag And Drop Patterns To Create Tag"
@@ -124,7 +124,7 @@ export function TagEditor({ source }: { source: IdfSource }) {
               { key: 'expr', header: 'Expression', value: (p) => `${p.kind} Pattern` },
             ]}
             right={[
-              { key: 'name', header: 'Pattern Type', value: (p) => p.name },
+              { key: 'name', header: 'Pattern type', value: (p) => p.name },
               { key: 'kind', header: 'Type', value: (p) => p.kind },
             ]} />
           {errs.patterns && <small className="fld__err" role="alert">{errs.patterns}</small>}
@@ -136,7 +136,7 @@ export function TagEditor({ source }: { source: IdfSource }) {
         </footer>
       </section>
       <ConfirmDialog open={leave} onClose={() => setLeave(false)} destructive={false} icon="info" title="Leave this tag?"
-        message="Creating a pattern opens the Create Patterns page. This unsaved tag will be discarded." confirmLabel="Create Pattern"
+        message="Creating a pattern opens the Create Patterns page. This unsaved tag will be discarded." confirmLabel="Create pattern"
         onConfirm={() => { setLeave(false); nav(`/settings/identify/${source.id}/patterns/new`); }} />
     </Console>
   );

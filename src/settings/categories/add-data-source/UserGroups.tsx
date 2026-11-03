@@ -16,7 +16,7 @@ export default function UserGroups() {
   const [del, setDel] = useState<UserGroup | null>(null);
 
   return (
-    <ConsoleChrome current="users" title="Users Configuration" crumbs={[{ label: 'User Group' }]} icon="users"
+    <ConsoleChrome current="users" title="Users configuration" crumbs={[{ label: 'User group' }]} icon="users"
       // GAP-SDS-10: the built subtitle lacked the space after "users.".
       subtitle="Get an overview of all users. Use options to Add, Modify and Remove users and audit policies applied on users and groups, according to need."
       actions={<Button variant="primary" icon="plus" onClick={() => setGroupDlg({})}>Add new user group</Button>}>
@@ -127,7 +127,7 @@ function GroupDialog({ editId, onClose }: { editId?: string; onClose: () => void
         <div className="add-data-source-three">
           <TextField label="Group Name" value={name} maxLength={256} aria-invalid={v.inv('name')} onChange={(x) => { setName(x); v.clear('name'); }} />
           <TextField label="Description" value={desc} maxLength={512} onChange={setDesc} />
-          <SelectField label="Apply Policy" value={policy} options={policyNames} onChange={setPolicy} />
+          <SelectField label="Apply policy" value={policy} options={policyNames} onChange={setPolicy} />
         </div>
         <div className="row row--between">
           <b className="text-sm">Select user to add to user group</b>
@@ -135,7 +135,7 @@ function GroupDialog({ editId, onClose }: { editId?: string; onClose: () => void
             items={[
               { label: 'From AD ›', onSelect: () => setNested('ad') },
               { label: 'Manually', onSelect: () => setNested('manual') },
-              { label: 'Local User', onSelect: () => setNested('local') },
+              { label: 'Local user', onSelect: () => setNested('local') },
             ]}
             trigger={(p) => <Button ref={p.ref} icon="plus" iconEnd="chevron" onClick={p.onClick} aria-expanded={p['aria-expanded']} aria-haspopup="menu">Add</Button>} />
         </div>

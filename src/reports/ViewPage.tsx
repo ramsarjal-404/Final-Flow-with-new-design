@@ -97,7 +97,7 @@ export default function ViewPage() {
       reportId: row.id, reportName: entry.title, format, filtersApplied: applied.length > 0 || model.anyFilter,
       fileName: reportFileName(entry.title, format === 'CSV' ? 'csv' : 'pdf'),
       build: () => (format === 'CSV' ? csvBlob(snapshot.columns, rows) : reportPdf({ title: snapshot.title, filterLine: snapshot.line, duration: snapshot.duration, columns: snapshot.columns, rows })),
-      done: { variant: 'success', title: 'Export Report', message: `${format} with ${n} record(s) downloaded.` },
+      done: { variant: 'success', title: 'Export report', message: `${format} with ${n} record(s) downloaded.` },
       failTitle: 'Export Report',
     });
     toast({ variant: 'info', title: 'Export queued', message: `${format} with ${n} record(s) is being prepared in Settings › Exported Files.` });
@@ -126,8 +126,8 @@ export default function ViewPage() {
           <Button icon="filter" dot={applied.length > 0} disabled={!view} aria-expanded={panel === 'filters'} aria-label="Modify filters"
             onClick={() => setPanel((p) => (p === 'filters' ? null : 'filters'))}>Modify filters</Button>
           <span data-tip={hasRows ? 'Export Report' : 'Generate the report to export it'} style={{ display: 'inline-flex' }}>
-            <Menu label="Export Report" items={[{ label: 'CSV', icon: 'file', onSelect: () => exportAs('CSV') }, { label: 'PDF', icon: 'file', onSelect: () => exportAs('PDF') }]}
-              trigger={(p) => <Button icon="download" disabled={!hasRows} aria-label="Export Report" {...p}>Export</Button>} />
+            <Menu label="Export report" items={[{ label: 'CSV', icon: 'file', onSelect: () => exportAs('CSV') }, { label: 'PDF', icon: 'file', onSelect: () => exportAs('PDF') }]}
+              trigger={(p) => <Button icon="download" disabled={!hasRows} aria-label="Export report" {...p}>Export</Button>} />
           </span>
           <Button variant="primary" icon="refresh" loading={status === 'loading'} disabled={!views} onClick={generate}>Generate report</Button>
         </>} />

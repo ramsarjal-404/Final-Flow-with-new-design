@@ -226,8 +226,8 @@ export function CaseWizard({ mode, open, onClose, onDone }: { mode: Mode; open: 
             </div>
             <div className="fld-row">
               <SelectField label="Component" options={COMPONENTS} value={f.component} onChange={(v) => set('component', v)} />
-              <SelectField label="Search Type" value={mode === 'location' ? 'Index' : f.searchType}
-                options={mode === 'location' ? [{ value: 'Index', label: 'Index' }] : [{ value: 'Index', label: 'Index' }, { value: 'Non-Index', label: 'Non Index' }]}
+              <SelectField label="Search type" value={mode === 'location' ? 'Index' : f.searchType}
+                options={mode === 'location' ? [{ value: 'Index', label: 'Index' }] : [{ value: 'Index', label: 'Index' }, { value: 'Non-Index', label: 'Non index' }]}
                 onChange={(v) => { setF((x) => ({ ...x, searchType: v as Form['searchType'] })); setTried(new Set()); setStep(0); setReached(0); }} />
             </div>
             {!rail ? (
@@ -261,18 +261,18 @@ export function CaseWizard({ mode, open, onClose, onDone }: { mode: Mode; open: 
           <div className="identify-wiz__body">
             <h4 className="section-label">File Type</h4>
             <div className="fld-row">
-              <SelectField label="File Criteria" options={['All', 'Include', 'Exclude']} value={f.fileCriteria} onChange={(v) => set('fileCriteria', v as Form['fileCriteria'])} />
+              <SelectField label="File criteria" options={['All', 'Include', 'Exclude']} value={f.fileCriteria} onChange={(v) => set('fileCriteria', v as Form['fileCriteria'])} />
               <div className="fld identify-fld-end"><Checkbox label="Enable OCR" checked={f.ocr} onChange={(v) => set('ocr', v)} /></div>
             </div>
             <div className="identify-types">
               <div className="identify-types__bar">
-                <Checkbox label="Select All" checked={!typesOff && allShownOn} disabled={typesOff || !shownTypes.length}
+                <Checkbox label="Select all" checked={!typesOff && allShownOn} disabled={typesOff || !shownTypes.length}
                   indeterminate={!typesOff && !allShownOn && shownTypes.some((t) => f.fileTypes.includes(t))}
                   onChange={(on) => setF((x) => ({ ...x, fileTypes: on ? Array.from(new Set([...x.fileTypes, ...shownTypes])) : x.fileTypes.filter((t) => !shownTypes.includes(t)) }))} />
                 <label className="lf-field grow">
                   <span className="lf-input lf-input--pill">
                     <Icon name="search" />
-                    <input value={f.typeSearch} placeholder="Search File Type" aria-label="Search File Type" disabled={typesOff} maxLength={20}
+                    <input value={f.typeSearch} placeholder="Search file type" aria-label="Search file type" disabled={typesOff} maxLength={20}
                       onChange={(e) => set('typeSearch', e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); addType(); } }} />
                   </span>
                 </label>
@@ -294,7 +294,7 @@ export function CaseWizard({ mode, open, onClose, onDone }: { mode: Mode; open: 
               <Button icon="calendar" disabled={!f.modifiedOn} onClick={() => setNested('modified')}>Select date</Button>
             </div>
             <div className="identify-pair">
-              <TextField className="grow" label="File Size Limit" inputMode="decimal" value={f.size} error={bad('size')}
+              <TextField className="grow" label="File size limit" inputMode="decimal" value={f.size} error={bad('size')}
                 onChange={(v) => set('size', v.replace(/[^\d.]/g, ''))} />
               <SelectField label={' '} aria-label="Unit" options={['MB', 'KB']} value={f.unit} onChange={(v) => set('unit', v as Form['unit'])} />
             </div>
@@ -318,15 +318,15 @@ export function CaseWizard({ mode, open, onClose, onDone }: { mode: Mode; open: 
             <h4 className="section-label">{steps[2]}</h4>
             <RadioGroup row ariaLabel={mode === 'case' ? 'Search schedule' : 'Index schedule'} value={f.schedule} onChange={(v) => set('schedule', v as Form['schedule'])}
               options={mode === 'case'
-                ? [{ value: 'now', label: 'Search Now' }, { value: 'none', label: "Don't Search" }, { value: 'later', label: 'Search Later' }]
-                : [{ value: 'now', label: 'Index Now' }, { value: 'none', label: "Don't Index" }, { value: 'later', label: 'Index Later' }]} />
+                ? [{ value: 'now', label: 'Search now' }, { value: 'none', label: "Don't search" }, { value: 'later', label: 'Search later' }]
+                : [{ value: 'now', label: 'Index now' }, { value: 'none', label: "Don't index" }, { value: 'later', label: 'Index later' }]} />
             <div className="identify-pair identify-pair--bare">
               <TextField className="grow" aria-label={mode === 'case' ? 'Search later at' : 'Index later at'} placeholder="YYYY/MM/DD HH:II" value={f.laterAt}
                 disabled={f.schedule !== 'later'} help={DATE_HINT} error={bad('laterAt')} onChange={(v) => set('laterAt', v)} />
               <Button icon="calendar" disabled={f.schedule !== 'later'} onClick={() => setNested('later')}>Select date time</Button>
             </div>
             <RadioGroup row ariaLabel="Search host" value={f.host} onChange={(v) => set('host', v as Form['host'])}
-              options={[{ value: 'local', label: 'Local Host' }, { value: 'agent', label: 'Agent Server' }]} />
+              options={[{ value: 'local', label: 'Local host' }, { value: 'agent', label: 'Agent server' }]} />
             <div className="identify-pair identify-pair--bare">
               <TextField className="grow" aria-label="Agent server" placeholder="192.168.30.150" value={f.agentServer} disabled={f.host !== 'agent'} error={bad('agentServer')}
                 onChange={(v) => setF((x) => ({ ...x, agentServer: v, validated: null }))}
@@ -361,13 +361,13 @@ function UncPathDialog({ open, onClose, onAdd }: { open: boolean; onClose: () =>
   useEffect(() => { if (open) { setV(''); setBad(false); } }, [open]);
   const submit = () => {
     const p = v.trim();
-    if (!UNC.test(p)) { setBad(true); toast({ variant: 'error', title: 'Add UNC Path', message: 'Use the "\\\\Server name\\Share name" format.' }); return; }
+    if (!UNC.test(p)) { setBad(true); toast({ variant: 'error', title: 'Add UNC path', message: 'Use the "\\\\Server name\\Share name" format.' }); return; }
     if (onAdd(p)) onClose();
   };
   return (
-    <EdModal open={open} onClose={onClose} title="Add UNC Path" icon="link" size="sm"
+    <EdModal open={open} onClose={onClose} title="Add UNC path" icon="link" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={submit}>Done</Button></>}>
-      <TextField label="UNC Path" value={v} data-autofocus placeholder={'\\\\192.168.30.150\\data'} help={'Use "\\\\Server name\\Share name" format'}
+      <TextField label="UNC path" value={v} data-autofocus placeholder={'\\\\192.168.30.150\\data'} help={'Use "\\\\Server name\\Share name" format'}
         error={badMark ? 'Use the "\\\\Server name\\Share name" format.' : null} onChange={setV} onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); submit(); } }} />
     </EdModal>
   );

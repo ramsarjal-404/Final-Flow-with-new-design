@@ -76,7 +76,7 @@ export function DeepFrame({ rep, exportTable, extraActions, children, onApplied,
       reportId: row.id, reportName: title, format, filtersApplied: applied.length > 0,
       fileName: reportFileName(title, format === 'CSV' ? 'csv' : 'pdf'),
       build: () => (format === 'CSV' ? csvBlob(columns, rows) : reportPdf({ title, filterLine: snapLine, duration, columns, rows })),
-      done: { variant: 'success', title: 'Export Report', message: `${format} with ${n} record(s) downloaded.` },
+      done: { variant: 'success', title: 'Export report', message: `${format} with ${n} record(s) downloaded.` },
       failTitle: 'Export Report',
     });
     toast({ variant: 'info', title: 'Export queued', message: `${format} with ${n} record(s) is being prepared in Settings › Exported Files.` });
@@ -101,8 +101,8 @@ export function DeepFrame({ rep, exportTable, extraActions, children, onApplied,
             onClick={() => setPanel(!panel)}>Modify filters</Button>
           {meta.exportable && (
             <span data-tip={canExport ? 'Export Report' : 'Generate the report to export it'} style={{ display: 'inline-flex' }}>
-              <Menu label="Export Report" items={[{ label: 'CSV', icon: 'file', onSelect: () => exportAs('CSV') }, { label: 'PDF', icon: 'file', onSelect: () => exportAs('PDF') }]}
-                trigger={(p) => <Button icon="download" disabled={!canExport} aria-label="Export Report" {...p}>Export</Button>} />
+              <Menu label="Export report" items={[{ label: 'CSV', icon: 'file', onSelect: () => exportAs('CSV') }, { label: 'PDF', icon: 'file', onSelect: () => exportAs('PDF') }]}
+                trigger={(p) => <Button icon="download" disabled={!canExport} aria-label="Export report" {...p}>Export</Button>} />
             </span>
           )}
           <Button variant="primary" icon="refresh" loading={status === 'loading'} onClick={onGenerate ?? rep.generate}>Generate report</Button>

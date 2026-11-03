@@ -67,7 +67,7 @@ export default function TeamManagement() {
         {saved.excluded.includes(r.id) && <button type="button" className="lf-chip lf-chip--warn protect-tagbtn" title={`View ${r.name}'s hierarchy`} onClick={() => setPanel(r)}>Excluded</button>}
       </span>) },
     { key: 'department', header: 'Department', sortable: true, filterable: true },
-    { key: 'title', header: 'Job Title', sortable: true, filterable: true },
+    { key: 'title', header: 'Job title', sortable: true, filterable: true },
     { key: 'email', header: 'Email', sortable: true, filterable: true },
     { key: 'exclude', header: 'Exclude', align: 'center' as const, width: 90, render: (r: PNode) => r.kind === 'lead' ? null : (
       <Checkbox ariaLabel={`Exclude ${r.name}`} checked={dEx.has(r.id)} disabled={dEn.has(r.id)}

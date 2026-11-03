@@ -206,10 +206,10 @@ export default function AddServerWizard({ type, multiple, onClose, onFinish }: {
           <PasswordField label="Password" value={d.mPassword} disabled={d.mAuth !== 'user'} maxLength={256} aria-invalid={v.inv('mPassword')} onChange={(val) => set('mPassword', val)} />
         </div>
         <Note lead="Note:" sep=" ">Use the "Domain/User Name" format for User Name.</Note>
-        <Checkbox label="Common Share and Logical Path" checked={d.common} onChange={(val) => set('common', val)} />
+        <Checkbox label="Common share and logical path" checked={d.common} onChange={(val) => set('common', val)} />
         <div className="add-data-source-inline">
-          <TextField label="Share Name" value={d.shareName} disabled={!d.common} maxLength={256} onChange={(val) => set('shareName', val)} />
-          <TextField label="Share Logical Path" value={d.commonLogical} disabled={!d.common} maxLength={256} onChange={(val) => set('commonLogical', val)} />
+          <TextField label="Share name" value={d.shareName} disabled={!d.common} maxLength={256} onChange={(val) => set('shareName', val)} />
+          <TextField label="Share logical path" value={d.commonLogical} disabled={!d.common} maxLength={256} onChange={(val) => set('commonLogical', val)} />
           <Button disabled={!d.common} onClick={() => {
             if (!d.shareName.trim() && !d.commonLogical.trim()) { toast({ variant: 'error', title: 'Apply to all', message: 'Enter a share name or logical path first.' }); return; }
             setRows((r) => r.map((x) => ({
@@ -273,7 +273,7 @@ export default function AddServerWizard({ type, multiple, onClose, onFinish }: {
         )}
         <h4 className="add-data-source-sub">Authentication</h4>
         <RadioGroup ariaLabel="Authentication" value={d.auth} onChange={(val) => set('auth', val, 'user', 'password')}
-          options={[{ value: 'current', label: `Current user (${CURRENT_USER})` }, { value: 'user', label: 'The Following User' }]} />
+          options={[{ value: 'current', label: `Current user (${CURRENT_USER})` }, { value: 'user', label: 'The following user' }]} />
         <div className="add-data-source-two">
           <TextField label="User Name" value={d.user} disabled={d.auth !== 'user'} maxLength={256} aria-invalid={v.inv('user')} onChange={(val) => set('user', val)} />
           <PasswordField label="Password" value={d.password} disabled={d.auth !== 'user'} maxLength={256} aria-invalid={v.inv('password')} onChange={(val) => set('password', val)} autoComplete="new-password" />
@@ -305,7 +305,7 @@ export default function AddServerWizard({ type, multiple, onClose, onFinish }: {
           <TextField label={req('User Name')} value={d.user} maxLength={256} aria-invalid={v.inv('user')} onChange={(val) => set('user', val)} />
           <PasswordField label={req('Password')} value={d.password} maxLength={256} aria-invalid={v.inv('password')} onChange={(val) => set('password', val)} autoComplete="new-password" />
         </div>
-        <Checkbox label="Enable Remote Agent Auditing" checked={d.remoteOn} onChange={(val) => set('remoteOn', val)} />
+        <Checkbox label="Enable remote agent auditing" checked={d.remoteOn} onChange={(val) => set('remoteOn', val)} />
         <div className="add-data-source-inline">
           <SelectField aria-label="Remote agent server" value={d.remoteServer} disabled={!d.remoteOn}
             options={Array.from(new Set([...windowsServers, '192.168.116.150']))} onChange={(val) => set('remoteServer', val)} />
@@ -375,7 +375,7 @@ export default function AddServerWizard({ type, multiple, onClose, onFinish }: {
             value={d.insertDirect} options={['Yes', 'No']} onChange={(val) => set('insertDirect', val)} />
         </div>
         <RadioGroup row ariaLabel="SQL authentication" value={d.sqlAuth} onChange={(val) => set('sqlAuth', val, 'sqlUser', 'sqlPassword')}
-          options={[{ value: 'windows', label: 'Windows Authentication' }, { value: 'sql', label: 'SQL Server Authentication (Recommended)' }]} />
+          options={[{ value: 'windows', label: 'Windows authentication' }, { value: 'sql', label: 'SQL Server Authentication (Recommended)' }]} />
         <div className="add-data-source-two">
           <TextField label="User Name :" value={d.sqlUser} disabled={d.sqlAuth !== 'sql'} maxLength={256} aria-invalid={v.inv('sqlUser')} onChange={(val) => set('sqlUser', val)} />
           <PasswordField label="Password :" value={d.sqlPassword} disabled={d.sqlAuth !== 'sql'} maxLength={256} aria-invalid={v.inv('sqlPassword')} onChange={(val) => set('sqlPassword', val)} autoComplete="new-password" />
@@ -392,12 +392,12 @@ export default function AddServerWizard({ type, multiple, onClose, onFinish }: {
         <h4 className="add-data-source-sub">Database Option :</h4>
         <div className="add-data-source-two">
           <div className="stack stack--sm">
-            <RadioGroup ariaLabel="Create Database" value={d.dbMode} onChange={(val) => set('dbMode', val, 'dbName')} options={[{ value: 'create', label: 'Create Database :' }]} />
-            <TextField aria-label="Create Database" value={d.dbName} disabled={d.dbMode !== 'create'} maxLength={128} aria-invalid={v.inv('dbName')} onChange={(val) => set('dbName', val)} />
+            <RadioGroup ariaLabel="Create database" value={d.dbMode} onChange={(val) => set('dbMode', val, 'dbName')} options={[{ value: 'create', label: 'Create Database :' }]} />
+            <TextField aria-label="Create database" value={d.dbName} disabled={d.dbMode !== 'create'} maxLength={128} aria-invalid={v.inv('dbName')} onChange={(val) => set('dbName', val)} />
           </div>
           <div className="stack stack--sm">
-            <RadioGroup ariaLabel="Select Database" value={d.dbMode} onChange={(val) => set('dbMode', val, 'dbName')} options={[{ value: 'select', label: 'Select Database :' }]} />
-            <SelectField aria-label="Select Database" value={d.dbSelect} disabled={d.dbMode !== 'select'} options={['LEPIDE200', 'FSA_DB', 'LepideF1']} onChange={(val) => set('dbSelect', val)} />
+            <RadioGroup ariaLabel="Select database" value={d.dbMode} onChange={(val) => set('dbMode', val, 'dbName')} options={[{ value: 'select', label: 'Select Database :' }]} />
+            <SelectField aria-label="Select database" value={d.dbSelect} disabled={d.dbMode !== 'select'} options={['LEPIDE200', 'FSA_DB', 'LepideF1']} onChange={(val) => set('dbSelect', val)} />
           </div>
         </div>
         <Note lead="Note:" sep=" ">If you don't have SQL Server installed, then click the link to download the SQL Express edition.</Note>
@@ -417,7 +417,7 @@ export default function AddServerWizard({ type, multiple, onClose, onFinish }: {
           <PasswordField label={req('Password :')} value={d.agPassword} maxLength={256} aria-invalid={v.inv('agPassword')} onChange={(val) => set('agPassword', val)} autoComplete="new-password" />
         </div>
         <Field label={<span className="row" style={{ gap: 6 }}>Connection Type<InfoTip text="Asynchronous collects changes in batches; Synchronous waits for each change to be written." /></span>}>
-          <RadioGroup row ariaLabel="Connection Type" value={d.agConn} onChange={(val) => set('agConn', val)}
+          <RadioGroup row ariaLabel="Connection type" value={d.agConn} onChange={(val) => set('agConn', val)}
             options={[{ value: 'async', label: 'Asynchronous' }, { value: 'sync', label: 'Synchronous' }]} />
         </Field>
         <Note lead="Note:" sep=" ">Use the "Domain\UserName" format for User Name. Agent server system is used to install the file server agent.</Note>

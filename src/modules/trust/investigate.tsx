@@ -211,10 +211,10 @@ function SelectComputerDialog({ onClose, onAdd }: { onClose: () => void; onAdd: 
   const [pick, setPick] = useState<string | null>(null);
   const shown = COMPUTERS.filter((c) => c.toLowerCase().includes(query.trim().toLowerCase()));
   return (
-    <Modal open onClose={onClose} title="Select Computer Name" icon="server" size="sm" bodyClassName="tru-modal"
+    <Modal open onClose={onClose} title="Select computer name" icon="server" size="sm" bodyClassName="tru-modal"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={!pick} onClick={() => pick && onAdd(pick)}>Add</Button></>}>
       <form className="tru-lock__on" onSubmit={(e) => { e.preventDefault(); setQuery(q); setPick(null); }}>
-        <TextField label="Search Computer:" value={q} onChange={setQ} placeholder="Search Computer Name" maxLength={200} />
+        <TextField label="Search Computer:" value={q} onChange={setQ} placeholder="Search computer name" maxLength={200} />
         <Button type="submit" icon="search">Search</Button>
       </form>
       <section className="lf-card tablecard tablecard--flat tablecard--static tru-modal__table" aria-label="Computers">

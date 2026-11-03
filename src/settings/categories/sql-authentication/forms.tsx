@@ -14,8 +14,8 @@ function AuthBlock({ auth, user, password, onAuth, onUser, onPassword, showError
   return (
     <div className="stack sql-authentication-block">
       <h4 className="section-label">Authentication Type</h4>
-      <RadioGroup row ariaLabel="Authentication Type" value={auth} onChange={(v) => onAuth(v as Auth)}
-        options={[{ value: 'Windows', label: 'Windows Authentication' }, { value: 'SQL', label: 'SQL Authentication (Recommended)' }]} />
+      <RadioGroup row ariaLabel="Authentication type" value={auth} onChange={(v) => onAuth(v as Auth)}
+        options={[{ value: 'Windows', label: 'Windows authentication' }, { value: 'SQL', label: 'SQL Authentication (Recommended)' }]} />
       <div className="fld-row">
         <TextField label="User Name" value={win ? '' : user} disabled={win} autoComplete="off"
           placeholder={win ? 'Uses the Lepide service account' : undefined} onChange={onUser}
@@ -35,9 +35,9 @@ function Timeouts({ connection, query, onConnection, onQuery }: {
     <div className="stack sql-authentication-block">
       <h4 className="section-label">Time out Settings</h4>
       <div className="fld-row">
-        <NumberField label="Connection Time Out" suffix="Seconds" value={connection} min={1} max={3600} onChange={digitsGuard(4, onConnection)}
+        <NumberField label="Connection time out" suffix="Seconds" value={connection} min={1} max={3600} onChange={digitsGuard(4, onConnection)}
           className={!timeoutOk(connection) ? 'is-bad' : undefined} />
-        <NumberField label="Query Time Out" suffix="Seconds" value={query} min={1} max={3600} onChange={digitsGuard(4, onQuery)}
+        <NumberField label="Query time out" suffix="Seconds" value={query} min={1} max={3600} onChange={digitsGuard(4, onQuery)}
           className={!timeoutOk(query) ? 'is-bad' : undefined} />
       </div>
       {bad && <small className="fld__err" role="alert">Time outs are 1–3600 seconds.</small>}
@@ -206,7 +206,7 @@ export function GroupPolicySqlForm({ title }: { title: string }) {
               <input type="radio" name="gp-db" value="select" checked={f.dbMode === 'select'} disabled={!tested} onChange={() => set('dbMode', 'select')} />
               Select Database
             </label>
-            <SelectField placeholder="Select" aria-label="Select Database" value={f.db} options={SQL_DATABASES}
+            <SelectField placeholder="Select" aria-label="Select database" value={f.db} options={SQL_DATABASES}
               disabled={!tested || f.dbMode !== 'select'} onChange={(v) => set('db', v)} />
           </div>
         </div>

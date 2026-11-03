@@ -27,11 +27,11 @@ export default function AuditRules() {
   }
 
   const ruleCols: Column<AuditRule>[] = [
-    { key: 'name', header: 'Rule Name', sortable: true, filterable: true, minWidth: 150, render: (r) => <b>{r.name}</b> },
-    { key: 'servers', header: 'Rule Summary', sortable: true, filterable: true, minWidth: 220, value: (r) => r.servers.join(', ') },
-    { key: 'policy', header: 'Policy Name', sortable: true, filterable: true, minWidth: 150 },
+    { key: 'name', header: 'Rule name', sortable: true, filterable: true, minWidth: 150, render: (r) => <b>{r.name}</b> },
+    { key: 'servers', header: 'Rule summary', sortable: true, filterable: true, minWidth: 220, value: (r) => r.servers.join(', ') },
+    { key: 'policy', header: 'Policy name', sortable: true, filterable: true, minWidth: 150 },
     {
-      key: 'enabled', header: 'Rule Status', sortable: true, filterable: true, minWidth: 130, value: (r) => (r.enabled ? 'Enabled' : 'Disabled'),
+      key: 'enabled', header: 'Rule status', sortable: true, filterable: true, minWidth: 130, value: (r) => (r.enabled ? 'Enabled' : 'Disabled'),
       render: (r) => (
         <button type="button" className="add-data-source-status-btn" data-tip="Click to enable / disable" aria-label={`${r.name}: ${r.enabled ? 'Enabled' : 'Disabled'}. Click to enable / disable`}
           onClick={() => {
@@ -43,7 +43,7 @@ export default function AuditRules() {
       ),
     },
     {
-      key: 'users', header: 'Rule Users', sortable: true, filterable: true, minWidth: 170,
+      key: 'users', header: 'Rule users', sortable: true, filterable: true, minWidth: 170,
       render: (r) => <span className="row">{r.users}<button type="button" className="add-data-source-linkbtn" onClick={() => setDetails(r)}>Details</button></span>,
     },
     {
@@ -58,7 +58,7 @@ export default function AuditRules() {
   ];
 
   const polCols: Column<AuditPolicy>[] = [
-    { key: 'name', header: 'Policy Name', minWidth: 170 },
+    { key: 'name', header: 'Policy name', minWidth: 170 },
     { key: 'description', header: 'Description', minWidth: 180, value: (p) => p.description || '-' },
     {
       key: 'actions', header: 'Action', width: 100,
@@ -132,8 +132,8 @@ export default function AuditRules() {
 }
 
 const GROUPS: { title: string; kind: string }[] = [
-  { title: 'Included Directories', kind: 'Directory' }, { title: 'Included Events', kind: 'Event' }, { title: 'Included File Masks', kind: 'File Mask' },
-  { title: 'Included Processes', kind: 'Process' }, { title: 'Monitoring Time', kind: 'Monitoring Time' },
+  { title: 'Included directories', kind: 'Directory' }, { title: 'Included events', kind: 'Event' }, { title: 'Included file masks', kind: 'File Mask' },
+  { title: 'Included processes', kind: 'Process' }, { title: 'Monitoring time', kind: 'Monitoring Time' },
 ];
 function PolicyGroups({ policy }: { policy: AuditPolicy }) {
   const [closed, setClosed] = useState<string[]>([]);
@@ -228,10 +228,10 @@ export function RuleEditor({ editId, presetServers, allowExisting, onClose, onSa
         <h4 className="add-data-source-sub">Create new rule to apply on selected file server(s)</h4>
         <div className="add-data-source-two">
           {ex ? (
-            <SelectField label="Rule Name" value={existing} placeholder="Select" aria-invalid={v.inv('existing')}
+            <SelectField label="Rule name" value={existing} placeholder="Select" aria-invalid={v.inv('existing')}
               options={st.rules.map((r) => ({ value: r.id, label: r.name }))} onChange={(x) => { setExisting(x); v.clear('existing'); }} />
           ) : (
-            <TextField label="Rule Name" value={name} placeholder="Rule_$01_%" maxLength={256} aria-invalid={v.inv('name')} onChange={(x) => { setName(x); v.clear('name'); }} />
+            <TextField label="Rule name" value={name} placeholder="Rule_$01_%" maxLength={256} aria-invalid={v.inv('name')} onChange={(x) => { setName(x); v.clear('name'); }} />
           )}
           <div className="add-data-source-inline">
             <TextField label="File Server" value={servers.join(', ')} readOnly disabled={ex || locked} placeholder="Click View All to choose" aria-invalid={v.inv('servers')} />
@@ -241,16 +241,16 @@ export function RuleEditor({ editId, presetServers, allowExisting, onClose, onSa
         <h4 className="add-data-source-sub">Select Policy Type</h4>
         <div className="stack stack--sm">
           <div className="add-data-source-inline">
-            <RadioGroup ariaLabel="Selected Policy" value={ptype} onChange={setPtype} options={[{ value: 'selected', label: 'Selected Policy', disabled: ex }]} />
+            <RadioGroup ariaLabel="Selected policy" value={ptype} onChange={setPtype} options={[{ value: 'selected', label: 'Selected policy', disabled: ex }]} />
             <SelectField aria-label="Policy" value={policy} options={policyNames} disabled={ex || ptype !== 'selected'} onChange={setPolicy} />
             <Button icon="plus" disabled={ex} onClick={() => setNewPolicy(true)}>Create new policy</Button>
           </div>
           <RadioGroup ariaLabel="Policy type" value={ptype} onChange={setPtype}
-            options={[{ value: 'individual', label: 'Individual User Policy', disabled: ex }, { value: 'group', label: 'Group Policy', disabled: ex }]} />
+            options={[{ value: 'individual', label: 'Individual user policy', disabled: ex }, { value: 'group', label: 'Group Policy', disabled: ex }]} />
         </div>
         <h4 className="add-data-source-sub">Select user or group to audit</h4>
         <div className="add-data-source-inline">
-          <SelectField label="Audit User" value={auditUser} options={AUDIT_USER.map((a) => a.ui)} disabled={ex} onChange={setAuditUser} />
+          <SelectField label="Audit user" value={auditUser} options={AUDIT_USER.map((a) => a.ui)} disabled={ex} onChange={setAuditUser} />
           <Button icon="user_plus" disabled={ex || all} onClick={() => setPicker('user')}>Add user</Button>
           <Button icon="users" disabled={ex || all} onClick={() => setPicker('group')}>Add group</Button>
         </div>

@@ -24,12 +24,12 @@ export default function StatusTab() {
   const pick = (folder: string, outcome: Outcome) => { setSel({ folder, outcome }); setRowId(null); };
 
   const columns: Column<DeliveryRecord>[] = [
-    { key: 'subscription', header: 'Subscription Name', sortable: true, minWidth: 170 },
+    { key: 'subscription', header: 'Subscription name', sortable: true, minWidth: 170 },
     { key: 'from', header: 'From', sortable: true, minWidth: 180 },
     { key: 'to', header: 'To', sortable: true, minWidth: 170 },
     { key: 'subject', header: 'Subject', sortable: true, minWidth: 240 },
     { key: 'sentOn', header: 'Sent On', sortable: true, minWidth: 190 },
-    { key: 'scheduleType', header: 'Schedule Type', sortable: true, minWidth: 120 },
+    { key: 'scheduleType', header: 'Schedule type', sortable: true, minWidth: 120 },
     { key: 'duration', header: 'Duration', sortable: true, minWidth: 120 },
     {
       key: 'actions', header: 'Action', width: 96,

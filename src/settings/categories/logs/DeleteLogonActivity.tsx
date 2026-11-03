@@ -44,9 +44,9 @@ export function DeleteLogonActivity({ onBack }: { onBack: () => void }) {
   };
 
   return (
-    <section className="lf-card logs-dla" aria-label="Delete Logon Activity">
+    <section className="lf-card logs-dla" aria-label="Delete logon activity">
       <header className="logs-dla__top">
-        <IconButton icon="chevron-left" label="Back to Logs" bordered onClick={onBack} />
+        <IconButton icon="chevron-left" label="Back to logs" bordered onClick={onBack} />
         <nav className="crumbs" aria-label="Breadcrumb">
           <Link to="/settings/logs">Logs</Link><span aria-hidden="true">&rsaquo;</span><b aria-current="page">Delete Logon Activity</b>
         </nav>

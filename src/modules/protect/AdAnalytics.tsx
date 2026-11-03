@@ -101,7 +101,7 @@ export default function AdAnalytics() {
       </div>
 
       <div className="panels" key={'p' + tick}>
-        <Card title="Inactivity Age Profile" meta={`${inactive} inactive accounts`} action={<LinkAction onClick={() => open('accounts', { bucket: '180d+', sort: 'inactive-desc' })}>Review oldest</LinkAction>}>
+        <Card title="Inactivity age profile" meta={`${inactive} inactive accounts`} action={<LinkAction onClick={() => open('accounts', { bucket: '180d+', sort: 'inactive-desc' })}>Review oldest</LinkAction>}>
           <Chart kind="stacked" title="Inactivity age profile" data={{ cats: BUCKETS, series: [
             { name: 'Users', values: type === 'computers' ? BUCKETS.map(() => 0) : AD.age.users },
             { name: 'Computers', values: type === 'users' ? BUCKETS.map(() => 0) : AD.age.computers }] }}
@@ -109,7 +109,7 @@ export default function AdAnalytics() {
           <div className="sr-only">{BUCKETS.map((b) => <button key={b} type="button" onClick={() => open('accounts', { bucket: b })}>Open accounts inactive {b}</button>)}</div>
         </Card>
 
-        <Card title="Upcoming Automated Actions" meta={<><span className="lf-chip">Next {plural(uw)}</span> {up.reduce((s, u) => s + u.count, 0)} actions queued</>}
+        <Card title="Upcoming automated actions" meta={<><span className="lf-chip">Next {plural(uw)}</span> {up.reduce((s, u) => s + u.count, 0)} actions queued</>}
           tools={<RangeMenu label="Select time window" value={uw} options={[1, 7, range].map((n) => ({ n, label: `Next ${plural(n)}` }))}
             onPick={(n) => { setUpWin(n); toast({ variant: 'info', title: 'AD Cleaner', message: `Next ${plural(n)}` }); }}
             onRefresh={() => toast({ variant: 'success', title: 'AD Cleaner', message: 'Data refreshed' })} />}
@@ -128,7 +128,7 @@ export default function AdAnalytics() {
           </ul>
         </Card>
 
-        <Card title="Account Lifecycle Funnel" meta="accounts progress top → bottom" action={<LinkAction onClick={() => open('accounts')}>View accounts</LinkAction>}>
+        <Card title="Account lifecycle funnel" meta="accounts progress top → bottom" action={<LinkAction onClick={() => open('accounts')}>View accounts</LinkAction>}>
           <ol className="protect-funnel" aria-label="Account lifecycle funnel">
             {STAGES.map((s, i) => (
               <li key={s}>
@@ -141,7 +141,7 @@ export default function AdAnalytics() {
           </ol>
         </Card>
 
-        <Card title="Dormant Accounts by OU" meta="Lifecycle stage per OU" action={<LinkAction onClick={() => open('accounts', { group: 'ou' })}>View all OUs</LinkAction>}>
+        <Card title="Dormant accounts by OU" meta="Lifecycle stage per OU" action={<LinkAction onClick={() => open('accounts', { group: 'ou' })}>View all OUs</LinkAction>}>
           <ul className="protect-ou">
             {matrix.map((m) => (
               <li key={m.ou}>
@@ -158,7 +158,7 @@ export default function AdAnalytics() {
           <div className="protect-legend">{STAGE_SHORT.map((s, i) => <span key={s}><i className={STAGE_CLS[i]} />{s}</span>)}</div>
         </Card>
 
-        <Card title="Cleanup Activity Trend" meta={<><span className="lf-chip">Last {plural(tw)}</span> {backlog} open backlog</>}
+        <Card title="Cleanup activity trend" meta={<><span className="lf-chip">Last {plural(tw)}</span> {backlog} open backlog</>}
           tools={<RangeMenu label="Select time window" value={tw} options={[1, 7, range].map((n) => ({ n, label: `Last ${plural(n)}` }))}
             onPick={(n) => { setTrendWin(n); toast({ variant: 'info', title: 'AD Cleaner', message: `Last ${plural(n)}` }); }}
             onRefresh={() => toast({ variant: 'success', title: 'AD Cleaner', message: 'Data refreshed' })} />}
@@ -176,7 +176,7 @@ export default function AdAnalytics() {
           <div className="sr-only">{tr.labels.map((l) => <button key={l} type="button" onClick={() => open('activity', { series: visible[0].key, date: l })}>{visible[0].name} on {l}</button>)}</div>
         </Card>
 
-        <Card title="Attack Surface" meta={`${inactive} inactive accounts`} action={<LinkAction onClick={() => open('accounts', { posture: 'enabled', sort: 'inactive-desc' })}>Review exposure</LinkAction>}>
+        <Card title="Attack surface" meta={`${inactive} inactive accounts`} action={<LinkAction onClick={() => open('accounts', { posture: 'enabled', sort: 'inactive-desc' })}>Review exposure</LinkAction>}>
           <p className="protect-lead">{enabled} accounts still <b>enabled</b> — live exposure ({pct}%)</p>
           <div className="protect-surface" role="group" aria-label={`${pct}% still enabled, ${100 - pct}% contained`}>
             <button type="button" className="protect-c4" style={{ flex: enabled }} aria-label={`Still enabled ${enabled}`} onClick={() => open('accounts', { posture: 'enabled', sort: 'inactive-desc' })} />

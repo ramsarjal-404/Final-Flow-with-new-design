@@ -48,7 +48,7 @@ export function HrmsView({ onOpen }: { onOpen: (t: WizardTarget) => void }) {
       </SetCard>
 
       {hrms && activeP && (
-        <SetCard title="Added Source">
+        <SetCard title="Added source">
           <div className="protect-added">
             <span className="pick__ic"><img src={activeP.logo} alt="" /></span>
             <div className="grow"><b>{activeP.label}</b><span>Sync: {scheduleText(hrms.result.schedule)}</span></div>
@@ -86,9 +86,9 @@ export function AdView({ onOpen }: { onOpen: (t: WizardTarget) => void }) {
     <>
       <SetCard title="Active Directory">
         <div className="page-form form-col">
-          <Field label="Added Domain">
+          <Field label="Added domain">
             <div className="row">
-              <input className="grow" value={domain} readOnly aria-label="Added Domain" />
+              <input className="grow" value={domain} readOnly aria-label="Added domain" />
               <IconButton icon="trash" danger bordered label={`Remove ${domain}`} onClick={() => setRemove(true)} />
               <IconButton icon="edit" bordered label={`Edit ${domain}`} onClick={() => onOpen({ kind: 'ad', edit: true, existing: ad.result })} />
             </div>
@@ -144,7 +144,7 @@ export function CsvView() {
   if (csv) {
     return (
       <>
-        <SetCard title="Added CSV Source">
+        <SetCard title="Added CSV source">
           <div className="protect-added">
             <span className="basecard__ic"><Icon name="file" /></span>
             <div className="grow"><b>{csv.fileName}</b><span>{csv.domain} · {csv.members.length} member(s)</span></div>

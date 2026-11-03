@@ -10,7 +10,7 @@ type Tab = 'general' | 'filter' | 'alert-settings';
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'general', label: 'General', icon: 'settings' },
   { id: 'filter', label: 'Filter', icon: 'filter' },
-  { id: 'alert-settings', label: 'Alert Settings', icon: 'bell' },
+  { id: 'alert-settings', label: 'Alert settings', icon: 'bell' },
 ];
 
 export function EditAlertDialog({ unsaved }: { unsaved: Map<string, TuneDraft> }) {
@@ -39,7 +39,7 @@ export function EditAlertDialog({ unsaved }: { unsaved: Map<string, TuneDraft> }
     const clean = { ...draft, name: draft.name.trim() };
     unsaved.delete(alertId);
     saveTune(alertId, clean);
-    toast({ variant: 'success', title: 'Alert Configuration', message: `Changes to "${clean.name}" were saved.` });
+    toast({ variant: 'success', title: 'Alert configuration', message: `Changes to "${clean.name}" were saved.` });
   };
   const next = () => {
     const i = TABS.findIndex((t) => t.id === tab);
@@ -47,7 +47,7 @@ export function EditAlertDialog({ unsaved }: { unsaved: Map<string, TuneDraft> }
   };
 
   return (
-    <Modal open={!!alertId} onClose={close} title="Alert Configuration" subtitle="Edit Alert" icon={null}
+    <Modal open={!!alertId} onClose={close} title="Alert configuration" subtitle="Edit alert" icon={null}
       footer={<><Button onClick={next}>Next</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       <div className="lepide-ai-tune">
         <nav className="tabs" aria-label="Alert configuration sections">

@@ -70,7 +70,7 @@ export default function AlertStatus() {
   const closePreview = useCallback(() => setPreview(null), []);
 
   let emptyNode: React.ReactNode = null;
-  if (!leaf) emptyNode = <EmptyState icon="mail" title="No Data Found" />;
+  if (!leaf) emptyNode = <EmptyState icon="mail" title="No data found" />;
   else if (!base.length) emptyNode = <EmptyState icon="mail" title={leaf.kind === 'failed' ? `No failed alert emails in ${envLabel(leaf.env)}.` : 'No Data Found'} />;
 
   return (

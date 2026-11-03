@@ -11,15 +11,15 @@ export function EnumerateSqlDialog({ open, onClose, onPick }: { open: boolean; o
   const [openNodes, setOpenNodes] = useState<string[]>(['Local Servers']);
   const [sel, setSel] = useState('');
   const ok = (v = sel) => {
-    if (!v) { toast({ variant: 'error', title: 'Enumerate SQL Servers', message: 'Please select a SQL Server.' }); return; }
+    if (!v) { toast({ variant: 'error', title: 'Enumerate SQL servers', message: 'Please select a SQL Server.' }); return; }
     onPick(v); onClose();
   };
   return (
-    <Modal open={open} onClose={onClose} title="Enumerate SQL Servers" icon="database" size="sm"
+    <Modal open={open} onClose={onClose} title="Enumerate SQL servers" icon="database" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={() => ok()}>Ok</Button></>}>
-      <Field label="Select Location">
+      <Field label="Select location">
         <div className="trust-treebox">
-          <ul className="tree" role="tree" aria-label="SQL Servers">
+          <ul className="tree" role="tree" aria-label="SQL servers">
             {Object.entries(SQL_SERVERS).map(([grp, list]) => {
               const o = openNodes.includes(grp);
               return (
@@ -138,7 +138,7 @@ export function IpRangeDialog({ open, onClose, onDone }: { open: boolean; onClos
   const [errs, setErrs] = useState<CredErrors & { start?: boolean; end?: boolean }>({});
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
-  const fail = (message: string) => toast({ variant: 'error', title: 'IP Range', message });
+  const fail = (message: string) => toast({ variant: 'error', title: 'IP range', message });
   const done = () => {
     const e = credErrors(creds);
     if (Object.keys(e).length) { setErrs(e); fail('Please enter the user name, password and domain.'); return; }
@@ -233,21 +233,21 @@ export function AddServerDialog({ open, onClose, onAdded }: { open: boolean; onC
     const e: Record<string, boolean> = {};
     (Object.keys(f) as (keyof typeof f)[]).forEach((k) => { if (!f[k].trim()) e[k] = true; });
     if (f.ip.trim() && !isIp(f.ip)) {
-      setErrs({ ...e, ip: true }); toast({ variant: 'error', title: 'Add Server', message: 'Please enter a valid IP address.' }); return;
+      setErrs({ ...e, ip: true }); toast({ variant: 'error', title: 'Add server', message: 'Please enter a valid IP address.' }); return;
     }
-    if (Object.keys(e).length) { setErrs(e); toast({ variant: 'error', title: 'Add Server', message: 'Please fill in all the fields.' }); return; }
+    if (Object.keys(e).length) { setErrs(e); toast({ variant: 'error', title: 'Add server', message: 'Please fill in all the fields.' }); return; }
     const ip = f.ip.trim();
     addAgent(ip); onAdded(ip);
     toast({ variant: 'success', title: 'Agent added', message: `${ip} is available as a scan agent.` });
     onClose();
   };
   return (
-    <Modal open={open} onClose={onClose} title="Add Server" icon="server" size="sm"
+    <Modal open={open} onClose={onClose} title="Add server" icon="server" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
-      <TextField label="IP Address :" placeholder="Enter IP Address" value={f.ip} error={errs.ip ? ' ' : null} onChange={(v) => set('ip', v)} />
-      <TextField label="Agent Path :" placeholder="Enter Agent Path" help={'Use "\\\\Server name\\Share name" format'} value={f.path} error={errs.path ? ' ' : null} onChange={(v) => set('path', v)} />
-      <TextField label="User Name :" placeholder="Enter User Name" help={'Use "Domain name\\user name" format'} value={f.user} error={errs.user ? ' ' : null} onChange={(v) => set('user', v)} />
-      <PasswordField label="Password :" placeholder="Enter Password" value={f.password} error={errs.password ? ' ' : null} onChange={(v) => set('password', v)} />
+      <TextField label="IP Address :" placeholder="Enter IP address" value={f.ip} error={errs.ip ? ' ' : null} onChange={(v) => set('ip', v)} />
+      <TextField label="Agent Path :" placeholder="Enter agent path" help={'Use "\\\\Server name\\Share name" format'} value={f.path} error={errs.path ? ' ' : null} onChange={(v) => set('path', v)} />
+      <TextField label="User Name :" placeholder="Enter user name" help={'Use "Domain name\\user name" format'} value={f.user} error={errs.user ? ' ' : null} onChange={(v) => set('user', v)} />
+      <PasswordField label="Password :" placeholder="Enter password" value={f.password} error={errs.password ? ' ' : null} onChange={(v) => set('password', v)} />
     </Modal>
   );
 }
@@ -283,14 +283,14 @@ export function FindSharesDialog({ open, onClose }: { open: boolean; onClose: ()
       footerHint={<button type="button" className="trust-linkbtn" onClick={onClose}><Icon name="chevron-left" size={14} />Back to Data Set</button>}
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={!checked.length} onClick={finish}>Finish</Button></>}>
       <div className="trust-find">
-        <TextField label="Domain Name or IP" value={f.domain} error={errs.domain ? ' ' : null} onChange={(v) => { setF({ ...f, domain: v }); setErrs({}); }} />
+        <TextField label="Domain name or IP" value={f.domain} error={errs.domain ? ' ' : null} onChange={(v) => { setF({ ...f, domain: v }); setErrs({}); }} />
         <TextField label="User Name" placeholder="User@domain.com" value={f.user} error={errs.user ? ' ' : null} onChange={(v) => { setF({ ...f, user: v }); setErrs({}); }} />
         <PasswordField label="Password" value={f.password} error={errs.password ? ' ' : null} onChange={(v) => { setF({ ...f, password: v }); setErrs({}); }} />
         <Button icon="search" onClick={find}>Find</Button>
       </div>
       <CheckTable label="Computers" rows={found ? SHARE_COMPUTERS : []} rowKey={(r) => r.name} checked={checked} onChecked={setChecked}
         empty="Enter the domain name or IP and credentials, then click Find."
-        cols={[{ key: 'n', header: 'Computer Name', cell: (r) => r.name }, { key: 'ip', header: 'IP Address', cell: (r) => r.ip }]} />
+        cols={[{ key: 'n', header: 'Computer name', cell: (r) => r.name }, { key: 'ip', header: 'IP Address', cell: (r) => r.ip }]} />
       <div className="trust-band">
         <div className="row row--between"><b>Schedule</b><Toggle label="Schedule" checked={scheduled} onChange={setScheduled} /></div>
         <div className="fld-row">

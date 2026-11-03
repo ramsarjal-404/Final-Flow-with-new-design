@@ -41,7 +41,7 @@ export function AddAgentDialog({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <Modal open onClose={onClose} size="lg" icon="server" title="Lepide Protect Agent Configuration"
+    <Modal open onClose={onClose} size="lg" icon="server" title="Lepide Protect agent configuration"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       <div className="protect-shuttle">
         <div className="protect-list">

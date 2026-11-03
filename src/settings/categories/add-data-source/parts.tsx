@@ -148,9 +148,9 @@ export function WizardFooter({ onBack, backDisabled, onCancel, cancelDisabled, o
 /* ---------------- Console chrome ---------------- */
 export type ConsoleSection = 'list' | 'rules' | 'users' | 'general';
 const RAIL: { value: ConsoleSection; label: string; to: string }[] = [
-  { value: 'list', label: 'File Servers List', to: '/settings/add-data-source/file-server' },
+  { value: 'list', label: 'File servers list', to: '/settings/add-data-source/file-server' },
   { value: 'rules', label: 'Audit Rules & Policies', to: '/settings/add-data-source/file-server/rules' },
-  { value: 'users', label: 'User Group', to: '/settings/add-data-source/file-server/users' },
+  { value: 'users', label: 'User group', to: '/settings/add-data-source/file-server/users' },
   { value: 'general', label: 'General Settings', to: '/settings/add-data-source/file-server/general' },
 ];
 export type Crumb = { label: string; to?: string };

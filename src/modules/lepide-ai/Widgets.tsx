@@ -89,9 +89,9 @@ type WidgetId = 'posture' | 'sensitive' | 'adChanges' | 'stale' | 'compliance' |
 const WIDGETS: Record<WidgetId, () => ReactNode> = {
   posture: () => (<>
     <Stats items={[
-      { label: 'Risk Score', value: '67', tone: 'warning', delta: '↓ 8% this week' },
-      { label: 'Critical Exposures', value: '3', tone: 'danger', delta: '↑ 1 new' },
-      { label: 'Privileged Changes', value: '47', tone: 'warning', delta: '↑ 31% this week' },
+      { label: 'Risk score', value: '67', tone: 'warning', delta: '↓ 8% this week' },
+      { label: 'Critical exposures', value: '3', tone: 'danger', delta: '↑ 1 new' },
+      { label: 'Privileged changes', value: '47', tone: 'warning', delta: '↑ 31% this week' },
       { label: 'Compliance', value: '82%', tone: 'success', delta: '→ Stable' },
     ]} />
     <Frame title="Risk Score Trend (7 days)">
@@ -101,27 +101,27 @@ const WIDGETS: Record<WidgetId, () => ReactNode> = {
   </>),
   sensitive: () => (<>
     <Stats items={[
-      { label: 'Sensitive Files', value: '33.7K', tone: 'danger' },
+      { label: 'Sensitive files', value: '33.7K', tone: 'danger' },
       { label: 'Over-Exposed', value: '847', tone: 'danger', delta: 'Needs attention' },
-      { label: 'Monthly Growth', value: '+8.2%', tone: 'warning' },
+      { label: 'Monthly growth', value: '+8.2%', tone: 'warning' },
     ]} />
-    <Bars title="Sensitive Data by System" rows={[
-      { label: 'SharePoint', value: 2100 }, { label: 'OneDrive', value: 1700 }, { label: 'File Shares', value: 1400 },
-      { label: 'Azure Storage', value: 680 }, { label: 'SQL Server', value: 320 }]} />
+    <Bars title="Sensitive data by system" rows={[
+      { label: 'SharePoint', value: 2100 }, { label: 'OneDrive', value: 1700 }, { label: 'File shares', value: 1400 },
+      { label: 'Azure storage', value: 680 }, { label: 'SQL Server', value: 320 }]} />
   </>),
   adChanges: () => (<>
     <Stats items={[{ label: 'Total Changes (7d)', value: '47', tone: 'warning', delta: '31% above baseline' }, { label: 'Unapproved', value: '1', tone: 'danger', delta: 'Needs review' }]} />
-    <Table title="Top AD Changes This Week" badge="Active Directory" head={['User', 'Change', 'Group', 'Time']} rows={[
+    <Table title="Top AD changes this week" badge="Active Directory" head={['User', 'Change', 'Group', 'Time']} rows={[
       ['alex.turner', 'Admin rights added', 'Finance', '1h ago'], ['mark.chen', 'Admin rights added', 'Root Group', '8h ago'],
       ['john.davis', 'Role elevation', 'HR Site', '3h ago'], ['priya.mehta', 'Group membership', 'Exchange', '2h ago'],
       ['lisa.wang', 'Access scope +3', 'OneDrive', '5h ago']]} />
   </>),
   stale: () => (<>
     <Stats items={[
-      { label: 'Stale Admin Accounts', value: '14', tone: 'warning' },
+      { label: 'Stale admin accounts', value: '14', tone: 'warning' },
       { label: 'High Risk (45+ days)', value: '2', tone: 'danger', delta: 'Domain Admin level' },
       { label: 'Medium Risk (30+ days)', value: '12', tone: 'warning' }]} />
-    <Table title="Top Risk Accounts" badge="Immediate Action" badgeTone="danger" head={['Account', 'Level', 'Last Login', 'Risk']} rows={[
+    <Table title="Top risk accounts" badge="Immediate Action" badgeTone="danger" head={['Account', 'Level', 'Last Login', 'Risk']} rows={[
       ['j.smith@corp', 'Domain Admin', '47 days ago', 'Critical'], ['m.jones@corp', 'Domain Admin', '62 days ago', 'Critical'],
       ['r.patel@corp', 'Exchange Admin', '38 days ago', 'High'], ['s.kim@corp', 'SharePoint Admin', '35 days ago', 'Medium']]} />
   </>),
@@ -129,24 +129,24 @@ const WIDGETS: Record<WidgetId, () => ReactNode> = {
     <Stats items={[
       { label: 'SOX', value: '85%', tone: 'success' }, { label: 'NIST', value: '76%', tone: 'warning' },
       { label: 'GDPR', value: '91%', tone: 'success' }, { label: 'PCI-DSS', value: '70%', tone: 'danger', delta: 'Lowest score' }]} />
-    <Bars title="Control Status" rows={[{ label: 'Passed', value: 42 }, { label: 'Partial', value: 8 }, { label: 'Failed', value: 3 }, { label: 'Not Reviewed', value: 5 }]} />
+    <Bars title="Control status" rows={[{ label: 'Passed', value: 42 }, { label: 'Partial', value: 8 }, { label: 'Failed', value: 3 }, { label: 'Not reviewed', value: 5 }]} />
   </>),
   alerts: () => (<>
     <Stats items={[{ label: 'Critical', value: '1', tone: 'danger' }, { label: 'High', value: '1', tone: 'warning' }, { label: 'Medium', value: '1', tone: 'accent' }]} />
-    <Timeline title="Active Alerts" items={[
+    <Timeline title="Active alerts" items={[
       { time: '2 hours ago', text: 'Excessive permissions in Finance AD Group — 9 users affected', sev: 'critical' },
       { time: '4 hours ago', text: '2 inactive accounts with admin rights — 45+ days dormant', sev: 'high' },
       { time: '6 hours ago', text: 'Permission spike in Exchange admin group — 4 users', sev: 'medium' }]} />
   </>),
   permissions: () => (<>
-    <Stats items={[{ label: 'Changes (48h)', value: '14', tone: 'warning', delta: 'Above baseline' }, { label: 'High Risk', value: '3', tone: 'danger' }]} />
-    <Table title="Recent Permission Changes" badge="Last 48 hours" head={['User', 'Change', 'System', 'Risk']} rows={[
+    <Stats items={[{ label: 'Changes (48h)', value: '14', tone: 'warning', delta: 'Above baseline' }, { label: 'High risk', value: '3', tone: 'danger' }]} />
+    <Table title="Recent permission changes" badge="Last 48 hours" head={['User', 'Change', 'System', 'Risk']} rows={[
       ['alex.turner', 'Admin added', 'Finance Shares', 'High'], ['mark.chen', 'Admin added', 'AD Root', 'Critical'],
       ['john.davis', 'Role elevated', 'SharePoint HR', 'High'], ['priya.mehta', 'Group added', 'Exchange', 'Medium'],
       ['lisa.wang', 'Scope +3', 'OneDrive', 'Medium']]} />
   </>),
   signin: () => (<>
-    <Stats items={[{ label: 'Anomalies (7d)', value: '7', tone: 'warning' }, { label: 'After-Hours', value: '3', tone: 'danger' }, { label: 'New Locations', value: '2', tone: 'warning' }]} />
+    <Stats items={[{ label: 'Anomalies (7d)', value: '7', tone: 'warning' }, { label: 'After-Hours', value: '3', tone: 'danger' }, { label: 'New locations', value: '2', tone: 'warning' }]} />
     <Timeline title="Sign-in Anomalies" items={[
       { time: 'Today 2:14 AM', text: 'priya.mehta — after-hours mailbox access from unknown IP', sev: 'high' },
       { time: 'Today 1:48 AM', text: 'priya.mehta — Exchange admin actions after midnight', sev: 'high' },
@@ -154,27 +154,27 @@ const WIDGETS: Record<WidgetId, () => ReactNode> = {
       { time: '2 days ago', text: 'mark.chen — failed MFA then successful bypass', sev: 'critical' }]} />
   </>),
   gpo: () => (<>
-    <Stats items={[{ label: 'GPO Changes This Week', value: '4', tone: 'warning', delta: '1 security downgrade detected' }]} />
-    <Table title="Group Policy Changes" badge="GPO Comparison" head={['GPO Name', 'Change', 'Impact', 'When']} rows={[
+    <Stats items={[{ label: 'GPO changes this week', value: '4', tone: 'warning', delta: '1 security downgrade detected' }]} />
+    <Table title="Group Policy changes" badge="GPO Comparison" head={['GPO Name', 'Change', 'Impact', 'When']} rows={[
       ['Finance Workstations', 'Password complexity relaxed', 'Security ↓', 'Tue'], ['Server Baseline', 'Audit logging modified', 'Monitoring', 'Wed'],
       ['Remote Access', 'VPN timeout changed', 'Low', 'Thu'], ['Developer VMs', 'UAC settings updated', 'Medium', 'Fri']]} />
   </>),
   controls: () => (<>
     <Stats items={[
-      { label: 'Open Failures', value: '3', tone: 'danger' }, { label: 'Evidence Pending', value: '7', tone: 'warning' },
+      { label: 'Open failures', value: '3', tone: 'danger' }, { label: 'Evidence pending', value: '7', tone: 'warning' },
       { label: 'Exceptions', value: '12', tone: 'accent' }, { label: 'Readiness', value: '74%', tone: 'success', delta: '↑ 2%' }]} />
-    <Table title="Control Failures" badge="Audit Period" head={['Control', 'Name', 'Evidence', 'Status']} rows={[
+    <Table title="Control failures" badge="Audit Period" head={['Control', 'Name', 'Evidence', 'Status']} rows={[
       ['AC-2.3', 'Privileged Access Review', 'Missing', 'Unresolved'], ['AC-3.1', 'Least Privilege', 'Incomplete', 'Partial'],
       ['AU-6.2', 'Audit Log Monitoring', 'Present', 'Pending']]} />
   </>),
   copilot: () => (<>
     <Stats items={[
-      { label: 'Active Users', value: '47', tone: 'accent' }, { label: 'Departments', value: '3' },
+      { label: 'Active users', value: '47', tone: 'accent' }, { label: 'Departments', value: '3' },
       { label: 'High-Risk Queries', value: '3', tone: 'danger' }, { label: 'Sessions/Month', value: '847', tone: 'accent' }]} />
-    <Bars title="Copilot Usage by Department" rows={[{ label: 'Engineering', value: 23 }, { label: 'Marketing', value: 14 }, { label: 'Data Science', value: 10 }]} />
+    <Bars title="Copilot usage by department" rows={[{ label: 'Engineering', value: 23 }, { label: 'Marketing', value: 14 }, { label: 'Data science', value: 10 }]} />
   </>),
   auditTrail: () => (
-    <Timeline title="Recent Remediation Actions" items={[
+    <Timeline title="Recent remediation actions" items={[
       { time: 'Today 14:32', text: 'Permission revoked — J.Smith AD account (approved by Sarah Mitchell)', sev: 'info' },
       { time: 'Today 12:11', text: 'Watchlist created — Inactive admin accounts monitoring', sev: 'info' },
       { time: 'Yesterday 17:45', text: 'Executive report generated and exported as PDF', sev: 'info' },
@@ -182,26 +182,26 @@ const WIDGETS: Record<WidgetId, () => ReactNode> = {
       { time: '3 days ago', text: 'Entra ID connector configured and verified (Tom Wright)', sev: 'info' }]} />
   ),
   connectors: () => (<>
-    <Stats items={[{ label: 'Connected Sources', value: '1 / 8', tone: 'warning', delta: '15% coverage' }]} />
-    <Table title="Data Source Status" head={['Source', 'Status', 'Priority']} rows={[
+    <Stats items={[{ label: 'Connected sources', value: '1 / 8', tone: 'warning', delta: '15% coverage' }]} />
+    <Table title="Data source status" head={['Source', 'Status', 'Priority']} rows={[
       ['Entra ID', '✅ Connected', 'Done'], ['Active Directory', '⚠️ Not connected', 'High'], ['SharePoint', '○ Pending', 'Medium'],
       ['Exchange Online', '○ Pending', 'Medium'], ['File Servers', '○ Pending', 'Medium'], ['SQL Server', '○ Pending', 'Low']]} />
   </>),
   threats: () => (<>
     <Stats items={[
       { label: 'Rule-Based Alerts', value: '12', tone: 'accent', delta: 'Layer 1' },
-      { label: 'Behavioral Anomalies', value: '7', tone: 'warning', delta: 'Layer 2' },
-      { label: 'AI Correlations', value: '2', tone: 'danger', delta: 'Layer 3' }]} />
-    <Timeline title="Recent Threat Detections" items={[
+      { label: 'Behavioral anomalies', value: '7', tone: 'warning', delta: 'Layer 2' },
+      { label: 'AI correlations', value: '2', tone: 'danger', delta: 'Layer 3' }]} />
+    <Timeline title="Recent threat detections" items={[
       { time: '2 min ago', text: 'Bulk file download — 847 files from OneDrive', sev: 'critical' },
       { time: '8 min ago', text: 'Failed login attempt (3rd in 1 hour) via Entra ID', sev: 'medium' },
       { time: '31 min ago', text: 'Service account elevated to Domain Admin', sev: 'critical' },
       { time: '52 min ago', text: 'Suspicious login from new location — alex.turner', sev: 'high' }]} />
   </>),
   templates: () => (
-    <Bars title="Available Report Types" rows={[
-      { label: 'Risk Summary', value: 12 }, { label: 'Compliance', value: 8 }, { label: 'Access Review', value: 15 },
-      { label: 'Data Classification', value: 6 }, { label: 'Change Audit', value: 20 }]} />
+    <Bars title="Available report types" rows={[
+      { label: 'Risk summary', value: 12 }, { label: 'Compliance', value: 8 }, { label: 'Access review', value: 15 },
+      { label: 'Data classification', value: 6 }, { label: 'Change audit', value: 20 }]} />
   ),
 };
 

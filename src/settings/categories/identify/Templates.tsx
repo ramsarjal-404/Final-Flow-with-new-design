@@ -27,7 +27,7 @@ export function TemplatesPage({ source }: { source: IdfSource }) {
   const usedBy = tpl ? st.profiles.filter((p) => p.templateIds.includes(tpl.id)).length : 0;
 
   return (
-    <Console source={source} title="Template Modification" crumbs={[{ label: 'Templates' }]}
+    <Console source={source} title="Template modification" crumbs={[{ label: 'Templates' }]}
       actions={<>
         <Button icon="edit" disabled={!custom} onClick={() => tpl && nav(`/settings/identify/${source.id}/templates/${tpl.id}`)}>Edit template</Button>
         <Button variant="danger" icon="trash" disabled={!custom} onClick={() => setDel(true)}>Delete template</Button>
@@ -53,14 +53,14 @@ export function TemplatesPage({ source }: { source: IdfSource }) {
           <DataTable title={tpl?.name ?? 'Tags'} noun={['tag', 'tags']} rows={tags} rowKey={(t) => t.id}
             activeKey={tagSel} onRowOpen={(t) => setTagSel(t.id === tagSel ? null : t.id)}
             columns={[
-              { key: 'name', header: 'Tag Name', sortable: true, filterable: true },
+              { key: 'name', header: 'Tag name', sortable: true, filterable: true },
               { key: 'description', header: 'Description', sortable: true, filterable: true },
               { key: 'patterns', header: 'Patterns', sortable: true, filterable: true, value: (t) => t.patternIds.map(patName).filter(Boolean).join(', ') },
               { key: 'kind', header: 'Type', sortable: true, filterable: true },
             ]}
             empty={<EmptyState compact icon="folder" title="This template has no tags yet." />} />
           {curTag && (
-            <DetailPanel title="Template Information" subtitle={curTag.name} onClose={() => setTagSel(null)}>
+            <DetailPanel title="Template information" subtitle={curTag.name} onClose={() => setTagSel(null)}>
               <KeyValues items={[
                 { label: 'Name', value: curTag.name, wide: true },
                 { label: 'Description', value: curTag.description, wide: true },
@@ -130,15 +130,15 @@ export function TemplateEditor({ source }: { source: IdfSource }) {
       <section className="lf-card set-card page-form">
         <div className="set-card__body">
           <div className="fld-row">
-            <TextField label="Templates Name" note="Required" value={name} error={errs.name} maxLength={100} placeholder="Enter template name"
+            <TextField label="Templates name" note="Required" value={name} error={errs.name} maxLength={100} placeholder="Enter template name"
               onChange={(v) => { setName(v); setErrs({}); }} />
             <TextField label="Description" value={description} maxLength={200} placeholder="Enter description" onChange={setDescription} />
           </div>
           <div className="fld-row">
-            <SelectField label="Select Options" options={['Select From Existing Tag', 'Import From Template']} value={option}
+            <SelectField label="Select options" options={['Select From Existing Tag', 'Import From Template']} value={option}
               onChange={(v) => { setOption(v); setFrom(''); }} />
             {option === 'Import From Template' && (
-              <SelectField label="Select Template" placeholder="Select" value={from} onChange={setFrom}
+              <SelectField label="Select template" placeholder="Select" value={from} onChange={setFrom}
                 options={st.templates.filter((t) => t.id !== existing?.id).map((t) => ({ value: t.id, label: t.name }))} />
             )}
           </div>
@@ -147,13 +147,13 @@ export function TemplateEditor({ source }: { source: IdfSource }) {
             checked={checked} onChecked={setChecked} chosen={chosen.filter((c) => st.tags.some((t) => t.id === c))}
             onChosen={(ids) => { setChosen(ids); setErrs({}); }}
             left={[
-              { key: 'name', header: 'Tag Name', value: (t) => t.name },
+              { key: 'name', header: 'Tag name', value: (t) => t.name },
               { key: 'kind', header: 'Type', value: (t) => t.kind },
               { key: 'tpl', header: 'Template', value: (t) => firstTpl(t.id) },
               { key: 'description', header: 'Description', value: (t) => t.description },
             ]}
             right={[
-              { key: 'name', header: 'Tag Name', value: (t) => t.name },
+              { key: 'name', header: 'Tag name', value: (t) => t.name },
               { key: 'kind', header: 'Type', value: (t) => t.kind },
               { key: 'description', header: 'Description', value: (t) => t.description },
             ]} />

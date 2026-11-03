@@ -103,10 +103,10 @@ export function SourceWizard({ target, onClose, onDone }: { target: WizardTarget
     document.addEventListener('keydown', k); return () => document.removeEventListener('keydown', k);
   }, [onClose]);
 
-  const providerFields: FieldDef[] = provider ? [...provider.fields.map((f) => ({ key: 'p.' + f.key, label: f.label, sample: f.sample, secret: f.secret })), { key: 'p.match', label: 'Match Attribute', select: true }] : [];
+  const providerFields: FieldDef[] = provider ? [...provider.fields.map((f) => ({ key: 'p.' + f.key, label: f.label, sample: f.sample, secret: f.secret })), { key: 'p.match', label: 'Match attribute', select: true }] : [];
   const adFields: FieldDef[] = hrms
     ? [{ key: 'ad.domain', label: 'Domain Name/IP', sample: 'chily.com' }, { key: 'ad.user', label: 'User Name', sample: 'devl238@chily.com' },
-      { key: 'ad.password', label: 'Password', secret: true }, { key: 'ad.match', label: 'Match Attribute', select: true }]
+      { key: 'ad.password', label: 'Password', secret: true }, { key: 'ad.match', label: 'Match attribute', select: true }]
     : [{ key: 'ad.domain', label: 'Domain Name/IP', sample: 'cipherguard10.com' }, { key: 'ad.user', label: 'User Name', sample: 'William_m@cipherguard.com' },
       { key: 'ad.password', label: 'Password', secret: true }];
 
@@ -122,7 +122,7 @@ export function SourceWizard({ target, onClose, onDone }: { target: WizardTarget
   const renderField = (f: FieldDef) => {
     const set = (v: string) => { setDetails((d) => ({ ...d, [f.key]: v })); if (errors[f.key]) setErrors(({ [f.key]: _, ...rest }) => rest); };
     const val = details[f.key] ?? '';
-    if (f.select) return <SelectField key={f.key} label={f.label} value={val} placeholder="Select Any Preference" options={MATCH_ATTRIBUTES} error={errors[f.key]} onChange={set} />;
+    if (f.select) return <SelectField key={f.key} label={f.label} value={val} placeholder="Select any preference" options={MATCH_ATTRIBUTES} error={errors[f.key]} onChange={set} />;
     if (f.secret) return <PasswordField key={f.key} label={f.label} value={val} placeholder={f.sample} error={errors[f.key]} onChange={set} autoComplete="new-password" />;
     return <TextField key={f.key} label={f.label} value={val} placeholder={f.sample} error={errors[f.key]} onChange={set} maxLength={255} />;
   };
@@ -251,9 +251,9 @@ export function SourceWizard({ target, onClose, onDone }: { target: WizardTarget
 
           {step === 'scan' && (
             <div className="form-col">
-              <Checkbox label="Sync Now" checked={schedule.syncNow} onChange={(v) => setSch({ syncNow: v })} />
+              <Checkbox label="Sync now" checked={schedule.syncNow} onChange={(v) => setSch({ syncNow: v })} />
               <div className="row row--wrap" style={{ gap: 14 }}>
-                <Checkbox label="Schedule Sync" checked={schedule.scheduled} onChange={(v) => setSch({ scheduled: v })} />
+                <Checkbox label="Schedule sync" checked={schedule.scheduled} onChange={(v) => setSch({ scheduled: v })} />
                 <div className="protect-pills" role="group" aria-label="Sync frequency">
                   {(['Weekly', 'Monthly'] as const).map((f) => (
                     <Button key={f} size="sm" className="protect-pill" aria-pressed={schedule.frequency === f} disabled={!schedule.scheduled}

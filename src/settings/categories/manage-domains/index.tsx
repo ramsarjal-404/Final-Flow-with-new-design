@@ -9,7 +9,7 @@ import { DOMAIN_RE, isHostOrIpv4 } from '../general/kit';
 
 const COLS: Column<ManagedDomain>[] = [
   { key: 'domain', header: 'Domain', sortable: true, minWidth: 180 },
-  { key: 'controller', header: 'Domain controller Name/IP', sortable: true, minWidth: 200 },
+  { key: 'controller', header: 'Domain controller name/IP', sortable: true, minWidth: 200 },
   { key: 'logonName', header: 'Logon Name', sortable: true, minWidth: 220 },
 ];
 
@@ -49,7 +49,7 @@ export default function ManageDomainsPage() {
 
       <DomainDialog state={dialog} domains={domains} onClose={() => setDialog(null)} />
       <ConfirmDialog open={!!pendingDelete} onClose={() => setPendingDelete(null)} onConfirm={confirmDelete}
-        title="Delete Domain" confirmLabel="Delete"
+        title="Delete domain" confirmLabel="Delete"
         message={pendingDelete ? `Delete ${pendingDelete.domain}? Lepide stops reading users and groups from it.` + (memberCount ? ` ${memberCount} existing member(s) from this domain keep their role.` : '') : undefined} />
     </>
   );

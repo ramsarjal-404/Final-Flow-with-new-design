@@ -12,8 +12,8 @@ import './styles.css';
    GAP-SAD-21 intended: leaving AD Restore with a wizard in progress asks before discarding it. */
 
 const SECTIONS: { value: BackupSection; label: string }[] = [
-  { value: 'import', label: 'Import Database' },
-  { value: 'export', label: 'Export Database' },
+  { value: 'import', label: 'Import database' },
+  { value: 'export', label: 'Export database' },
   { value: 'ad-restore', label: 'AD Restore' },
   { value: 'archives', label: 'Archives & Imports' },
 ];

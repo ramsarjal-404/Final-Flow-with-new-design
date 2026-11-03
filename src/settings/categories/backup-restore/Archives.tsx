@@ -21,10 +21,10 @@ export default function Archives() {
   };
 
   const columns: Column<ArchiveJob>[] = [
-    { key: 'componentType', header: 'Component Type', sortable: true, filterable: true, minWidth: 150 },
-    { key: 'componentName', header: 'Component Name', sortable: true, filterable: true, minWidth: 200 },
+    { key: 'componentType', header: 'Component type', sortable: true, filterable: true, minWidth: 150 },
+    { key: 'componentName', header: 'Component name', sortable: true, filterable: true, minWidth: 200 },
     { key: 'server', header: 'Server', sortable: true, filterable: true, minWidth: 130 },
-    { key: 'schedule', header: 'Schedule Details', sortable: true, filterable: true, minWidth: 240, value: (a) => a.schedule || 'Archive now only' },
+    { key: 'schedule', header: 'Schedule details', sortable: true, filterable: true, minWidth: 240, value: (a) => a.schedule || 'Archive now only' },
     { key: 'restore', header: 'Restore', width: 128, render: (a) => <Button size="sm" icon="restore" onClick={() => setOpen({ kind: 'restore', row: a })}>Restore now</Button> },
     { key: 'archive', header: 'Archive', width: 128, render: (a) => <Button size="sm" icon="archive" onClick={() => archiveNow(a)}>Archive now</Button> },
     { key: 'status', header: 'Status', sortable: true, filterable: true, width: 120, render: (a) => <ToneTag tone={toneFor(a.status)}>{a.status}</ToneTag> },

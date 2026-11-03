@@ -96,7 +96,7 @@ export default function PermissionsByObject() {
           </div>
           <div className="tru-aclbar">
             <Segmented ariaLabel="Access control view" value={tab} onChange={(v) => setTab(v as 'perm' | 'user')}
-              items={[{ value: 'perm', label: 'Permissions' }, { value: 'user', label: 'Permissions By User' }]} hug />
+              items={[{ value: 'perm', label: 'Permissions' }, { value: 'user', label: 'Permissions by user' }]} hug />
             <div className="tru-aclbar__field">
               <span className="tru-aclbar__lbl" id="tru-eff-lbl">Effective Permission :</span>
               <EffectivePicker value={picks} onApply={setPicks} />

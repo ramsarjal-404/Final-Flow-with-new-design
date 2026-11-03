@@ -30,13 +30,13 @@ export default function CasesPage() {
   }, [cases, search]);
 
   const columns: Column<Case>[] = [
-    { key: 'name', header: 'Case Name', sortable: true, filterable: true, minWidth: 200 },
+    { key: 'name', header: 'Case name', sortable: true, filterable: true, minWidth: 200 },
     { key: 'description', header: 'Description', sortable: true, filterable: true, minWidth: 180 },
     { key: 'agent', header: 'Agent', sortable: true, filterable: true, minWidth: 120 },
-    { key: 'agentStatus', header: 'Agent Status', sortable: true, filterable: true, minWidth: 170, render: (c) => <AgentStatus value={c.agentStatus} /> },
+    { key: 'agentStatus', header: 'Agent status', sortable: true, filterable: true, minWidth: 170, render: (c) => <AgentStatus value={c.agentStatus} /> },
     { key: 'status', header: 'Status', sortable: true, filterable: true, minWidth: 140, render: (c) => <CaseStatus value={c.status} /> },
-    { key: 'lastStart', header: 'Last Search Start Time', sortable: true, filterable: true, minWidth: 190 },
-    { key: 'lastEnd', header: 'Last Search End Time', sortable: true, filterable: true, minWidth: 190 },
+    { key: 'lastStart', header: 'Last search start time', sortable: true, filterable: true, minWidth: 190 },
+    { key: 'lastEnd', header: 'Last search end time', sortable: true, filterable: true, minWidth: 190 },
     { key: 'type', header: 'Type', sortable: true, filterable: true, minWidth: 110 },
   ];
 
@@ -58,13 +58,13 @@ export default function CasesPage() {
           activeKey={panelId} onRowOpen={(c) => setPanelId((id) => (id === c.id ? null : c.id))}
           rowActions={(c) => (
             <RowMenu label={`Actions for ${c.name}`} items={[
-              { label: 'Search Index', icon: 'search', onSelect: () => setPanelId(c.id) },
+              { label: 'Search index', icon: 'search', onSelect: () => setPanelId(c.id) },
               {
-                label: 'Run Search Now', icon: 'play', onSelect: () => runCase(c.id),
+                label: 'Run search now', icon: 'play', onSelect: () => runCase(c.id),
                 disabled: c.type === 'Index' || c.status === 'In Progress',
                 reason: c.type === 'Index' ? 'Index cases search their indexed locations.' : 'The search is already running.',
               },
-              { label: 'Delete Case', icon: 'trash', danger: true, onSelect: () => setToDelete(c) },
+              { label: 'Delete case', icon: 'trash', danger: true, onSelect: () => setToDelete(c) },
             ]} />
           )}
           empty={cases.length === 0 ? <EmptyState compact icon="file-search" title="You don't have any case here please click on Create Case button to create a case!" /> : undefined} />
@@ -102,7 +102,7 @@ function SearchPanel({ c, onClose }: { c: Case; onClose: () => void }) {
 
   const res = s.results;
   return (
-    <aside className="lf-card detail identify-panel" aria-label="Searching Index">
+    <aside className="lf-card detail identify-panel" aria-label="Searching index">
       <header className="drawer__head">
         <div style={{ minWidth: 0 }}><h3>Searching Index</h3><small>{c.name} · {c.type}</small></div>
         <IconButton icon="x" label="Close search panel" onClick={onClose} />

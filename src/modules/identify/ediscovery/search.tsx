@@ -15,7 +15,7 @@ export function useCaseQuery(c: Case) {
   const q: SearchQuery = stored && stored.caseId === c.id ? stored : emptyQuery(c.id);
   const [find, setFind] = useState('');
   const toast = useToast();
-  const err = (message: string) => toast({ variant: 'error', title: 'Searching Index', message });
+  const err = (message: string) => toast({ variant: 'error', title: 'Searching index', message });
   // Any edit marks the query as not run (results disappear until Search).
   const edit = (p: Partial<SearchQuery>) => setQuery({ ...q, ...p, ran: false });
 
@@ -55,7 +55,7 @@ export function SearchControls({ s, layout }: { s: CaseQuery; layout: 'panel' | 
         <Button icon="plus" onClick={s.addKey}>Add</Button>
       </div>
       <div className="identify-pair">
-        <SelectField label="Operator:" placeholder="Select Operator" options={['AND', 'OR']} value={s.q.operator} className="grow"
+        <SelectField label="Operator:" placeholder="Select operator" options={['AND', 'OR']} value={s.q.operator} className="grow"
           onChange={(v) => s.setOperator(v as Operator)} />
         <Button icon="search" onClick={s.run}>Search</Button>
       </div>

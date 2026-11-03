@@ -42,11 +42,11 @@ export function DeliveryStep({ d, set, onOpen, onAdd }: { d: Draft; set: (p: Par
       <div className="detect-box stack">
         <Checkbox checked={d.processRemotely} onChange={(v) => set({ processRemotely: v, agent: v ? d.agent : '' })} label="Process alert remotely" />
         <div className="detect-inline-field">
-          <SelectField label="Select Agent Server" placeholder="Select" options={agents} value={d.agent} disabled={!d.processRemotely} onChange={(v) => set({ agent: v })} />
+          <SelectField label="Select agent server" placeholder="Select" options={agents} value={d.agent} disabled={!d.processRemotely} onChange={(v) => set({ agent: v })} />
           <Button icon="plus" disabled={!d.processRemotely} onClick={() => setAgentOpen(true)}>Add agent</Button>
         </div>
         <div style={{ maxWidth: 360 }}>
-          <SelectField label="Alert Type" options={ALERT_TYPES} value={d.alertType} onChange={(v) => set({ alertType: v as AlertType })} />
+          <SelectField label="Alert type" options={ALERT_TYPES} value={d.alertType} onChange={(v) => set({ alertType: v as AlertType })} />
         </div>
       </div>
 

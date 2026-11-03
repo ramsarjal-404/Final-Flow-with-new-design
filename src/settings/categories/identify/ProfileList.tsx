@@ -74,9 +74,9 @@ export function ProfileList({ source }: { source: IdfSource }) {
     <DataTable title="Profiles" noun={['profile', 'profiles']} rows={profiles} rowKey={(p) => p.id}
       activeKey={sel} onRowOpen={(p) => setSel(p.id === sel ? null : p.id)}
       columns={[
-        { key: 'name', header: 'Profile Name', sortable: true, filterable: true },
+        { key: 'name', header: 'Profile name', sortable: true, filterable: true },
         {
-          key: 'progress', header: 'Profile Progress', sortable: true, filterable: true, minWidth: 220, value: progressLabel,
+          key: 'progress', header: 'Profile progress', sortable: true, filterable: true, minWidth: 220, value: progressLabel,
           render: (p) => (
             <div className={'identify-progress' + (p.status === 'Paused' ? ' is-paused' : '')}>
               <span>{progressLabel(p)}</span>
@@ -84,11 +84,11 @@ export function ProfileList({ source }: { source: IdfSource }) {
             </div>
           ),
         },
-        { key: 'agentCommunication', header: 'Agent Communication', sortable: true, filterable: true },
-        { key: 'onDemand', header: 'On Demand Classification', sortable: true, filterable: true, value: (p) => (p.classifyNow || p.scheduled ? p.status : 'N/A') },
+        { key: 'agentCommunication', header: 'Agent communication', sortable: true, filterable: true },
+        { key: 'onDemand', header: 'On demand classification', sortable: true, filterable: true, value: (p) => (p.classifyNow || p.scheduled ? p.status : 'N/A') },
         { key: 'onTheFly', header: 'On the fly Classification', sortable: true, filterable: true, value: (p) => (p.onTheFly ? 'Enabled' : 'N/A') },
-        { key: 'lastStart', header: 'Last Scan Start Time', sortable: true, filterable: true },
-        { key: 'lastEnd', header: 'Last Scan End Time', sortable: true, filterable: true },
+        { key: 'lastStart', header: 'Last scan start time', sortable: true, filterable: true },
+        { key: 'lastEnd', header: 'Last scan end time', sortable: true, filterable: true },
       ]}
       rowActions={(p) => <>
         <IconButton icon={p.status === 'Running' ? 'pause' : 'play'} label={`${p.status === 'Running' ? 'Pause' : 'Run'} ${p.name}`} onClick={() => toggleRun(p)} />
@@ -99,12 +99,12 @@ export function ProfileList({ source }: { source: IdfSource }) {
   );
 
   return (
-    <Console source={source} logo title={`Data Discovery & Classification - ${source.label}`} subtitle="Profile Details" crumbs={[{ label: 'Profile List' }]}
+    <Console source={source} logo title={`Data Discovery & Classification - ${source.label}`} subtitle="Profile details" crumbs={[{ label: 'Profile list' }]}
       actions={<Button variant="primary" icon="plus" onClick={() => setWiz({ profile: null })}>Create profile</Button>}>
       <div className={cur ? 'with-detail' : undefined}>
         {table}
         {cur && (
-          <DetailPanel title="Template Information" subtitle={cur.name} onClose={() => setSel(null)}>
+          <DetailPanel title="Template information" subtitle={cur.name} onClose={() => setSel(null)}>
             {cur.templateIds.length === 0 ? <p className="muted">No templates are attached to this profile.</p> : (
               <KeyValues cols={2} items={cur.templateIds.map((id) => templates.find((t) => t.id === id)).filter(Boolean).map((t) => ({
                 label: t!.name, wide: true, value: `${t!.kind} · ${t!.tagIds.length} tag(s) — ${t!.description}`,

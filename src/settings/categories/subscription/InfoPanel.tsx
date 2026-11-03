@@ -20,14 +20,14 @@ export default function InfoPanel({ sub, onClose, onEdit }: { sub: Subscription;
   }, [onClose]);
 
   return (
-    <aside className="lf-card detail subscription-panel" role="dialog" aria-label="Subscription Information">
+    <aside className="lf-card detail subscription-panel" role="dialog" aria-label="Subscription information">
       <header className="drawer__head">
         <div><h3>Subscription Information</h3></div>
         <IconButton icon="x" label="Close subscription information" bordered onClick={onClose} />
       </header>
       <div className="drawer__body subscription-panel__body">
         <KeyValues items={[
-          { label: 'Subscription Name', value: sub.name, wide: true },
+          { label: 'Subscription name', value: sub.name, wide: true },
           ...(sub.description ? [{ label: 'Description', value: sub.description, wide: true }] : []),
           { label: 'Status', value: sub.enabled ? 'Enabled' : 'Disabled' },
         ]} />
@@ -55,8 +55,8 @@ export default function InfoPanel({ sub, onClose, onEdit }: { sub: Subscription;
             <KeyValues items={[
               { label: 'From', value: a.from },
               { label: 'Send To', value: a.to },
-              { label: 'Report Format', value: a.formats.join(', ') + (a.kind === 'email' ? ' Attachment' : '') },
-              { label: 'Attachment Path', value: a.path, wide: true },
+              { label: 'Report format', value: a.formats.join(', ') + (a.kind === 'email' ? ' Attachment' : '') },
+              { label: 'Attachment path', value: a.path, wide: true },
               ...(a.notify ? [{ label: 'Notify', value: a.notify.replace(/^Notify:\s*/, ''), wide: true }] : []),
             ]} />
           </div>

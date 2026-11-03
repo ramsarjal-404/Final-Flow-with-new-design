@@ -15,7 +15,7 @@ export function Picker() {
   return (
     <div className="trust-root">
       <HeaderActions><SearchBox value={q} onChange={setQ} ariaLabel="Search components" maxLength={100} /></HeaderActions>
-      <SetCard title="Configure Scan Settings" description="Select any component for Current Permission Scan Settings">
+      <SetCard title="Configure scan settings" description="Select any component for Current Permission Scan Settings">
         {shown.length === 0 ? (
           <EmptyState compact icon="search" title="No results match your search or filters." />
         ) : (

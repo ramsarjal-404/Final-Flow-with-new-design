@@ -32,7 +32,7 @@ export function AgentsPage() {
   const rows = all;
 
   const columns: Column<AgentRow>[] = [
-    { key: 'server', header: 'Agent Server', sortable: true, filterable: true, minWidth: 160 },
+    { key: 'server', header: 'Agent server', sortable: true, filterable: true, minWidth: 160 },
     { key: 'path', header: 'Agent Path', sortable: true, filterable: true, minWidth: 220, mono: true },
     { key: 'scannedText', header: 'Scanned Case(s)/Location(s)', sortable: true, filterable: true, minWidth: 260 },
   ];
@@ -51,7 +51,7 @@ export function AgentsPage() {
 
       <InstallAgentDialog open={install} onClose={() => setInstall(false)} />
       <UninstallAgentDialog open={uninstall} onClose={() => setUninstall(false)} />
-      <ServerDialog open={!!edit} title="Update Agent" initial={edit ? { ip: edit.server, path: edit.path, user: edit.user } : undefined}
+      <ServerDialog open={!!edit} title="Update agent" initial={edit ? { ip: edit.server, path: edit.path, user: edit.user } : undefined}
         onClose={() => setEdit(null)}
         onApply={(f) => {
           updateAgent(edit!.server, { path: f.path, user: f.user });
@@ -73,9 +73,9 @@ export function LocationsPage() {
   const referenced = (l: Location) => cases.some((c) => c.locations.includes(l.name));
 
   const columns: Column<Location>[] = [
-    { key: 'name', header: 'Location Name', sortable: true, filterable: true, minWidth: 170 },
-    { key: 'sharePath', header: 'Share Path', sortable: true, filterable: true, minWidth: 240, mono: true },
-    { key: 'lastIndex', header: 'Last Index', sortable: true, filterable: true, minWidth: 170 },
+    { key: 'name', header: 'Location name', sortable: true, filterable: true, minWidth: 170 },
+    { key: 'sharePath', header: 'Share path', sortable: true, filterable: true, minWidth: 240, mono: true },
+    { key: 'lastIndex', header: 'Last index', sortable: true, filterable: true, minWidth: 170 },
     { key: 'status', header: 'Status', sortable: true, filterable: true, minWidth: 140, render: (l) => <LocationStatus value={l.status} /> },
     { key: 'agent', header: 'Agent', sortable: true, filterable: true, minWidth: 140 },
   ];
@@ -91,7 +91,7 @@ export function LocationsPage() {
           return (
             <RowMenu label={`Actions for ${l.name}`} items={[
               { label: 'Re Index', icon: 'refresh', disabled: busy, reason: 'Indexing is already running.', onSelect: () => indexLocation(l.id) },
-              { label: 'Delete Location', icon: 'trash', danger: true, onSelect: () => setToDelete(l) },
+              { label: 'Delete location', icon: 'trash', danger: true, onSelect: () => setToDelete(l) },
             ]} />
           );
         }}

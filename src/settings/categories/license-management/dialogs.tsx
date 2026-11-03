@@ -55,11 +55,11 @@ export function LicenseActivationDialog({ open, onClose, onActivated }: { open: 
 
   return (
     <>
-      <Modal open={open} onClose={onClose} title="License Activation" icon="key" size="md"
+      <Modal open={open} onClose={onClose} title="License activation" icon="key" size="md"
         footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={activate}>Activate</Button></>}>
         <RadioGroup row ariaLabel="Activation method" value={mode}
           onChange={(v) => { setMode(v as 'online' | 'offline'); setTried(false); }}
-          options={[{ value: 'online', label: 'Activate Online' }, { value: 'offline', label: 'Activate Offline' }]} />
+          options={[{ value: 'online', label: 'Activate online' }, { value: 'offline', label: 'Activate offline' }]} />
         <div className="fld-row">
           <TextField label="License ID" inputMode="numeric" maxLength={12} value={id} autoComplete="off"
             onChange={(v) => setId(v.replace(/[^0-9]/g, ''))} error={tried ? errId : null} />
@@ -77,7 +77,7 @@ export function LicenseActivationDialog({ open, onClose, onActivated }: { open: 
         )}
       </Modal>
 
-      <UntitledDialog open={requestOpen} onClose={() => setRequestOpen(false)} label="License Request File" icon="info" heading="License Request File"
+      <UntitledDialog open={requestOpen} onClose={() => setRequestOpen(false)} label="License request file" icon="info" heading="License request file"
         footer={<Button variant="primary" data-autofocus onClick={() => {
           setRequestOpen(false);
           toast({ variant: 'info', title: 'Opening your email app', message: `Attach the request file and send it to ${SALES_EMAIL}.` });
@@ -96,7 +96,7 @@ export function ExpiredLicenseDialog({ open, onClose, rows }: { open: boolean; o
     { key: 'reason', header: 'Reason', value: () => 'License period has expired' },
   ];
   return (
-    <Modal open={open} onClose={onClose} title="Expired License Details" icon="alert" size="lg"
+    <Modal open={open} onClose={onClose} title="Expired license details" icon="alert" size="lg"
       footer={<Button variant="primary" onClick={onClose}>OK</Button>}>
       <DataTable flat columns={columns} rows={rows} rowKey={(r) => r.id} noun={['expired licence', 'expired licences']} />
     </Modal>

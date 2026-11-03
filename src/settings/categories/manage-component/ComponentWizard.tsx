@@ -284,9 +284,9 @@ export default function ComponentWizard({ req, onCancel, onSaved }: { req: Wizar
         <div className="manage-component-fields">
           <TextField label={family === 'm365' ? 'SQL Server' : 'Server Name'} value={db.server} maxLength={128} placeholder="e.g. 192.168.30.92"
             error={errors.dbServer} onChange={(v) => setDbField({ server: v }, ['dbServer'])} />
-          <Field label="Authentication Type">
-            <RadioGroup row ariaLabel="Authentication Type" value={db.auth}
-              options={[{ value: 'windows', label: 'Windows Authentication' }, { value: 'sql', label: 'SQL Authentication (Recommended)' }]}
+          <Field label="Authentication type">
+            <RadioGroup row ariaLabel="Authentication type" value={db.auth}
+              options={[{ value: 'windows', label: 'Windows authentication' }, { value: 'sql', label: 'SQL Authentication (Recommended)' }]}
               onChange={(v) => setDbField(v === 'windows' ? { auth: 'windows', user: '', password: '' } : { auth: 'sql' }, ['dbUser', 'dbPassword'])} />
           </Field>
           <div className="manage-component-two">
@@ -298,15 +298,15 @@ export default function ComponentWizard({ req, onCancel, onSaved }: { req: Wizar
           <div><Button variant="primary" icon="plug" onClick={testConnection}>Test connection</Button></div>
           <Field label="Database">
             <RadioGroup row ariaLabel="Database" value={db.mode}
-              options={[{ value: 'create', label: 'Create Database' }, { value: 'select', label: 'Select Database' }]}
+              options={[{ value: 'create', label: 'Create database' }, { value: 'select', label: 'Select database' }]}
               onChange={(v) => setDbField({ mode: v as 'create' | 'select', name: '' }, ['dbName'])} />
           </Field>
           {db.mode === 'create'
-            ? <TextField label="Create Database" value={db.name} maxLength={128} placeholder="e.g. Richard_Data1" error={errors.dbName} onChange={(v) => setDbField({ name: v }, ['dbName'])} />
-            : <SelectField label="Select Database" value={db.name} placeholder="Select" options={DATABASES} error={errors.dbName} onChange={(v) => setDbField({ name: v }, ['dbName'])} />}
+            ? <TextField label="Create database" value={db.name} maxLength={128} placeholder="e.g. Richard_Data1" error={errors.dbName} onChange={(v) => setDbField({ name: v }, ['dbName'])} />
+            : <SelectField label="Select database" value={db.name} placeholder="Select" options={DATABASES} error={errors.dbName} onChange={(v) => setDbField({ name: v }, ['dbName'])} />}
           {copilot && (
             <div className="manage-component-retention">
-              <span className="row"><Toggle label="Chat Retention" checked={db.chatRetention} onChange={(v) => setDbField({ chatRetention: v }, ['dbDays'])} /><b className="text-sm">Chat Retention</b></span>
+              <span className="row"><Toggle label="Chat retention" checked={db.chatRetention} onChange={(v) => setDbField({ chatRetention: v }, ['dbDays'])} /><b className="text-sm">Chat Retention</b></span>
               <TextField label="days" value={db.retentionDays} disabled={!db.chatRetention} inputMode="numeric" maxLength={4} error={errors.dbDays}
                 onChange={(v) => setDbField({ retentionDays: v.replace(/\D/g, '').slice(0, 4) }, ['dbDays'])} />
             </div>

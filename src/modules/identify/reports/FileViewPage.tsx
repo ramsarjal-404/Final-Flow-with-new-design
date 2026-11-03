@@ -40,13 +40,13 @@ export default function FileViewPage() {
   // Pattern list (INT-IDN-008 … 012): the table model filters, then sorts; a row click maps to that row's pattern.
   const patCols = useMemo<RCol<Pattern>[]>(() => [
     {
-      key: 'name', header: 'Pattern Lists', sortable: true, filterable: true, value: (p) => p.name,
+      key: 'name', header: 'Pattern lists', sortable: true, filterable: true, value: (p) => p.name,
       render: (p) => (p.name === selected
         ? <span className="idn-pat is-sel"><span className="idn-pat__tick" aria-hidden="true"><Icon name="check" size={11} /></span><span>{p.name}</span><span className="sr-only"> (selected)</span></span>
         : <span className="idn-pat">{p.name}</span>),
     },
     {
-      key: 'count', header: 'Total Count', width: 120, sortable: true, filterable: true, value: (p) => p.count,
+      key: 'count', header: 'Total count', width: 120, sortable: true, filterable: true, value: (p) => p.count,
       render: (p) => <span className="idn-count">{p.count}</span>,
     },
   ], [selected]);

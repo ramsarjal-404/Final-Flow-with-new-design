@@ -26,7 +26,7 @@ export function SuperAdminView() {
   }
 
   const columns: Column<SuperAdmin>[] = [
-    { key: 'name', header: 'Super Admin', filterable: true, sortable: true, value: (a) => a.name,
+    { key: 'name', header: 'Super admin', filterable: true, sortable: true, value: (a) => a.name,
       render: (a) => (
         <label className="row" style={{ cursor: 'pointer' }}>
           <input type="radio" name="protect-super-admin" checked={picked === a.id} onChange={() => setPicked(a.id)}
@@ -43,7 +43,7 @@ export function SuperAdminView() {
   };
 
   return (
-    <SetCard title="Please Configure Super Admin Privileges"
+    <SetCard title="Please configure super admin privileges"
       footer={<>
         <span className="lf-muted" style={{ whiteSpace: 'normal' }}>Important: To access Lepide Protect, please ensure that the user is granted the necessary Super Admin Privileges specific to their domain. As our Lepide Protect is designed to support a single domain, users without this domain-specific privilege will not be able to manage or access the permission settings.</span>
         <Button variant="primary" disabled={!picked} onClick={apply}>Apply</Button>

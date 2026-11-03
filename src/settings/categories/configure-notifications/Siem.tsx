@@ -34,11 +34,11 @@ export function SiemTab() {
   const columns: Column<SiemProfile>[] = [
     { key: 'name', header: 'Name', sortable: true, minWidth: 160 },
     { key: 'ip', header: 'IP Address', sortable: true, mono: true },
-    { key: 'port', header: 'Port Number', sortable: true, value: (r) => r.port },
+    { key: 'port', header: 'Port number', sortable: true, value: (r) => r.port },
     { key: 'status', header: 'Status', sortable: true, value: (r) => (r.enabled ? 'Enabled' : 'Disabled'), render: (r) => <ToneTag tone={r.enabled ? 'good' : 'bad'}>{r.enabled ? 'Enabled' : 'Disabled'}</ToneTag> },
-    { key: 'lastSent', header: 'Alert Sent to SIEM', sortable: true },
+    { key: 'lastSent', header: 'Alert sent to SIEM', sortable: true },
     {
-      key: 'feed', header: 'Associated Alert Feed', minWidth: 300, value: (r) => (r.feed ? 'Alert feed is configured for siem' : 'Click on add icon to add alert feed'),
+      key: 'feed', header: 'Associated alert feed', minWidth: 300, value: (r) => (r.feed ? 'Alert feed is configured for siem' : 'Click on add icon to add alert feed'),
       render: (r) => r.feed ? (
         <span className="row">
           <span>Alert feed is configured for siem</span>
@@ -52,7 +52,7 @@ export function SiemTab() {
         </span>
       ),
     },
-    { key: 'cef', header: 'Using CEF Format', sortable: true, value: (r) => (r.cef ? 'Yes' : 'No') },
+    { key: 'cef', header: 'Using CEF format', sortable: true, value: (r) => (r.cef ? 'Yes' : 'No') },
     { key: 'view', header: 'View', value: () => '', render: (r) => <Button size="sm" icon="eye" onClick={() => setViewing(r.id)}>View</Button> },
   ];
 
@@ -99,14 +99,14 @@ export function SiemTab() {
       </Modal>
 
       {/* DLG-SAD-37 · SIEM Account Details */}
-      <Modal open={!!viewTarget} onClose={() => setViewing(null)} title="SIEM Account Details" icon="server" size="lg"
+      <Modal open={!!viewTarget} onClose={() => setViewing(null)} title="SIEM account details" icon="server" size="lg"
         footer={<Button variant="primary" onClick={() => setViewing(null)}>Close</Button>}>
         {viewTarget && (
           <>
             <KeyValues cols={3} items={[
               { label: 'Name', value: viewTarget.name },
               { label: 'IP Address', value: viewTarget.ip },
-              { label: 'Port Number', value: String(viewTarget.port) },
+              { label: 'Port number', value: String(viewTarget.port) },
               { label: 'CEF Format', value: viewTarget.cef ? 'Yes' : 'No' },
               { label: 'Alert Name', value: viewTarget.feed?.alertName ?? '' },
               { label: 'Processed', value: viewTarget.feed ? (viewTarget.feed.remote ? `Remotely on ${viewTarget.feed.agent}` : 'On this server') : '' },
@@ -163,12 +163,12 @@ function AddSiemProfileDialog({ open, onClose, existing, onAdded }: {
   };
 
   return (
-    <Modal open={open} onClose={onClose} title="Add SIEM Profile" icon="server" size="md"
+    <Modal open={open} onClose={onClose} title="Add SIEM profile" icon="server" size="md"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       <TextField label="Name" value={name} onChange={setName} error={tried ? errName : null} />
       <div className="fld-row">
         <TextField label="IP Address" value={ip} onChange={setIp} placeholder="192.168.30.150" error={tried ? errIp : null} />
-        <NumberField label="Port Number" value={port} min={0} max={99999} onChange={digitsGuard(5, setPort)} error={tried ? errPort : null} />
+        <NumberField label="Port number" value={port} min={0} max={99999} onChange={digitsGuard(5, setPort)} error={tried ? errPort : null} />
       </div>
       <Checkbox label="CEF Format" checked={cef} onChange={setCef} />
     </Modal>
@@ -325,7 +325,7 @@ function ClassPicker({ open, initial, onClose, onDone }: { open: boolean; initia
   useEffect(() => { if (open) { setPicked(initial.filter((v) => SIEM_COMPONENT_CLASSES.includes(v))); setQ(''); } }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
   const shown = SIEM_COMPONENT_CLASSES.filter((c) => c.toLowerCase().includes(q.trim().toLowerCase()));
   return (
-    <Modal open={open} onClose={onClose} title="Component Name" icon="layers" size="sm"
+    <Modal open={open} onClose={onClose} title="Component name" icon="layers" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={picked.length === 0} onClick={() => onDone(SIEM_COMPONENT_CLASSES.filter((c) => picked.includes(c)))}>Done</Button></>}>
       <p className="configure-notifications-lead">Select class(es) from the list and click "Done" button.</p>
       <div className="configure-notifications-box">
@@ -359,7 +359,7 @@ function AddValueDialog({ open, column, initial, onClose, onDone }: {
     setDraft('');
   };
   return (
-    <Modal open={open} onClose={onClose} title="Add Value" icon="plus" size="md"
+    <Modal open={open} onClose={onClose} title="Add value" icon="plus" size="md"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={vals.length === 0} onClick={() => onDone(vals)}>Done</Button></>}>
       <p className="configure-notifications-lead">Please add the values manually or import from CSV or Backup.</p>
       <div className="configure-notifications-addrow">

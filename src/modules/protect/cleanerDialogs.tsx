@@ -208,7 +208,7 @@ export function EmailAccountDialog({ open, existing, onClose, onDone }: { open: 
     onDone(name);
   };
   return (
-    <Modal open={open} onClose={onClose} size="lg" icon="mail" title="Configure New Email Account" subtitle="The account AD Cleaner alerts are sent from."
+    <Modal open={open} onClose={onClose} size="lg" icon="mail" title="Configure new email account" subtitle="The account AD Cleaner alerts are sent from."
       footerHint={err ? <span className="protect-err" role="alert">{err}</span> : undefined}
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       <div className="setrow">
@@ -223,7 +223,7 @@ export function EmailAccountDialog({ open, existing, onClose, onDone }: { open: 
       </div>
       {!mfa ? (
         <>
-          <Checkbox label="Required Authentication" checked={f.auth} onChange={up('auth')} />
+          <Checkbox label="Required authentication" checked={f.auth} onChange={up('auth')} />
           <div className="grid2">
             <TextField label="Logon Name" value={f.logon} disabled={!f.auth} onChange={up('logon')} />
             <PasswordField label="Password" value={f.password} disabled={!f.auth} onChange={up('password')} autoComplete="new-password" />

@@ -103,7 +103,7 @@ export function AlertWizard({ alert, onClose, onSaved }: { alert?: ThreatAlert; 
     if (!action) return;
     const f = action.form;
     const msg = validateAction(f);
-    if (msg) { setAction({ ...action, tried: true }); toast({ variant: 'error', title: 'Configure Report Delivery Action', message: msg }); return; }
+    if (msg) { setAction({ ...action, tried: true }); toast({ variant: 'error', title: 'Configure report delivery action', message: msg }); return; }
     const settings = settingsOf(f);
     const desc = describeAction(f.kind, settings ?? {});
     const rec: DeliveryAction = {

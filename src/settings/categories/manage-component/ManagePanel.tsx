@@ -73,7 +73,7 @@ export function ManageComponents() {
           </div>
         ) : <EmptyState compact icon="check" title="All components are added. Select an added component below to edit it." />}
       </SetCard>
-      <SetCard title="Added Components">
+      <SetCard title="Added components">
         {added.length ? (
           <div className="pick-grid manage-component-tiles">
             {added.map((k) => {

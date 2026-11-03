@@ -54,8 +54,8 @@ export default function ActionConfig({ submitRef, onAdd, onNested }: {
   useEffect(() => () => { submitRef.current = null; }, [submitRef]);
 
   const formatChecks = (
-    <Field label="Report Format">
-      <div className="row" role="group" aria-label="Report Format" style={{ gap: 18 }}>
+    <Field label="Report format">
+      <div className="row" role="group" aria-label="Report format" style={{ gap: 18 }}>
         {SUB.REPORT_FORMATS.map((f) => (
           <Checkbox key={f} label={f} checked={formats.includes(f)} onChange={(v) => setFormats((xs) => (v ? [...xs, f] : xs.filter((x) => x !== f)))} />
         ))}
@@ -72,7 +72,7 @@ export default function ActionConfig({ submitRef, onAdd, onNested }: {
             <SelectField label="Sender's Email Account:" placeholder="Select" options={emailNames} value={sender} onChange={setSender} className="grow" />
             <Button icon="plus" onClick={() => openNested('email')}>Add email</Button>
           </div>
-          <TextAreaField label="Recipient's Email" rows={5} placeholder="name@company.com" value={recipients} onChange={setRecipients}
+          <TextAreaField label="Recipient's email" rows={5} placeholder="name@company.com" value={recipients} onChange={setRecipients}
             help={'Separate multiple emails by ","'} error={invalid ? `"${invalid}" is not a valid email address.` : null} />
           {formatChecks}
         </>

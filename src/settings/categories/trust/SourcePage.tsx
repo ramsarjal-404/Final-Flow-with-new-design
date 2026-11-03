@@ -43,10 +43,10 @@ export function SourcePage({ source }: { source: TrustSource }) {
   return (
     <div className="stack trust-root">
       <SubHeader logo={source.logo} crumbs={[{ label: 'Trust Settings', to: '/settings/trust' }, { label: source.label }]}
-        title={`Current Permission Scan Settings - ${source.label}`} subtitle="Add Current Permission Scan Settings Credentials" />
+        title={`Current Permission Scan Settings - ${source.label}`} subtitle="Add current permission scan settings credentials" />
       <div className="trust-tabs">
         <Segmented ariaLabel="Scan settings" value={tab} onChange={setTab}
-          items={[{ value: 'data', label: 'Data Set' }, { value: 'primary', label: 'Primary Database' }, { value: 'secondary', label: 'Secondary Database(s)' }]} />
+          items={[{ value: 'data', label: 'Data Set' }, { value: 'primary', label: 'Primary database' }, { value: 'secondary', label: 'Secondary Database(s)' }]} />
       </div>
       {tab === 'data' && <DataSetTab source={source} selected={selected} onSelect={setSelected} onAdd={() => setWizard({})} onEdit={(ds) => setWizard({ editing: ds })} />}
       {tab === 'primary' && <PrimaryTab source={source} />}
@@ -68,7 +68,7 @@ function DataSetTab({ source, selected, onSelect, onAdd, onEdit }: {
 
   const info = (d: DataSet) => {
     const items = [
-      { label: 'Data Set Name', value: d.name, wide: true },
+      { label: 'Data set name', value: d.name, wide: true },
       { label: 'Description', value: d.description || '—', wide: true },
       { label: 'Component', value: source.label },
       nas
@@ -100,12 +100,12 @@ function DataSetTab({ source, selected, onSelect, onAdd, onEdit }: {
       </>}
       empty={<EmptyState icon="folder" title="No Data set detected." message="Please create a Data set to proceed with current permission scan settings" />}
       columns={[
-        { key: 'name', header: 'Data Set Name', sortable: true, filterable: true, minWidth: 180 },
+        { key: 'name', header: 'Data set name', sortable: true, filterable: true, minWidth: 180 },
         { key: 'agent', header: 'Agent', sortable: true, filterable: true },
         { key: 'lastScan', header: 'Last Scan', sortable: true, filterable: true, minWidth: 170 },
-        { key: 'nextScan', header: 'Next Scan', sortable: true, filterable: true, minWidth: 170 },
+        { key: 'nextScan', header: 'Next scan', sortable: true, filterable: true, minWidth: 170 },
         { key: 'status', header: 'Status', sortable: true, filterable: true, render: (r) => <ToneTag tone={STATUS_TONE[r.status]}>{r.status}</ToneTag> },
-        { key: 'scanType', header: 'Scan Type', sortable: true, filterable: true, value: scanType },
+        { key: 'scanType', header: 'Scan type', sortable: true, filterable: true, value: scanType },
       ]}
       rowActions={(r) => <>
         <IconButton icon="play" label={`Run scan for ${r.name}`} disabled={r.status === 'Running'} onClick={() => runScan(source.id, r.id, toast)} />
@@ -120,7 +120,7 @@ function DataSetTab({ source, selected, onSelect, onAdd, onEdit }: {
       {sel ? (
         <div className="with-detail">
           {table}
-          <DetailPanel title="Data Set Information" subtitle={sel.name} onClose={() => onSelect(null)}>{info(sel)}</DetailPanel>
+          <DetailPanel title="Data set information" subtitle={sel.name} onClose={() => onSelect(null)}>{info(sel)}</DetailPanel>
         </div>
       ) : table}
       {find && <FindSharesDialog open onClose={() => setFind(false)} />}
@@ -147,7 +147,7 @@ function PrimaryTab({ source }: { source: TrustSource }) {
   const dirty = JSON.stringify(draft) !== JSON.stringify(st.primary);
   const save = () => {
     const e = sqlErrors(draft); setErrs(e);
-    if (Object.keys(e).length) { toast({ variant: 'error', title: 'Primary Database', message: 'Please enter the SQL Server, credentials and database.' }); return; }
+    if (Object.keys(e).length) { toast({ variant: 'error', title: 'Primary database', message: 'Please enter the SQL Server, credentials and database.' }); return; }
     const v = { ...draft, server: draft.server.trim(), database: draft.database.trim() };
     patchSource(source.id, (s) => ({ ...s, primary: v }));
     setDraft(v);
@@ -155,7 +155,7 @@ function PrimaryTab({ source }: { source: TrustSource }) {
   };
   return (
     <>
-      <SetCard title="Edit Primary Database"
+      <SetCard title="Edit primary database"
         footer={<>
           <Button disabled={!dirty} onClick={() => { setDraft({ ...st.primary }); setErrs({}); }}>Cancel</Button>
           <Button variant="primary" icon="save" disabled={!dirty} onClick={save}>Save</Button>

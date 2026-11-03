@@ -33,7 +33,7 @@ export function AlertDetailsPanel({ alert, onClose, onStatus }: { alert: ThreatA
   const shown = blocks.filter((b) => !query || b.report.toLowerCase().includes(query));
 
   return (
-    <SidePanel label="Alert Details" title="Alert Details" closeLabel="Close alert details" onClose={onClose} holdEscape={more}
+    <SidePanel label="Alert details" title="Alert details" closeLabel="Close alert details" onClose={onClose} holdEscape={more}
       footer={<Button onClick={onClose}>Close</Button>}>
       <div className="stack">
         <KeyValues items={[{ label: 'Alert Name', value: alert.name, wide: true }]} />
@@ -46,21 +46,21 @@ export function AlertDetailsPanel({ alert, onClose, onStatus }: { alert: ThreatA
           {/* GAP-DET-08 intended: only when more than two blocks exist. */}
           {blocks.length > 2 && <div><Button size="sm" onClick={() => { setQ(''); setMore(true); }}>Show more</Button></div>}
         </div>
-        <KeyValues items={[{ label: 'Delivery Mechanism', value: deliveryMechanism(alert) || '—', wide: true }]} />
+        <KeyValues items={[{ label: 'Delivery mechanism', value: deliveryMechanism(alert) || '—', wide: true }]} />
         <div className="stack stack--sm">
           <h4 className="detect-sec">Action</h4>
           <KeyValues items={[
             ...(sendTo ? [{ label: 'Send To', value: sendTo, wide: true }] : []),
-            { label: 'Alert Type', value: <ToneTag tone={TYPE_TONE[alert.alertType] ?? 'none'}>{alert.alertType}</ToneTag> },
-            ...(alert.processRemotely ? [{ label: 'Agent Server', value: alert.agent }] : []),
+            { label: 'Alert type', value: <ToneTag tone={TYPE_TONE[alert.alertType] ?? 'none'}>{alert.alertType}</ToneTag> },
+            ...(alert.processRemotely ? [{ label: 'Agent server', value: alert.agent }] : []),
           ]} />
         </div>
       </div>
 
       {/* DLG-DET-02 · Alert Details dialog ("Show more") */}
-      <Modal open={more} onClose={() => setMore(false)} title="Alert Details" subtitle={alert.name} icon="eye" size="md"
+      <Modal open={more} onClose={() => setMore(false)} title="Alert details" subtitle={alert.name} icon="eye" size="md"
         footer={<Button variant="primary" onClick={() => setMore(false)}>Close</Button>}>
-        <ClearableSearch value={q} onChange={setQ} placeholder="Report Name" ariaLabel="Search report name" autoFocus />
+        <ClearableSearch value={q} onChange={setQ} placeholder="Report name" ariaLabel="Search report name" autoFocus />
         <div className="detect-more">
           {shown.length ? <Blocks blocks={shown} /> : <p className="detect-empty-line">No reports match "{q.trim()}".</p>}
         </div>

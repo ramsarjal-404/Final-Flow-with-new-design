@@ -79,8 +79,8 @@ export default function SchedulePicker({ type, onClose, onAdd }: { type: Schedul
           </div>
         </Field>
       )}
-      <Field label="Report Duration">
-        <RadioGroup row ariaLabel="Report Duration" value={duration} onChange={setDuration} options={DURATIONS[type]} />
+      <Field label="Report duration">
+        <RadioGroup row ariaLabel="Report duration" value={duration} onChange={setDuration} options={DURATIONS[type]} />
       </Field>
     </Modal>
   );

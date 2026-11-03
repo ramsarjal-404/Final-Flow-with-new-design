@@ -150,11 +150,11 @@ export default function PermissionWizard() {
           {step === 0 && (
             <>
               <div className="grid2">
-                <TextField label="Policy Name" placeholder="Type text" value={f.name} error={err.name} onChange={(v) => up({ name: v })} />
-                <TextField label="Policy Description" placeholder="Type text" value={f.desc} onChange={(v) => up({ desc: v })} />
+                <TextField label="Policy name" placeholder="Type text" value={f.name} error={err.name} onChange={(v) => up({ name: v })} />
+                <TextField label="Policy description" placeholder="Type text" value={f.desc} onChange={(v) => up({ desc: v })} />
                 <SelectField label="Criteria" placeholder="Select" value={f.criteria} options={CRITERIA} error={err.criteria}
                   onChange={(v) => up({ criteria: v, members: v ? preselect(v) : f.members })} />
-                <Field label="Period of Action" error={err.period}>
+                <Field label="Period of action" error={err.period}>
                   <div className="protect-suffix"><input inputMode="numeric" aria-label="Period of Action in days" value={f.period} aria-invalid={!!err.period || undefined}
                     onChange={(e) => up({ period: e.target.value.replace(/\D/g, '').slice(0, 4) })} /><span>Days</span></div>
                 </Field>
@@ -165,7 +165,7 @@ export default function PermissionWizard() {
                 onToggle={(id) => setExpanded((s) => { const n = new Set(s); if (n.has(id)) n.delete(id); else n.add(id); return n; })}
                 rootRowClass={(r) => (r.kind === 'lead' ? 'protect-leadrow' : undefined)}
                 columns={[
-                  { key: 'name', header: 'Members Name', sortable: true, filterable: true,
+                  { key: 'name', header: 'Members name', sortable: true, filterable: true,
                     lead: <span className="protect-thcheck"><Checkbox ariaLabel="Select all members" checked={allOn} indeterminate={someOn && !allOn} disabled={!pageSel.length}
                       onChange={() => up({ members: allOn ? f.members.filter((x) => !pageSel.includes(x)) : Array.from(new Set([...f.members, ...pageSel])) })} /></span>,
                     render: (r) => (
@@ -175,7 +175,7 @@ export default function PermissionWizard() {
                         <b>{r.name}</b>
                       </span>
                     ) },
-                  { key: 'title', header: 'Job Title', sortable: true, filterable: true },
+                  { key: 'title', header: 'Job title', sortable: true, filterable: true },
                   { key: 'email', header: 'Email ID', sortable: true, filterable: true },
                 ]} />
             </>
@@ -186,7 +186,7 @@ export default function PermissionWizard() {
                 help="Note: This server list is based on currently permission-scanned servers." onChange={setServer} />
               <div className="protect-shares">
                 <p className="lf-muted">You can include any shares by checking the box</p>
-                <Checkbox label="Select All" checked={sAll} indeterminate={sSome && !sAll} onChange={() => setShares(listed, !sAll)} />
+                <Checkbox label="Select all" checked={sAll} indeterminate={sSome && !sAll} onChange={() => setShares(listed, !sAll)} />
                 <ul>
                   {servers.map((s) => {
                     const ids = s.shares.map((x) => x.id); const on = ids.every((id) => f.shares.includes(id)); const some = ids.some((id) => f.shares.includes(id));
@@ -213,21 +213,21 @@ export default function PermissionWizard() {
           )}
           {step === 2 && (
             <>
-              <Checkbox label="Execute Policy" checked={f.execute} onChange={(v) => up({ execute: v })} />
-              <Field label="Schedule Time">
+              <Checkbox label="Execute policy" checked={f.execute} onChange={(v) => up({ execute: v })} />
+              <Field label="Schedule time">
                 <div className="row">
                   <Button icon="calendar" disabled={!f.execute} aria-pressed={f.schedule?.kind === 'weekly'} className={f.schedule?.kind === 'weekly' ? 'protect-on' : undefined} onClick={() => setDlg('weekly')}>Weekly</Button>
                   <Button icon="calendar" disabled={!f.execute} aria-pressed={f.schedule?.kind === 'monthly'} className={f.schedule?.kind === 'monthly' ? 'protect-on' : undefined} onClick={() => setDlg('monthly')}>Monthly</Button>
                 </div>
               </Field>
-              <Field label="Scan Schedule Status">
+              <Field label="Scan schedule status">
                 <div className="row protect-schedstat" aria-live="polite">
                   {f.schedule ? <><span>{scheduleText(f.schedule)}</span><IconButton icon="trash" label="Remove schedule" danger onClick={() => up({ schedule: null })} /></>
                     : <span className="lf-muted">No schedule set.</span>}
                 </div>
               </Field>
               <div className="setrow"><div className="setrow__text"><b>Email Notification</b><span>Email the policy owner when a run completes.</span></div>
-                <div className="row"><Toggle label="Email Notification" checked={f.email} onChange={(v) => up({ email: v })} /></div></div>
+                <div className="row"><Toggle label="Email notification" checked={f.email} onChange={(v) => up({ email: v })} /></div></div>
               {err.schedule && <Banner tone="error">{err.schedule}</Banner>}
             </>
           )}

@@ -134,14 +134,14 @@ export default function AdRestore({ onDirty }: { onDirty: (dirty: boolean) => vo
 
             <p className="section-label">Restoration Mode Selection</p>
             <div className="row row--between row--wrap">
-              <RadioGroup row ariaLabel="Restoration Mode Selection" value={form.mode}
+              <RadioGroup row ariaLabel="Restoration mode selection" value={form.mode}
                 onChange={(v) => setForm((f) => ({ ...f, mode: v as Mode, source: v === 'gp' ? 'backup' : f.source }))}
                 options={[{ value: 'ad', label: 'Active Directory' }, { value: 'gp', label: 'Group Policy' }]} />
               <Button icon="archive" disabled={form.mode !== 'gp'} onClick={() => setDialog('extract')}>Extract backup</Button>
             </div>
             <div className="backup-restore-source">
               <RadioGroup ariaLabel="Restore source" value={form.source} onChange={(v) => set('source', v as Source)}
-                options={[{ value: 'backup', label: 'Restore from Backup' }, { value: 'tombstone', label: 'Restore from Tombstone', disabled: form.mode === 'gp' }]} />
+                options={[{ value: 'backup', label: 'Restore from backup' }, { value: 'tombstone', label: 'Restore from tombstone', disabled: form.mode === 'gp' }]} />
               <Field className="backup-restore-backup">
                 <div className="backup-restore-inline">
                   <input readOnly aria-label="Backup" placeholder="Select backup" value={form.backup} disabled={form.source === 'tombstone'}

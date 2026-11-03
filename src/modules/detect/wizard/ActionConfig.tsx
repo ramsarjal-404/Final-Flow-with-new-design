@@ -67,16 +67,16 @@ export function ActionConfig({ f, set, triedDone }: { f: ActionForm; set: (p: Pa
 
   return (
     <>
-      <SelectField label="Select Alert Action" options={ALERT_ACTIONS} value={f.kind} onChange={(v) => set({ kind: v as ActionKind })} />
+      <SelectField label="Select alert action" options={ALERT_ACTIONS} value={f.kind} onChange={(v) => set({ kind: v as ActionKind })} />
 
       {f.kind === 'Send Email Alert' && (
         <div className="grid2 detect-action-cols">
           <div className="stack">
             <div className="detect-inline-field">
-              <SelectField label="Sender Email Account" placeholder="Select" options={emailAccounts.map((a) => a.name)} value={f.sender} onChange={(v) => set({ sender: v })} />
+              <SelectField label="Sender email account" placeholder="Select" options={emailAccounts.map((a) => a.name)} value={f.sender} onChange={(v) => set({ sender: v })} />
               <Button icon="plus" onClick={() => setNested('email')}>Add new email account</Button>
             </div>
-            <TextAreaField label="Recipient's Email" placeholder="name@company.com" value={f.recipients} onChange={(v) => set({ recipients: v })}
+            <TextAreaField label="Recipient's email" placeholder="name@company.com" value={f.recipients} onChange={(v) => set({ recipients: v })}
               help={'Separate multiple email by ","'} error={badEmail ? `"${badEmail}" is not a valid email address.` : null} />
           </div>
           <div className="stack">
@@ -88,14 +88,14 @@ export function ActionConfig({ f, set, triedDone }: { f: ActionForm; set: (p: Pa
             </div>
             <div className="stack stack--sm">
               <span className="fld__lbl">Report Format</span>
-              <div className="row" role="group" aria-label="Report Format">
+              <div className="row" role="group" aria-label="Report format">
                 {REPORT_FORMATS.map((fm) => (
                   <Checkbox key={fm} label={fm} checked={f.formats.includes(fm)} disabled={!f.pastOn}
                     onChange={(c) => set({ formats: c ? REPORT_FORMATS.filter((x) => x === fm || f.formats.includes(x)) : f.formats.filter((x) => x !== fm) })} />
                 ))}
               </div>
             </div>
-            <TextAreaField label="Email Content" placeholder="Type Description here" value={f.content} onChange={(v) => set({ content: v })} />
+            <TextAreaField label="Email content" placeholder="Type Description here" value={f.content} onChange={(v) => set({ content: v })} />
             <div className="stack stack--sm">
               <Checkbox checked={f.toUser} onChange={(v) => set({ toUser: v })} label="Send email to user" />
               <TextAreaField aria-label="Email to user" value={f.userMessage} disabled={!f.toUser} onChange={(v) => set({ userMessage: v })} />

@@ -49,7 +49,7 @@ export function EmailAccountDialog({ onClose, onCreated }: { onClose: () => void
     : toast({ variant: 'error', title: 'Send test email', message: 'Fill in the account details first.' }));
 
   return (
-    <Modal open onClose={onClose} title="Configure New Email Account" icon="mail" size="lg"
+    <Modal open onClose={onClose} title="Configure new email account" icon="mail" size="lg"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={!valid} onClick={done}>Done</Button></>}>
       <Checkbox label="Multi-Factor Authentication" checked={mfa} onChange={setMfa} />
       <div className="grid2" style={{ alignItems: 'start' }}>
@@ -60,7 +60,7 @@ export function EmailAccountDialog({ onClose, onCreated }: { onClose: () => void
             error={sender.trim() && !senderOk ? `"${sender.trim()}" is not a valid email address.` : null} />
           {!mfa ? (
             <>
-              <Checkbox label="Required Authentication" checked={reqAuth} onChange={setReqAuth} />
+              <Checkbox label="Required authentication" checked={reqAuth} onChange={setReqAuth} />
               <TextField label="Logon Name" value={logon} disabled={!reqAuth} onChange={setLogon} />
               <PasswordField label="Password" value={password} disabled={!reqAuth} onChange={setPassword} />
             </>
@@ -105,13 +105,13 @@ export function NotificationEmailDialog({ onClose, onDone, onNested }: {
   const setAdd = (v: boolean) => { setAdding(v); onNested?.(v); };
   return (
     <>
-      <Modal open={!adding} onClose={onClose} title="Configure Notification Email Account" icon="bell" size="md"
+      <Modal open={!adding} onClose={onClose} title="Configure notification email account" icon="bell" size="md"
         footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={!valid} onClick={() => onDone(`${sender} → ${recipients.trim()}`)}>Done</Button></>}>
         <div className="subscription-inline">
-          <SelectField label="Sender Email Account" placeholder="Select" options={emailNames} value={sender} onChange={setSender} className="grow" />
+          <SelectField label="Sender email account" placeholder="Select" options={emailNames} value={sender} onChange={setSender} className="grow" />
           <Button icon="plus" onClick={() => setAdd(true)}>Add new email account</Button>
         </div>
-        <TextAreaField label="Recipient's Email" rows={4} value={recipients} onChange={setRecipients} help={'Separate multiple email by ","'} />
+        <TextAreaField label="Recipient's email" rows={4} value={recipients} onChange={setRecipients} help={'Separate multiple email by ","'} />
       </Modal>
       {adding && (
         <EmailAccountDialog onClose={() => setAdd(false)} onCreated={(a) => { setSender(a.name); setAdd(false); }} />

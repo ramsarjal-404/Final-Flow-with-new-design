@@ -41,11 +41,11 @@ export default function DomainPicker({ kind, multi, title, onClose, onDone }: {
         <PasswordField label="Password" value="••••••••" disabled aria-label="Password (current user)" />
       </div>
       <RadioGroup row ariaLabel="Domain" value={mode} onChange={(v) => setMode(v as 'type' | 'select')}
-        options={[{ value: 'type', label: 'Type Domain' }, { value: 'select', label: 'Select Domain' }]} />
+        options={[{ value: 'type', label: 'Type domain' }, { value: 'select', label: 'Select domain' }]} />
       <div className="add-data-source-inline">
-        <TextField value={typed} placeholder="Type Domain" maxLength={256} aria-label="Type Domain"
+        <TextField value={typed} placeholder="Type domain" maxLength={256} aria-label="Type domain"
           onChange={(v) => { setTyped(v); setMode('type'); }} />
-        <SelectField value={picked} options={DOMAINS} aria-label="Select Domain" onChange={(v) => { setPicked(v); setMode('select'); }} />
+        <SelectField value={picked} options={DOMAINS} aria-label="Select domain" onChange={(v) => { setPicked(v); setMode('select'); }} />
         <Button icon="search" onClick={find}>Find</Button>
       </div>
       <section className="lf-card tablecard tablecard--flat tablecard--static add-data-source-mini">

@@ -9,10 +9,10 @@ import './styles.css';
 /* SCR-SAD-17…20 · SQL Authentication. The four tabs are page state; the current tab's label is the
    heading of the content card (the Settings frame keeps the category title). */
 const TABS = [
-  { value: 'default', label: 'Default SQL Server Settings' },
-  { value: 'gp', label: 'Group Policy SQL Settings' },
-  { value: 'mysql', label: 'MySQL Credentials' },
-  { value: 'delivery', label: 'Manage Delivery Settings' },
+  { value: 'default', label: 'Default SQL Server settings' },
+  { value: 'gp', label: 'Group Policy SQL settings' },
+  { value: 'mysql', label: 'MySQL credentials' },
+  { value: 'delivery', label: 'Manage delivery settings' },
 ] as const;
 type Tab = (typeof TABS)[number]['value'];
 

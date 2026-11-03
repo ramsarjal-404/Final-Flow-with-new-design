@@ -42,7 +42,7 @@ export default function DatabaseTransfer({ mode }: { mode: 'import' | 'export' }
   const onFile = (f: File) => {
     const ext = '.' + (f.name.split('.').pop() ?? '').toLowerCase();
     if (!f.name.includes('.') || !ACCEPT.includes(ext)) {
-      toast({ variant: 'error', title: 'Import Database', message: `"${f.name}" is not a database backup. Choose a .bak, .zip, .sql, .mdf file.` });
+      toast({ variant: 'error', title: 'Import database', message: `"${f.name}" is not a database backup. Choose a .bak, .zip, .sql, .mdf file.` });
       return;
     }
     run(f.name, () => {

@@ -21,7 +21,7 @@ const SINGLE: Record<SingleKind, {
     },
   },
   unc: {
-    title: 'Please Enter UNC Path', label: () => 'UNC Path :', note: String.raw`Use "\\Server name\Share name" format`, placeholder: String.raw`\\server\share`,
+    title: 'Please enter UNC path', label: () => 'UNC Path :', note: String.raw`Use "\\Server name\Share name" format`, placeholder: String.raw`\\server\share`,
     check: (v) => {
       if (!v) return 'Enter the UNC path.';
       if (!isUnc(v)) return String.raw`Use the \\Server name\Share name format.`;
@@ -29,7 +29,7 @@ const SINGLE: Record<SingleKind, {
     },
   },
   site: {
-    title: 'Please Enter Site Collection URL', label: () => 'Site Collection:', note: 'Please enter Site collection URL', placeholder: 'http://SP-2019/sites/finance',
+    title: 'Please enter site collection URL', label: () => 'Site Collection:', note: 'Please enter Site collection URL', placeholder: 'http://SP-2019/sites/finance',
     check: (v) => {
       if (!v) return 'Enter the site collection URL.';
       if (!/^https?:\/\/\S+$/i.test(v)) return 'Enter a full URL starting with http:// or https://.';
@@ -37,7 +37,7 @@ const SINGLE: Record<SingleKind, {
     },
   },
   folder: {
-    title: 'Please Enter Folder Path', label: () => 'Folder Path:', note: 'Please enter the Dropbox folder path, e.g. /Finance', placeholder: '/Finance',
+    title: 'Please enter folder path', label: () => 'Folder Path:', note: 'Please enter the Dropbox folder path, e.g. /Finance', placeholder: '/Finance',
     check: (v) => {
       if (!v) return 'Enter the folder path.';
       if (!v.startsWith('/')) return 'Folder paths start with "/".';
@@ -81,7 +81,7 @@ export function ImportDatasetDialog({ open, onClose, onAdd }: { open: boolean; o
     onAdd(picked.map((r) => ({ path: r.path, server: r.server })));
   };
   return (
-    <Modal open={open} onClose={onClose} title="Import From Existing Data Sets" icon="layers" size="md"
+    <Modal open={open} onClose={onClose} title="Import from existing data sets" icon="layers" size="md"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       <SelectField label="Data Set" placeholder="Select" options={Object.keys(DATASETS)} value={set} onChange={(v) => { setSet(v); setChecked([]); }} />
       <CheckTable label="Data set paths" rows={rows} rowKey={(r) => r.path} checked={checked} onChecked={setChecked} rowToggle
@@ -114,7 +114,7 @@ export function ImportCsvDialog({ open, onClose, onAdd, urlMode }: { open: boole
     ? 'URL\nhttp://SP-2019/sites/finance\nhttp://SP-2019/sites/hr\n'
     : 'Path\n\\\\192.168.30.93\\Finance\n\\\\192.168.30.94\\Accounts\n');
   return (
-    <Modal open={open} onClose={onClose} title="Import From Csv" icon="upload" size="sm"
+    <Modal open={open} onClose={onClose} title="Import from CSV" icon="upload" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       {file ? (
         <div className="basecard">
@@ -152,7 +152,7 @@ export function SelectFoldersDialog({ open, onClose, onAdd }: { open: boolean; o
     onAdd(picked.map((p) => ({ path: `\\\\${p.server}\\${p.folder}`, server: p.server })));
   };
   return (
-    <Modal open={open} onClose={onClose} title="Select Folders" icon="folder" size="lg"
+    <Modal open={open} onClose={onClose} title="Select folders" icon="folder" size="lg"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       <SelectField label="File Server :" options={servers} value={server} onChange={(v) => { setServer(v); setHi(''); setMore(false); }} />
       <div className="identify-shuttle">

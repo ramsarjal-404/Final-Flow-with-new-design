@@ -38,16 +38,16 @@ function SqlServerDialog({ open, initial, onClose }: { open: boolean; initial: C
   };
   const digits = (s: string) => s.replace(/\D/g, '').slice(0, 4);
   return (
-    <Modal open={open} onClose={onClose} escapeCloses={false} title="SQL Server Settings" icon="database" size="md"
+    <Modal open={open} onClose={onClose} escapeCloses={false} title="SQL Server settings" icon="database" size="md"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       <SqlFields value={v} onChange={(x) => { setV(x); setErrs({}); }} tested={tested} setTested={setTested} errors={errs} />
       <p className="section-label">Time out Settings</p>
       <div className="fld-row">
-        <Field label="Connection Time Out" error={errs.conn}>
-          <div className="identify-unit"><input aria-label="Connection Time Out" inputMode="numeric" value={conn} onChange={(e) => { setConn(digits(e.target.value)); setErrs({}); }} /><span className="muted text-sm">Seconds</span></div>
+        <Field label="Connection time out" error={errs.conn}>
+          <div className="identify-unit"><input aria-label="Connection time out" inputMode="numeric" value={conn} onChange={(e) => { setConn(digits(e.target.value)); setErrs({}); }} /><span className="muted text-sm">Seconds</span></div>
         </Field>
-        <Field label="Query Time Out" error={errs.query}>
-          <div className="identify-unit"><input aria-label="Query Time Out" inputMode="numeric" value={query} onChange={(e) => { setQuery(digits(e.target.value)); setErrs({}); }} /><span className="muted text-sm">Seconds</span></div>
+        <Field label="Query time out" error={errs.query}>
+          <div className="identify-unit"><input aria-label="Query time out" inputMode="numeric" value={query} onChange={(e) => { setQuery(digits(e.target.value)); setErrs({}); }} /><span className="muted text-sm">Seconds</span></div>
         </Field>
       </div>
       <Checkbox label="Import previously classified files information to this database" checked={imp} onChange={setImp} />
@@ -61,16 +61,16 @@ export function ServersPage({ source }: { source: IdfSource }) {
   const [dlg, setDlg] = useState<null | { row: CentralServer | null }>(null);
   const has = central.length > 0;
   return (
-    <Console source={source} title="Centralized Server Communication Details" crumbs={[{ label: 'Centralized Communication Server Details' }]}
+    <Console source={source} title="Centralized server communication details" crumbs={[{ label: 'Centralized communication server details' }]}
       actions={
         <Tip tip={has ? 'A centralized server is already configured — edit it instead.' : undefined}>
           <Button variant="primary" icon="plus" disabled={has} onClick={() => setDlg({ row: null })}>Add server detail</Button>
         </Tip>
       }>
-      <DataTable title="Centralized Server" noun={['server', 'servers']} rows={central} rowKey={(c) => c.id}
+      <DataTable title="Centralized server" noun={['server', 'servers']} rows={central} rowKey={(c) => c.id}
         columns={[
           { key: 'server', header: 'SQL Server', sortable: true },
-          { key: 'auth', header: 'Authentication Mode', sortable: true, value: (c) => (c.auth === 'sql' ? 'SQL Authentication' : 'Windows Authentication') },
+          { key: 'auth', header: 'Authentication mode', sortable: true, value: (c) => (c.auth === 'sql' ? 'SQL Authentication' : 'Windows Authentication') },
           { key: 'db', header: 'Database', sortable: true },
         ]}
         rowActions={(c) => <IconButton icon="edit" label={`Edit ${c.server}`} onClick={() => setDlg({ row: c })} />}

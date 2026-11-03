@@ -26,8 +26,8 @@ export function SelectFileServersDialog({ open, onClose, onDone }: { open: boole
     <Modal open={open} onClose={onClose} title="Select File Server(s)" icon="server" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       <div className="row row--wrap" style={{ gap: 16 }}>
-        <Checkbox checked={sensitive} onChange={setSensitive} label="Include Sensitive Data Information" />
-        <Checkbox checked={files} onChange={setFiles} label="Include Files" />
+        <Checkbox checked={sensitive} onChange={setSensitive} label="Include sensitive data information" />
+        <Checkbox checked={files} onChange={setFiles} label="Include files" />
       </div>
       <CheckTable label="File Server" rows={NAS_SERVERS} rowKey={(r) => r} checked={checked} onChecked={setChecked} empty="No file servers."
         cols={[{ key: 'fs', header: 'File Server', cell: (r) => r }]} />
@@ -94,7 +94,7 @@ export function SelectFoldersDialog({ open, onClose, onDone, addFileServer }: {
   const allOn = ticked.length === FOLDER_TREE.length;
   return (
     <>
-      <Modal open={open} onClose={onClose} title="Select Folders" subtitle="Please select the shared folder(s) to be scanned for permission." icon="folder" size="lg"
+      <Modal open={open} onClose={onClose} title="Select folders" subtitle="Please select the shared folder(s) to be scanned for permission." icon="folder" size="lg"
         escapeCloses={!sub}
         footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={!chosen.length} onClick={() => { onDone(chosen); onClose(); }}>Done</Button></>}>
         <div className="trust-inline">
@@ -103,18 +103,18 @@ export function SelectFoldersDialog({ open, onClose, onDone, addFileServer }: {
             <Menu align="right" label="Add file server" items={[
               { label: 'From AD', icon: 'building', onSelect: () => setSub('ad') },
               { label: 'From Containers/OUs', icon: 'folder', onSelect: () => setSub('ou') },
-              { label: 'From IP Range', icon: 'globe', onSelect: () => setSub('ip') },
+              { label: 'From IP range', icon: 'globe', onSelect: () => setSub('ip') },
             ]} trigger={(p) => <Button icon="plus" iconEnd="chevron" {...p}>Add file server</Button>} />
           )}
         </div>
         <div className="row row--wrap" style={{ gap: 16 }}>
-          <Checkbox checked={cluster} onChange={setCluster} label="Cluster Device Only" />
-          <Checkbox checked={sensitive} onChange={setSensitive} label="Include Sensitive Data Information" />
-          <Checkbox checked={files} onChange={setFiles} label="Include Files" />
+          <Checkbox checked={cluster} onChange={setCluster} label="Cluster device only" />
+          <Checkbox checked={sensitive} onChange={setSensitive} label="Include sensitive data information" />
+          <Checkbox checked={files} onChange={setFiles} label="Include files" />
         </div>
         <div className="trust-shuttle">
           <div className="stack stack--sm">
-            <Checkbox checked={!!server && allOn} indeterminate={!!server && ticked.length > 0 && !allOn} disabled={!server} label="Select All"
+            <Checkbox checked={!!server && allOn} indeterminate={!!server && ticked.length > 0 && !allOn} disabled={!server} label="Select all"
               onChange={() => setTicked(allOn ? [] : [...FOLDER_TREE])} />
             <div className="trust-treebox">
               {server ? (
@@ -134,7 +134,7 @@ export function SelectFoldersDialog({ open, onClose, onDone, addFileServer }: {
               { key: 'a', header: 'Action', cell: (r) => <IconButton icon="trash" danger label={`Remove ${r.folder}`} onClick={() => setChosen(chosen.filter((c) => c !== r))} /> }]} />
         </div>
       </Modal>
-      {sub === 'ad' && <AdDomainDialog open title="Select Folders" onClose={() => setSub('')} onDone={added} />}
+      {sub === 'ad' && <AdDomainDialog open title="Select folders" onClose={() => setSub('')} onDone={added} />}
       {sub === 'ou' && <OuDialog open onClose={() => setSub('')} onDone={added} />}
       {sub === 'ip' && <IpRangeDialog open onClose={() => setSub('')} onDone={added} />}
     </>
@@ -148,11 +148,11 @@ export function SiteUrlDialog({ open, onClose, onDone }: { open: boolean; onClos
   const [bad, setBad] = useState(false);
   const msg = 'Please enter site collection URL (Use format http://...)';
   const done = () => {
-    if (!/^https?:\/\/\S+$/i.test(url.trim())) { setBad(true); toast({ variant: 'error', title: 'Site Collection URL', message: msg }); return; }
+    if (!/^https?:\/\/\S+$/i.test(url.trim())) { setBad(true); toast({ variant: 'error', title: 'Site collection URL', message: msg }); return; }
     onDone(url.trim()); onClose();
   };
   return (
-    <Modal open={open} onClose={onClose} title="Please Enter Site Collection URL" icon="link" size="sm"
+    <Modal open={open} onClose={onClose} title="Please enter site collection URL" icon="link" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
       <form onSubmit={(e) => { e.preventDefault(); done(); }} style={{ display: 'contents' }}>
         <TextField label="URL" help={msg} value={url} error={bad ? msg : null} onChange={(v) => { setUrl(v); setBad(false); }} />

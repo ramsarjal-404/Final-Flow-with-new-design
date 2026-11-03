@@ -93,7 +93,7 @@ export function EmailView() {
               </div>
               <div className="protect-group">
                 <h4>Requires a secure connection (SSL)</h4>
-                <SelectField label="SSL Type" value={f.ssl} placeholder="Select" options={['None', 'SSL', 'TLS', 'STARTTLS']} error={err.ssl} onChange={(v) => set('ssl', v)} />
+                <SelectField label="SSL type" value={f.ssl} placeholder="Select" options={['None', 'SSL', 'TLS', 'STARTTLS']} error={err.ssl} onChange={(v) => set('ssl', v)} />
               </div>
             </div>
           </div>

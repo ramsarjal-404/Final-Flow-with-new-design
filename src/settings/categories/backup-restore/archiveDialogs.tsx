@@ -58,10 +58,10 @@ export function ArchiveDialog({ initial, onClose }: { initial?: ArchiveJob; onCl
       <Modal open onClose={onClose} title="Archive database" icon="archive" size="md" escapeCloses={!sub}
         footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={ok}>OK</Button></>}>
         <div className="grid2">
-          <SelectField label="Component Name" options={SUB.ARCHIVE_COMPONENTS} value={component} onChange={setComponent} />
+          <SelectField label="Component name" options={SUB.ARCHIVE_COMPONENTS} value={component} onChange={setComponent} />
           <SelectField label="Server Name :" options={SUB.ARCHIVE_SERVERS} value={server} onChange={setServer} />
           <TextField label="SQL Server :" value={SUB.ARCHIVE_SQL_SERVER} readOnly />
-          <TextField label="Database Name" value={DBS[component] ?? ''} readOnly />
+          <TextField label="Database name" value={DBS[component] ?? ''} readOnly />
         </div>
         <div className="backup-restore-inline backup-restore-inline--end">
           <TextField label="Archive Path :" placeholder="D:\Archives" value={path} onChange={setPath} className="grow" />
@@ -74,7 +74,7 @@ export function ArchiveDialog({ initial, onClose }: { initial?: ArchiveJob; onCl
         </div>
         <Checkbox label="Archive now" checked={now} onChange={setNow} />
         <div className="backup-restore-checkrow">
-          <Checkbox label="Schedule Archive" checked={scheduleOn} onChange={(v) => { setScheduleOn(v); if (!v) setSchedule(''); }} />
+          <Checkbox label="Schedule archive" checked={scheduleOn} onChange={(v) => { setScheduleOn(v); if (!v) setSchedule(''); }} />
           <Button size="sm" icon="calendar" disabled={!scheduleOn} onClick={() => setSub('weekly')}>Weekly</Button>
           <Button size="sm" icon="calendar" disabled={!scheduleOn} onClick={() => setSub('monthly')}>Monthly</Button>
         </div>
@@ -111,11 +111,11 @@ function WeeklyDialog({ onClose, onDone }: { onClose: () => void; onDone: (text:
   const [m, setM] = useState('00');
   const [days, setDays] = useState<string[]>(['Monday']);
   const ok = () => {
-    if (!days.length) return toast({ variant: 'error', title: 'Schedule Weekly', message: 'Select at least one day.' });
+    if (!days.length) return toast({ variant: 'error', title: 'Schedule weekly', message: 'Select at least one day.' });
     onDone(`Archive Data On Every ${SUB.WEEKDAYS.filter((d) => days.includes(d)).join(', ')} At - ${h}:${m}`);
   };
   return (
-    <Modal open onClose={onClose} title="Schedule Weekly" icon="calendar" size="sm"
+    <Modal open onClose={onClose} title="Schedule weekly" icon="calendar" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={ok}>OK</Button></>}>
       <StartTime h={h} m={m} onH={setH} onM={setM} />
       <div className="backup-restore-checks" role="group" aria-label="Days">
@@ -135,15 +135,15 @@ function MonthlyDialog({ onClose, onDone }: { onClose: () => void; onDone: (text
   const [dates, setDates] = useState<number[]>([]);
   const all = dates.length === 31;
   const ok = () => {
-    if (!dates.length) return toast({ variant: 'error', title: 'Schedule Monthly', message: 'Select at least one date.' });
+    if (!dates.length) return toast({ variant: 'error', title: 'Schedule monthly', message: 'Select at least one date.' });
     onDone(`Archive Data On Day ${all ? 'every day' : [...dates].sort((a, b) => a - b).join(', ')} Of Every Month At - ${h}:${m}`);
   };
   return (
-    <Modal open onClose={onClose} title="Schedule Monthly" icon="calendar" size="sm"
+    <Modal open onClose={onClose} title="Schedule monthly" icon="calendar" size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={ok}>OK</Button></>}>
       <p className="muted text-sm" style={{ margin: 0 }}>Please select time and date(s)</p>
       <StartTime h={h} m={m} onH={setH} onM={setM} />
-      <Checkbox label="Select All" checked={all} indeterminate={dates.length > 0 && !all}
+      <Checkbox label="Select all" checked={all} indeterminate={dates.length > 0 && !all}
         onChange={() => setDates(all ? [] : Array.from({ length: 31 }, (_, i) => i + 1))} />
       <DateGrid value={dates} onChange={setDates} />
     </Modal>
@@ -181,7 +181,7 @@ export function RestoreDataDialog({ row, onClose }: { row: ArchiveJob; onClose: 
   const [range, setRange] = useState(true);
   const [from, setFrom] = useState(localInput(new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0)));
   const [to, setTo] = useState(localInput(new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59)));
-  const err = (message: string) => toast({ variant: 'error', title: 'Restore Data', message });
+  const err = (message: string) => toast({ variant: 'error', title: 'Restore data', message });
   const sqlAuth = auth === 'sql';
 
   const ok = () => {
@@ -197,15 +197,15 @@ export function RestoreDataDialog({ row, onClose }: { row: ArchiveJob; onClose: 
   };
 
   return (
-    <Modal open onClose={onClose} title="Restore Data" icon="restore" size="md"
+    <Modal open onClose={onClose} title="Restore data" icon="restore" size="md"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={ok}>OK</Button></>}>
       <p className="section-label">Select Destination Source</p>
       <div className="backup-restore-inline backup-restore-inline--end">
         <TextField label="SQL Server :" placeholder="SQL-PROD-01" value={sql} onChange={setSql} className="grow" />
-        <Button aria-label="Find SQL Servers" onClick={() => { setSql('SQL-PROD-01'); toast({ variant: 'info', title: 'SQL Servers', message: 'SQL-PROD-01 was found on the network.' }); }}>…</Button>
+        <Button aria-label="Find SQL servers" onClick={() => { setSql('SQL-PROD-01'); toast({ variant: 'info', title: 'SQL servers', message: 'SQL-PROD-01 was found on the network.' }); }}>…</Button>
       </div>
       <RadioGroup row ariaLabel="Authentication" value={auth} onChange={(v) => setAuth(v as 'windows' | 'sql')}
-        options={[{ value: 'windows', label: 'Windows Authentication' }, { value: 'sql', label: 'SQL Authentication' }]} />
+        options={[{ value: 'windows', label: 'Windows authentication' }, { value: 'sql', label: 'SQL Authentication' }]} />
       <div className="grid2">
         <TextField label="User Name :" value={user} disabled={!sqlAuth} onChange={setUser} />
         <PasswordField label="Password" value={pass} disabled={!sqlAuth} onChange={setPass} />
@@ -215,17 +215,17 @@ export function RestoreDataDialog({ row, onClose }: { row: ArchiveJob; onClose: 
           ? toast({ variant: 'success', title: 'Test connection', message: `Connected to ${sql.trim()}.` })
           : err('Please enter the destination SQL Server.'))}>Test connection</Button>
       </div>
-      <TextField label="Database Name" placeholder="ArchiveDB_2025" value={db} onChange={setDb} />
+      <TextField label="Database name" placeholder="ArchiveDB_2025" value={db} onChange={setDb} />
       <div className="backup-restore-inline backup-restore-inline--end">
-        <TextField label="Set Archive Path" value={path} onChange={setPath} className="grow" />
+        <TextField label="Set archive path" value={path} onChange={setPath} className="grow" />
         <Button icon="folder" onClick={() => toast({ variant: 'info', title: 'Browse', message: 'Folder browsing runs on the Lepide server.' })}>Browse</Button>
       </div>
       <div className="backup-restore-checkrow">
-        <Checkbox label="Delete Restored Database After" checked={delAfter} onChange={setDelAfter} />
+        <Checkbox label="Delete restored database after" checked={delAfter} onChange={setDelAfter} />
         <NumberField label={sr('Days')} value={delDays} min={0} max={9999} disabled={!delAfter} suffix="Days"
           onChange={(v) => { if (digits(v)) setDelDays(v); }} />
       </div>
-      <Checkbox label="Select Date Range" checked={range} onChange={setRange} />
+      <Checkbox label="Select date range" checked={range} onChange={setRange} />
       <div className="grid2">
         <TextField label="Start Date :" type="datetime-local" value={from} disabled={!range} onChange={setFrom} />
         <TextField label="End Date :" type="datetime-local" value={to} disabled={!range} onChange={setTo} />
@@ -240,9 +240,9 @@ export function RestoredDatabasesDialog({ onClose }: { onClose: () => void }) {
   const rows = subStore.use((s) => s.restoredDbs);
   const [sel, setSel] = useState<string[]>([]);
   const cols: Column<RestoredDatabase>[] = [
-    { key: 'name', header: 'Database Name', sortable: true },
+    { key: 'name', header: 'Database name', sortable: true },
     { key: 'sqlServer', header: 'SQL Server', sortable: true },
-    { key: 'component', header: 'Component Name', sortable: true },
+    { key: 'component', header: 'Component name', sortable: true },
   ];
   const ok = () => {
     deleteRestoredDbs(sel);
@@ -250,7 +250,7 @@ export function RestoredDatabasesDialog({ onClose }: { onClose: () => void }) {
     onClose();
   };
   return (
-    <Modal open onClose={onClose} title="Restored Databases" icon="database" size="lg"
+    <Modal open onClose={onClose} title="Restored databases" icon="database" size="lg"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={sel.length === 0} onClick={ok}>OK</Button></>}>
       <p className="muted text-sm" style={{ margin: 0 }}>Select the Restored database(s) that you want to delete.</p>
       <DataTable flat className="tablecard--static" columns={cols} rows={rows} rowKey={(r) => r.id} selectable="multi" selected={sel} onSelectedChange={setSel}

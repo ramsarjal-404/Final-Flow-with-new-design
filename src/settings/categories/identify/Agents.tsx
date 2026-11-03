@@ -40,10 +40,10 @@ export function AgentServerDialog({ open, mode, initial, onClose, onSubmit }: {
   return (
     <Modal open={open} onClose={onClose} title={mode === 'add' ? 'Add Server' : 'Update Agent'} icon={mode === 'add' ? 'server' : 'edit'} size="sm"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={submit}>{mode === 'add' ? 'Apply' : 'Done'}</Button></>}>
-      <TextField label="IP Address" value={f.server} disabled={mode === 'update'} error={errs.server} placeholder="Enter IP Address" onChange={(v) => up({ server: v })} />
-      <TextField label="Agent Path" value={f.path} error={errs.path} help={'Use "\\\\server name\\share name" format'} placeholder="Enter Agent Path" onChange={(v) => up({ path: v })} />
-      <TextField label="User Name" value={f.user} error={errs.user} help={'Use "Domain name\\User Name" format'} placeholder="Enter User Name" onChange={(v) => up({ user: v })} />
-      <PasswordField label="Password" value={f.password} error={errs.password} placeholder="Enter Password" autoComplete="new-password" onChange={(v) => up({ password: v })} />
+      <TextField label="IP Address" value={f.server} disabled={mode === 'update'} error={errs.server} placeholder="Enter IP address" onChange={(v) => up({ server: v })} />
+      <TextField label="Agent Path" value={f.path} error={errs.path} help={'Use "\\\\server name\\share name" format'} placeholder="Enter agent path" onChange={(v) => up({ path: v })} />
+      <TextField label="User Name" value={f.user} error={errs.user} help={'Use "Domain name\\User Name" format'} placeholder="Enter user name" onChange={(v) => up({ user: v })} />
+      <PasswordField label="Password" value={f.password} error={errs.password} placeholder="Enter password" autoComplete="new-password" onChange={(v) => up({ password: v })} />
     </Modal>
   );
 }
@@ -99,7 +99,7 @@ export function InstallAgentDialog({ open, onClose, onInstalled }: { open: boole
           <Button variant="primary" loading={busy} disabled={readyChecked.length === 0} onClick={install}>Install</Button>
         </>}>
         <div className="row row--between">
-          <Checkbox label="Select All" checked={allReady} indeterminate={readyChecked.length > 0 && !allReady} disabled={ready.length === 0 || busy}
+          <Checkbox label="Select all" checked={allReady} indeterminate={readyChecked.length > 0 && !allReady} disabled={ready.length === 0 || busy}
             onChange={() => setChecked(allReady ? [] : ready.map((r) => r.server))} />
           <div className="row">
             <IconButton icon="plus" label="Add server" bordered disabled={busy} onClick={() => setSub({ mode: 'add' })} />
@@ -140,13 +140,13 @@ export function AgentsPage({ source }: { source: IdfSource }) {
   };
 
   return (
-    <Console source={source} title="Add agent" crumbs={[{ label: 'Agent List' }]}
+    <Console source={source} title="Add agent" crumbs={[{ label: 'Agent list' }]}
       actions={<Button variant="primary" icon="plus" onClick={() => setInstall(true)}>Install agent</Button>}>
       <DataTable title="Agents" noun={['agent', 'agents']} rows={agents} rowKey={(a) => a.id}
         columns={[
-          { key: 'server', header: 'Agent Server', sortable: true, filterable: true },
+          { key: 'server', header: 'Agent server', sortable: true, filterable: true },
           { key: 'path', header: 'Agent Path', sortable: true, filterable: true, mono: true },
-          { key: 'profile', header: 'Scanned Profile', sortable: true, filterable: true },
+          { key: 'profile', header: 'Scanned profile', sortable: true, filterable: true },
         ]}
         rowActions={(a) => {
           const busy = removing.includes(a.id);

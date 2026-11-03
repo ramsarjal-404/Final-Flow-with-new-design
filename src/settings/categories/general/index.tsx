@@ -125,16 +125,16 @@ export default function GeneralSettingsPage() {
       {/* 1 · Date and components (untitled) */}
       <SetCard>
         <div>
-          <SettingRow title="Date Settings">
-            <SelectField className="general-ctl" aria-label="Date Settings" value={pendingFormat}
+          <SettingRow title="Date settings">
+            <SelectField className="general-ctl" aria-label="Date settings" value={pendingFormat}
               onChange={(v) => setPendingFormat(v as DateFormatId)}
               options={DATE_FORMATS.map((f) => ({ value: f.id, label: `${f.label} (${formatDate(today, f.id)})` }))} />
             <Button onClick={updateFormat}>Update</Button>
           </SettingRow>
-          <SettingRow title="Update Components">
+          <SettingRow title="Update components">
             <Button icon="refresh" loading={refreshing} onClick={refresh}>{refreshing ? 'Refreshing' : 'Refresh'}</Button>
           </SettingRow>
-          <SettingRow title="API White Listing">
+          <SettingRow title="API white listing">
             <Button icon="settings" onClick={() => setAllowOpen(true)}>Config</Button>
           </SettingRow>
         </div>
@@ -143,13 +143,13 @@ export default function GeneralSettingsPage() {
       {/* 2 · ZIP delivery (untitled) */}
       <SetCard>
         <div>
-          <SettingRow title="Subscriptions Delivered in Zip Folder">
-            <SelectField className="general-ctl" aria-label="Subscriptions Delivered in Zip Folder" value={draft.subscriptionZip}
+          <SettingRow title="Subscriptions delivered in zip folder">
+            <SelectField className="general-ctl" aria-label="Subscriptions delivered in zip folder" value={draft.subscriptionZip}
               onChange={(v) => set('subscriptionZip', v)} options={['Yes', 'No']} />
           </SettingRow>
           {draft.subscriptionZip === 'No' && ZIP_NOTE}
-          <SettingRow title="Alerts Delivered in Zip Folder">
-            <SelectField className="general-ctl" aria-label="Alerts Delivered in Zip Folder" value={draft.alertZip}
+          <SettingRow title="Alerts delivered in zip folder">
+            <SelectField className="general-ctl" aria-label="Alerts delivered in zip folder" value={draft.alertZip}
               onChange={(v) => set('alertZip', v)} options={['Yes', 'No']} />
           </SettingRow>
           {draft.alertZip === 'No' && ZIP_NOTE}
@@ -157,21 +157,21 @@ export default function GeneralSettingsPage() {
       </SetCard>
 
       {/* 3 · Display Settings */}
-      <SetCard title="Display Settings">
+      <SetCard title="Display settings">
         <div>
           <SettingRow title="Date Time Display Setting :">
-            <SelectField className="general-ctl" aria-label="Date Time Display Setting" value={draft.dateTimeDisplay}
+            <SelectField className="general-ctl" aria-label="Date time display setting" value={draft.dateTimeDisplay}
               onChange={(v) => set('dateTimeDisplay', v)} options={DATE_TIME_DISPLAY} />
           </SettingRow>
           <SettingRow title="Dashboard Refresh Interval :">
-            <SelectField className="general-ctl" aria-label="Dashboard Refresh Interval" value={draft.refreshInterval}
+            <SelectField className="general-ctl" aria-label="Dashboard refresh interval" value={draft.refreshInterval}
               onChange={(v) => set('refreshInterval', v)} options={REFRESH_INTERVALS} />
           </SettingRow>
         </div>
       </SetCard>
 
       {/* 4 · Retention Settings */}
-      <SetCard title="Retention Settings">
+      <SetCard title="Retention settings">
         <div>
           <SettingRow title="Keep Active Directory and Group Policy backups for :">
             <SelectField className="general-ctl" aria-label="Keep Active Directory and Group Policy backups for" value={draft.backupRetention}
@@ -181,11 +181,11 @@ export default function GeneralSettingsPage() {
       </SetCard>
 
       {/* 5 · Logging System Configuration */}
-      <SetCard title="Logging System Configuration"
+      <SetCard title="Logging system configuration"
         actions={<Button size="sm" className="general-lock" icon="lock" aria-pressed={unlocked} onClick={() => setUnlocked((u) => !u)}>{unlocked ? 'Lock' : 'Open to edit'}</Button>}>
         <div>
-          <SettingRow title="Log Directory Path">
-            <TextField id="general-logDirectory" className="general-ctl--wide" aria-label="Log Directory Path" value={draft.logDirectory}
+          <SettingRow title="Log directory path">
+            <TextField id="general-logDirectory" className="general-ctl--wide" aria-label="Log directory path" value={draft.logDirectory}
               maxLength={260} disabled={!unlocked} onChange={(v) => set('logDirectory', v)} />
           </SettingRow>
           <SettingRow title="Max File Size">
@@ -195,14 +195,14 @@ export default function GeneralSettingsPage() {
       </SetCard>
 
       {/* 6 · Retention Log Configuration (saves on its own Update) */}
-      <SetCard title="Retention Log Configuration">
+      <SetCard title="Retention log configuration">
         <div>
           <SettingRow title="Retention Days">
             <DigitsField id="general-retentionDays" className="general-ctl general-ctl--num" ariaLabel="Retention Days" value={retention.days}
               min={1} max={3650} error={retentionError}
               onChange={(v) => { setRetention((r) => ({ ...r, days: v })); setRetentionError(null); }} />
             <span className="general-inline">
-              <Toggle label="Enable Time Retention" checked={retention.on} onChange={(on) => setRetention((r) => ({ ...r, on }))} />
+              <Toggle label="Enable time retention" checked={retention.on} onChange={(on) => setRetention((r) => ({ ...r, on }))} />
               <span aria-hidden="true">Enable Time Retention</span>
             </span>
             <Button onClick={updateRetention}>Update</Button>
@@ -211,7 +211,7 @@ export default function GeneralSettingsPage() {
       </SetCard>
 
       {/* 7 · Other Settings */}
-      <SetCard title="Other Settings">
+      <SetCard title="Other settings">
         <div>
           <SettingRow title="Maximum number of concurrent session :" help="(Active Directory, Exchange Online, SharePoint Online, Office 365)">
             {num('concurrentSessions', 'Maximum number of concurrent session')}
@@ -238,7 +238,7 @@ export default function GeneralSettingsPage() {
       </SetCard>
 
       {/* 8 · Change Summary */}
-      <SetCard title="Change Summary">
+      <SetCard title="Change summary">
         <Checkbox label="Send daily change report" checked={draft.dailyChangeReport} onChange={(v) => set('dailyChangeReport', v)} />
       </SetCard>
 

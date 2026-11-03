@@ -129,16 +129,16 @@ export default function PolicyManagement() {
   };
 
   const adCols: Column<Policy>[] = [
-    { key: 'name', header: 'Policy Name', sortable: true, filterable: true, minWidth: 190, value: (r) => r.name,
+    { key: 'name', header: 'Policy name', sortable: true, filterable: true, minWidth: 190, value: (r) => r.name,
       render: (r) => <span className="protect-name"><b>{r.name}</b>{fresh?.id === r.id && <span className={'lf-chip lf-chip--brand protect-new' + (fresh.fading ? ' is-fading' : '')}>New</span>}</span> },
     { key: 'desc', header: 'Description', sortable: true, filterable: true, minWidth: 170, value: (r) => r.desc || 'No description',
       render: (r) => (r.desc ? r.desc : <span className="lf-muted">No description</span>) },
     { key: 'status', header: 'Status', sortable: true, filterable: true, minWidth: 180, value: (r) => STATUS[r.status].label,
       render: (r) => <StatusCell label={STATUS[r.status].label} pct={STATUS[r.status].pct} clock={STATUS[r.status].clock} tone={AD_TONE[r.status]} /> },
-    { key: 'updated', header: 'Last Update', sortable: true, filterable: true, minWidth: 140, value: (r) => r.updated },
+    { key: 'updated', header: 'Last update', sortable: true, filterable: true, minWidth: 140, value: (r) => r.updated },
     { key: 'ptype', header: 'Type', sortable: true, filterable: true, minWidth: 190, value: (r) => r.ptype,
       render: (r) => <span className="protect-type"><span className="protect-type__ic" aria-hidden="true"><Icon name="users" size={13} /></span>{r.ptype}</span> },
-    { key: 'scheduled', header: 'Scheduled Date', sortable: true, filterable: true, minWidth: 140, value: (r) => r.scheduled },
+    { key: 'scheduled', header: 'Scheduled date', sortable: true, filterable: true, minWidth: 140, value: (r) => r.scheduled },
     { key: 'active', header: 'Active/Inactive', minWidth: 110, value: () => '',
       render: (r) => <Toggle label={`Toggle policy ${r.name}`} checked={r.active} onChange={(on) => (on && r.destructive ? setActivateDlg(r) : doActivate(r, on))} /> },
     { key: 'action', header: 'Action', minWidth: 64, value: () => '',
@@ -153,14 +153,14 @@ export default function PolicyManagement() {
 
   const report = (kind: string, p: PermPolicy) => toast({ variant: 'info', title: kind, message: `${kind} for “${p.name}” is being prepared.` });
   const permCols: Column<PermPolicy>[] = [
-    { key: 'name', header: 'Policy Name', sortable: true, filterable: true, minWidth: 220, value: (r) => r.name,
+    { key: 'name', header: 'Policy name', sortable: true, filterable: true, minWidth: 220, value: (r) => r.name,
       render: (r) => <span className="protect-name"><b>{r.name}</b>{r.isDefault && <Chip tone="brand">Default Policy</Chip>}</span> },
     { key: 'desc', header: 'Description', sortable: true, filterable: true, minWidth: 110, value: (r) => r.desc || 'N/A' },
     { key: 'status', header: 'Status', sortable: true, filterable: true, minWidth: 200, value: (r) => PERM_STATUS[r.status].label,
       render: (r) => <StatusCell label={PERM_STATUS[r.status].label} pct={PERM_STATUS[r.status].pct} clock={PERM_STATUS[r.status].clock} tone={PERM_TONE[r.status]} /> },
-    { key: 'updated', header: 'Last Update', sortable: true, filterable: true, minWidth: 150, value: (r) => r.updated },
-    { key: 'ptype', header: 'Policy Type', sortable: true, filterable: true, minWidth: 160, value: (r) => r.ptype },
-    { key: 'scheduled', header: 'Scheduled Date', sortable: true, filterable: true, minWidth: 150, value: (r) => r.scheduled },
+    { key: 'updated', header: 'Last update', sortable: true, filterable: true, minWidth: 150, value: (r) => r.updated },
+    { key: 'ptype', header: 'Policy type', sortable: true, filterable: true, minWidth: 160, value: (r) => r.ptype },
+    { key: 'scheduled', header: 'Scheduled date', sortable: true, filterable: true, minWidth: 150, value: (r) => r.scheduled },
     { key: 'active', header: 'Active/Inactive', minWidth: 110, value: () => '',
       render: (r) => <Toggle label={`${r.active ? 'Deactivate' : 'Activate'} ${r.name}`} checked={r.active} onChange={(on) => {
         stampPerm(r.id, { active: on });
@@ -170,10 +170,10 @@ export default function PolicyManagement() {
       render: (r) => {
         const stale = r.ptype === 'Remove Stale Users';
         const items: RowMenuItem[] = [
-          { label: 'Default Policy', icon: 'star', onSelect: () => { setDefaultPerm(r.id); toast({ variant: 'success', title: 'Default Policy', message: `“${r.name}” is now the default policy.` }); } },
+          { label: 'Default policy', icon: 'star', onSelect: () => { setDefaultPerm(r.id); toast({ variant: 'success', title: 'Default policy', message: `“${r.name}” is now the default policy.` }); } },
           stale
-            ? { label: 'Execute Policy', icon: 'play', onSelect: () => { stampPerm(r.id, { status: 'automationQueue' }); toast({ variant: 'success', title: 'Execute Policy', message: `“${r.name}” is queued for execution.` }); } }
-            : { label: 'Start Scan Now', icon: 'play', onSelect: () => { stampPerm(r.id, { status: 'scanProgress' }); toast({ variant: 'success', title: 'Start Scan Now', message: `Scan started for “${r.name}”.` }); } },
+            ? { label: 'Execute policy', icon: 'play', onSelect: () => { stampPerm(r.id, { status: 'automationQueue' }); toast({ variant: 'success', title: 'Execute policy', message: `“${r.name}” is queued for execution.` }); } }
+            : { label: 'Start scan now', icon: 'play', onSelect: () => { stampPerm(r.id, { status: 'scanProgress' }); toast({ variant: 'success', title: 'Start scan now', message: `Scan started for “${r.name}”.` }); } },
           { label: 'Remove', icon: 'trash', danger: true, onSelect: () => setRemove(r) },
           { label: 'Edit', icon: 'edit', onSelect: () => nav(`/protect/policies/new-permission?edit=${r.id}`) },
           stale
@@ -214,7 +214,7 @@ export default function PolicyManagement() {
         onConfirm={() => { if (remove) { removePerm(remove.id); toast({ variant: 'success', title: 'Policy removed', message: `“${remove.name}” was removed.` }); } setRemove(null); }} />
       <RestoreDialog policy={restore} onClose={() => setRestore(null)} onInstall={(p) => setIrrev(p)} />
       <ConfirmDialog open={!!irrev && !!restore} onClose={() => setIrrev(null)} title="You cannot revert the changes once you proceed further." icon="alert"
-        message="Irreversible action" confirmLabel="I Understand"
+        message="Irreversible action" confirmLabel="I understand"
         onConfirm={() => { if (restore && irrev) { stampPerm(restore.id, { status: 'restoreQueue' }); toast({ variant: 'success', title: 'Restore', message: `“${restore.name}” will be restored to ${irrev}.` }); } setIrrev(null); setRestore(null); }} />
     </div>
   );

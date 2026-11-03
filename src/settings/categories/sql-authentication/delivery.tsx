@@ -29,7 +29,7 @@ export function DeliverySettings({ title }: { title: string }) {
 
   const columns: Column<DeliveryRow>[] = [
     { key: 'name', header: 'Account Name', sortable: true, minWidth: 200 },
-    { key: 'kind', header: 'Delivery Type', sortable: true },
+    { key: 'kind', header: 'Delivery type', sortable: true },
     {
       key: 'action', header: 'Action', value: () => '', width: 150,
       render: (r) => (
@@ -58,7 +58,7 @@ export function DeliverySettings({ title }: { title: string }) {
         empty={<EmptyState icon="send" title="No delivery accounts yet. Click Add to configure one." compact />} />
 
       {/* DLG-SAD-43 · Add Delivery Type */}
-      <Modal open={adding} onClose={() => setAdding(false)} title="Add Delivery Type" icon="plus" size="md"
+      <Modal open={adding} onClose={() => setAdding(false)} title="Add delivery type" icon="plus" size="md"
         footer={<Button onClick={() => setAdding(false)}>Cancel</Button>}>
         <div className="pick-grid">
           {([['email', 'mail', 'Add Email Account'], ['app', 'user', 'Add app account'], ['script', 'terminal', 'Add Alert Profile']] as [typeof detect, IconName, string][])
@@ -128,11 +128,11 @@ function EditDeliveryDialog({ row, rows, onClose }: { row: DeliveryRow | null; r
     toast({ variant: 'success', title: 'Account updated', message: `${old} is now ${n}.` });
   };
   return (
-    <Modal open={!!row} onClose={onClose} title="Edit Delivery Account" icon="edit" size="md"
+    <Modal open={!!row} onClose={onClose} title="Edit delivery account" icon="edit" size="md"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={!!err} onClick={save}>Save</Button></>}>
       <TextField label="Account Name" value={name} onChange={setName} error={err}
         onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); save(); } }} />
-      <TextField label="Delivery Type" value={row?.kind ?? ''} readOnly disabled />
+      <TextField label="Delivery type" value={row?.kind ?? ''} readOnly disabled />
     </Modal>
   );
 }
@@ -151,7 +151,7 @@ function AppServerDialog({ open, onClose }: { open: boolean; onClose: () => void
     toast({ variant: 'success', title: 'App server saved', message: `App data is saved on ${t}.` });
   };
   return (
-    <Modal open={open} onClose={onClose} title="Lepide App Server Settings" icon="server" size="md"
+    <Modal open={open} onClose={onClose} title="Lepide app server settings" icon="server" size="md"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={!t || !!err} onClick={done}>Done</Button></>}>
       <p className="sql-authentication-lead">Select the location where the App data will be saved.</p>
       <TextField value={v} onChange={setV} error={err}

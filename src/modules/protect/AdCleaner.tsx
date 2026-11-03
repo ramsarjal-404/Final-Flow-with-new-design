@@ -36,7 +36,7 @@ function CleanerConfig() {
         <SetCard title="Scope">
           <Row title="Domain controllers" hint="Servers scanned to find inactive accounts." action={act('Manage domain controllers', 'Manage')}>
             <b>1 of 1 selected</b><span className="lf-muted">DC-LPDE4.LPDE4.local · Online</span></Row>
-          <Row title="Organizational Units" hint="Only accounts in these OUs are in scope." action={act('Manage Organizational Units', 'Manage')}>
+          <Row title="Organizational units" hint="Only accounts in these OUs are in scope." action={act('Manage Organizational Units', 'Manage')}>
             <b>1 selected</b><span><Chip>DCD01</Chip></span></Row>
         </SetCard>
         <SetCard title="Schedule & notifications">

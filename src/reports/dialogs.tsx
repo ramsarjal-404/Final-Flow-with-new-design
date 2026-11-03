@@ -63,9 +63,9 @@ export function CreateReportDialog({ open, onClose, folders, onNext }: {
       <TextField label="Report Name :" placeholder="Type here report name" maxLength={200} value={name} error={err.name}
         onChange={(v) => { setName(v); clear('name'); }} />
       <div className="fld-row">
-        <SearchSelect label="Folder List :" placeholder="Select Folder" options={fOpts} value={folderId} error={err.folder} searchFrom={0}
+        <SearchSelect label="Folder List :" placeholder="Select folder" options={fOpts} value={folderId} error={err.folder} searchFrom={0}
           onChange={(v) => { setFolderId(v); setReportId(''); clear('folder'); }} />
-        <SearchSelect label="Predefined Reports:" placeholder="Select Reports" options={rNodes.map((x) => ({ value: x.slug, label: x.name }))}
+        <SearchSelect label="Predefined Reports:" placeholder="Select reports" options={rNodes.map((x) => ({ value: x.slug, label: x.name }))}
           value={reportId} error={err.report} disabled={!folderId} searchFrom={0} onChange={(v) => { setReportId(v); clear('report'); }} />
       </div>
       {chosen && (
@@ -173,7 +173,7 @@ export function ShareDialog({ row, moduleKey, sharer, onClose }: { row: ReportRo
           </>
         ) : <p className="pane__hint">Choose Groups or Users, then select Browse to list the directory of {domain}.</p>}
       </Modal>
-      <Modal open={!!row && done} onClose={close} title="Successfully Shared" subtitle={row?.name} icon="check" size="xs"
+      <Modal open={!!row && done} onClose={close} title="Successfully shared" subtitle={row?.name} icon="check" size="xs"
         footer={<Button variant="primary" onClick={close}>Done</Button>} />
     </>
   );
@@ -218,19 +218,19 @@ export function MoveReportDialog({ row, moduleKey, folders, onClose }: { row: Re
     .map((f) => ({ value: f.id, label: f.name + (f.custom ? ' (custom)' : '') }));
   const done = () => {
     if (!row) return;
-    if (!pick) { toast({ variant: 'error', title: 'Move Report', message: 'Please select any folder to move further.' }); return; }
+    if (!pick) { toast({ variant: 'error', title: 'Move report', message: 'Please select any folder to move further.' }); return; }
     reportActions.moveReport(moduleKey, row.id, pick);
-    toast({ variant: 'success', title: 'Move Report', message: `"${row.name}" was moved to ${folders.find((f) => f.id === pick)?.name ?? 'the folder'}.` });
+    toast({ variant: 'success', title: 'Move report', message: `"${row.name}" was moved to ${folders.find((f) => f.id === pick)?.name ?? 'the folder'}.` });
     close();
   };
   return (
-    <Modal open={!!row} onClose={close} title="Select a Folder" subtitle={row?.name} icon="folder" size="xs"
+    <Modal open={!!row} onClose={close} title="Select a folder" subtitle={row?.name} icon="folder" size="xs"
       footer={<><Button onClick={close}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
-      <Field label="Folder List">
+      <Field label="Folder list">
         <SearchField value={q} onChange={setQ} placeholder="Search" ariaLabel="Search folders" />
       </Field>
       <div className="rlib-move-list">
-        {opts.length ? <RadioGroup value={pick} onChange={setPick} options={opts} ariaLabel="Folder List" />
+        {opts.length ? <RadioGroup value={pick} onChange={setPick} options={opts} ariaLabel="Folder list" />
           : <p className="rlib-members__empty">No results match your search or filters.</p>}
       </div>
     </Modal>

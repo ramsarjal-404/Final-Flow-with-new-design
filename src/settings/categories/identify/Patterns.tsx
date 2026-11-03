@@ -18,17 +18,17 @@ export function PatternsPage({ source }: { source: IdfSource }) {
   const usedIn = del ? st.tags.filter((t) => t.patternIds.includes(del.id)).length : 0;
 
   return (
-    <Console source={source} title="Create Pattern" crumbs={[{ label: 'Pattern List' }]}
+    <Console source={source} title="Create pattern" crumbs={[{ label: 'Pattern list' }]}
       actions={<Button variant="primary" icon="plus" onClick={() => nav(`/settings/identify/${source.id}/patterns/new`)}>Create patterns</Button>}>
       <div className={cur ? 'with-detail' : undefined}>
         <DataTable title="Patterns" noun={['pattern', 'patterns']} rows={st.patterns} rowKey={(p) => p.id}
           activeKey={sel} onRowOpen={(p) => setSel(p.id === sel ? null : p.id)}
           columns={[
-            { key: 'name', header: 'Pattern Name', sortable: true, filterable: true },
+            { key: 'name', header: 'Pattern name', sortable: true, filterable: true },
             { key: 'type', header: 'Type', sortable: true, filterable: true },
             { key: 'description', header: 'Description', sortable: true, filterable: true },
             { key: 'expression', header: 'Expressions', sortable: true, filterable: true, render: (p) => <code className="identify-code">{p.expression}</code> },
-            { key: 'kind', header: 'Pattern Type', sortable: true, filterable: true },
+            { key: 'kind', header: 'Pattern type', sortable: true, filterable: true },
           ]}
           rowActions={(p) => {
             const def = p.kind === 'Default';
@@ -43,7 +43,7 @@ export function PatternsPage({ source }: { source: IdfSource }) {
           }}
           empty={<EmptyState icon="search" title="No patterns yet. Click Create Patterns to add one." />} />
         {cur && (
-          <DetailPanel title="Pattern Information" subtitle={cur.name} onClose={() => setSel(null)}>
+          <DetailPanel title="Pattern information" subtitle={cur.name} onClose={() => setSel(null)}>
             <KeyValues items={[
               { label: 'Name', value: cur.name, wide: true },
               { label: 'Description', value: cur.description, wide: true },
@@ -124,7 +124,7 @@ export function PatternEditor({ source }: { source: IdfSource }) {
         <div className="set-card__body">
           <div className="form-col">
             <div className="fld-row">
-              <TextField label="Pattern Name" value={f.name} error={errs.name} maxLength={100} placeholder="Enter pattern name" onChange={(v) => up({ name: v })} />
+              <TextField label="Pattern name" value={f.name} error={errs.name} maxLength={100} placeholder="Enter pattern name" onChange={(v) => up({ name: v })} />
               <SelectField label="Type" options={['Regular Expression', 'String']} value={f.type} onChange={(v) => up({ type: v as Form['type'] })} />
             </div>
             <TextField label="Description" value={f.description} maxLength={200} placeholder="Enter description" onChange={(v) => up({ description: v })} />
@@ -136,7 +136,7 @@ export function PatternEditor({ source }: { source: IdfSource }) {
               <TextField label="Monetary Value" value={f.monetaryValue} error={errs.monetaryValue} inputMode="decimal" maxLength={12}
                 onChange={(v) => { if (/^\d*\.?\d*$/.test(v)) up({ monetaryValue: v }); }} />
             </div>
-            <Checkbox label="Supporting Evidence" checked={f.evidence} onChange={(v) => up({ evidence: v })} />
+            <Checkbox label="Supporting evidence" checked={f.evidence} onChange={(v) => up({ evidence: v })} />
             <div className="fld-row">
               <TextField label="Keyword(s)" value={f.keywords} disabled={!f.evidence} error={f.evidence ? errs.keywords : undefined}
                 help={'Separate multiple value by ","'} onChange={(v) => up({ keywords: v })} />

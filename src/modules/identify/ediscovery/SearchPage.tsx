@@ -39,7 +39,7 @@ function Expanded({ c }: { c: Case }) {
         <IconButton icon="chevron-left" label="Back to cases" bordered onClick={() => nav(BASE)} />
         <Link to={BASE}>e-Discovery</Link><span aria-hidden="true">/</span><b aria-current="page">{c.name}</b>
       </nav>
-      <PageHeader title="Searching Index" description={`${c.name} · ${c.type}`} />
+      <PageHeader title="Searching index" description={`${c.name} · ${c.type}`} />
       <section className="lf-card identify-searchcard">
         <SearchControls s={s} layout="page" />
       </section>

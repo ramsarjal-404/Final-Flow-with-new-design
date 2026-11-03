@@ -82,7 +82,7 @@ export function EmailAccountDialog({ open, onClose, onCreated, editing }: {
             error={senderBad ? `"${f.sender.trim()}" is not a valid email address.` : null} />
           {!f.mfa ? (
             <>
-              <Checkbox checked={f.reqAuth} onChange={(v) => set('reqAuth', v)} label="Required Authentication" />
+              <Checkbox checked={f.reqAuth} onChange={(v) => set('reqAuth', v)} label="Required authentication" />
               <TextField label="Logon Name" value={f.logon} disabled={!f.reqAuth} onChange={(v) => set('logon', v)} />
               <PasswordField label="Password" value={f.password} disabled={!f.reqAuth} autoComplete="new-password" onChange={(v) => set('password', v)} />
             </>
@@ -173,7 +173,7 @@ export function AppAccountDialog({ open, onClose, onCreated, editing }: {
       <p className="detect-lead">Please enter login credentials for using both Windows and Mobile App</p>
       <TextField label="User ID" value={user} onChange={setUser} />
       <PasswordField label="Password" value={password} autoComplete="new-password" onChange={setPassword} />
-      <TextField label="Mobile App ID" value={MOBILE_APP_ID} readOnly className="mono" />
+      <TextField label="Mobile app ID" value={MOBILE_APP_ID} readOnly className="mono" />
       <div className="detect-app">
         <PairingCode seed={MOBILE_APP_ID} />
         <p className="detect-lead">Note: Use this App ID to configure App on Android, iOS and Windows</p>
@@ -217,13 +217,13 @@ export function NotificationEmailDialog({ open, onClose, onDone }: { open: boole
   const done = () => { if (!valid) return; onDone(`${sender} → ${recipients.trim()}`); onClose(); };
   return (
     <>
-      <Modal open={open && !adding} onClose={onClose} title="Configure Notification Email Account" icon="bell" size="sm"
+      <Modal open={open && !adding} onClose={onClose} title="Configure notification email account" icon="bell" size="sm"
         footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={!valid} onClick={done}>Done</Button></>}>
         <div className="detect-inline-field">
-          <SelectField label="Sender Email Account" placeholder="Select" options={emails} value={sender} onChange={setSender} />
+          <SelectField label="Sender email account" placeholder="Select" options={emails} value={sender} onChange={setSender} />
           <Button icon="plus" onClick={() => setAdding(true)}>Add new email account</Button>
         </div>
-        <TextAreaField label="Recipient's Email" value={recipients} onChange={setRecipients} help={'Separate multiple email by ","'} />
+        <TextAreaField label="Recipient's email" value={recipients} onChange={setRecipients} help={'Separate multiple email by ","'} />
       </Modal>
       <EmailAccountDialog open={open && adding} onClose={() => setAdding(false)} onCreated={(a) => setSender(a.name)} />
     </>
@@ -265,7 +265,7 @@ export function SiemAccountDialog({ open, onClose, onCreated, editing }: {
       <TextField label="Name" value={name} onChange={setName} />
       <TextField label="IP Address" placeholder="192.168.30.90" value={ip} onChange={setIp}
         error={ip.trim() !== '' && !ipOk ? 'Enter an IPv4 address, e.g. 192.168.30.90' : null} />
-      <NumberField label="Port Number" value={port} min={0} max={99999} onChange={digits(5, setPort)} />
+      <NumberField label="Port number" value={port} min={0} max={99999} onChange={digits(5, setPort)} />
       <Checkbox checked={cef} onChange={setCef} label="CEF Format" />
     </Modal>
   );

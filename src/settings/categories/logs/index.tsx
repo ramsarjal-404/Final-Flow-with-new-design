@@ -38,7 +38,7 @@ export default function LogsPage() {
   const rows = useMemo(() => inRange(logs, applied), [logs, applied]);
   const cols = useMemo<Col<LogEntry>[]>(() => [
     { key: 'action', header: 'Action', sortable: true, filterable: true, tip: true, minWidth: 360 },
-    { key: 'byWhom', header: 'By Whom', sortable: true, filterable: true, minWidth: 160 },
+    { key: 'byWhom', header: 'By whom', sortable: true, filterable: true, minWidth: 160 },
     { key: 'performedOn', header: 'Performed On', sortable: true, filterable: true, minWidth: 200,
       text: (l) => formatDateTime(l.performedOn, fmt), sortValue: (l) => Date.parse(l.performedOn) },
   ], [fmt]);
@@ -74,7 +74,7 @@ export default function LogsPage() {
   return (
     <>
       <HeaderActions>
-        <IconButton icon="trash" bordered label="Delete Logon Activity" onClick={() => nav('/settings/logs/' + SUB_DELETE)} />
+        <IconButton icon="trash" bordered label="Delete logon activity" onClick={() => nav('/settings/logs/' + SUB_DELETE)} />
         <Button variant="ghost" icon="download" aria-label="Export logs" data-tip="Export logs (CSV)" onClick={exportCsv}>Export</Button>
         <span className="logs-lbl">Select date</span>
         <DateRangePopover value={pending} onApply={setPending} />

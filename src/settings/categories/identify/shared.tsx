@@ -6,12 +6,12 @@ import type { IdfSource } from './store';
 
 /* ---------- DDC console chrome (SCR-SDS-12 … SCR-SDS-20) ---------- */
 const RAIL = [
-  { value: '', label: 'Profile Name' },
+  { value: '', label: 'Profile name' },
   { value: 'templates', label: 'Templates' },
   { value: 'tags', label: 'Tags' },
   { value: 'patterns', label: 'Pattern' },
   { value: 'agents', label: 'Agent' },
-  { value: 'servers', label: 'Centralized Server' },
+  { value: 'servers', label: 'Centralized server' },
 ];
 
 export type Crumb = { label: string; to?: string; onClick?: () => void };

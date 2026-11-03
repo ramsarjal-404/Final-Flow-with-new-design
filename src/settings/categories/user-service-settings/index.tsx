@@ -43,7 +43,7 @@ export default function UserServiceSettingsPage() {
 
   const columns: Column<Service>[] = [
     {
-      key: 'name', header: 'Service Name', sortable: true, minWidth: 260, value: (r) => r.name,
+      key: 'name', header: 'Service name', sortable: true, minWidth: 260, value: (r) => r.name,
       render: (r) => (
         <span className="user-service-settings-svc" data-tip={r.description}>
           <b>{r.name}</b><span>{r.description}</span>
@@ -51,7 +51,7 @@ export default function UserServiceSettingsPage() {
       ),
     },
     { key: 'account', header: 'Log On As', sortable: true, mono: true },
-    { key: 'startup', header: 'Startup Type', sortable: true },
+    { key: 'startup', header: 'Startup type', sortable: true },
     // GAP-SAD-04 intended: Status sorts by Running / Stopped.
     { key: 'status', header: 'Status', sortable: true, value: (r) => (r.running ? 'Running' : 'Stopped'),
       render: (r) => <ToneTag tone={r.running ? 'good' : 'bad'}>{r.running ? 'Running' : 'Stopped'}</ToneTag> },
@@ -138,9 +138,9 @@ function ServiceAccountDialog({ open, service, onClose, onApply }: {
         help={'Please enter user name in "domain\\user name" format'} error={tried ? errUser : null} />
       <div className="fld-row">
         <PasswordField label="Password" value={password} autoComplete="new-password" onChange={setPassword} error={tried ? errPw : null} />
-        <PasswordField label="Confirm Password" value={confirm} autoComplete="new-password" onChange={setConfirm} error={tried ? errConfirm : null} />
+        <PasswordField label="Confirm password" value={confirm} autoComplete="new-password" onChange={setConfirm} error={tried ? errConfirm : null} />
       </div>
-      {service && <SelectField label="Startup Type" value={startup} options={STARTUP_TYPES} onChange={setStartup} />}
+      {service && <SelectField label="Startup type" value={startup} options={STARTUP_TYPES} onChange={setStartup} />}
       <div><Button icon="shield" loading={testing} onClick={() => void test()}>Test credentials</Button></div>
     </Modal>
   );

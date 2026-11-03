@@ -46,7 +46,7 @@ export default function SubscriptionPage() {
   };
   const openInfo = () => {
     const target = (selected && rows.find((r) => r.id === selected)) || [...rows].sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))[0];
-    if (!target) { toast({ variant: 'info', title: 'Subscription Information', message: 'Add a subscription to see its details here.' }); return; }
+    if (!target) { toast({ variant: 'info', title: 'Subscription information', message: 'Add a subscription to see its details here.' }); return; }
     setSelected(target.id); setPanel(true);
   };
   const toggle = (s: Subscription, on: boolean) => {
@@ -67,7 +67,7 @@ export default function SubscriptionPage() {
 
   const columns: Column<Subscription>[] = [
     {
-      key: 'name', header: 'Subscription Name', sortable: true, minWidth: 220, value: (s) => s.name,
+      key: 'name', header: 'Subscription name', sortable: true, minWidth: 220, value: (s) => s.name,
       render: (s) => (
         <span className="subscription-name" title={s.name}>
           <span className="subscription-name__text">{s.name}</span>{s.id === fresh && <Chip tone="brand">New</Chip>}
@@ -99,13 +99,13 @@ export default function SubscriptionPage() {
 
       <div className="subscription-tabs">
         <Segmented ariaLabel="Subscription" value={tab} onChange={switchTab}
-          items={[{ value: 'manage', label: 'Manage Subscription' }, { value: 'status', label: 'Subscription Status' }]} />
+          items={[{ value: 'manage', label: 'Manage subscription' }, { value: 'status', label: 'Subscription status' }]} />
       </div>
 
       {tab === 'manage' ? (
         <div className={panel && current ? 'with-detail' : undefined}>
           <div className="stack">
-            <DataTable key={tableKey} className="subscription-table" title="Manage Subscription" noun={['subscription', 'subscriptions']}
+            <DataTable key={tableKey} className="subscription-table" title="Manage subscription" noun={['subscription', 'subscriptions']}
               columns={columns} rows={rows} rowKey={(s) => s.id} onRowOpen={openRow} activeKey={selected}
               initialSort={sortCleared ? undefined : { key: 'name', dir: 'asc' }}
               empty={subs.length === 0 ? <EmptyState compact icon="send" title="No subscriptions yet. Click Subscribe to schedule a report." /> : undefined} />

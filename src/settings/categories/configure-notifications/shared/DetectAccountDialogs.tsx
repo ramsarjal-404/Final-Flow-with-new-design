@@ -39,7 +39,7 @@ export function EmailAccountDialog({ open, onClose, onCreated }: {
   };
 
   return (
-    <Modal open={open} onClose={onClose} title="Configure New Email Account" icon="mail" size="md"
+    <Modal open={open} onClose={onClose} title="Configure new email account" icon="mail" size="md"
       footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" disabled={!valid} onClick={done}>Done</Button></>}>
       <Checkbox checked={f.mfa} onChange={(v) => set('mfa', v)} label="Multi-Factor Authentication" />
       <div className="configure-notifications-cols">
@@ -49,7 +49,7 @@ export function EmailAccountDialog({ open, onClose, onCreated }: {
           <TextField label="Sender's Email ID" type="email" value={f.sender} onChange={(v) => set('sender', v)} className={senderBad ? 'is-bad' : undefined} aria-invalid={senderBad || undefined} />
           {!f.mfa ? (
             <>
-              <Checkbox checked={f.reqAuth} onChange={(v) => set('reqAuth', v)} label="Required Authentication" />
+              <Checkbox checked={f.reqAuth} onChange={(v) => set('reqAuth', v)} label="Required authentication" />
               <TextField label="Logon Name" value={f.logon} disabled={!f.reqAuth} onChange={(v) => set('logon', v)} />
               <PasswordField label="Password" value={f.password} disabled={!f.reqAuth} autoComplete="new-password" onChange={(v) => set('password', v)} />
             </>
@@ -141,7 +141,7 @@ export function AppAccountDialog({ open, onClose, onCreated }: {
       <p className="configure-notifications-lead">Please enter login credentials for using both Windows and Mobile App</p>
       <TextField label="User ID" value={user} onChange={setUser} />
       <PasswordField label="Password" value={password} autoComplete="new-password" onChange={setPassword} />
-      <TextField label="Mobile App ID" value={MOBILE_APP_ID} readOnly className="mono" />
+      <TextField label="Mobile app ID" value={MOBILE_APP_ID} readOnly className="mono" />
       <div className="configure-notifications-app">
         <PairingCode seed={MOBILE_APP_ID} />
         <p className="configure-notifications-lead">Note: Use this App ID to configure App on Android, iOS and Windows</p>
