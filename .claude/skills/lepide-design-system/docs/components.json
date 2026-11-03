@@ -85,6 +85,7 @@
         "chip",
         "card"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- `Person` in table cells, detail panels and activity lists to show who did something (\"CORP\\\\jsmith · Domain Admins\").\n- `Avatar` on its own where only the initials fit, for example a stack of owners or a narrow column.",
         "When not to use": "- The signed-in user's account button in the sidebar or top bar: those use their own ink avatars (`.lf-dock__avatar`, `.hometop__avatar`, `.umenu__av`).\n- Non-person objects (servers, groups, files): use an `Icon` instead.\n- Photos: `Avatar` only renders initials.",
@@ -174,6 +175,7 @@
         "toast",
         "button"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- A notice that stays visible while the user works with the content around it: \"Licence expires in 7 days\", \"This report includes only the last 90 days\", \"2 agents are offline\".\n- A form or dialog-level error or warning above the fields (\"Couldn't connect to the SMTP server\").\n- A success message that should persist on the page (for example after an import, with a link to the results).",
         "When not to use": "- Short-lived confirmation of an action: use a toast (`useToast`).\n- A field-level validation message: use the field's `error`.\n- An empty or failed section with nothing else to show: use `EmptyState`.\n- Marketing or promotional content.",
@@ -340,6 +342,18 @@
         "menu",
         "modal",
         "toast"
+      ],
+      "figma": [
+        {
+          "name": "Button",
+          "nodeId": "5:152",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=5-152"
+        },
+        {
+          "name": "Icon button",
+          "nodeId": "6:12",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=6-12"
+        }
       ],
       "guidance": {
         "When to use": "- `Button` for any action the user starts: save, create, export, open a dialog, apply a filter.\n- `variant=\"primary\"` for the single main action of a page, dialog, drawer or wizard step.\n- `IconButton` for compact, repeated or toolbar actions where an icon is unambiguous (close, refresh, more, row actions).",
@@ -538,6 +552,13 @@
         "button",
         "chip"
       ],
+      "figma": [
+        {
+          "name": "Card",
+          "nodeId": "8:47",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=8-47"
+        }
+      ],
       "guidance": {
         "When to use": "- `Card`: any content block on a page — a chart panel, a table, a list, a summary. Cards float on the washed canvas.\n- `SetCard`: one section of a settings or configuration page, with a title, a description, optional header actions, a body of fields and an optional footer of buttons.\n- `KeyValues`: read-only details of a record (detail panels, review steps of a wizard, \"About this agent\").",
         "When not to use": "- Grouping a few fields inside a form: use spacing or a `.section-label`, not a nested card.\n- Cards inside cards: use `KeyValues` tiles or plain sections instead.\n- KPI numbers: use `KpiCard`.\n- Editable values: `KeyValues` is read-only; use form fields.",
@@ -682,6 +703,7 @@
         "empty-state",
         "loading"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- Any chart on a dashboard, report summary or record page. Pick the `kind` from the table below by the question the chart answers.\n- `Sparkline` for a tiny trend with no axes — normally inside `KpiCard` (`spark` prop), occasionally in a table cell or list row.\n\nSet-up:\n- Import from the separate entry: `import { Chart, Sparkline } from '@lepide/ds-react/charts'`. The main `@lepide/ds-react` entry does not include charts, so apps without charts don't load Highcharts.\n- Install the peer dependency `highcharts` `^13.1.1` (optional peer of `@lepide/ds-react`). The component loads `highcharts-more` and `solid-gauge` itself. **Highcharts is commercial software: a Highcharts licence is required before it ships in a product.**",
         "When not to use": "- Exact values the user will read or copy: use a `DataTable` (or show both).\n- One number: use `KpiCard`.\n- More than 6 series or about 8 donut slices: the palette repeats after 6 colours; group the tail into \"Other\" or use a table.\n- No data: show an `EmptyState` in the panel instead of an empty chart.",
@@ -777,6 +799,13 @@
         "radio-group",
         "search-select",
         "setting-row"
+      ],
+      "figma": [
+        {
+          "name": "Checkbox",
+          "nodeId": "6:51",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=6-51"
+        }
       ],
       "guidance": {
         "When to use": "- Independent yes/no choices in a form that are applied when the form is saved (\"Include sub-OUs\").\n- A list of options where any number can be chosen.\n- Row selection and \"select all\" headers in tables (`indeterminate` when some rows are selected).",
@@ -919,6 +948,18 @@
         "avatar",
         "icon",
         "segmented"
+      ],
+      "figma": [
+        {
+          "name": "Chip",
+          "nodeId": "6:25",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=6-25"
+        },
+        {
+          "name": "Tone tag",
+          "nodeId": "6:38",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=6-38"
+        }
       ],
       "guidance": {
         "When to use": "- `Chip`: a short, read-only label on an object — a type, a category, a role, \"Beta\", \"AI\", a licence state next to a title.\n- `ToneTag`: the status of a record in a table or detail panel (\"Enabled\", \"Failed\", \"Pending\"). Use `toneFor(status)` to pick the tone from the status word.\n- `Counter`: a number beside a toolbar or section title (\"Showing 1,204 events\").",
@@ -1262,6 +1303,7 @@
         "menu",
         "button"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- Any list of records the user scans, compares, sorts, filters or acts on: users, reports, alerts, audit events, servers.\n- Lists where rows open a detail view (`onRowOpen` + `Drawer` or `DetailPanel`) or carry per-row actions (`rowActions`).\n- Bulk actions over many rows (`selectable=\"multi\"`).\n- `Pager` on its own under any custom list that pages the same way.",
         "When not to use": "- A handful of label/value pairs: use `KeyValues`.\n- Fewer than about 4 items with rich content: use cards (`Card`, `SetCard`).\n- Server-side paging, sorting or filtering of very large sets: `DataTable` sorts, filters and pages the `rows` array in the browser. Pass it one page of data only if you also accept that its counts, sort and filters apply to that page.\n- Layout grids: tables are for tabular data only.",
@@ -1399,6 +1441,7 @@
         "dropdown",
         "menu"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- `DateRangePicker` for the time range of a report, dashboard, audit log or chart — usually at the right of a page or card toolbar.\n- `Calendar` on its own when you build a custom picker that needs a month grid selecting a start and end date.",
         "When not to use": "- A single date (an expiry date, a scheduled run): `Calendar` always selects a range; use a text field with a date input instead.\n- Choosing a time of day: use a `Dropdown` with `size=\"sm\"`.\n- Relative periods that are not dates (\"Every Monday\"): use `SelectField`.",
@@ -1577,6 +1620,7 @@
         "data-table",
         "button"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- `Drawer` to show or edit the details of one item without leaving the page: a record's properties, a settings sub-form, an assistant chat, a recommendation.\n- `DetailPanel` beside a table or list when the user moves between items and should keep the list visible and usable (master–detail). It does not block the page.",
         "When not to use": "- A decision that must be answered before anything else (confirm, delete): use `ConfirmDialog`.\n- A short create form that ends with a single save: a `Modal` is usually clearer.\n- Navigation between sections: use a page.\n- Stacking a drawer on a drawer.",
@@ -1980,6 +2024,13 @@
         "radio-group",
         "pill-input"
       ],
+      "figma": [
+        {
+          "name": "Dropdown",
+          "nodeId": "8:46",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=8-46"
+        }
+      ],
       "guidance": {
         "When to use": "- `SelectField` for picking one value from a list inside a dialog or page form: it is a `Dropdown` wrapped in `Field` (label, note, help, error).\n- `Dropdown` on its own when the label lives elsewhere (table cells, toolbars, inline time pickers) — give it `ariaLabel` or `ariaLabelledby`.\n- `size=\"sm\"` for compact inline use (tables, time pickers); `pill` for toolbar triggers.\n- `FloatingPop` only when building a custom popup that must escape clipping containers (it is what `Dropdown` and `MultiSelect` render their panel into).",
         "When not to use": "- Never use a native `<select>` — every select in the Lepide Design System is this component.\n- Choosing several values: use `MultiSelect`.\n- 2–4 options that should all be visible: use `RadioGroup` or `Segmented`.\n- Actions (\"Export\", \"Delete\"): use `Menu` with a `Button` trigger, not a dropdown.",
@@ -2077,6 +2128,7 @@
         "card",
         "button"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- A list, table or panel has nothing to show yet (\"No reports yet\").\n- A search or filter returns no results (\"No events match these filters\").\n- A section failed to load: `tone=\"error\"`, with a retry action.\n- `compact` inside small cards and panels.",
         "When not to use": "- While data is loading: use `SkeletonRows` or `PageLoader`.\n- Inside `DataTable`, don't render it beside the table: pass it to the table's `empty` prop (shown when the table has no rows). When filters leave no rows, the table shows its own `.empty-cell` message.\n- A page-level notice that sits above content that is still shown: use `Banner`.\n- Transient confirmation of an action: use a toast.",
@@ -2181,6 +2233,7 @@
         "button",
         "modal"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- Importing one file in a dialog or wizard step: a CSV of users, a licence file, a certificate, a logo.\n- When drag and drop from the desktop is useful, with click-to-browse as the fallback.",
         "When not to use": "- Several files at once: `FileUpload` takes only the first file of a drop or selection.\n- Entering a server path or URL: use `TextField`.\n- A button-only \"Import\" action with no drop zone: use a `Button` that opens a hidden file input.",
@@ -2307,6 +2360,7 @@
         "empty-state",
         "menu"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- `Icon` for every line icon in the UI: inside buttons (via their `icon` prop), menus, chips, fields, banners, empty states and table cells.\n- `ModuleIcon` for the Lepide product modules (Auditor, Detect, Protect, …) in the sidebar, home tiles and Lepide AI surfaces.\n- `BrandMark` for the Lepide logo in the sidebar, top bar and sign-in page.\n- `MARK_URL` (the mark as an SVG data URL) where you need the image itself: a favicon, an `<img>` outside the tile, a plain-HTML page.",
         "When not to use": "- Filled, duotone or emoji icons, or icons from other sets mixed in: the system uses one outline style.\n- An icon as the only content of a control without a name: use `IconButton` (it requires `label`).\n- Status meaning carried by an icon alone: pair it with text, or use `ToneTag`.\n- Most components take an `icon` prop (`Button`, `Chip`, `Menu` items, `EmptyState`); pass the name there rather than nesting an `<Icon>`.",
@@ -2449,6 +2503,7 @@
         "chart",
         "data-table"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- The headline numbers at the top of a dashboard or report: total events, failed logons, open alerts, risk score.\n- A number whose change over a period matters: add `delta` (and `spark` for the trend).\n- A number that leads to detail: `onClick` makes the whole card a button (open the filtered report).",
         "When not to use": "- Several values that need comparing against each other: use a `Chart` or a `DataTable`.\n- Status of one object (enabled, healthy): use a `ToneTag` or `Chip`.\n- Long labels or explanations: the card holds a short label and one foot line.",
@@ -2568,6 +2623,7 @@
         "banner",
         "button"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- `SkeletonRows`: a table whose rows are loading. `DataTable` already renders it when `loading` is set; use it directly only in hand-built `.lf-table` markup.\n- `PageLoader`: a whole page or a large panel is loading and there is no layout to sketch yet (route change, first load).\n- `ProgressBar`: a long task with known progress (upload, export, scan) — or `indeterminate` when the task is running but progress is unknown.",
         "When not to use": "- A button that is waiting on its own action: use `Button loading`.\n- Short waits under about 300 ms: show nothing.\n- Loading content that has a known shape other than a table (cards, KPI tiles): use the `.lf-loading` / `.lf-sk` skeleton classes on the real markup.\n- A result: once the load finishes, replace the loader with the content, an `EmptyState` or an error.",
@@ -2676,6 +2732,7 @@
         "segmented",
         "icon"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- A \"more actions\" button on a row, card or page header (`IconButton icon=\"more\"`).\n- A button that opens a short list of related actions (\"Export ▾\" → CSV, PDF, Schedule…).\n- A small custom popover (a few checkboxes, a short form) anchored to a button: pass `children` instead of `items`.",
         "When not to use": "- Choosing a value for a form field: use `Dropdown`, `SearchSelect` or `MultiSelect`.\n- Switching views: use `Segmented`.\n- A single action: use a `Button`.\n- Navigation menus of the app shell (sidebar, account menu): those have their own components.",
@@ -2994,6 +3051,7 @@
         "wizard-card",
         "toast"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- `Modal` for a short, focused task that must finish or be cancelled before the user goes back to the page: create or edit one object, pick options, a 2–4 step setup.\n- `ConfirmDialog` to confirm a destructive or irreversible action (\"Delete 3 reports?\") or any yes/no question that needs a deliberate answer.\n- `Steps` inside a `Modal` (via the `steps` and `step` props) for a short multi-step dialog, or on its own above page content. `WizardCard` already renders it for full-page wizards.",
         "When not to use": "- Reading or editing a record while keeping the list in view: use `Drawer` or `DetailPanel`.\n- Long multi-step flows (more than about 4 steps, or steps with large forms): use a full-page `WizardCard`.\n- Success or progress messages: use `useToast`. Never open a modal just to say \"Saved\".\n- Nesting a second modal on top of a modal. A `ConfirmDialog` over a modal works (only the top-most overlay reacts to keys), but use it sparingly.",
@@ -3096,6 +3154,7 @@
         "chip",
         "card"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- Once at the top of every console page (dashboards, reports, settings, detail pages), directly above the page content.\n- `crumbs` when the page sits below another page (\"Reports › File server › Permission changes\").\n- `actions` for the page-level buttons (Refresh, Export, the single primary action).",
         "When not to use": "- Titles of cards, dialogs or drawers: use `Card` / `SetCard` titles, `Modal` or `Drawer`.\n- The home page hero, which has its own larger title.\n- More than one per page.",
@@ -3305,6 +3364,7 @@
         "dropdown",
         "button"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- `SearchField` to filter a table, list, card or dropdown-like panel by text (\"Search users\").\n- `PillInput` for short inline values in toolbars and filter bars, optionally with an icon (e.g. `icon=\"filter\"`).\n- `soft` (filled `--surface-2`) when the input sits inside a white card; the default white pill on the washed page background.",
         "When not to use": "- Fields in dialogs, drawers, wizards and settings forms: use `TextField` (46 px, radius 14) so the form is consistent.\n- When the user needs a validation message: `PillInput` has no error or help slot — use `TextField`.\n- Multi-line text: use `TextAreaField`.",
@@ -3384,6 +3444,7 @@
         "tooltip",
         "button"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "Once, at the root of every app built with the Lepide Design System:\n\n- `ThemeProvider`: always. It reads the saved theme, sets `data-theme` on `<html>` and gives you `useTheme()` for a theme switcher.\n- `LepideProvider`: when the app has a client-side router, so kit links (breadcrumbs in `PageHeader`) navigate without a full page load. Optional: without it, links are plain `<a href>`.\n- `ToastProvider` (from the toast docs): always, so `useToast()` works anywhere below it.\n- `TooltipHost` (from the tooltip docs): always, once, so `data-tip` attributes, `IconButton` labels and disabled `Menu` item reasons show as tooltips.",
         "When not to use": "- Do not nest a second `ThemeProvider` to theme part of a page: the theme is global (it is set on `<html>`). Sections cannot have their own theme.\n- Do not mount `TooltipHost` or `ToastProvider` more than once.\n- Do not set `data-theme` on `<html>` yourself after start-up; call `setTheme` so the stored value and the context stay in sync.",
@@ -3477,6 +3538,7 @@
         "toggle",
         "text-field"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- Exactly one choice from two to about six options that should all be visible at once (report format, scope \"This OU / Whole domain\").\n- When the options need a moment of comparison before choosing.",
         "When not to use": "- More than about six options, or long lists: use `SelectField` / `SearchSelect`.\n- A compact switch between views in a toolbar: use `Segmented`.\n- Independent on/off choices: use `Checkbox` or `Toggle`.",
@@ -3741,6 +3803,7 @@
         "text-field",
         "pill-input"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- `SearchSelect` for one value from a long list (users, servers, OUs, time zones) inside a form. It is a labelled `Dropdown` whose search box appears once there are more than `searchFrom` (default 8) options.\n- `MultiSelect` for several values from a list (event types, recipients, servers to include). Add `selectAll` when picking everything is common.",
         "When not to use": "- Short lists without a search need: use `SelectField` (same trigger, also auto-adds search past 8 options) — `SearchSelect` differs mainly in its default `placeholder=\"Select\"` and the `pill` option.\n- Two to five independent on/off choices that should all be visible: use a group of `Checkbox`es.\n- Free-text entry or tags that are not in a list: `MultiSelect` cannot create new values.",
@@ -3841,6 +3904,18 @@
         "page-header",
         "card",
         "dropdown"
+      ],
+      "figma": [
+        {
+          "name": "Section nav",
+          "nodeId": "17:56",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=17-56"
+        },
+        {
+          "name": "Section nav item",
+          "nodeId": "17:55",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=17-55"
+        }
       ],
       "guidance": {
         "When to use": "- A page with several sections the user moves between, where each section is its own view: Settings categories, an admin area, a record with many sub-pages.\n- Between 4 and about 20 sections. Group long lists with `group`.",
@@ -3943,6 +4018,7 @@
         "menu",
         "button"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- Switching between two to five sibling views of the same page (\"Overview · Activity · Permissions\"): `mode=\"tabs\"` (default).\n- Switching the data a view shows without changing the view (\"Last 7 days · 30 days · 90 days\", \"All · Failed\"): `mode=\"pressed\"`.\n- Showing a count per option (`count`), for example the number of items in each status.",
         "When not to use": "- More than five options, or option labels that are long: use `Dropdown`.\n- Section navigation inside a settings dialog: use `VerticalTabs`.\n- Navigating to a different page: use links or the sidebar.\n- A single on/off setting: use `Toggle`.\n- Triggering an action: use `Button`.",
@@ -4012,6 +4088,7 @@
         "dropdown",
         "button"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- Settings pages and settings cards: one row per setting, each with a title, an optional one-line explanation and its control.\n- The control is usually a `Toggle`; a small `Dropdown` (`size=\"sm\"`), `NumberField` or `Button` also fits.",
         "When not to use": "- Data entry forms with many fields: use `Field` / `TextField` in a `.page-form`.\n- Read-only key/value details: use a key/value list, not setting rows.",
@@ -4153,6 +4230,13 @@
         "text-field",
         "checkbox",
         "button"
+      ],
+      "figma": [
+        {
+          "name": "Sign in",
+          "nodeId": "20:182",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=20-182"
+        }
       ],
       "guidance": {
         "When to use": "- The product's sign-in page. It is a whole page: render it outside the console shell and outside any card.",
@@ -4523,6 +4607,13 @@
         "toggle",
         "button"
       ],
+      "figma": [
+        {
+          "name": "Text field",
+          "nodeId": "8:31",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=8-31"
+        }
+      ],
       "guidance": {
         "When to use": "- `TextField` for any single-line value in a dialog or page form: names, e-mail addresses, paths, descriptions.\n- `PasswordField` for secrets the user types; it adds a show/hide eye button.\n- `NumberField` for bounded integers or counts (retention days, thresholds) where stepping by `step` is useful.\n- `TextAreaField` for multi-line free text (notes, descriptions, e-mail bodies).\n- `Field` on its own to give any other control (a `Dropdown`, `MultiSelect`, `Checkbox` group, custom widget) the same label, note, help and error layout.",
         "When not to use": "- Toolbar filters and searches above tables or lists: use `PillInput` / `SearchField` (40 px pill).\n- Choosing from a fixed list: use `SelectField`, `SearchSelect` or `RadioGroup`, never a text field with instructions.\n- Outside a `.modal__form` or `.page-form` container: the 46 px field styling of the `input`, `textarea` and `select` inside `.fld` is scoped to those two containers, so the control falls back to browser/global styles elsewhere. `<Modal>` and `WizardCard` already provide the container.",
@@ -4614,6 +4705,18 @@
         "radio-group",
         "segmented",
         "wizard-card"
+      ],
+      "figma": [
+        {
+          "name": "Tile picker",
+          "nodeId": "18:227",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=18-227"
+        },
+        {
+          "name": "Tile",
+          "nodeId": "18:226",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=18-226"
+        }
       ],
       "guidance": {
         "When to use": "- Picking one type from 2–9 options that each need a short explanation or a logo: data-source type, policy template, report kind — typically the first step of a wizard.\n- `multiple` when several can be chosen (connectors to enable).",
@@ -4730,6 +4833,7 @@
         "modal",
         "loading"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- Confirm that something finished: \"Report saved\", \"3 users disabled\".\n- Report a background result the user should know about but needn't act on immediately.\n- Show progress of a short async action with `loading: true`, then `update()` it with the result.\n- Tell the user why the button they just pressed didn't work (\"Add at least one column\"): an `error` or `warning` raised right after a click automatically appears as a nudge beside that button.\n- Offer one or two follow-ups (\"Undo\", \"Open report\") with `actions`.",
         "When not to use": "- Field validation: show the error on the field (`Field` `error`), not in a toast.\n- Information the user must read or decide on before continuing: use `ConfirmDialog` or a `Banner`.\n- Persistent page state (a licence expires, a connector is down): use a `Banner`.\n- Long text: a toast holds a title and one or two lines.",
@@ -4813,6 +4917,13 @@
         "checkbox",
         "radio-group"
       ],
+      "figma": [
+        {
+          "name": "Toggle",
+          "nodeId": "6:60",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=6-60"
+        }
+      ],
       "guidance": {
         "When to use": "- A single setting that is on or off and applies as soon as it is flipped (enable alerts, auto-refresh, mask sensitive data).\n- Rows in a settings list — put it in a `SettingRow`, which supplies the visible title and help text.",
         "When not to use": "- A choice that is only applied after \"Save\" or \"Apply\" in a form: use `Checkbox`.\n- Choosing between named options (\"Daily / Weekly\"): use `RadioGroup` or `Segmented`.\n- Agreeing to terms or selecting rows: use `Checkbox`.",
@@ -4861,6 +4972,7 @@
         "button",
         "menu"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- Name an icon-only control: every `IconButton` (`.lf-btn--icon`) already gets its `label` as a tooltip, with no extra code.\n- Give a short hint on any other element: add `data-tip=\"…\"` (e.g. a truncated name, a status icon, a disabled reason on a wrapper).",
         "When not to use": "- Information the user needs to complete a task: put it on the page (help text under a field, a `Banner`).\n- Rich content, links or buttons: a tooltip is plain text, one line, and can't be hovered or clicked. Use a `Menu` or a popover.\n- Touch-only interfaces: tooltips need hover or keyboard focus.\n- Repeating a visible text label.",
@@ -4955,6 +5067,18 @@
         "card",
         "section-nav"
       ],
+      "figma": [
+        {
+          "name": "Tree",
+          "nodeId": "18:127",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=18-127"
+        },
+        {
+          "name": "Tree item",
+          "nodeId": "18:126",
+          "url": "https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx?node-id=18-126"
+        }
+      ],
       "guidance": {
         "When to use": "- The left column of a hub (DESIGN.md §4.2 \"Reports hub\"): pick a folder, the table on the right shows its contents.\n- Hierarchies two or three levels deep with counts.",
         "When not to use": "- Flat lists of sections: use `SectionNav`.\n- Choosing items for a form: use `MultiSelect` or a checkbox list.",
@@ -5033,6 +5157,7 @@
         "modal",
         "icon"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- The section list inside a settings-style `Modal`, beside the content pane (\"General · Schedule · Recipients · Permissions\").\n- Four or more sections whose labels are too long or too many for `Segmented`.",
         "When not to use": "- Two to five short sibling views in a page: use `Segmented`.\n- Page-level navigation or the settings page section nav: use the sidebar / settings nav.\n- Ordered steps the user must complete in sequence: use `Steps` or `WizardCard`.",
@@ -5177,6 +5302,7 @@
         "modal",
         "button"
       ],
+      "figma": [],
       "guidance": {
         "When to use": "- Creating something that needs several screens of settings in a fixed order: a new report, an alert rule, a data-source connection, a scheduled export.\n- When each step is a full form (several fields, a table, a picker) that would not fit comfortably in a `Modal`.",
         "When not to use": "- One screen of fields: use a page form or a `Modal`.\n- 2–3 short steps: a `Modal` with `steps` keeps the user on the current page.\n- Steps that can be done in any order: use tabs (`VerticalTabs`, `Segmented`) or sections on one settings page.",
