@@ -1,0 +1,94 @@
+/* Subscription (SCR-SAD-12/13, DLG-SAD-24 … 29) and the Detect account dialogs it opens. Tokens only. */
+.subscription-tabs{max-width:460px}
+.subscription-name{display:inline-flex;align-items:center;gap:8px;min-width:0;max-width:100%}
+.subscription-name__text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;color:var(--ink)}
+.subscription-table .lf-btn--icon,.subscription-status .lf-table .lf-btn--icon{width:30px;height:30px;color:var(--ink-3)}
+.subscription-table .lf-btn--icon[data-danger]:hover:not(:disabled),.subscription-status .lf-btn--icon[data-danger]:hover:not(:disabled),
+.subscription-wizard .lf-btn--icon[data-danger]:hover:not(:disabled){background:var(--danger-bg);color:var(--danger-text)}
+.subscription-infobar{display:flex;align-items:center;gap:10px;width:100%;padding:14px 18px;text-align:left;font:600 13.5px/20px var(--font);color:var(--ink);
+  cursor:pointer;transition:box-shadow var(--t-base),transform var(--t-base) var(--ease-out)}
+.subscription-infobar span{flex:1}
+.subscription-infobar svg.lf-i{color:var(--ink-3)}
+.subscription-infobar:hover{box-shadow:var(--sh-md);transform:translateY(-1px)}
+
+/* Information panel */
+.subscription-panel__body{display:flex;flex-direction:column;gap:14px}
+.subscription-panel .section-label{margin:4px 0 -4px}
+.subscription-accordion{display:flex;flex-direction:column;gap:4px}
+.subscription-accordion__item{border:1px solid var(--border-soft);border-radius:var(--r-md);overflow:hidden}
+.subscription-accordion__item>button{display:flex;align-items:center;gap:8px;width:100%;min-height:40px;padding:8px 12px;text-align:left;font:600 13px/18px var(--font);color:var(--ink-2)}
+.subscription-accordion__item>button:hover{background:var(--surface-2);color:var(--ink)}
+.subscription-accordion__item>button svg.lf-i{flex:none;color:var(--ink-3);transition:transform var(--t-base) var(--ease)}
+.subscription-accordion__item>button[aria-expanded="true"] svg.lf-i{transform:rotate(90deg)}
+.subscription-accordion__item ol,.subscription-accordion__item>p{margin:0;padding:4px 14px 12px 34px;font:500 12.5px/18px var(--font);color:var(--ink-2)}
+.subscription-accordion__item ol li+li{margin-top:4px}
+.subscription-card .kv>div{background:var(--surface-2)}
+.subscription-card{padding:0}
+
+/* Status tab */
+.subscription-status{display:grid;grid-template-columns:288px minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:1100px){.subscription-status{grid-template-columns:minmax(0,1fr)}}
+.subscription-tree{position:sticky;top:0;max-height:calc(100dvh - 160px)}
+.subscription-tree .tree ul button[aria-current="true"]{background:var(--sel-fill);color:#fff;box-shadow:var(--sel-shadow)}
+.subscription-tree .tree ul button[aria-current="true"] svg.lf-i{color:rgba(255,255,255,.7)}
+.subscription-tree .tree ul button .n{margin-left:auto}
+.subscription-tree .tree ul button[aria-current="true"] .n{background:rgba(255,255,255,.16);color:#fff}
+.subscription-status__main{min-width:0}
+.subscription-mail{padding:0;overflow:hidden}
+.subscription-mail__head{padding:18px 20px 14px;border-bottom:1px solid var(--border-soft);display:flex;flex-direction:column;gap:10px}
+.subscription-mail__head h3{margin:0;font:700 15px/22px var(--font);color:var(--ink);overflow-wrap:anywhere}
+.subscription-mail__meta{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;font:500 12.5px/18px var(--font);color:var(--ink-3)}
+.subscription-mail__meta>div:first-child{display:flex;flex-direction:column;gap:2px;min-width:0;overflow-wrap:anywhere}
+.subscription-mail__meta b{color:var(--ink);font-weight:600}
+.subscription-mail__body{padding:20px;display:flex;flex-direction:column;gap:10px;font:500 13px/19px var(--font);color:var(--ink-2)}
+.subscription-mail__body p{margin:0}
+.subscription-mail__table{border-collapse:collapse;max-width:560px;width:100%}
+.subscription-mail__table th,.subscription-mail__table td{padding:8px 12px;border:1px solid var(--border-soft);text-align:left;vertical-align:top;overflow-wrap:anywhere}
+.subscription-mail__table th{width:40%;background:var(--surface-2);font-weight:600;color:var(--ink)}
+
+/* Wizard */
+.subscription-wizard{gap:14px}
+.subscription-steps{margin:0;flex-wrap:wrap}
+.subscription-steps .steps__item:disabled{cursor:not-allowed;opacity:.55}
+.subscription-wiz{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:start;min-height:360px}
+.subscription-rail button:disabled{opacity:.45;cursor:not-allowed;background:none}
+.subscription-wiz__body{min-width:0}
+@media (max-width:760px){
+  .subscription-wiz{grid-template-columns:52px minmax(0,1fr);gap:12px}
+  .subscription-rail button span{display:none}
+  .subscription-rail button{justify-content:center;padding:0}
+}
+.subscription-picker{display:flex;flex-direction:column;gap:10px;padding:14px;border:1px solid var(--border);border-radius:var(--r-md)}
+.subscription-reports{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 16px;max-height:240px;overflow:auto}
+@media (max-width:620px){.subscription-reports{grid-template-columns:minmax(0,1fr)}}
+.subscription-filters{display:grid;grid-template-columns:220px minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.subscription-filters{grid-template-columns:minmax(0,1fr)}}
+.subscription-replist{display:flex;flex-direction:column;gap:2px}
+.subscription-replist .section-label{margin:0 0 6px}
+.subscription-replist button{display:flex;align-items:center;gap:8px;min-height:38px;padding:6px 10px;border-radius:var(--r-sm);text-align:left;font:600 12.5px/17px var(--font);color:var(--ink-2)}
+.subscription-replist button span:first-child{flex:1;min-width:0}
+.subscription-replist button:hover{background:var(--surface-2);color:var(--ink)}
+.subscription-replist button[aria-current="true"]{background:var(--sel-fill);color:#fff;box-shadow:var(--sel-shadow)}
+.subscription-replist button[aria-current="true"] .count-chip{background:rgba(255,255,255,.16);color:#fff}
+.subscription-empty{margin:0;padding:16px;border-radius:var(--r-md);background:var(--surface-2);font:500 13px/19px var(--font);color:var(--ink-3)}
+.subscription-empty b{color:var(--ink)}
+.subscription-rule{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) 40px;gap:10px;align-items:end}
+.subscription-rule .lf-btn--icon{margin-bottom:8px}
+@media (max-width:760px){.subscription-rule{grid-template-columns:minmax(0,1fr)}}
+.subscription-wizard .tbl-empty b{color:var(--ink)}
+
+/* Action view, schedule picker, Detect dialogs */
+.subscription-inline{display:flex;align-items:flex-end;gap:8px;min-width:0}
+.subscription-inline .lf-btn{height:46px;flex:none}
+.subscription-disk{padding:12px 14px;border-radius:var(--r-md);background:var(--surface-2);display:flex;flex-direction:column;gap:6px}
+.subscription-disk p{margin:0;font:600 13px/18px var(--font);color:var(--ink)}
+.subscription-disk code{font:500 12.5px/18px var(--mono);color:var(--ink-2);overflow-wrap:anywhere}
+.subscription-notify{margin:0;font:600 12.5px/18px var(--font);color:var(--brand-ink)}
+.subscription-cal{display:flex;justify-content:center;border:1px solid var(--border-soft);border-radius:var(--r-md)}
+.subscription-time{display:flex;align-items:center;gap:8px}
+.modal__form .subscription-time select{width:88px}
+.subscription-checks{display:flex;flex-wrap:wrap;gap:2px 16px}
+.subscription-dates{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.subscription-dates button{height:34px;border-radius:var(--r-sm);border:1px solid var(--border);background:var(--surface);font:600 13px/1 var(--font);color:var(--ink-2);font-variant-numeric:tabular-nums}
+.subscription-dates button:hover{border-color:var(--border-2);color:var(--ink)}
+.subscription-dates button[aria-pressed="true"]{background:var(--sel-fill);border-color:var(--brand-600);color:#fff;box-shadow:var(--sel-shadow)}

@@ -1,0 +1,197 @@
+{
+  "$description": "Tier 2 — semantic tokens, light theme (stable). The first key is the category; the rest of the path is the CSS name (color.brand-600 → --brand-600). Themes in themes/*.json override these by path.",
+  "color": {
+    "$type": "color",
+    "brand":       { "$value": "{primitive.blue.500}", "$description": "Primary buttons, selected states, links, toggles on, focus" },
+    "brand-700":   { "$value": "{primitive.blue.700}", "$description": "Primary button pressed" },
+    "brand-600":   { "$value": "{primitive.blue.600}", "$description": "Primary button border, selected-state edge" },
+    "brand-400":   { "$value": "{primitive.blue.400}", "$description": "Info tone dot" },
+    "brand-300":   { "$value": "{primitive.blue.300}", "$description": "Focused input border" },
+    "brand-200":   { "$value": "{primitive.blue.200}", "$description": "Filter input with a value" },
+    "brand-100":   { "$value": "{primitive.blue.100}", "$description": "Text selection, brand chip ring, avatar fill" },
+    "brand-50":    { "$value": "{primitive.blue.50}",  "$description": "Brand tint backgrounds (selected option, info banner)" },
+    "brand-ink":   { "$value": "{color.brand}",        "$description": "Brand-coloured text (lighter in dark theme)" },
+    "on-brand":    { "$value": "{primitive.gray.0}",   "$description": "Text and icons on brand fills and the selected finish" },
+
+    "canvas":       { "$value": "{primitive.gray.50}",  "$description": "Page background" },
+    "surface":      { "$value": "{primitive.gray.0}",   "$description": "Cards, dialogs, menus, inputs" },
+    "surface-2":    { "$value": "{primitive.gray.25}",  "$description": "Table header, field fill, hover rows, dialog footers" },
+    "surface-3":    { "$value": "{primitive.gray.60}",  "$description": "Chip fill, segmented track, icon-button hover" },
+    "glass":        { "$value": "rgba(255,255,255,.7)",  "$description": "Sidebar (with blur(22px) saturate(160%))" },
+    "glass-strong": { "$value": "rgba(255,255,255,.86)", "$description": "Search pill, avatar ring, login card" },
+    "border":       { "$value": "{primitive.gray.100}", "$description": "Default hairline" },
+    "border-2":     { "$value": "{primitive.gray.150}", "$description": "Hover border, dashed 'add' borders" },
+    "border-soft":  { "$value": "{primitive.gray.70}",  "$description": "Card border, table row lines, dividers" },
+    "ink":          { "$value": "{primitive.gray.950}", "$description": "Primary text, avatars, tooltip fill" },
+    "ink-2":        { "$value": "{primitive.gray.700}", "$description": "Secondary text, labels, table body" },
+    "ink-3":        { "$value": "{primitive.gray.600}", "$description": "Muted text (passes 4.5:1 on white)" },
+    "ink-4":        { "$value": "{primitive.gray.400}", "$description": "Placeholders, disabled text, group labels. Not for body text (fails AA)" },
+
+    "success":      { "$value": "{primitive.green.600}" },
+    "success-bg":   { "$value": "{primitive.green.50}" },
+    "success-text": { "$value": "{primitive.green.700}", "$description": "Words on a tinted success background" },
+    "success-dot":  { "$value": "{primitive.green.400}", "$description": "Small solid marks" },
+    "warning":      { "$value": "{primitive.amber.600}" },
+    "warning-bg":   { "$value": "{primitive.amber.50}" },
+    "warning-text": { "$value": "{primitive.amber.700}" },
+    "warning-dot":  { "$value": "{primitive.amber.400}" },
+    "danger":       { "$value": "{primitive.red.600}" },
+    "danger-bg":    { "$value": "{primitive.red.50}" },
+    "danger-text":  { "$value": "{primitive.red.700}" },
+    "danger-dot":   { "$value": "{primitive.red.400}" },
+    "info":         { "$value": "{color.brand}" },
+    "info-bg":      { "$value": "{color.brand-50}" },
+
+    "c1": { "$value": "{primitive.blue.500}",  "$description": "Chart series 1 — blue" },
+    "c2": { "$value": "{primitive.coral.400}", "$description": "Chart series 2 — coral" },
+    "c3": { "$value": "#b8c8f0",               "$description": "Chart series 3 — pale blue" },
+    "c4": { "$value": "{primitive.blue.400}",  "$description": "Chart series 4 — mid blue" },
+    "c5": { "$value": "{primitive.coral.200}", "$description": "Chart series 5 — peach" },
+    "c6": { "$value": "{primitive.blue.300}",  "$description": "Chart series 6 — soft blue" },
+    "chart-text":  { "$value": "{primitive.gray.600}", "$description": "Axis labels, 11px" },
+    "chart-grid":  { "$value": "{primitive.gray.80}",  "$description": "Grid lines" },
+    "chart-track": { "$value": "{primitive.gray.60}",  "$description": "Gauge and ring track" }
+  },
+
+  "gradient": {
+    "$type": "gradient",
+    "sel-fill": {
+      "$value": [ { "color": "{primitive.blue.450}", "position": 0 }, { "color": "{color.brand}", "position": 1 } ],
+      "$extensions": { "lepide": { "angle": "180deg" } },
+      "$description": "The selected-state finish: primary buttons and every selected item (tab, tree item, step, date). Text on it is --on-brand."
+    }
+  },
+
+  "shadow": {
+    "$type": "shadow",
+    "sh-xs": { "$value": { "color": "rgba(18,20,23,.05)", "offsetX": "0", "offsetY": "1px", "blur": "2px", "spread": "0" }, "$description": "Buttons, chips, small tiles" },
+    "sh-sm": { "$value": [
+      { "color": "rgba(18,20,23,.04)", "offsetX": "0", "offsetY": "1px", "blur": "2px", "spread": "0" },
+      { "color": "rgba(18,20,23,.08)", "offsetX": "0", "offsetY": "4px", "blur": "14px", "spread": "-6px" }
+    ], "$description": "Cards at rest, sidebar" },
+    "sh-md": { "$value": [
+      { "color": "rgba(18,20,23,.05)", "offsetX": "0", "offsetY": "1px", "blur": "3px", "spread": "0" },
+      { "color": "rgba(18,20,23,.16)", "offsetX": "0", "offsetY": "14px", "blur": "34px", "spread": "-14px" }
+    ], "$description": "Hovered cards, menus, tooltips" },
+    "sh-lg": { "$value": [
+      { "color": "rgba(18,20,23,.05)", "offsetX": "0", "offsetY": "2px", "blur": "6px", "spread": "0" },
+      { "color": "rgba(18,20,23,.28)", "offsetX": "0", "offsetY": "28px", "blur": "70px", "spread": "-20px" }
+    ], "$description": "Modals, drawers, account menu" },
+    "sh-brand": { "$value": [
+      { "color": "rgba(28,69,153,.25)", "offsetX": "0", "offsetY": "1px", "blur": "2px", "spread": "0" },
+      { "color": "rgba(28,69,153,.55)", "offsetX": "0", "offsetY": "8px", "blur": "20px", "spread": "-8px" }
+    ], "$description": "Primary button glow" },
+    "ring": { "$value": { "color": "rgba(28,69,153,.18)", "offsetX": "0", "offsetY": "0", "blur": "0", "spread": "3px" }, "$description": "Focus ring on fields" },
+    "sel-shadow": { "$value": [
+      { "color": "{color.brand-600}", "offsetX": "0", "offsetY": "0", "blur": "0", "spread": "1px", "inset": true },
+      { "color": "rgba(255,255,255,.18)", "offsetX": "0", "offsetY": "1px", "blur": "0", "spread": "1px", "inset": true },
+      "{shadow.sh-brand}"
+    ], "$description": "Selected-state edge, inner highlight and glow (pair with --sel-fill)" },
+    "sel-ring": { "$value": [
+      { "color": "{color.brand-600}", "offsetX": "0", "offsetY": "0", "blur": "0", "spread": "1px", "inset": true },
+      { "color": "rgba(255,255,255,.18)", "offsetX": "0", "offsetY": "1px", "blur": "0", "spread": "1px", "inset": true }
+    ], "$description": "Selected finish without the glow, for small items (step numbers, badges, row arrows)" }
+  },
+
+  "typography": {
+    "font": { "$type": "fontFamily", "$value": ["Manrope", "ui-sans-serif", "system-ui", "Segoe UI", "sans-serif"], "$description": "Everything (Google Fonts, weights 400–800)" },
+    "mono": { "$type": "fontFamily", "$value": ["Geist Mono", "ui-monospace", "SFMono-Regular", "Consolas", "monospace"], "$description": "Code, IDs, mono table cells (weights 400/500)" }
+  },
+
+  "type": {
+    "$type": "typography",
+    "$description": "Named text styles. CSS: --type-<name> is a font shorthand, --type-<name>-ls its letter-spacing.",
+    "type-display":     { "$value": { "fontFamily": "{typography.font}", "fontWeight": 500, "fontSize": "38px", "lineHeight": "46px", "letterSpacing": "-0.04em" },  "$description": "Home hero title" },
+    "type-page-title":  { "$value": { "fontFamily": "{typography.font}", "fontWeight": 600, "fontSize": "30px", "lineHeight": "38px", "letterSpacing": "-0.035em" }, "$description": "Page title (.head h2), login title; 26/32 under 860px" },
+    "type-hero-title":  { "$value": { "fontFamily": "{typography.font}", "fontWeight": 600, "fontSize": "24px", "lineHeight": "30px", "letterSpacing": "-0.03em" },  "$description": "AI hero title" },
+    "type-modal-title": { "$value": { "fontFamily": "{typography.font}", "fontWeight": 700, "fontSize": "19px", "lineHeight": "26px", "letterSpacing": "-0.025em" }, "$description": "Modal title" },
+    "type-section-title": { "$value": { "fontFamily": "{typography.font}", "fontWeight": 700, "fontSize": "18px", "lineHeight": "26px", "letterSpacing": "-0.02em" }, "$description": "Section, drawer and empty-state title" },
+    "type-card-title":  { "$value": { "fontFamily": "{typography.font}", "fontWeight": 700, "fontSize": "15px", "lineHeight": "22px", "letterSpacing": "-0.01em" },  "$description": "Card title (.lf-card__title)" },
+    "type-kpi":         { "$value": { "fontFamily": "{typography.font}", "fontWeight": 600, "fontSize": "34px", "lineHeight": "40px", "letterSpacing": "-0.04em" },  "$description": "KPI value — always tabular-nums" },
+    "type-body":        { "$value": { "fontFamily": "{typography.font}", "fontWeight": 400, "fontSize": "14px", "lineHeight": "21px", "letterSpacing": "0" },       "$description": "Body text and page description (ink-3)" },
+    "type-nav":         { "$value": { "fontFamily": "{typography.font}", "fontWeight": 600, "fontSize": "13.5px", "lineHeight": "1", "letterSpacing": "0" },     "$description": "Sidebar nav item" },
+    "type-button":      { "$value": { "fontFamily": "{typography.font}", "fontWeight": 600, "fontSize": "13px", "lineHeight": "1", "letterSpacing": "0" },       "$description": "Button label (sm 12.5px, lg 14px)" },
+    "type-input":       { "$value": { "fontFamily": "{typography.font}", "fontWeight": 500, "fontSize": "14px", "lineHeight": "20px", "letterSpacing": "0" },    "$description": "Dialog/page field value (pill inputs 13.5px)" },
+    "type-label":       { "$value": { "fontFamily": "{typography.font}", "fontWeight": 600, "fontSize": "13px", "lineHeight": "18px", "letterSpacing": "0" },    "$description": "Field label (pill fields 12.5px)" },
+    "type-table":       { "$value": { "fontFamily": "{typography.font}", "fontWeight": 500, "fontSize": "13px", "lineHeight": "18px", "letterSpacing": "0" },    "$description": "Table body (first column 600 ink)" },
+    "type-table-head":  { "$value": { "fontFamily": "{typography.font}", "fontWeight": 600, "fontSize": "12px", "lineHeight": "16px", "letterSpacing": "0" },    "$description": "Table header (ink-3)" },
+    "type-caption":     { "$value": { "fontFamily": "{typography.font}", "fontWeight": 500, "fontSize": "12.5px", "lineHeight": "18px", "letterSpacing": "0" },  "$description": "Card subtitle, breadcrumbs, captions (ink-3)" },
+    "type-eyebrow":     { "$value": { "fontFamily": "{typography.font}", "fontWeight": 600, "fontSize": "12.5px", "lineHeight": "16px", "letterSpacing": "0" },  "$description": "Eyebrow (brand)" },
+    "type-chip":        { "$value": { "fontFamily": "{typography.font}", "fontWeight": 600, "fontSize": "11.5px", "lineHeight": "1", "letterSpacing": "0" },     "$description": "Chip, sidebar group label" },
+    "type-mono":        { "$value": { "fontFamily": "{typography.mono}", "fontWeight": 400, "fontSize": "12.5px", "lineHeight": "18px", "letterSpacing": "-0.01em" }, "$description": "Mono cell" }
+  },
+
+  "space": {
+    "$type": "dimension",
+    "$description": "4pt scale. Common gaps: 8 between buttons, 16 between cards, 20 between page sections.",
+    "s1": { "$value": "4px" }, "s2": { "$value": "8px" }, "s3": { "$value": "12px" }, "s4": { "$value": "16px" },
+    "s5": { "$value": "20px" }, "s6": { "$value": "24px" }, "s7": { "$value": "28px" }, "s8": { "$value": "32px" },
+    "s10": { "$value": "40px" }
+  },
+
+  "radius": {
+    "$type": "dimension",
+    "r-xs":   { "$value": "8px",   "$description": "Menu items, tooltip, radio rows" },
+    "r-sm":   { "$value": "10px",  "$description": "Tree items, sub-nav items, dropdown options" },
+    "r-md":   { "$value": "14px",  "$description": "Dialog fields, dropdown panel, menus, notification cards, nav items" },
+    "r-lg":   { "$value": "20px",  "$description": "Cards, account menu" },
+    "r-xl":   { "$value": "26px",  "$description": "Sidebar, modals, drawers" },
+    "r-pill": { "$value": "999px", "$description": "Buttons, pill inputs, chips, segmented controls, toggles" }
+  },
+
+  "motion": {
+    "t-fast":   { "$type": "duration", "$value": "150ms" },
+    "t-base":   { "$type": "duration", "$value": "200ms" },
+    "t-slow":   { "$type": "duration", "$value": "250ms" },
+    "ease":     { "$type": "cubicBezier", "$value": [0.2, 0.7, 0.2, 1], "$description": "General" },
+    "ease-out": { "$type": "cubicBezier", "$value": [0.16, 1, 0.3, 1], "$description": "Entrances" },
+    "ease-in":  { "$type": "cubicBezier", "$value": [0.4, 0, 1, 1] }
+  },
+
+  "z": {
+    "$type": "number",
+    "z-sidebar": { "$value": 30 }, "z-popover": { "$value": 40 }, "z-dock": { "$value": 50 }, "z-flyout": { "$value": 60 },
+    "z-drawer": { "$value": 70 }, "z-modal": { "$value": 80 }, "z-account-menu": { "$value": 90 }, "z-toast": { "$value": 100 },
+    "z-tooltip": { "$value": 120 }, "z-dropdown": { "$value": 130 }, "z-nudge": { "$value": 140 }
+  },
+
+  "breakpoint": {
+    "$type": "dimension",
+    "$description": "Max-width breakpoints (CSS custom properties can't be used inside @media; use the literal values).",
+    "bp-xl": { "$value": "1280px", "$description": "KPI grid and panels → 2 columns" },
+    "bp-lg": { "$value": "1100px", "$description": "Builders stack; module grid → 6 columns" },
+    "bp-md": { "$value": "860px",  "$description": "Sidebar → bottom tab bar; drawers → bottom sheets; panels → 1 column" },
+    "bp-sm": { "$value": "620px",  "$description": "KPIs 1 column; form rows 1 column" }
+  },
+
+  "layout": {
+    "$type": "dimension",
+    "nav-w":           { "$value": "256px" },
+    "nav-w-collapsed": { "$value": "76px" },
+    "topbar-h":        { "$value": "64px" }
+  },
+
+  "size": {
+    "$type": "dimension",
+    "icon-xs":   { "$value": "12px", "$description": "Icons in chips" },
+    "icon-sm":   { "$value": "14px", "$description": "Menus, small buttons (14–15)" },
+    "icon-md":   { "$value": "16px", "$description": "Default: buttons, fields" },
+    "icon-nav":  { "$value": "19px", "$description": "Sidebar" },
+    "icon-tile": { "$value": "20px", "$description": "Module tiles" },
+    "icon-lg":   { "$value": "24px", "$description": "Empty states" },
+    "icon-stroke": { "$type": "number", "$value": 1.6, "$description": "Lucide outline stroke width" }
+  },
+
+  "opacity": {
+    "$type": "number",
+    "opacity-disabled": { "$value": 0.45 }
+  },
+
+  "effect": {
+    "focus-outline": { "$value": "2px solid rgba(28,69,153,.6)", "$description": "outline on :focus-visible, offset 2px. Fields use --ring instead" },
+    "canvas-wash": {
+      "$value": "radial-gradient(42% 46% at 0% 0%,rgba(46,170,120,.10),transparent 70%),radial-gradient(40% 44% at 100% 0%,rgba(28,69,153,.10),transparent 70%),radial-gradient(46% 50% at 100% 100%,rgba(236,120,130,.08),transparent 70%),radial-gradient(40% 40% at 0% 100%,rgba(28,69,153,.06),transparent 70%)",
+      "$description": "CSS background for the four corner washes behind the app (.app::before). Dark: opacity .5. High contrast: hidden."
+    }
+  }
+}

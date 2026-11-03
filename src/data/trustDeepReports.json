@@ -1,0 +1,1281 @@
+{
+  "$source": "src/data/trustDeepReports.ts",
+  "exports": {
+    "PERMISSIONS": [
+      "List folder / read data",
+      "Create files / write data",
+      "Create folders / append data",
+      "Read extended attributes",
+      "Write extended attributes",
+      "Traverse folder / execute file",
+      "Delete subfolders and files",
+      "Read attributes",
+      "Write attributes",
+      "Delete",
+      "Read Permissions",
+      "Change Permissions",
+      "Take ownership"
+    ],
+    "PBU_TREE": {
+      "name": "DCD01",
+      "children": [
+        {
+          "name": "Blueprints"
+        },
+        {
+          "name": "Budget Forecast"
+        },
+        {
+          "name": "Company Share",
+          "children": [
+            {
+              "name": "Employee Records",
+              "children": [
+                {
+                  "name": "Projections"
+                },
+                {
+                  "name": "Shareholders"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "OBJECT_TREE": {
+      "name": "DCD01",
+      "children": [
+        {
+          "name": "Blueprints"
+        },
+        {
+          "name": "Budget Forecast"
+        },
+        {
+          "name": "Company Share",
+          "children": [
+            {
+              "name": "Education"
+            },
+            {
+              "name": "Employee Records"
+            },
+            {
+              "name": "Financial Services",
+              "children": [
+                {
+                  "name": "Accounts"
+                },
+                {
+                  "name": "Clients"
+                },
+                {
+                  "name": "Finance"
+                },
+                {
+                  "name": "HR"
+                },
+                {
+                  "name": "IT"
+                },
+                {
+                  "name": "Marketing"
+                },
+                {
+                  "name": "Sales"
+                },
+                {
+                  "name": "SDR Team"
+                }
+              ]
+            },
+            {
+              "name": "Government"
+            },
+            {
+              "name": "Healthcare"
+            },
+            {
+              "name": "Legal"
+            }
+          ]
+        }
+      ]
+    },
+    "OBJECT_TREE_BROKEN": {
+      "name": "DCD01",
+      "children": [
+        {
+          "name": "Blueprints"
+        },
+        {
+          "name": "Budget Forecast"
+        },
+        {
+          "name": "Company Share",
+          "children": [
+            {
+              "name": "Education"
+            },
+            {
+              "name": "Financial Services",
+              "children": [
+                {
+                  "name": "Accounts"
+                }
+              ]
+            },
+            {
+              "name": "Legal"
+            }
+          ]
+        }
+      ]
+    },
+    "STALE_TREE": {
+      "name": "DCD01",
+      "count": "350 / 350",
+      "children": [
+        {
+          "name": "Blueprints",
+          "count": "3 / 3"
+        },
+        {
+          "name": "Budget Forecast",
+          "count": "3 / 3"
+        },
+        {
+          "name": "Company Share",
+          "count": "342 / 342",
+          "children": [
+            {
+              "name": "Education",
+              "count": "48 / 48"
+            },
+            {
+              "name": "Employee Records",
+              "count": "1 / 1"
+            },
+            {
+              "name": "Financial Services",
+              "count": "111 / 111",
+              "selectable": true
+            },
+            {
+              "name": "Government",
+              "count": "72 / 72"
+            },
+            {
+              "name": "Healthcare",
+              "count": "48 / 48"
+            },
+            {
+              "name": "Legal",
+              "count": "14 / 14"
+            },
+            {
+              "name": "Technology",
+              "count": "42 / 42"
+            }
+          ]
+        },
+        {
+          "name": "Shareholders",
+          "count": "2 / 2"
+        }
+      ]
+    },
+    "EPU_USER_TREE": {
+      "name": "lpde4",
+      "children": [
+        {
+          "name": "Marty.Byrde"
+        }
+      ]
+    },
+    "DEEP_REPORT_META": {
+      "permissions-by-user": {
+        "filterLine": "User/Group : [Equals []] AND  Component Name : [Equals [All]]",
+        "filterFields": [
+          "Stale Data",
+          "Object Path",
+          "Compliance",
+          "Monetary Value"
+        ],
+        "dateRange": null,
+        "exportable": true
+      },
+      "permissions-by-object": {
+        "filterLine": "File Server : [Equals[All]]",
+        "filterFields": [
+          "File Mask",
+          "Directory",
+          "Stale Data",
+          "Compliance",
+          "Monetary Value",
+          "Broken Inheritance"
+        ],
+        "dateRange": null,
+        "exportable": true
+      },
+      "excessive-permissions-by-user": {
+        "filterLine": "Component Name : [Equals[All]] AND Days : [Equals[30]]",
+        "filterFields": [
+          "User"
+        ],
+        "dateRange": null,
+        "exportable": true
+      },
+      "excessive-permissions-by-object": {
+        "filterLine": "Component Name : [Equals [All]] AND Days : [Equals [30]]",
+        "filterFields": [
+          "Directory"
+        ],
+        "dateRange": null,
+        "exportable": true
+      },
+      "stale-data-report": {
+        "filterLine": "Server Name : [Equals[All]] AND Stale Days : [Older Than [30]]",
+        "filterFields": [
+          "Folder Path",
+          "Owner"
+        ],
+        "dateRange": null,
+        "exportable": true
+      },
+      "anomaly-analysis": {
+        "filterLine": "Component Name : [Equals[All]]",
+        "filterFields": [
+          "User",
+          "Component(s)"
+        ],
+        "dateRange": "Apr 01, 2024 - Apr 30, 2024",
+        "exportable": false
+      }
+    },
+    "FINANCE_PATH": "\\\\DCD01\\Company Share\\Financial Services\\Finance",
+    "PBU_FOLDERS": [
+      {
+        "name": "Budget Forecast",
+        "everyone": true,
+        "broken": false,
+        "path": "C:\\Budget Forecast",
+        "owner": "lpde4\\Pete.Mitchell",
+        "lastScan": "07/11/2024 04:24:30 PM",
+        "lastModified": "27/09/2023 09:23:28 AM",
+        "effective": "Full Control"
+      }
+    ],
+    "PBU_FILES": [
+      {
+        "name": "Forecast details.txt",
+        "kind": "text",
+        "everyone": true,
+        "broken": false,
+        "notAccessed": true,
+        "contentType": "No Sensitive Content",
+        "compliance": "N/A",
+        "monetary": "N/A",
+        "risk": "N/A",
+        "effective": "Full Control"
+      },
+      {
+        "name": "Logo for template.bmp",
+        "kind": "file",
+        "everyone": true,
+        "broken": false,
+        "notAccessed": true,
+        "contentType": "No Sensitive Content",
+        "compliance": "N/A",
+        "monetary": "N/A",
+        "risk": "N/A",
+        "effective": "Full Control"
+      },
+      {
+        "name": "New presentation.pptx",
+        "kind": "file",
+        "everyone": true,
+        "broken": false,
+        "notAccessed": true,
+        "contentType": "No Sensitive Content",
+        "compliance": "N/A",
+        "monetary": "N/A",
+        "risk": "N/A",
+        "effective": "Full Control"
+      }
+    ],
+    "POBJ_OBJECTS": [
+      {
+        "name": "Balance sheet",
+        "kind": "folder",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "Folder",
+        "owner": "lpde4\\Neal.Gamby",
+        "contentType": "N/A",
+        "compliance": "N/A",
+        "monetary": "N/A",
+        "risk": "N/A",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Finance Managers",
+        "kind": "folder",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "Folder",
+        "owner": "lpde4\\Justin.Hammer",
+        "contentType": "N/A",
+        "compliance": "N/A",
+        "monetary": "N/A",
+        "risk": "N/A",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Forecasts",
+        "kind": "folder",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "Folder",
+        "owner": "lpde4\\Marty.Byrde",
+        "contentType": "N/A",
+        "compliance": "N/A",
+        "monetary": "N/A",
+        "risk": "N/A",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "P and L Sheets",
+        "kind": "folder",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "Folder",
+        "owner": "lpde4\\Kelly.Maxwell",
+        "contentType": "N/A",
+        "compliance": "N/A",
+        "monetary": "N/A",
+        "risk": "N/A",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Statements",
+        "kind": "folder",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "Folder",
+        "owner": "lpde4\\Lee.Russell",
+        "contentType": "N/A",
+        "compliance": "N/A",
+        "monetary": "N/A",
+        "risk": "N/A",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Employee list.txt",
+        "kind": "text",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "File",
+        "owner": "lpde4\\Nitin.Gamby",
+        "contentType": "UK Driver's License + UK Postal Code",
+        "compliance": "UK - GDPR",
+        "monetary": "$ 2",
+        "risk": "2",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Confidential.pdf",
+        "kind": "pdf",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "File",
+        "owner": "lpde4\\Ethan.Hunt",
+        "contentType": "No Sensitive Data",
+        "compliance": "N/A",
+        "monetary": "N/A",
+        "risk": "N/A",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Resource.pptx",
+        "kind": "file",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "File",
+        "owner": "lpde4\\John.Cluster",
+        "contentType": "Credit Card - Diners Club",
+        "compliance": "Payment Card Industry Data Security Standard(PCIDSS)",
+        "monetary": "$ 1",
+        "risk": "1",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Finance.pptx",
+        "kind": "file",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "File",
+        "owner": "lpde4\\Murphy.Gamby",
+        "contentType": "SSN",
+        "compliance": "PCI-DSS",
+        "monetary": "$ 5000",
+        "risk": "7000",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Market Research.pdf",
+        "kind": "pdf",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "File",
+        "owner": "lpde4\\Kelly.Maxwell",
+        "contentType": "Credit Card - Master",
+        "compliance": "Payment Card Industry Data Security Standard(PCIDSS)",
+        "monetary": "$ 190",
+        "risk": "190",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Amex list.txt",
+        "kind": "text",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "File",
+        "owner": "lpde4\\Neal.Gamby",
+        "contentType": "Credit Card - Amex",
+        "compliance": "Payment Card Industry Data Security Standard(PCIDSS)",
+        "monetary": "$ 2",
+        "risk": "2",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Addresses.txt",
+        "kind": "text",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "File",
+        "owner": "lpde4\\Ethan.Hunt",
+        "contentType": "UK Postal Code",
+        "compliance": "UK - GDPR",
+        "monetary": "$ 2",
+        "risk": "2",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Canon",
+        "kind": "pdf",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "File",
+        "owner": "lpde4\\Neal.Gamby",
+        "contentType": "No Sensitive Data",
+        "compliance": "N/A",
+        "monetary": "N/A",
+        "risk": "N/A",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Client portfolio.pptx",
+        "kind": "file",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "File",
+        "owner": "lpde4\\Neal.Gamby",
+        "contentType": "Credit Card - Discover",
+        "compliance": "Payment Card Industry Data Security Standard(PCIDSS)",
+        "monetary": "$ 1",
+        "risk": "1",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Cloned.pptx",
+        "kind": "file",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": false,
+        "type": "File",
+        "owner": "lpde4\\Neal.Gamby",
+        "contentType": "UK Postal Code",
+        "compliance": "UK - GDPR",
+        "monetary": "$ 17",
+        "risk": "17",
+        "lastScan": "2024-05-21 15:36:46"
+      }
+    ],
+    "POBJ_ACCOUNTS": [
+      {
+        "account": "lpde4\\Catherine",
+        "group": false,
+        "effective": "List folder / read data, Read extended attributes, Traverse folder / execute file, Delete subfolders and files, Read attributes, Delete, Read Permissions, Change Permissions, Take Ownership",
+        "entries": [
+          {
+            "access": "Denied",
+            "permission": "Create files / write data,Create folders / append data,Write extended attributes,Write attributes",
+            "method": "Indirect through membership",
+            "drill": true,
+            "inheritedFrom": "N/A",
+            "appliesTo": "N/A",
+            "perms": "ddddddddddd--"
+          },
+          {
+            "access": "Allowed",
+            "permission": "Create files / write data,Create folders / append data,Write extended attributes,Write attributes",
+            "method": "Direct Applied",
+            "drill": false,
+            "inheritedFrom": "Parent Object",
+            "appliesTo": "This folder, subfolders and files",
+            "perms": "g-r--gg------"
+          }
+        ]
+      },
+      {
+        "account": "lpde4\\Finance Team",
+        "group": true,
+        "effective": "List folder / read data, Read extended attributes, Traverse folder / execute file, Delete subfolders and files, Read attributes, Delete, Read Permissions, Change Permissions, Take Ownership",
+        "entries": [
+          {
+            "access": "Denied",
+            "permission": "Create files / write data,Create folders / append data,Write extended attributes,Write attributes",
+            "method": "Indirect through membership",
+            "drill": true,
+            "inheritedFrom": "N/A",
+            "appliesTo": "N/A",
+            "perms": "ddddddddddd--"
+          }
+        ]
+      },
+      {
+        "account": "lpde4\\Rick.Deckard",
+        "group": false,
+        "effective": "Full Control",
+        "entries": [
+          {
+            "access": "Allowed",
+            "permission": "Full Control",
+            "method": "Inherited",
+            "drill": false,
+            "inheritedFrom": "Parent Object",
+            "appliesTo": "The Object Only",
+            "perms": "r-g--gg------"
+          }
+        ]
+      },
+      {
+        "account": "lpde4\\James.Howlett",
+        "group": false,
+        "effective": "List folder / read data, Read extended attributes, Traverse folder / execute file, Delete subfolders and files, Read attributes, Delete, Read Permissions, Change Permissions, Take Ownership",
+        "entries": [
+          {
+            "access": "Denied",
+            "permission": "Create files / write data,Create folders / append data,Write extended attributes,Write attributes",
+            "method": "Inherited",
+            "drill": false,
+            "inheritedFrom": "Parent Object",
+            "appliesTo": "This folder, subfolders and files",
+            "perms": "-d-d--dd-----"
+          },
+          {
+            "access": "Allowed",
+            "permission": "Create files / write data,Create folders / append data,Write extended attributes,Write attributes",
+            "method": "Inherited",
+            "drill": false,
+            "inheritedFrom": "Parent Object",
+            "appliesTo": "This folder, subfolders and files",
+            "perms": "g-r--gg------"
+          }
+        ]
+      },
+      {
+        "account": "lpde4\\Justin.Hammer",
+        "group": false,
+        "effective": "Full Control",
+        "entries": [
+          {
+            "access": "Allowed",
+            "permission": "Full Control",
+            "method": "Inherited",
+            "drill": false,
+            "inheritedFrom": "Parent Object",
+            "appliesTo": "The Object Only",
+            "perms": "g-g--gg------"
+          }
+        ]
+      },
+      {
+        "account": "lpde4\\Lee.Russell",
+        "group": false,
+        "effective": "Full Control",
+        "entries": [
+          {
+            "access": "Allowed",
+            "permission": "Full Control",
+            "method": "Inherited",
+            "drill": false,
+            "inheritedFrom": "Parent Object",
+            "appliesTo": "The Object Only",
+            "perms": "r-g--gr------"
+          }
+        ]
+      }
+    ],
+    "POBJ_BY_USER": [
+      {
+        "account": "lpde4\\justin.hammer",
+        "effective": "Full Control",
+        "perms": "rrgrrrrrgrrrg"
+      },
+      {
+        "account": "lpde4\\kelly.maxwell",
+        "effective": "Delete subfolders and files,Read attributes",
+        "perms": "rrrgrggrgrrgg"
+      },
+      {
+        "account": "lpde4\\lilly.diana",
+        "effective": "Read permissions,Change permissions,Take ownership",
+        "perms": "rrrrrrrgrgrgr"
+      },
+      {
+        "account": "lpde4\\john.smith",
+        "effective": "Full Control",
+        "perms": "rrggrrrrgrgrg"
+      },
+      {
+        "account": "lpde4\\roy.petty",
+        "effective": "Traverse folder / execute file",
+        "perms": "rrrgrgrrrrgrg"
+      },
+      {
+        "account": "lpde4\\ethan.hunt",
+        "effective": "Full Control",
+        "perms": "rgrrrgrggrrgr"
+      },
+      {
+        "account": "lpde4\\paul.allen",
+        "effective": "List folder / read data,Read extended attributes,Traverse folder / execute file,Delete subfolders and files,Read attributes,Delete,Read permissions,Change permissions,Take ownership",
+        "perms": "rgrrrgrggrrgr"
+      }
+    ],
+    "POBJ_GROUP_MODAL": {
+      "account": "lpde4\\Finance Team",
+      "effective": "List folder / read data, Read extended attributes, Traverse folder / execute file, Delete subfolders and files, Read attributes, Delete, Read Permissions, Change Permissions, Take Ownership",
+      "entries": [
+        {
+          "access": "Denied",
+          "permission": "List folder / read data, Read extended attributes, Traverse folder / execute file, Delete subfolders and files, Read attributes, Delete, Read Permissions, Change Permissions, Take Ownership",
+          "method": "Direct Applied",
+          "inheritedFrom": "N\\A",
+          "appliesTo": "N\\A",
+          "perms": "ddddddddddd--"
+        }
+      ]
+    },
+    "POBJ_MEMBERS": [
+      {
+        "account": "lpde4\\John",
+        "effective": "List folder / read data, Read extended attributes, Traverse folder / execute file, Delete subfolders and files, Read attributes, Delete, Read Permissions, Change Permissions, Take Ownership",
+        "perms": "ddddddddddd--"
+      },
+      {
+        "account": "lpde4\\John",
+        "effective": "List folder / read data, Read extended attributes, Traverse folder / execute file, Delete subfolders and files, Read attributes, Delete, Read Permissions, Change Permissions, Take Ownership",
+        "perms": "ddddddddddd--"
+      },
+      {
+        "account": "lpde4\\John",
+        "effective": "List folder / read data, Read extended attributes, Traverse folder / execute file, Delete subfolders and files, Read attributes, Delete, Read Permissions, Change Permissions, Take Ownership",
+        "perms": "ddddddddddd--"
+      },
+      {
+        "account": "lpde4\\John",
+        "effective": "List folder / read data, Read extended attributes, Traverse folder / execute file, Delete subfolders and files, Read attributes, Delete, Read Permissions, Change Permissions, Take Ownership",
+        "perms": "ddddddddddd--"
+      },
+      {
+        "account": "lpde4\\John",
+        "effective": "List folder / read data, Read extended attributes, Traverse folder / execute file, Delete subfolders and files, Read attributes, Delete, Read Permissions, Change Permissions, Take Ownership",
+        "perms": "ddddddddddd--"
+      },
+      {
+        "account": "lpde4\\John",
+        "effective": "List folder / read data, Read extended attributes, Traverse folder / execute file, Delete subfolders and files, Read attributes, Delete, Read Permissions, Change Permissions, Take Ownership",
+        "perms": "ddddddddddd--"
+      }
+    ],
+    "EPU_FOLDERS": [
+      {
+        "server": "DCD01",
+        "name": "Blueprints",
+        "everyone": true,
+        "broken": true,
+        "path": "C:\\Blueprints",
+        "owner": "lpde4\\Marty.Byrde",
+        "lastScan": "07/11/2024 4:24:30 PM",
+        "lastModified": "12/12/2023 6:41:13 PM",
+        "perms": "ggggrgggrgggg"
+      },
+      {
+        "server": "DCD01",
+        "name": "Budget Forecast",
+        "everyone": true,
+        "broken": true,
+        "path": "C:\\Budget Forecast",
+        "owner": "lpde4\\Lee.Russell",
+        "lastScan": "07/11/2024 4:24:30 PM",
+        "lastModified": "27/09/2023 9:23:30 AM",
+        "perms": "ggrgrgggrgggg"
+      },
+      {
+        "server": "DCD01",
+        "name": "Company Share",
+        "everyone": true,
+        "broken": true,
+        "path": "C:\\Company Share",
+        "owner": "lpde4\\Administrator",
+        "lastScan": "07/11/2024 4:24:30 PM",
+        "lastModified": "07/11/2024 12:09:24 PM",
+        "perms": "grrgrgrgrgggg"
+      },
+      {
+        "server": "DCD01",
+        "name": "Projections",
+        "everyone": true,
+        "broken": true,
+        "path": "C:\\Projections",
+        "owner": "lpde4\\Roy.Petty",
+        "lastScan": "07/11/2024 4:24:30 PM",
+        "lastModified": "24/05/2023 01:32:41 PM",
+        "perms": "rrrrrrrrrrrrr"
+      },
+      {
+        "server": "DCD01",
+        "name": "Shareholders",
+        "everyone": true,
+        "broken": true,
+        "path": "C:\\Shareholders",
+        "owner": "lpde4\\Neel.Gamby",
+        "lastScan": "07/11/2024 4:24:30 PM",
+        "lastModified": "27/09/2023 09:24:32 PM",
+        "perms": "rrrrrrrrrrrrr"
+      }
+    ],
+    "EPO_OBJECTS": [
+      {
+        "name": "Balance sheet",
+        "kind": "folder",
+        "everyone": false,
+        "broken": false,
+        "owner": "lpde4\\Neal.Gamby",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Finance Managers",
+        "kind": "folder",
+        "everyone": false,
+        "broken": false,
+        "owner": "lpde4\\Justin.Hammer",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Forecasts",
+        "kind": "folder",
+        "everyone": false,
+        "broken": false,
+        "owner": "lpde4\\Marty.Byrde",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "P and L Sheets",
+        "kind": "folder",
+        "everyone": false,
+        "broken": false,
+        "owner": "lpde4\\Kelly.Maxwell",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Statements",
+        "kind": "folder",
+        "everyone": false,
+        "broken": false,
+        "owner": "lpde4\\Lee.Russell",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Addresses.txt",
+        "kind": "text",
+        "everyone": false,
+        "broken": false,
+        "owner": "lpde4\\Ethan.Hunt",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Amex list.txt",
+        "kind": "text",
+        "everyone": false,
+        "broken": false,
+        "owner": "lpde4\\Neal.Gamby",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Employee list.txt",
+        "kind": "text",
+        "everyone": false,
+        "broken": false,
+        "owner": "lpde4\\Nitin.Gamby",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Finance.txt",
+        "kind": "text",
+        "everyone": false,
+        "broken": false,
+        "owner": "lpde4\\John.Cluster",
+        "lastScan": "2024-05-21 15:36:46"
+      },
+      {
+        "name": "Resource.txt",
+        "kind": "text",
+        "everyone": false,
+        "broken": false,
+        "owner": "lpde4\\Murphy.Dan",
+        "lastScan": "2024-05-21 15:36:46"
+      }
+    ],
+    "EPO_FOLDER_PERMISSIONS": [
+      {
+        "account": "lpde4\\justin.hammer",
+        "effective": "Full Control",
+        "perms": "rrrrrrrrrrrrr"
+      },
+      {
+        "account": "lpde4\\kelly.maxwell",
+        "effective": "Delete subfolders and files,Read attributes",
+        "perms": "rggrrggrgrrgg"
+      },
+      {
+        "account": "lpde4\\lilly.diana",
+        "effective": "Read permissions,Change permissions,Take ownership",
+        "perms": "gg--grr-r-r-r"
+      },
+      {
+        "account": "lpde4\\john.smith",
+        "effective": "List folder / read data,Read extended attributes,Traverse folder / execute file,Delete subfolders and files,Read attributes,Delete,Read permissions,Change permissions,Take ownership",
+        "perms": "rgggrrrrrrrrr"
+      },
+      {
+        "account": "lpde4\\roy.petty",
+        "effective": "Traverse folder / execute file",
+        "perms": "rrggrggrrr-r-"
+      },
+      {
+        "account": "lpde4\\paul.allen",
+        "effective": "Full Control",
+        "perms": "rrrrrrrrrrrrr"
+      },
+      {
+        "account": "lpde4\\ethan.hunt",
+        "effective": "List folder / read data,Read extended attributes,Traverse folder / execute file,Delete subfolders and files,Read attributes,Delete,Read permissions,Change permissions,Take ownership",
+        "perms": "r-rrr-r--rr-r"
+      },
+      {
+        "account": "lpde4\\james.howlett",
+        "effective": "Full Control",
+        "perms": "rrrrrrrrrrrrr"
+      }
+    ],
+    "EPO_FILES": [
+      {
+        "name": "466564466464.pptx",
+        "kind": "file",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": true,
+        "contentType": "SSN",
+        "compliance": "PCI_DSS",
+        "monetary": "$ 5000",
+        "risk": "7000"
+      },
+      {
+        "name": "AMEX list.PDF",
+        "kind": "text",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": true,
+        "contentType": "Credit Card - Amex Card",
+        "compliance": "Payment Card Industry Data Security Standard(PCIDSS)",
+        "monetary": "$ 15",
+        "risk": "15"
+      },
+      {
+        "name": "Address list.txt",
+        "kind": "text",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": true,
+        "contentType": "UK Postal Code",
+        "compliance": "UK - GDPR",
+        "monetary": "$ 2",
+        "risk": "2"
+      },
+      {
+        "name": "Canon.PDF",
+        "kind": "pdf",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": true,
+        "contentType": "No Sensitive Dada",
+        "compliance": "N/A",
+        "monetary": "N/A",
+        "risk": "N/A"
+      },
+      {
+        "name": "Client portfolio.pptx",
+        "kind": "file",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": true,
+        "contentType": "Credit Card - Master",
+        "compliance": "Payment Card Industry Data Security Standard(PCIDSS)",
+        "monetary": "$7",
+        "risk": "7"
+      },
+      {
+        "name": "Cloned.pptx",
+        "kind": "file",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": true,
+        "contentType": "Credit Card - Dinners Club",
+        "compliance": "Payment Card Industry Data Security Standard(PCIDSS)",
+        "monetary": "$1",
+        "risk": "1"
+      },
+      {
+        "name": "Cloned.pdf",
+        "kind": "pdf",
+        "everyone": false,
+        "broken": false,
+        "notAccessed": true,
+        "contentType": "No Sensitive Data",
+        "compliance": "N/A",
+        "monetary": "N/A",
+        "risk": "N/A"
+      }
+    ],
+    "STALE_FILES": [
+      {
+        "server": "DCD01",
+        "folder": "\\\\DCD01\\Shakeholders\\",
+        "file": "Pre-calculations.txt",
+        "size": "0 Bytes",
+        "accessed": "14-03-2023 05:17:28 AM",
+        "lastScan": "06-03-2023 05:17:28 AM",
+        "owner": "lpde4\\Neal.Gamby"
+      },
+      {
+        "server": "DCD01",
+        "folder": "\\\\DCD01\\Shakeholders\\",
+        "file": "Projections.rtf",
+        "size": "7 Bytes",
+        "accessed": "14-03-2023 05:17:28 AM",
+        "lastScan": "06-03-2023 05:17:28 AM",
+        "owner": "lpde4\\Neal.Gamby"
+      },
+      {
+        "server": "DCD01",
+        "folder": "\\\\DCD01\\Company Share\\Technology\\IT\\Network Data\\",
+        "file": "Computers IP Range.xlsx",
+        "size": "7.63 KB",
+        "accessed": "14-03-2023 05:17:28 AM",
+        "lastScan": "06-03-2023 05:17:28 AM",
+        "owner": "lpde4\\Adminitrator"
+      },
+      {
+        "server": "DCD01",
+        "folder": "\\\\DCD01\\Company Share\\Technology\\IT\\Network Data\\",
+        "file": "Computers.docx",
+        "size": "11.74 KB",
+        "accessed": "26-03-2023 05:17:28 AM",
+        "lastScan": "06-03-2023 05:17:28 AM",
+        "owner": "BUILTIN\\Adminitrator"
+      },
+      {
+        "server": "DCD01",
+        "folder": "\\\\DCD01\\Company Share\\Technology\\IT\\Network Data\\",
+        "file": "Designs.pptx",
+        "size": "29.09 KB",
+        "accessed": "23-02-2023 05:17:28 AM",
+        "lastScan": "06-03-2023 05:17:28 AM",
+        "owner": "BUILTIN\\Adminitrator"
+      },
+      {
+        "server": "DCD01",
+        "folder": "\\\\DCD01\\Company Share\\Technology\\IT\\Network Data\\",
+        "file": "Firewall Settings.docx",
+        "size": "10.98 KB",
+        "accessed": "23-02-2023 05:17:28 AM",
+        "lastScan": "06-03-2023 05:17:28 AM",
+        "owner": "BUILTIN\\Adminitrator"
+      },
+      {
+        "server": "DCD01",
+        "folder": "\\\\DCD01\\Company Share\\Technology\\IT\\Network Data\\",
+        "file": "Hardware.txt",
+        "size": "6 Bytes",
+        "accessed": "23-02-2023 05:17:28 AM",
+        "lastScan": "06-03-2023 05:17:28 AM",
+        "owner": "BUILTIN\\Adminitrator"
+      },
+      {
+        "server": "DCD01",
+        "folder": "\\\\DCD01\\Company Share\\Technology\\IT\\Network Data\\",
+        "file": "IP Addresses.xlsx",
+        "size": "7.62 KB",
+        "accessed": "23-02-2023 05:17:28 AM",
+        "lastScan": "06-03-2023 05:17:28 AM",
+        "owner": "BUILTIN\\Adminitrator"
+      },
+      {
+        "server": "DCD01",
+        "folder": "\\\\DCD01\\Company Share\\Technology\\IT\\Network Data\\",
+        "file": "License Details.xlsx",
+        "size": "7.62 KB",
+        "accessed": "23-02-2023 05:17:28 AM",
+        "lastScan": "06-03-2023 05:17:28 AM",
+        "owner": "BUILTIN\\Adminitrator"
+      },
+      {
+        "server": "DCD01",
+        "folder": "\\\\DCD01\\Company Share\\Technology\\IT\\Network Data\\",
+        "file": "Netwerk Design.bmp",
+        "size": "1.14MB",
+        "accessed": "23-02-2023 05:17:28 AM",
+        "lastScan": "06-03-2023 05:17:28 AM",
+        "owner": "BUILTIN\\Adminitrator"
+      }
+    ],
+    "STALE_FOLDERS": [
+      {
+        "path": "\\\\DCD01\\comapny share\\financial services\\accounts",
+        "staleSize": "5.74 MB",
+        "totalSize": "5.74 MB",
+        "staleCount": "25",
+        "totalCount": "25",
+        "owner": "lpde4\\Rick.Deckard",
+        "lastScan": "06-03-2026 09:23:28 AM"
+      },
+      {
+        "path": "\\\\DCD01\\comapny share\\financial services\\fincance",
+        "staleSize": "4.57 MB",
+        "totalSize": "4.57 MB",
+        "staleCount": "33",
+        "totalCount": "33",
+        "owner": "lpde4\\Rick.Deckard",
+        "lastScan": "06-03-2026 09:23:28 AM"
+      },
+      {
+        "path": "\\\\DCD01\\comapny share\\financial services\\hr",
+        "staleSize": "30.13 KB",
+        "totalSize": "30.13 KB",
+        "staleCount": "6",
+        "totalCount": "6",
+        "owner": "lpde4\\Kelly.Maxwell",
+        "lastScan": "06-03-2026 09:23:28 AM"
+      },
+      {
+        "path": "\\\\DCD01\\comapny share\\financial services\\it",
+        "staleSize": "124.5 KB",
+        "totalSize": "124.5 KB",
+        "staleCount": "25",
+        "totalCount": "25",
+        "owner": "lpde4\\Administrator",
+        "lastScan": "06-03-2026 09:23:28 AM"
+      },
+      {
+        "path": "\\\\DCD01\\comapny share\\financial services\\marketing",
+        "staleSize": "31.13 KB",
+        "totalSize": "31.13 KB",
+        "staleCount": "9",
+        "totalCount": "9",
+        "owner": "lpde4\\Roy.Petty",
+        "lastScan": "06-03-2026 09:23:28 AM"
+      },
+      {
+        "path": "\\\\DCD01\\comapny share\\financial services\\sales",
+        "staleSize": "0 KB",
+        "totalSize": "0 KB",
+        "staleCount": "3",
+        "totalCount": "3",
+        "owner": "lpde4\\Roy.Petty",
+        "lastScan": "06-03-2026 09:23:28 AM"
+      },
+      {
+        "path": "\\\\DCD01\\comapny share\\financial services\\sde team",
+        "staleSize": "0 KB",
+        "totalSize": "0 KB",
+        "staleCount": "10",
+        "totalCount": "10",
+        "owner": "lpde4\\Hank.Shrader",
+        "lastScan": "06-03-2026 09:23:28 AM"
+      }
+    ],
+    "ANOMALY_USERS": [
+      {
+        "user": "LPDE4\\neal.gamby",
+        "components": "File Server, Active Directory",
+        "total": 2563
+      },
+      {
+        "user": "LPDE4\\justin.Hammer",
+        "components": "File Server, Active Directory",
+        "total": 198
+      },
+      {
+        "user": "LPDE4\\marty.Byrde",
+        "components": "File Server, Active Directory",
+        "total": 98
+      },
+      {
+        "user": "LPDE4\\Roy.Pretty",
+        "components": "File Server, Active Directory",
+        "total": 79
+      },
+      {
+        "user": "LPDE4\\Ash.Williams",
+        "components": "File Server, Active Directory",
+        "total": 54
+      },
+      {
+        "user": "LPDE4\\Randall.Raines",
+        "components": "File Server, Active Directory",
+        "total": 43
+      },
+      {
+        "user": "LPDE4\\Pete.Mitchell",
+        "components": "File Server, Active Directory",
+        "total": 40
+      },
+      {
+        "user": "LPDE4\\Kelly.Maxwell",
+        "components": "File Server",
+        "total": 64
+      },
+      {
+        "user": "LPDE4\\Paul.Allen",
+        "components": "File Server",
+        "total": 10
+      },
+      {
+        "user": "LPDE4\\Developer.Ext",
+        "components": "File Server",
+        "total": 9
+      },
+      {
+        "user": "LPDE4\\Lou.Bloom",
+        "components": "File Server",
+        "total": 7
+      },
+      {
+        "user": "LPDE4\\Ethan.Haumt",
+        "components": "File Server, Active Directory",
+        "total": 6
+      }
+    ],
+    "ANOMALIES": [
+      {
+        "when": "16-04-24 11:22:51 PM",
+        "details": "LPDE4\\justin.hammer was denied to open 1 file(s) at 16-04-24 11:03:51 from 192.168.1.15. This activity has never been seen before"
+      },
+      {
+        "when": "18-04-24 11:23:00 PM",
+        "details": "LPDE4\\justin.hammer was denied to open 2 file(s) at 16-04-24 11:03:51 from 192.168.1.15. This activity has never been seen before"
+      },
+      {
+        "when": "22-04-24 11:24:00 PM",
+        "details": "LPDE4\\justin.hammer was denied to open 5 file(s) at 16-04-24 11:03:51 from 192.168.1.15. This activity has never been seen before"
+      },
+      {
+        "when": "24-04-24 11:24:51 PM",
+        "details": "LPDE4\\justin.hammer was denied to open 5 file(s) at 16-04-24 11:03:51 from 192.168.1.15. This activity has never been seen before"
+      },
+      {
+        "when": "26-04-24 11:24:57 PM",
+        "details": "LPDE4\\justin.hammer was denied to open 11 file(s) at 16-04-24 11:03:51 from 192.168.1.15. This activity has never been seen before"
+      },
+      {
+        "when": "26-04-24 11:25:00 PM",
+        "details": "LPDE4\\justin.hammer was denied to open 6 file(s) at 16-04-24 11:03:51 from 192.168.1.15. This activity has never been seen before"
+      },
+      {
+        "when": "28-04-24 11:25:51 PM",
+        "details": "LPDE4\\justin.hammer was denied to open 5 file(s) at 16-04-24 11:03:51 from 192.168.1.15. This activity has never been seen before"
+      },
+      {
+        "when": "28-04-24 11:26:31 PM",
+        "details": "LPDE4\\justin.hammer was denied to open 1 file(s) at 16-04-24 11:03:51 from 192.168.1.15. This activity has never been seen before"
+      },
+      {
+        "when": "28-04-24 11:26:51 PM",
+        "details": "LPDE4\\justin.hammer was denied to open 1 file(s) at 16-04-24 11:03:51 from 192.168.1.15. This activity has never been seen before"
+      },
+      {
+        "when": "30-04-24 11:26:51 PM",
+        "details": "LPDE4\\justin.hammer was denied to open 5 file(s) at 16-04-24 11:03:51 from 192.168.1.15. This activity has never been seen before"
+      }
+    ],
+    "ANOMALY_DETAIL": {
+      "path": "c:\\Company Share\\Healthcare\\kjh.png",
+      "operation": "File Open\\Modified (Denied)",
+      "process": "System",
+      "source": "192.168.1.51",
+      "severity": "C:\\Company Share\\Healthcare\\kjh.png",
+      "when": "16-04-24 11:22:51 PM"
+    },
+    "ANOMALY_CHART": {
+      "title": "Anomaly (198)",
+      "labels": [
+        "16-04-2024",
+        "18-04-2024",
+        "22-04-2024",
+        "24-04-2024",
+        "26-04-2024",
+        "26-04-2024",
+        "28-04-2024",
+        "28-04-2024",
+        "28-04-2024",
+        "30-04-2024"
+      ],
+      "series": [
+        {
+          "name": "192.168.10.160",
+          "values": [
+            1,
+            2,
+            5,
+            5,
+            11,
+            6,
+            5,
+            1,
+            1,
+            5
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "$description": "Tier 1 — raw palette. Never used directly in components or emitted to CSS; semantic tokens reference these.",
+  "primitive": {
+    "blue": {
+      "$type": "color",
+      "50":  { "$value": "#f2f5fc" },
+      "100": { "$value": "#e3eaf8" },
+      "200": { "$value": "#c7d4ef" },
+      "300": { "$value": "#8aa3dc" },
+      "400": { "$value": "#4f72c4" },
+      "450": { "$value": "#2550a8", "$description": "Top stop of the selected-state gradient" },
+      "500": { "$value": "#1c4599", "$description": "Lepide blue" },
+      "600": { "$value": "#173b85" },
+      "700": { "$value": "#122f6c" }
+    },
+    "gray": {
+      "$type": "color",
+      "0":   { "$value": "#ffffff" },
+      "25":  { "$value": "#f7f8f9" },
+      "50":  { "$value": "#f2f3f5" },
+      "60":  { "$value": "#eff1f3" },
+      "70":  { "$value": "#eff0f3" },
+      "80":  { "$value": "#eceef1" },
+      "100": { "$value": "#e7e9ed" },
+      "150": { "$value": "#dcdfe5" },
+      "400": { "$value": "#a7abb3" },
+      "600": { "$value": "#666b74" },
+      "700": { "$value": "#4a4f58" },
+      "950": { "$value": "#121417" }
+    },
+    "green": {
+      "$type": "color",
+      "50":  { "$value": "#e8f6f0" },
+      "400": { "$value": "#1fae7a" },
+      "600": { "$value": "#12805c" },
+      "700": { "$value": "#0f7353" }
+    },
+    "amber": {
+      "$type": "color",
+      "50":  { "$value": "#fdf3e4" },
+      "400": { "$value": "#f09a28" },
+      "600": { "$value": "#b4610a" },
+      "700": { "$value": "#985107" }
+    },
+    "red": {
+      "$type": "color",
+      "50":  { "$value": "#fdeeee" },
+      "400": { "$value": "#ec5a5f" },
+      "600": { "$value": "#cf3a3f" },
+      "700": { "$value": "#b3313a" }
+    },
+    "coral": {
+      "$type": "color",
+      "200": { "$value": "#f5c39e" },
+      "400": { "$value": "#ee8a5f" }
+    }
+  }
+}

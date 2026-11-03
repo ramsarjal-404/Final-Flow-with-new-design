@@ -1,0 +1,66 @@
+{
+  "$description": "Tier 3 — component tokens. Sizes and roles of specific components; they reference semantic tokens wherever a value is shared.",
+  "component": {
+    "$type": "dimension",
+    "btn-h-sm":  { "$value": "32px" },
+    "btn-h":     { "$value": "38px", "$description": "Default button height" },
+    "btn-h-lg":  { "$value": "44px" },
+    "btn-px-sm": { "$value": "13px" },
+    "btn-px":    { "$value": "16px" },
+    "btn-px-lg": { "$value": "20px" },
+    "btn-radius": { "$value": "{radius.r-pill}" },
+    "icon-btn":  { "$value": "34px", "$description": "Round icon-only button; always has aria-label + tooltip" },
+
+    "field-h":      { "$value": "46px", "$description": "Dialog/page field and Dropdown trigger" },
+    "field-radius": { "$value": "{radius.r-md}" },
+    "field-px":     { "$value": "14px" },
+    "input-h":      { "$value": "40px", "$description": "Pill input in toolbars and search" },
+    "select-h-sm":  { "$value": "36px", "$description": "Inline dropdown (tables, time pickers), radius 10" },
+    "search-h":     { "$value": "44px", "$description": "Top-bar search pill" },
+
+    "card-radius":  { "$value": "{radius.r-lg}" },
+    "card-pad":     { "$value": "20px" },
+    "card-gap":     { "$value": "16px" },
+    "panel-min-h":  { "$value": "330px", "$description": "Chart panel card" },
+
+    "table-head-h": { "$value": "42px" },
+    "table-row-h":  { "$value": "56px" },
+    "table-filter-h": { "$value": "44px" },
+
+    "toggle-off":       { "$type": "color", "$value": "#d9dce2", "$description": "Toggle track when off" },
+    "toggle-off-hover": { "$type": "color", "$value": "#ccd0d7", "$description": "Toggle track when off, hovered" },
+
+    "chip-h":     { "$value": "22px" },
+    "tone-tag-h": { "$value": "24px" },
+    "seg-h":      { "$value": "32px", "$description": "Segmented control segment" },
+    "toggle-w":   { "$value": "38px" },
+    "toggle-h":   { "$value": "22px" },
+    "check-size": { "$value": "16px" },
+
+    "nav-item-h":  { "$value": "40px" },
+    "menu-item-h": { "$value": "36px" },
+    "option-h":    { "$value": "38px" },
+
+    "modal-w":    { "$value": "760px" },
+    "modal-w-lg": { "$value": "960px" },
+    "modal-w-sm": { "$value": "580px" },
+    "modal-w-xs": { "$value": "460px" },
+    "modal-radius": { "$value": "{radius.r-xl}" },
+    "drawer-w":   { "$value": "440px", "$description": "Chat drawer 500, record drawer 480" },
+    "drawer-inset": { "$value": "12px", "$description": "Drawer floats this far inside the window edge" },
+    "toast-w":    { "$value": "360px" },
+
+    "lai-tone-danger":     { "$type": "color", "$value": "{color.danger}" },
+    "lai-tone-warning":    { "$type": "color", "$value": "{color.warning}" },
+    "lai-tone-success":    { "$type": "color", "$value": "{color.success}" },
+    "lai-tone-info":       { "$type": "color", "$value": "{color.brand}" },
+    "lai-tone-accent":     { "$type": "color", "$value": "{color.brand}" },
+    "lai-tone-neutral":    { "$type": "color", "$value": "{color.ink-3}" },
+    "lai-tone-danger-bg":  { "$type": "color", "$value": "{color.danger-bg}" },
+    "lai-tone-warning-bg": { "$type": "color", "$value": "{color.warning-bg}" },
+    "lai-tone-success-bg": { "$type": "color", "$value": "{color.success-bg}" },
+    "lai-tone-info-bg":    { "$type": "color", "$value": "{color.brand-50}" },
+    "lai-tone-accent-bg":  { "$type": "color", "$value": "{color.brand-50}" },
+    "lai-tone-neutral-bg": { "$type": "color", "$value": "{color.surface-2}" }
+  }
+}

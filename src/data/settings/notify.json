@@ -1,0 +1,565 @@
+{
+  "$source": "src/data/settings/notify.ts",
+  "exports": {
+    "LICENSE_ROWS": [
+      {
+        "id": "auditor-file-server",
+        "product": "Auditor",
+        "platform": "File Server",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 7534,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": true
+      },
+      {
+        "id": "auditor-active-directory",
+        "product": "Auditor",
+        "platform": "Active Directory",
+        "type": "Perpetual",
+        "acquired": "10000 Enabled User(s)",
+        "total": 10000,
+        "available": 4821,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": true
+      },
+      {
+        "id": "auditor-exchange-non-owner-",
+        "product": "Auditor",
+        "platform": "Exchange (Non Owner)",
+        "type": "Perpetual",
+        "acquired": "0 Enabled User(s)",
+        "total": 10000,
+        "available": 0,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "auditor-group-policy",
+        "product": "Auditor",
+        "platform": "Group Policy",
+        "type": "Perpetual",
+        "acquired": "10000 Enabled User(s)",
+        "total": 10000,
+        "available": 2054,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "auditor-netapp",
+        "product": "Auditor",
+        "platform": "NetApp",
+        "type": "Perpetual",
+        "acquired": "10000 Enabled User(s)",
+        "total": 10000,
+        "available": 8743,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "auditor-sharepoint",
+        "product": "Auditor",
+        "platform": "SharePoint",
+        "type": "Perpetual",
+        "acquired": "10000 Enabled User(s)",
+        "total": 10000,
+        "available": 3916,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "auditor-sql-server",
+        "product": "Auditor",
+        "platform": "SQL Server",
+        "type": "Perpetual",
+        "acquired": "0 Enabled User(s)",
+        "total": 10000,
+        "available": 0,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": false,
+        "expired": false
+      },
+      {
+        "id": "auditor-emc",
+        "product": "Auditor",
+        "platform": "EMC",
+        "type": "Perpetual",
+        "acquired": "10000 Enabled User(s)",
+        "total": 10000,
+        "available": 1469,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "trust-file-server",
+        "product": "Trust",
+        "platform": "File Server",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 6456,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": true
+      },
+      {
+        "id": "trust-aws-s3",
+        "product": "Trust",
+        "platform": "AWS S3",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 4821,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": true
+      },
+      {
+        "id": "trust-office-365",
+        "product": "Trust",
+        "platform": "Office 365",
+        "type": "Perpetual",
+        "acquired": "0 Enabled User(s)",
+        "total": 10000,
+        "available": 6397,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": false,
+        "expired": false
+      },
+      {
+        "id": "trust-netapp-filer",
+        "product": "Trust",
+        "platform": "NetApp Filer",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 2054,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "trust-active-directory",
+        "product": "Trust",
+        "platform": "Active Directory",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 8743,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "trust-sharepoint",
+        "product": "Trust",
+        "platform": "SharePoint",
+        "type": "Perpetual",
+        "acquired": "0 Enabled User(s)",
+        "total": 10000,
+        "available": 3916,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": false,
+        "expired": false
+      },
+      {
+        "id": "trust-sql-server",
+        "product": "Trust",
+        "platform": "SQL Server",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 7582,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "trust-exchange-online",
+        "product": "Trust",
+        "platform": "Exchange Online",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 1469,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "identify-file-server",
+        "product": "Identify",
+        "platform": "File Server",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 6456,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "identify-aws-s3",
+        "product": "Identify",
+        "platform": "AWS S3",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 4821,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "identify-office-365",
+        "product": "Identify",
+        "platform": "Office 365",
+        "type": "Perpetual",
+        "acquired": "0 Enabled User(s)",
+        "total": 10000,
+        "available": 6397,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": false,
+        "expired": false
+      },
+      {
+        "id": "identify-netapp-filer",
+        "product": "Identify",
+        "platform": "NetApp Filer",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 2054,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "identify-active-directory",
+        "product": "Identify",
+        "platform": "Active Directory",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 8743,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "identify-sharepoint",
+        "product": "Identify",
+        "platform": "SharePoint",
+        "type": "Perpetual",
+        "acquired": "0 Enabled User(s)",
+        "total": 10000,
+        "available": 3916,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": false,
+        "expired": false
+      },
+      {
+        "id": "identify-sql-server",
+        "product": "Identify",
+        "platform": "SQL Server",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 7582,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "identify-exchange-online",
+        "product": "Identify",
+        "platform": "Exchange Online",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 1469,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": false
+      },
+      {
+        "id": "protect-file-server",
+        "product": "Protect",
+        "platform": "File Server",
+        "type": "Perpetual",
+        "acquired": "10000 Server",
+        "total": 10000,
+        "available": 143,
+        "validUntil": "N/A",
+        "supportUntil": "31-10-2025 23:59:59",
+        "licensed": true,
+        "expired": true
+      }
+    ],
+    "LICENSE_PRODUCTS": [
+      "Auditor",
+      "Trust",
+      "Identify",
+      "Protect"
+    ],
+    "LICENSE_SALES_EMAIL": "sales@lepide.com",
+    "IQ_SAMPLE": {
+      "name": "Copilot",
+      "endpoint": "https://lepiqais.openai.azure.com",
+      "model": "gpt-4o"
+    },
+    "NOTIFY_COMPONENTS": [
+      {
+        "id": "entra",
+        "name": "Entra ID",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/notify/azure.png",
+        "options": [
+          "Notify When Auditing is stopped",
+          "Notify When Credential is not working",
+          "Notify When SQL Data Insertion is failed"
+        ]
+      },
+      {
+        "id": "onedrive",
+        "name": "OneDrive",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/notify/onedrive.png",
+        "options": [
+          "Notify When Auditing is stopped",
+          "Notify When Credential is not working",
+          "Notify When SQL Data Insertion is failed"
+        ]
+      },
+      {
+        "id": "exchange",
+        "name": "Exchange Online",
+        "logo": "data:image/svg+xml,%3csvg%20width='50'%20height='50'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_2839_25394)'%3e%3cpath%20d='M45.832%208.85417V18.4969C45.832%2019.326%2045.5029%2020.1208%2044.9164%2020.7063L22.7893%2042.8344C22.2029%2043.4208%2021.4081%2043.75%2020.5789%2043.75H10.9362C9.49766%2043.75%208.33203%2042.5844%208.33203%2041.1458V31.5031C8.33203%2030.674%208.6612%2029.8792%209.24766%2029.2937L31.3747%207.16563C31.9612%206.57917%2032.756%206.25%2033.5852%206.25H43.2279C44.6664%206.25%2045.832%207.41562%2045.832%208.85417Z'%20fill='%23039BE5'/%3e%3cpath%20d='M45.832%2031.5V41.1458C45.832%2042.5844%2044.6664%2043.75%2043.2279%2043.75H33.582C32.7549%2043.75%2031.9622%2043.4219%2031.3768%2042.8365L27.082%2038.5417V30.2083C27.082%2027.3323%2029.4143%2025%2032.2904%2025H40.6237L44.9185%2029.2948C45.5039%2029.8802%2045.832%2030.6729%2045.832%2031.5Z'%20fill='%231976D2'/%3e%3cpath%20d='M8.33203%2018.5V8.85417C8.33203%207.41562%209.49766%206.25%2010.9362%206.25H20.582C21.4091%206.25%2022.2018%206.57812%2022.7872%207.16354L27.082%2011.4583V19.7917C27.082%2022.6677%2024.7497%2025%2021.8737%2025H13.5404L9.24557%2020.7052C8.66016%2020.1198%208.33203%2019.3271%208.33203%2018.5Z'%20fill='%234DD0E1'/%3e%3cpath%20d='M23.2503%2035.4163H5.91901C4.95234%2035.4163%204.16797%2034.632%204.16797%2033.6653V16.334C4.16797%2015.3674%204.95234%2014.583%205.91901%2014.583H23.2503C24.2169%2014.583%2025.0013%2015.3674%2025.0013%2016.334V33.6653C25.0013%2034.632%2024.2169%2035.4163%2023.2503%2035.4163Z'%20fill='%231976D2'/%3e%3cpath%20d='M17.9945%2021.4847H13.4977V24.1139H17.707V25.7993H13.4977V28.5305H18.2341V30.2087H11.457V19.792H17.9945V21.4847Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_2839_25394'%3e%3crect%20width='50'%20height='50'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
+        "options": [
+          "Notify When Auditing is stopped",
+          "Notify When Credential is not working",
+          "Notify When SQL Data Insertion is failed"
+        ]
+      },
+      {
+        "id": "sharepoint",
+        "name": "SharePoint Online",
+        "logo": "data:image/svg+xml,%3csvg%20width='50'%20height='50'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_2839_25337)'%3e%3cpath%20d='M21.3355%2030.2116C29.5092%2030.2116%2036.1358%2023.5954%2036.1358%2015.4334C36.1358%207.27144%2029.508%200.655273%2021.3355%200.655273C13.163%200.655273%206.53516%207.27261%206.53516%2015.4334C6.53516%2023.5943%2013.1607%2030.2116%2021.3355%2030.2116Z'%20fill='%2326C6DA'/%3e%3cpath%20d='M34.7162%2040.0632C41.463%2040.0632%2046.9323%2034.602%2046.9323%2027.8645C46.9323%2021.127%2041.463%2015.667%2034.7162%2015.667C27.9693%2015.667%2022.5%2021.1282%2022.5%2027.8657C22.5%2034.6032%2027.9693%2040.0632%2034.7162%2040.0632Z'%20fill='%2300ACC1'/%3e%3cpath%20d='M23.1829%2049.4674C28.9731%2049.4674%2033.6666%2044.7809%2033.6666%2039C33.6666%2033.2192%2028.9731%2028.5327%2023.1829%2028.5327C17.3927%2028.5327%2012.6992%2033.2192%2012.6992%2039C12.6992%2044.7809%2017.3927%2049.4674%2023.1829%2049.4674Z'%20fill='%230097A7'/%3e%3cpath%20d='M6.91536%2023.833H18.582C20.8372%2023.833%2022.6654%2025.6612%2022.6654%2027.9163V39.583C22.6654%2041.8382%2020.8372%2043.6663%2018.582%2043.6663H6.91536C4.6602%2043.6663%202.83203%2041.8382%202.83203%2039.583V27.9163C2.83203%2025.6612%204.6602%2023.833%206.91536%2023.833Z'%20fill='%2300838F'/%3e%3cpath%20d='M8.4707%2037.1861L10.6244%2036.0638C10.867%2036.5538%2011.1832%2036.9143%2011.574%2037.1465C11.9695%2037.3786%2012.4035%2037.4941%2012.8725%2037.4941C13.3952%2037.4941%2013.7942%2037.3891%2014.0672%2037.178C14.3414%2036.9621%2014.479%2036.6378%2014.479%2036.2061C14.479%2035.869%2014.3472%2035.5843%2014.0835%2035.3521C13.8199%2035.1153%2013.3532%2034.9356%2012.6824%2034.8143C11.4049%2034.5821%2010.4762%2034.1761%209.8952%2033.5963C9.32004%2033.0165%209.03187%2032.2943%209.03187%2031.431C9.03187%2030.3565%209.4122%2029.4966%2010.1729%2028.8538C10.9324%2028.211%2011.9357%2027.8901%2013.1817%2027.8901C14.0205%2027.8901%2014.759%2028.0616%2015.3984%2028.4035C16.0365%2028.7453%2016.544%2029.2365%2016.9185%2029.8746L14.8127%2030.9573C14.5805%2030.5991%2014.3297%2030.3401%2014.0614%2030.1826C13.7919%2030.0193%2013.4547%2029.9376%2013.0475%2029.9376C12.561%2029.9376%2012.1924%2030.0426%2011.9392%2030.2538C11.6907%2030.465%2011.567%2030.7391%2011.567%2031.0763C11.567%2031.3656%2011.686%2031.6223%2011.9229%2031.8428C12.1655%2032.0586%2012.6509%2032.236%2013.38%2032.3725C14.605%2032.6046%2015.5185%2033.0258%2016.1194%2033.6383C16.726%2034.2438%2017.0294%2035.0103%2017.0294%2035.939C17.0294%2037.066%2016.6677%2037.9596%2015.9444%2038.6188C15.221%2039.2768%2014.1897%2039.607%2012.8492%2039.607C11.8785%2039.607%2011.0012%2039.3958%2010.2207%2038.9746C9.44487%2038.5476%208.86154%2037.9526%208.47187%2037.1873L8.4707%2037.1861Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_2839_25337'%3e%3crect%20width='50'%20height='50'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
+        "options": [
+          "Notify When Auditing is stopped",
+          "Notify When Credential is not working",
+          "Notify When SQL Data Insertion is failed"
+        ]
+      },
+      {
+        "id": "teams",
+        "name": "MS Teams",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/notify/teams.png",
+        "options": [
+          "Notify When Auditing is stopped",
+          "Notify When Credential is not working",
+          "Notify When SQL Data Insertion is failed"
+        ]
+      },
+      {
+        "id": "ddc",
+        "name": "Data Discovery & Classification",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/notify/ddc.png",
+        "options": [
+          "Notify When Scan Starts",
+          "Notify On Scan Status"
+        ]
+      },
+      {
+        "id": "permission",
+        "name": "Current Permission Scan Settings",
+        "logo": "data:image/svg+xml,%3csvg%20width='44'%20height='58'%20viewBox='0%200%2044%2058'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M21.5859%2057.1673C9.06131%2052.864%200.000153863%2039.7491%200%2025.7796V9.73373L21.5859%200.100922V57.1673Z'%20fill='%235A62C3'/%3e%3cpath%20d='M21.5859%2056.9258C34.5439%2052.9398%2044%2039.7511%2044%2025.6855V9.83691L21.5859%200V56.9258Z'%20fill='%237B83EB'/%3e%3cg%20clip-path='url(%23clip0_238_11530)'%3e%3cpath%20d='M24.7559%2041.7525L21.3379%2045.1705L17.9199%2041.7525L20.4834%2039.1891L17.9199%2036.6256L20.4834%2034.0621L17.9199%2031.4986L17.9199%2027.6363C17.3047%2027.3116%2016.7322%2026.8929%2016.2109%2026.3716C14.8512%2025.0119%2014.0873%2023.1676%2014.0873%2021.2447C14.0873%2019.3217%2014.8512%2017.4774%2016.2109%2016.1177C17.5707%2014.7579%2019.4149%2013.994%2021.3379%2013.994C23.2609%2013.994%2025.1051%2014.7579%2026.4649%2016.1177C27.8246%2017.4774%2028.5885%2019.3217%2028.5885%2021.2447C28.5885%2023.1676%2027.8246%2025.0119%2026.4649%2026.3716C25.9436%2026.8929%2025.3711%2027.3116%2024.7559%2027.6363L24.7559%2041.7525ZM23.0469%2017.8267C22.5936%2017.3734%2021.9789%2017.1188%2021.3379%2017.1188C20.6969%2017.1188%2020.0822%2017.3734%2019.6289%2017.8267C19.1756%2018.2799%2018.921%2018.8947%2018.921%2019.5357C18.921%2020.1767%2019.1756%2020.7914%2019.6289%2021.2447C20.0822%2021.6979%2020.6969%2021.9525%2021.3379%2021.9525C21.9789%2021.9525%2022.5936%2021.6979%2023.0469%2021.2447C23.5001%2020.7914%2023.7548%2020.1767%2023.7548%2019.5357C23.7548%2018.8947%2023.5001%2018.2799%2023.0469%2017.8267Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_238_11530'%3e%3crect%20width='29.0025'%20height='29.0025'%20fill='white'%20transform='translate(21.3369%207.57172)%20rotate(45)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
+        "options": [
+          "Notify When Scan Starts",
+          "Notify On Scan Status"
+        ]
+      }
+    ],
+    "NOTIFY_HOURS": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24"
+    ],
+    "SIEM_REPORT_TREE": [
+      {
+        "name": "SQL Server Reports",
+        "reports": [
+          "All Modifications in SQL Server",
+          "Login and Logoff Report",
+          "Permission Changes"
+        ]
+      },
+      {
+        "name": "File Server Reports",
+        "reports": [
+          "All Modifications in File Server",
+          "Files Deleted",
+          "Permission Modifications"
+        ]
+      },
+      {
+        "name": "LepideCorp1-admin.SharePoint.com(SharePoint Online)",
+        "reports": [
+          "All Modifications in SharePoint Online",
+          "External Sharing"
+        ]
+      },
+      {
+        "name": "lepsoftpvttd-admin.sharepoint.com(SharePoint Online)",
+        "reports": [
+          "All Modifications in SharePoint Online",
+          "Site Collection Changes"
+        ]
+      },
+      {
+        "name": "LepideCorp1.onmicrosoft.com(Office 365)",
+        "reports": [
+          "Mailbox Access",
+          "Azure AD Sign-ins"
+        ]
+      }
+    ],
+    "SIEM_TOP_REPORT": "External Data Sharing O365",
+    "SIEM_FILTER_COLUMNS": [
+      "Component Name",
+      "Server Name",
+      "Object Path",
+      "Shared By",
+      "Shared With"
+    ],
+    "SIEM_INCLUDES": [
+      "All",
+      "Selected Only",
+      "All but excluding selected"
+    ],
+    "SIEM_COMPONENT_CLASSES": [
+      "SharePoint Online",
+      "OneDrive",
+      "Microsoft Teams"
+    ],
+    "SQL_SERVERS": [
+      "devl174",
+      "INLSD142-DEV-AS",
+      "LPDE-SQL01\\SQLEXPRESS",
+      "LPDE-SQL02"
+    ],
+    "SQL_DATABASES": [
+      "LepideAuditor",
+      "LepideGPOAudit",
+      "LepideReports",
+      "LepideArchive"
+    ],
+    "APP_SERVER_DEFAULT": "1.22.156.180",
+    "LEPIDE_SERVICES": [
+      {
+        "id": "core",
+        "name": "Lepide Core Service",
+        "description": "Runs the console, scheduler and report engine.",
+        "account": "LPDE4\\svc-lepide",
+        "startup": "Automatic",
+        "running": true
+      },
+      {
+        "id": "auditor",
+        "name": "Lepide Auditor Service",
+        "description": "Collects audit events from the monitored components.",
+        "account": "LPDE4\\svc-lepide",
+        "startup": "Automatic",
+        "running": true
+      },
+      {
+        "id": "trust",
+        "name": "Lepide Trust Service",
+        "description": "Scans permissions for Trust reports.",
+        "account": "LPDE4\\svc-lepide",
+        "startup": "Automatic (Delayed Start)",
+        "running": true
+      },
+      {
+        "id": "detect",
+        "name": "Lepide Detect Service",
+        "description": "Evaluates threat models and sends alerts.",
+        "account": "LPDE4\\svc-detect",
+        "startup": "Automatic",
+        "running": true
+      },
+      {
+        "id": "identify",
+        "name": "Lepide Identify Service",
+        "description": "Runs data discovery and classification scans.",
+        "account": "LPDE4\\svc-lepide",
+        "startup": "Manual",
+        "running": false
+      },
+      {
+        "id": "protect",
+        "name": "Lepide Protect Service",
+        "description": "Applies and reverts permission changes.",
+        "account": "LocalSystem",
+        "startup": "Automatic",
+        "running": true
+      }
+    ],
+    "SERVICE_STARTUP_TYPES": [
+      "Automatic",
+      "Automatic (Delayed Start)",
+      "Manual"
+    ]
+  }
+}

@@ -1,0 +1,690 @@
+{
+  "$source": "src/data/protect/policies.ts",
+  "exports": {
+    "STATUS": {
+      "completed": {
+        "label": "Completed",
+        "pct": 100
+      },
+      "progress": {
+        "label": "Running",
+        "pct": 75
+      },
+      "scheduled": {
+        "label": "Scheduled",
+        "pct": 0,
+        "clock": true
+      },
+      "draft": {
+        "label": "Inactive draft",
+        "pct": 0
+      }
+    },
+    "MODULES": {
+      "cleaner": "AD Cleaner",
+      "permission": "Permission"
+    },
+    "SEED_POLICIES": [
+      {
+        "id": "p1",
+        "name": "Dormant privileged accounts",
+        "desc": "Disable privileged accounts after 45 days of inactivity.",
+        "status": "scheduled",
+        "updated": "24 Jul 2026, 10:42",
+        "module": "cleaner",
+        "ptype": "Inactive Account Cleanup",
+        "scheduled": "25 Jul 2026, 02:00",
+        "active": true,
+        "task": "privileged",
+        "domain": "LPDE4.local",
+        "time": "02:00"
+      },
+      {
+        "id": "p2",
+        "name": "Excessive permission remediation",
+        "desc": "Remove standing admin rights that exceed least privilege.",
+        "status": "scheduled",
+        "updated": "24 Jul 2026, 12:15",
+        "module": "permission",
+        "ptype": "Least Privilege Enforcement",
+        "scheduled": "26 Jul 2026, 02:00",
+        "active": true,
+        "time": "02:00"
+      },
+      {
+        "id": "p3",
+        "name": "Contractor account lifecycle",
+        "desc": "Move expired contractor accounts to the quarantine OU.",
+        "status": "completed",
+        "updated": "24 Jul 2026, 09:18",
+        "module": "cleaner",
+        "ptype": "Inactive Account Cleanup",
+        "scheduled": "25 Jul 2026, 01:30",
+        "active": true,
+        "task": "accounts",
+        "domain": "LPDE4.local",
+        "time": "01:30"
+      },
+      {
+        "id": "p4",
+        "name": "Stale share access review",
+        "desc": "Flag and revoke share access unused for more than 90 days.",
+        "status": "completed",
+        "updated": "23 Jul 2026, 09:40",
+        "module": "permission",
+        "ptype": "Access Review",
+        "scheduled": "26 Jul 2026, 01:00",
+        "active": true,
+        "time": "01:00"
+      },
+      {
+        "id": "p5",
+        "name": "Service account review",
+        "desc": "Report inactive service accounts without changing them.",
+        "status": "draft",
+        "updated": "23 Jul 2026, 16:05",
+        "module": "cleaner",
+        "ptype": "Inactive Account Report",
+        "scheduled": "Not scheduled",
+        "active": false,
+        "task": "accounts",
+        "domain": "LPDE4.local",
+        "time": "13:30"
+      },
+      {
+        "id": "p6",
+        "name": "Regional user cleanup",
+        "desc": "Cleanup policy for regional office organizational units.",
+        "status": "progress",
+        "updated": "23 Jul 2026, 14:22",
+        "module": "cleaner",
+        "ptype": "Inactive Account Cleanup",
+        "scheduled": "Running now",
+        "active": true,
+        "task": "accounts",
+        "domain": "emea.LPDE4.local",
+        "time": "13:30"
+      },
+      {
+        "id": "p7",
+        "name": "Leaver account quarantine",
+        "desc": "Move inactive leaver accounts to the quarantine OU.",
+        "status": "scheduled",
+        "updated": "22 Jul 2026, 11:40",
+        "module": "cleaner",
+        "ptype": "Inactive Account Cleanup",
+        "scheduled": "25 Jul 2026, 03:00",
+        "active": true,
+        "task": "accounts",
+        "domain": "LPDE4.local",
+        "time": "03:00"
+      },
+      {
+        "id": "p8",
+        "name": "Legacy computer accounts",
+        "desc": "Disable computer accounts inactive for more than 120 days.",
+        "status": "completed",
+        "updated": "21 Jul 2026, 18:10",
+        "module": "cleaner",
+        "ptype": "Inactive Computer Cleanup",
+        "scheduled": "28 Jul 2026, 02:30",
+        "active": true,
+        "task": "computers",
+        "domain": "LPDE4.local",
+        "time": "02:30"
+      }
+    ],
+    "PLATFORMS": {
+      "ad": "Active Directory",
+      "entra": "Microsoft Entra ID"
+    },
+    "HYGIENE_TASKS": [
+      {
+        "key": "accounts",
+        "platform": "ad",
+        "builtin": true,
+        "label": "Inactive accounts",
+        "ptype": "Inactive Account Cleanup",
+        "desc": "User and computer accounts that haven’t signed in for a set number of days.",
+        "chips": [
+          "Report",
+          "Disable",
+          "Quarantine",
+          "Delete"
+        ]
+      },
+      {
+        "key": "groups",
+        "platform": "ad",
+        "builtin": true,
+        "label": "Empty groups",
+        "ptype": "Empty Group Cleanup",
+        "desc": "Security and distribution groups with no direct members.",
+        "chips": [
+          "Report",
+          "Quarantine",
+          "Delete"
+        ]
+      },
+      {
+        "key": "pwdNeverExpires",
+        "platform": "ad",
+        "label": "Password never expires",
+        "ptype": "Password Never Expires Audit",
+        "desc": "Accounts whose password is set never to expire, often forgotten service and admin accounts.",
+        "intro": "Accounts are checked on every run. Passwords are never reset and password policies are not changed.",
+        "actions": [
+          {
+            "key": "report",
+            "icon": "report",
+            "short": "Report",
+            "name": "Report matching accounts",
+            "desc": "Emails the list of accounts with a non-expiring password. Nothing in Active Directory changes.",
+            "days": null,
+            "on": true
+          },
+          {
+            "key": "unflag",
+            "icon": "unflag",
+            "short": "Remove setting",
+            "name": "Remove “Password never expires”",
+            "desc": "Clears the flag so the account follows the domain password policy again. No other property is touched.",
+            "days": null,
+            "on": false
+          }
+        ],
+        "chips": [
+          "Report",
+          "Remove setting"
+        ]
+      },
+      {
+        "key": "privileged",
+        "platform": "ad",
+        "label": "Dormant privileged accounts",
+        "ptype": "Dormant Privileged Account Cleanup",
+        "desc": "Inactive accounts that still belong to admin groups, including nested membership.",
+        "unit": "days inactive",
+        "intro": "Covers Domain, Enterprise and Schema Admins, Administrators and the Operators groups. Each enabled step runs once an account has been inactive for the set number of days.",
+        "actions": [
+          {
+            "key": "report",
+            "icon": "report",
+            "short": "Report",
+            "name": "Report dormant privileged accounts",
+            "desc": "Emails the list with the privileged groups each account belongs to. Nothing changes.",
+            "days": 30,
+            "on": true
+          },
+          {
+            "key": "disable",
+            "icon": "disable",
+            "short": "Disable",
+            "name": "Disable the account",
+            "desc": "Prevents sign-in while keeping the account and its group membership intact.",
+            "days": 60,
+            "on": false
+          },
+          {
+            "key": "move",
+            "icon": "move",
+            "short": "Quarantine",
+            "name": "Move to a quarantine OU",
+            "desc": "Relocates the account to a quarantine OU for review.",
+            "days": 90,
+            "on": false,
+            "ou": "Quarantine OU"
+          }
+        ],
+        "chips": [
+          "Report",
+          "Disable",
+          "Quarantine"
+        ]
+      },
+      {
+        "key": "disabled",
+        "platform": "ad",
+        "label": "Disabled accounts",
+        "ptype": "Disabled Account Cleanup",
+        "desc": "Accounts that have stayed disabled beyond a retention period.",
+        "unit": "days disabled",
+        "intro": "Retention is counted from the date the account was disabled, or from its last change when that date is unavailable.",
+        "actions": [
+          {
+            "key": "report",
+            "icon": "report",
+            "short": "Report",
+            "name": "Report disabled accounts",
+            "desc": "Emails the list of accounts past the retention period. Nothing changes.",
+            "days": 30,
+            "on": true
+          },
+          {
+            "key": "move",
+            "icon": "move",
+            "short": "Archive",
+            "name": "Move to an archive OU",
+            "desc": "Relocates the account to an archive OU so it can still be restored.",
+            "days": 90,
+            "on": false,
+            "ou": "Archive OU"
+          },
+          {
+            "key": "delete",
+            "icon": "delete",
+            "short": "Delete",
+            "name": "Delete the account",
+            "desc": "Permanently removes the account from Active Directory.",
+            "days": 365,
+            "on": false,
+            "del": true
+          }
+        ],
+        "chips": [
+          "Report",
+          "Archive",
+          "Delete"
+        ]
+      },
+      {
+        "key": "computers",
+        "platform": "ad",
+        "label": "Orphaned computers",
+        "ptype": "Orphaned Computer Cleanup",
+        "desc": "Computer accounts that have stopped authenticating. Domain controllers are always skipped.",
+        "unit": "days without sign-in",
+        "intro": "Recommended order: disable first, quarantine next and delete only after a longer period. Domain controllers are never changed.",
+        "actions": [
+          {
+            "key": "report",
+            "icon": "report",
+            "short": "Report",
+            "name": "Report stale computers",
+            "desc": "Emails the list with OS, last logon and password-last-set dates. Nothing changes.",
+            "days": 60,
+            "on": true
+          },
+          {
+            "key": "disable",
+            "icon": "disable",
+            "short": "Disable",
+            "name": "Disable the computer",
+            "desc": "Stops the device authenticating while keeping the object.",
+            "days": 90,
+            "on": false
+          },
+          {
+            "key": "move",
+            "icon": "move",
+            "short": "Quarantine",
+            "name": "Move to a quarantine OU",
+            "desc": "Relocates the computer to a quarantine OU for review.",
+            "days": 120,
+            "on": false,
+            "ou": "Quarantine OU"
+          },
+          {
+            "key": "delete",
+            "icon": "delete",
+            "short": "Delete",
+            "name": "Delete the computer",
+            "desc": "Permanently removes the computer account from Active Directory.",
+            "days": 180,
+            "on": false,
+            "del": true
+          }
+        ],
+        "chips": [
+          "Report",
+          "Disable",
+          "Quarantine",
+          "Delete"
+        ]
+      },
+      {
+        "key": "entraDevices",
+        "platform": "entra",
+        "label": "Stale devices",
+        "ptype": "Entra Stale Device Cleanup",
+        "desc": "Registered devices with no recent activity.",
+        "unit": "days inactive",
+        "intro": "Activity uses the device’s approximate last sign-in. Devices with no activity data are shown as unknown and never changed.",
+        "actions": [
+          {
+            "key": "report",
+            "icon": "report",
+            "short": "Report",
+            "name": "Report stale devices",
+            "desc": "Emails the list with OS, trust type and last activity. Nothing changes in Entra ID.",
+            "days": 90,
+            "on": true
+          },
+          {
+            "key": "disable",
+            "icon": "disable",
+            "short": "Disable",
+            "name": "Disable the device",
+            "desc": "Blocks the device from authenticating while keeping its registration.",
+            "days": 120,
+            "on": false
+          },
+          {
+            "key": "delete",
+            "icon": "delete",
+            "short": "Delete",
+            "name": "Delete the device",
+            "desc": "Permanently removes the device from Entra ID.",
+            "days": 180,
+            "on": false,
+            "del": true
+          }
+        ],
+        "chips": [
+          "Report",
+          "Disable",
+          "Delete"
+        ]
+      },
+      {
+        "key": "entraUsers",
+        "platform": "entra",
+        "label": "Inactive users",
+        "ptype": "Entra Inactive User Cleanup",
+        "desc": "Member users who haven’t signed in for a set period. Guests are handled separately.",
+        "unit": "days without sign-in",
+        "intro": "Global Administrators and emergency-access accounts are always skipped. Synced users are reported only, so they can be fixed in Active Directory.",
+        "actions": [
+          {
+            "key": "report",
+            "icon": "report",
+            "short": "Report",
+            "name": "Report inactive users",
+            "desc": "Emails the list with last sign-in and whether each user is cloud-only or synced. Nothing changes.",
+            "days": 60,
+            "on": true
+          },
+          {
+            "key": "block",
+            "icon": "block",
+            "short": "Block sign-in",
+            "name": "Block sign-in",
+            "desc": "Stops the user signing in while keeping the account and licences.",
+            "days": 90,
+            "on": false
+          },
+          {
+            "key": "delete",
+            "icon": "delete",
+            "short": "Delete",
+            "name": "Delete cloud-only user",
+            "desc": "Removes the user from Entra ID. Synced users are never deleted here.",
+            "days": 180,
+            "on": false,
+            "del": true
+          }
+        ],
+        "chips": [
+          "Report",
+          "Block sign-in",
+          "Delete"
+        ]
+      },
+      {
+        "key": "entraGuests",
+        "platform": "entra",
+        "label": "Guest accounts",
+        "ptype": "Entra Guest Account Expiry",
+        "desc": "External guests that are inactive or never redeemed their invitation.",
+        "unit": "days without sign-in",
+        "intro": "Guests who never redeemed their invitation are counted from the day they were invited.",
+        "actions": [
+          {
+            "key": "report",
+            "icon": "report",
+            "short": "Report",
+            "name": "Report inactive guests",
+            "desc": "Emails the list with sponsor, invitation state and last sign-in. Nothing changes.",
+            "days": 30,
+            "on": true
+          },
+          {
+            "key": "block",
+            "icon": "block",
+            "short": "Block sign-in",
+            "name": "Block sign-in",
+            "desc": "Stops the guest signing in while keeping the account.",
+            "days": 60,
+            "on": false
+          },
+          {
+            "key": "delete",
+            "icon": "delete",
+            "short": "Delete",
+            "name": "Delete the guest",
+            "desc": "Permanently removes the guest account from Entra ID.",
+            "days": 90,
+            "on": false,
+            "del": true
+          }
+        ],
+        "chips": [
+          "Report",
+          "Block sign-in",
+          "Delete"
+        ]
+      },
+      {
+        "key": "entraMfa",
+        "platform": "entra",
+        "label": "MFA registration",
+        "ptype": "Entra MFA Hygiene Audit",
+        "desc": "Users who aren’t registered for multi-factor authentication.",
+        "intro": "Audit only. This task never changes users, authentication methods or Conditional Access.",
+        "actions": [
+          {
+            "key": "report",
+            "icon": "report",
+            "short": "Report",
+            "name": "Report users without MFA",
+            "desc": "Emails the list with registration status, registered methods and admin roles.",
+            "days": null,
+            "on": true
+          },
+          {
+            "key": "export",
+            "icon": "export",
+            "short": "Export",
+            "name": "Attach a CSV export",
+            "desc": "Adds the full result as a CSV file that can be shared for follow-up.",
+            "days": null,
+            "on": true
+          }
+        ],
+        "chips": [
+          "Report",
+          "Export"
+        ]
+      },
+      {
+        "key": "entraApps",
+        "platform": "entra",
+        "label": "Inactive applications",
+        "ptype": "Entra Inactive Application Review",
+        "desc": "App registrations and service principals that look unused.",
+        "unit": "days without sign-in",
+        "intro": "Apps without reliable activity data are marked “Needs review” and never changed. Applications are not deleted by this task.",
+        "actions": [
+          {
+            "key": "report",
+            "icon": "report",
+            "short": "Report",
+            "name": "Report inactive applications",
+            "desc": "Emails each app with its signals: sign-ins, owners, credential expiry and assignments.",
+            "days": 90,
+            "on": true
+          },
+          {
+            "key": "disable",
+            "icon": "disable",
+            "short": "Disable sign-in",
+            "name": "Disable sign-in",
+            "desc": "Stops the service principal signing in. The app and its permissions are kept.",
+            "days": 180,
+            "on": false
+          }
+        ],
+        "chips": [
+          "Report",
+          "Disable sign-in"
+        ]
+      }
+    ],
+    "DOMAINS": [
+      "LPDE4.local",
+      "emea.LPDE4.local",
+      "apac.LPDE4.local",
+      "corp.LPDE4.local",
+      "lepide.local",
+      "contoso.local",
+      "fabrikam.com",
+      "northwind.internal"
+    ],
+    "TENANTS": [
+      "lepide.onmicrosoft.com",
+      "contoso.onmicrosoft.com"
+    ],
+    "G_QUARANTINE": "Quarantine - Groups",
+    "ACCOUNTS": [
+      "Administrator",
+      "Guest",
+      "krbtgt",
+      "simon.wilson",
+      "maria.garcia",
+      "james.oconnor",
+      "priya.sharma",
+      "david.chen",
+      "emma.johnson",
+      "mohammed.ali",
+      "olivia.brown",
+      "lucas.martin",
+      "sophia.rossi",
+      "noah.williams",
+      "yash.chowdhary",
+      "liam.murphy",
+      "ava.nguyen",
+      "ethan.clark",
+      "isabella.lopez",
+      "benjamin.scott",
+      "svc-backup",
+      "svc-sqlserver",
+      "svc-exchange",
+      "svc-adsync",
+      "DCONE$",
+      "WKSTN-01$",
+      "WKSTN-02$",
+      "LAPTOP-HR12$",
+      "SVR-FILE01$"
+    ],
+    "SENDERS": [
+      {
+        "value": "MFACONFIGURATION",
+        "label": "MFA Configuration"
+      },
+      {
+        "value": "noreply@lpde4.local",
+        "label": "noreply@lpde4.local"
+      },
+      {
+        "value": "alerts@lpde4.local",
+        "label": "alerts@lpde4.local"
+      }
+    ],
+    "REPORT_COLS": [
+      "SAM Account Name",
+      "Account Type",
+      "Distinguished Name",
+      "E-Mail",
+      "Last Logon Time",
+      "Inactivity Time (days)",
+      "Account Age (days)",
+      "Account Expires",
+      "Account Status"
+    ],
+    "TYPE_LBL": {
+      "both": "User & Computer",
+      "user": "User only",
+      "computer": "Computer only"
+    },
+    "STATUS_LBL": {
+      "all": "All accounts",
+      "enabled": "Enabled only",
+      "disabled": "Disabled only"
+    },
+    "emailRe": {},
+    "DEFAULT_RUNGS": [
+      {
+        "key": "pwd",
+        "name": "Set a random password",
+        "desc": "Locks the account by resetting its password to a random value.",
+        "enabled": true,
+        "days": "20",
+        "notify": true
+      },
+      {
+        "key": "disable",
+        "name": "Disable the account",
+        "desc": "Prevents sign-in while keeping the account and its data intact.",
+        "enabled": true,
+        "days": "40",
+        "notify": true
+      },
+      {
+        "key": "move",
+        "name": "Move to an Inactive OU",
+        "desc": "Relocates the account to a quarantine OU for easy review.",
+        "enabled": true,
+        "days": "60",
+        "notify": true,
+        "ou": "DCD01"
+      },
+      {
+        "key": "delete",
+        "name": "Delete the account",
+        "desc": "Permanently removes the account from Active Directory.",
+        "enabled": false,
+        "days": "365",
+        "notify": true,
+        "del": true
+      }
+    ],
+    "DEFAULT_GROUP_RUNGS": [
+      {
+        "key": "report",
+        "name": "Report empty groups",
+        "desc": "Emails the list of empty groups to the recipients. Nothing in Active Directory changes.",
+        "enabled": true,
+        "days": "7",
+        "notify": false
+      },
+      {
+        "key": "quarantine",
+        "name": "Move to a quarantine OU",
+        "desc": "Relocates the group to a quarantine OU for easy review.",
+        "enabled": true,
+        "days": "30",
+        "notify": true,
+        "ou": "Quarantine - Groups"
+      },
+      {
+        "key": "delete",
+        "name": "Delete the group",
+        "desc": "Permanently removes the group from Active Directory.",
+        "enabled": false,
+        "days": "60",
+        "notify": true,
+        "del": true
+      }
+    ]
+  }
+}

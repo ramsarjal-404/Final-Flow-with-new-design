@@ -1,0 +1,454 @@
+{
+  "$source": "src/data/settings/components.ts",
+  "exports": {
+    "M365_APPS": [
+      "onedrive",
+      "azure",
+      "teams",
+      "copilot"
+    ],
+    "CLOUD_FAMILIES": [
+      "dropbox",
+      "s3",
+      "gsuite"
+    ],
+    "CATALOG": [
+      "onedrive",
+      "azure",
+      "teams",
+      "copilot",
+      "exchange",
+      "sharepoint",
+      "dropbox",
+      "s3",
+      "gsuite"
+    ],
+    "KIND_LABEL": {
+      "onedrive": "OneDrive",
+      "azure": "Azure",
+      "teams": "Microsoft Teams",
+      "copilot": "Copilot",
+      "exchange": "Exchange Online",
+      "sharepoint": "SharePoint Online",
+      "dropbox": "Dropbox",
+      "s3": "Amazon Web Services",
+      "gsuite": "G Suite"
+    },
+    "FAMILY_LABEL": {
+      "m365": "Microsoft 365",
+      "exchange": "Exchange Online",
+      "sharepoint": "SharePoint Online",
+      "dropbox": "Dropbox",
+      "s3": "Amazon S3",
+      "gsuite": "G Suite"
+    },
+    "AUDIT_MODES": [
+      {
+        "value": "all",
+        "label": "ALL"
+      },
+      {
+        "value": "selected",
+        "label": "Selected Only"
+      },
+      {
+        "value": "excluding",
+        "label": "All But Excluding Selected"
+      }
+    ],
+    "CLOUD_FIELDS": {
+      "dropbox": [
+        {
+          "key": "server",
+          "label": "Server Name",
+          "note": "Note: The specified name will appear in the \"Server Name\" column for all environment changes."
+        },
+        {
+          "key": "token",
+          "label": "Authentication Token",
+          "info": true
+        }
+      ],
+      "s3": [
+        {
+          "key": "server",
+          "label": "Server Name",
+          "note": "Note: The specified name will appear in the \"Server Name\" column for all environment changes."
+        },
+        {
+          "key": "accessKey",
+          "label": "AWS Access Key",
+          "info": true
+        },
+        {
+          "key": "secretKey",
+          "label": "AWS Secret Key",
+          "secret": true
+        }
+      ],
+      "gsuite": [
+        {
+          "key": "server",
+          "label": "Server Name",
+          "note": "Note: The specified name will appear in the \"Server Name\" column for all environment changes."
+        },
+        {
+          "key": "domain",
+          "label": "Domain Name"
+        },
+        {
+          "key": "clientId",
+          "label": "Client ID",
+          "info": true
+        },
+        {
+          "key": "clientSecret",
+          "label": "Client Secret Key",
+          "secret": true
+        }
+      ]
+    },
+    "TENANT_FIELDS": [
+      {
+        "key": "tenant",
+        "label": "Tenant Name",
+        "note": "Note - The Tenant Name will be populated once the credentials are verified.",
+        "placeholder": "e.g. DevSoft001.onmicrosoft.com"
+      },
+      {
+        "key": "subscription",
+        "label": "Subscription Type"
+      },
+      {
+        "key": "clientId",
+        "label": "Client ID",
+        "info": true
+      },
+      {
+        "key": "secretKey",
+        "label": "Secret Key",
+        "secret": true
+      }
+    ],
+    "COPILOT_EMAIL_FIELD": {
+      "key": "email",
+      "label": "Email ID",
+      "note": "Note - This input is intended for Copilot",
+      "placeholder": "e.g. admin@contoso.onmicrosoft.com"
+    },
+    "SUBSCRIPTION_TYPES": [
+      "Enterprise Plan",
+      "Business Plan",
+      "Education Plan",
+      "Government Plan (GCC)"
+    ],
+    "DATABASES": [
+      "LepideAuditDB",
+      "O365",
+      "sf4df8-dsfsdf9-3242ksd-vsdf-25k2sf"
+    ],
+    "HELP_STEPS": {
+      "dropbox": [
+        "1. Log into the dropbox account that is to be audited.",
+        "2. Go to 'https://www.dropbox.com/developers/apps'.",
+        "3. Click on 'Create app'.",
+        "4. Select the below options:",
+        "a. 'Choose an API' -> 'Scoped Access'.",
+        "b. 'Choose the type of access you need' -> 'Full Dropbox'.",
+        "c. 'Name your app'-> (Type a suitable name here; for example, 'LepideAudit').",
+        "d. Click on Create App button.",
+        "5. Once the app is created, go to the permissions tab and select folowing permissions: 'account_info.read', 'files.metadata.read', 'team data.member', 'events.read' and click on submit button.",
+        "6. Now switch to the Settings tab and the app information page appears with the details. Scroll down to the 'OAuth' section and click on 'Generate' to see the generated token.",
+        "7. Save this token and paste it in the 'Token' field on this page to validate the authentication"
+      ],
+      "gsuite": [
+        "1. If you are using Internet Explorer, please make sure the 'IE Enhanced Security Configuration' setting is set to off.",
+        "2. Follow URL: 'https://console.developers.google.com/start/api?id=appsactivity' and use the wizard to create or select a project in the Google Developers Console and automatically turn on the API. Click continue, then Go to credentials.",
+        "3. On the Add credentials to your project page, click the Cancel button.",
+        "4. At the top of the page, select the OAuth consent screen tab. Select an Email address, enter a product name if not already set, and click the Save button.",
+        "5. Select the Credentials tab, click the Create credentials button and select OAuth client ID.",
+        "6. Select the application type 'Desktop App' and enter name.",
+        "7. Click the Create button.",
+        "8. Take note of the Client ID and Client Secret Key in the resulting dialog.",
+        "9. Enable 'Admin SDK' and 'Google Drive API' for your project using the following link - 'https://console.developers.google.com'.",
+        "**For validation you will be redirected to the IE browser. If the browser does not close automatically after OAuth token is granted/failed, close the browser to continue on Lepide Data Security Platform."
+      ]
+    },
+    "FIELD_TIPS": {
+      "accessKey": "Use the access key pair of an AWS IAM user that can read the S3 buckets to audit.",
+      "clientId": "The Application (client) ID of the app registered for Lepide in the tenant."
+    },
+    "MAILBOXES": [
+      {
+        "name": "Robert Fox",
+        "desc": "Robert_Fox@onmicrosoft.com"
+      },
+      {
+        "name": "Arlene McCoy",
+        "desc": "Arlene.McCoy@onmicrosoft.com"
+      },
+      {
+        "name": "Brooklyn Simmons",
+        "desc": "Brooklyn_Simmons@onmicrosoft.com"
+      },
+      {
+        "name": "Jerome Bell",
+        "desc": "Jerome.Bell@onmicrosoft.com"
+      },
+      {
+        "name": "Jane Cooper",
+        "desc": "Jane_Cooper@onmicrosoft.com"
+      },
+      {
+        "name": "Leslie Alexander",
+        "desc": "Leslie.Alexander@onmicrosoft.com"
+      },
+      {
+        "name": "Dianne Russell",
+        "desc": "Dianne.Russell@onmicrosoft.com"
+      },
+      {
+        "name": "Floyd Miles",
+        "desc": "Floyd_Miles@onmicrosoft.com"
+      },
+      {
+        "name": "Albert Flores",
+        "desc": "Albert.Flores@onmicrosoft.com"
+      },
+      {
+        "name": "Ralph Edwards",
+        "desc": "Ralph_Edwards@onmicrosoft.com"
+      }
+    ],
+    "EXCHANGE_OPERATIONS": [
+      {
+        "name": "Address Book",
+        "desc": "Global Address List, Address List, Policy"
+      },
+      {
+        "name": "Auditing Mailbox Access",
+        "desc": "Mailbox Access"
+      },
+      {
+        "name": "Journaling",
+        "desc": "Journal Rule"
+      },
+      {
+        "name": "Add-in",
+        "desc": "Apps"
+      },
+      {
+        "name": "Auditing",
+        "desc": "Admin Audit Logs"
+      },
+      {
+        "name": "Client Access",
+        "desc": "Outlook Web App, Mobile Device"
+      },
+      {
+        "name": "Mail Flow",
+        "desc": "Accept Domains"
+      },
+      {
+        "name": "In-Place eDescovery & hold",
+        "desc": "Mailbox Search"
+      },
+      {
+        "name": "Exchange Group",
+        "desc": "Distribution Group"
+      },
+      {
+        "name": "Federation & Hybrid",
+        "desc": "Federation and Hybrid"
+      }
+    ],
+    "SHAREPOINT_OBJECTS": [
+      {
+        "name": "Document",
+        "desc": ""
+      },
+      {
+        "name": "Document Library",
+        "desc": ""
+      },
+      {
+        "name": "Folder",
+        "desc": ""
+      },
+      {
+        "name": "Group",
+        "desc": ""
+      },
+      {
+        "name": "Link",
+        "desc": ""
+      },
+      {
+        "name": "List Item",
+        "desc": ""
+      },
+      {
+        "name": "Site",
+        "desc": ""
+      },
+      {
+        "name": "Site Collection",
+        "desc": ""
+      },
+      {
+        "name": "Sharing and Access",
+        "desc": ""
+      },
+      {
+        "name": "Tenant",
+        "desc": ""
+      }
+    ],
+    "SHAREPOINT_OPERATIONS": [
+      {
+        "name": "Accessed",
+        "desc": ""
+      },
+      {
+        "name": "Check Out Discarded",
+        "desc": ""
+      },
+      {
+        "name": "Checked In",
+        "desc": ""
+      },
+      {
+        "name": "Checked Out",
+        "desc": ""
+      },
+      {
+        "name": "Compliance Settings Changed",
+        "desc": ""
+      },
+      {
+        "name": "Copied",
+        "desc": ""
+      },
+      {
+        "name": "Deleted",
+        "desc": ""
+      },
+      {
+        "name": "File Deleted First Stage Recycle Bin",
+        "desc": ""
+      },
+      {
+        "name": "File Deleted Second Stage Recycle Bin",
+        "desc": ""
+      },
+      {
+        "name": "File Version All Recycle Bin",
+        "desc": ""
+      },
+      {
+        "name": "Modified",
+        "desc": ""
+      }
+    ],
+    "SEED_CONNECTIONS": [
+      {
+        "id": "mc-dropbox-1",
+        "family": "dropbox",
+        "name": "Dropbox",
+        "apps": [],
+        "fields": {
+          "server": "Dropbox",
+          "token": "ERFER78-4536FJ-5447KGH-4346J-45346K-ZDFGS7"
+        },
+        "objects": {
+          "mode": "all",
+          "items": []
+        },
+        "operations": {
+          "mode": "all",
+          "items": []
+        },
+        "database": {
+          "server": "192.168.30.92",
+          "auth": "windows",
+          "user": "",
+          "password": "",
+          "mode": "create",
+          "name": "Richard_Data1",
+          "chatRetention": false,
+          "retentionDays": "90"
+        },
+        "connectedOn": "23-07-2024 13:32:11"
+      },
+      {
+        "id": "mc-s3-1",
+        "family": "s3",
+        "name": "AWS S3",
+        "apps": [],
+        "fields": {
+          "server": "AWS S3",
+          "accessKey": "RTRGREG6DGHDFSA4524HJ",
+          "secretKey": "dfa60-564654-dhgdh7-546"
+        },
+        "objects": {
+          "mode": "all",
+          "items": []
+        },
+        "operations": {
+          "mode": "all",
+          "items": []
+        },
+        "database": {
+          "server": "192.168.30.92",
+          "auth": "sql",
+          "user": "DevSoft001\\Richard",
+          "password": "Lepide@123",
+          "mode": "select",
+          "name": "LepideAuditDB",
+          "chatRetention": false,
+          "retentionDays": "90"
+        },
+        "connectedOn": "02-08-2024 09:14:40"
+      },
+      {
+        "id": "mc-spo-1",
+        "family": "sharepoint",
+        "name": "devsoft001-a",
+        "apps": [],
+        "fields": {
+          "tenant": "devsoft001-a",
+          "subscription": "Enterprise Plan",
+          "clientId": "sf4df8-dsfsdf9-3242ksd-vsdf-25k2sf",
+          "secretKey": "Q8w~fE2.lK9pX7vR3nT6"
+        },
+        "objects": {
+          "mode": "selected",
+          "items": [
+            "Document",
+            "Document Library",
+            "Folder"
+          ]
+        },
+        "operations": {
+          "mode": "selected",
+          "items": [
+            "Accessed",
+            "Deleted",
+            "Modified"
+          ]
+        },
+        "database": {
+          "server": "devl174",
+          "auth": "sql",
+          "user": "devl174",
+          "password": "devl174!",
+          "mode": "select",
+          "name": "LepideAuditDB",
+          "chatRetention": false,
+          "retentionDays": "90"
+        },
+        "connectedOn": "14-09-2024 17:05:22"
+      }
+    ]
+  }
+}

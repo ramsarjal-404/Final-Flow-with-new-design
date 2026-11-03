@@ -1,0 +1,1072 @@
+{
+  "$source": "src/data/detect.ts",
+  "exports": {
+    "ALERT_ACTIONS": [
+      "Send Email Alert",
+      "Show in LiveFeed",
+      "Send Alert to App",
+      "Execute Script",
+      "Send Alert to SIEM"
+    ],
+    "ACTION_SHORT": {
+      "Send Email Alert": "Email",
+      "Show in LiveFeed": "LiveFeed",
+      "Send Alert to App": "App",
+      "Execute Script": "Script",
+      "Send Alert to SIEM": "SIEM"
+    },
+    "EMAIL_TO_USER": "Hello %USERNAME%, you have received this notification because you have violated the user activity policy.",
+    "DEFAULT_THRESHOLD": {
+      "enabled": false,
+      "sameUser": false,
+      "times": 2,
+      "within": 1,
+      "unit": "minutes"
+    },
+    "THREAT_ALERTS": [
+      {
+        "id": "alert-1",
+        "name": "Potential brute force attack",
+        "description": "Critical findings report",
+        "agentStatus": "N/A",
+        "status": "Disabled",
+        "reports": [
+          "Excessive Permission User"
+        ],
+        "filters": {
+          "Excessive Permission User": [
+            {
+              "id": "rule-mvorqfe8-4",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-backup"
+            }
+          ]
+        },
+        "valueFilter": {
+          "field": "Server",
+          "include": "All",
+          "values": []
+        },
+        "threshold": {
+          "enabled": false,
+          "sameUser": false,
+          "times": 2,
+          "within": 1,
+          "unit": "minutes"
+        },
+        "actions": [
+          {
+            "id": "act-ankit.kumar.singh@in.lepide.com",
+            "kind": "Send Email Alert",
+            "details": "Sender's Email : Testmail2025 ; Recipient's Email : ankit.kumar.singh@in.lepide.com",
+            "sendTo": "ankit.kumar.singh@in.lepide.com",
+            "settings": {
+              "sender": "Testmail2025",
+              "recipients": "ankit.kumar.singh@in.lepide.com",
+              "pastOn": false,
+              "pastDays": "7",
+              "formats": [
+                "CSV"
+              ],
+              "content": "",
+              "toUser": false,
+              "userMessage": "Hello %USERNAME%, you have received this notification because you have violated the user activity policy."
+            }
+          }
+        ],
+        "processRemotely": false,
+        "agent": "",
+        "alertType": "Critical"
+      },
+      {
+        "id": "alert-2",
+        "name": "Mass delete behaviors (OU)",
+        "description": "Automatically and accurately classify sensitive data as it is created or modified.",
+        "agentStatus": "N/A",
+        "status": "Enabled",
+        "reports": [
+          "All Modifications in Files and Folders",
+          "Failed Logons"
+        ],
+        "filters": {
+          "All Modifications in Files and Folders": [
+            {
+              "id": "rule-mvorqfe8-1",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-backup"
+            },
+            {
+              "id": "rule-mvorqfe8-2",
+              "field": "Object Path",
+              "operator": "Not Equal",
+              "value": "\\\\FS01\\Shared\\Public"
+            }
+          ],
+          "Failed Logons": [
+            {
+              "id": "rule-mvorqfe8-3",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-monitor"
+            }
+          ]
+        },
+        "threshold": {
+          "enabled": false,
+          "sameUser": false,
+          "times": 2,
+          "within": 1,
+          "unit": "minutes"
+        },
+        "actions": [
+          {
+            "id": "act-soc@in.lepide.com",
+            "kind": "Send Email Alert",
+            "details": "Sender's Email : Testmail2025 ; Recipient's Email : soc@in.lepide.com",
+            "sendTo": "soc@in.lepide.com",
+            "settings": {
+              "sender": "Testmail2025",
+              "recipients": "soc@in.lepide.com",
+              "pastOn": false,
+              "pastDays": "7",
+              "formats": [
+                "CSV"
+              ],
+              "content": "",
+              "toUser": false,
+              "userMessage": "Hello %USERNAME%, you have received this notification because you have violated the user activity policy."
+            }
+          }
+        ],
+        "processRemotely": false,
+        "agent": "",
+        "alertType": "Critical"
+      },
+      {
+        "id": "alert-3",
+        "name": "Mass delete behaviors (User)",
+        "description": "Alerts to detect suspicious behavior like ransomware",
+        "agentStatus": "N/A",
+        "status": "Enabled",
+        "reports": [
+          "All Modifications in Files and Folders"
+        ],
+        "filters": {
+          "All Modifications in Files and Folders": [
+            {
+              "id": "rule-mvorqfe8-1",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-backup"
+            },
+            {
+              "id": "rule-mvorqfe8-2",
+              "field": "Object Path",
+              "operator": "Not Equal",
+              "value": "\\\\FS01\\Shared\\Public"
+            }
+          ]
+        },
+        "threshold": {
+          "enabled": false,
+          "sameUser": false,
+          "times": 2,
+          "within": 1,
+          "unit": "minutes"
+        },
+        "actions": [
+          {
+            "id": "act-livefeed",
+            "kind": "Show in LiveFeed",
+            "details": "Generate LiveFeed Alert"
+          }
+        ],
+        "processRemotely": false,
+        "agent": "",
+        "alertType": "Critical"
+      },
+      {
+        "id": "alert-4",
+        "name": "Potential business disruption",
+        "description": "Advanced threat detection algorithms utilize machine learning to identify patterns that may indicate a breach.",
+        "agentStatus": "N/A",
+        "status": "Disabled",
+        "reports": [
+          "Stale Data Report"
+        ],
+        "filters": {
+          "Stale Data Report": [
+            {
+              "id": "rule-mvorqfe8-5",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-backup"
+            }
+          ]
+        },
+        "threshold": {
+          "enabled": false,
+          "sameUser": false,
+          "times": 2,
+          "within": 1,
+          "unit": "minutes"
+        },
+        "actions": [
+          {
+            "id": "act-ankit.kumar.singh@in.lepide.com",
+            "kind": "Send Email Alert",
+            "details": "Sender's Email : Testmail2025 ; Recipient's Email : ankit.kumar.singh@in.lepide.com",
+            "sendTo": "ankit.kumar.singh@in.lepide.com",
+            "settings": {
+              "sender": "Testmail2025",
+              "recipients": "ankit.kumar.singh@in.lepide.com",
+              "pastOn": false,
+              "pastDays": "7",
+              "formats": [
+                "CSV"
+              ],
+              "content": "",
+              "toUser": false,
+              "userMessage": "Hello %USERNAME%, you have received this notification because you have violated the user activity policy."
+            }
+          }
+        ],
+        "processRemotely": false,
+        "agent": "",
+        "alertType": "Warning"
+      },
+      {
+        "id": "alert-5",
+        "name": "Increased threat surface area",
+        "description": "Unauthorized data access across your SaaS environments",
+        "agentStatus": "N/A",
+        "status": "Enabled",
+        "reports": [
+          "Open Share"
+        ],
+        "filters": {
+          "Open Share": [
+            {
+              "id": "rule-mvorqfe8-6",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-backup"
+            }
+          ]
+        },
+        "threshold": {
+          "enabled": false,
+          "sameUser": false,
+          "times": 2,
+          "within": 1,
+          "unit": "minutes"
+        },
+        "actions": [
+          {
+            "id": "act-soc@in.lepide.com",
+            "kind": "Send Email Alert",
+            "details": "Sender's Email : Testmail2025 ; Recipient's Email : soc@in.lepide.com",
+            "sendTo": "soc@in.lepide.com",
+            "settings": {
+              "sender": "Testmail2025",
+              "recipients": "soc@in.lepide.com",
+              "pastOn": false,
+              "pastDays": "7",
+              "formats": [
+                "CSV"
+              ],
+              "content": "",
+              "toUser": false,
+              "userMessage": "Hello %USERNAME%, you have received this notification because you have violated the user activity policy."
+            }
+          }
+        ],
+        "processRemotely": false,
+        "agent": "",
+        "alertType": "Warning"
+      },
+      {
+        "id": "alert-6",
+        "name": "Mass delete behaviors (Computer)",
+        "description": "Make investigations faster and more effective by monitoring how users interact with data and log a complete audit trail of data access activity.",
+        "agentStatus": "N/A",
+        "status": "Enabled",
+        "reports": [
+          "Files Copied"
+        ],
+        "filters": {
+          "Files Copied": [
+            {
+              "id": "rule-mvorqfe8-7",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-backup"
+            }
+          ]
+        },
+        "threshold": {
+          "enabled": false,
+          "sameUser": false,
+          "times": 2,
+          "within": 1,
+          "unit": "minutes"
+        },
+        "actions": [
+          {
+            "id": "act-soc@in.lepide.com",
+            "kind": "Send Email Alert",
+            "details": "Sender's Email : Testmail2025 ; Recipient's Email : soc@in.lepide.com",
+            "sendTo": "soc@in.lepide.com",
+            "settings": {
+              "sender": "Testmail2025",
+              "recipients": "soc@in.lepide.com",
+              "pastOn": false,
+              "pastDays": "7",
+              "formats": [
+                "CSV"
+              ],
+              "content": "",
+              "toUser": false,
+              "userMessage": "Hello %USERNAME%, you have received this notification because you have violated the user activity policy."
+            }
+          }
+        ],
+        "processRemotely": false,
+        "agent": "",
+        "alertType": "Critical"
+      },
+      {
+        "id": "alert-7",
+        "name": "Potential password compromises",
+        "description": "Dynamic dashboards and reports give you real-time awareness…",
+        "agentStatus": "N/A",
+        "status": "Disabled",
+        "reports": [
+          "Failed Logons"
+        ],
+        "filters": {
+          "Failed Logons": [
+            {
+              "id": "rule-mvorqfe8-3",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-monitor"
+            }
+          ]
+        },
+        "threshold": {
+          "enabled": false,
+          "sameUser": false,
+          "times": 2,
+          "within": 1,
+          "unit": "minutes"
+        },
+        "actions": [
+          {
+            "id": "act-ankit.kumar.singh@in.lepide.com",
+            "kind": "Send Email Alert",
+            "details": "Sender's Email : Testmail2025 ; Recipient's Email : ankit.kumar.singh@in.lepide.com",
+            "sendTo": "ankit.kumar.singh@in.lepide.com",
+            "settings": {
+              "sender": "Testmail2025",
+              "recipients": "ankit.kumar.singh@in.lepide.com",
+              "pastOn": false,
+              "pastDays": "7",
+              "formats": [
+                "CSV"
+              ],
+              "content": "",
+              "toUser": false,
+              "userMessage": "Hello %USERNAME%, you have received this notification because you have violated the user activity policy."
+            }
+          }
+        ],
+        "processRemotely": false,
+        "agent": "",
+        "alertType": "Critical"
+      },
+      {
+        "id": "alert-8",
+        "name": "Mass delete behavior (Group)",
+        "description": "Help ensure that you are compliant with relevant rules and regulations",
+        "agentStatus": "N/A",
+        "status": "Enabled",
+        "reports": [
+          "Shared Folder Created & Deleted"
+        ],
+        "filters": {
+          "Shared Folder Created & Deleted": [
+            {
+              "id": "rule-mvorqfe8-8",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-backup"
+            }
+          ]
+        },
+        "threshold": {
+          "enabled": false,
+          "sameUser": false,
+          "times": 2,
+          "within": 1,
+          "unit": "minutes"
+        },
+        "actions": [
+          {
+            "id": "act-soc@in.lepide.com",
+            "kind": "Send Email Alert",
+            "details": "Sender's Email : Testmail2025 ; Recipient's Email : soc@in.lepide.com",
+            "sendTo": "soc@in.lepide.com",
+            "settings": {
+              "sender": "Testmail2025",
+              "recipients": "soc@in.lepide.com",
+              "pastOn": false,
+              "pastDays": "7",
+              "formats": [
+                "CSV"
+              ],
+              "content": "",
+              "toUser": false,
+              "userMessage": "Hello %USERNAME%, you have received this notification because you have violated the user activity policy."
+            }
+          }
+        ],
+        "processRemotely": false,
+        "agent": "",
+        "alertType": "Warning"
+      },
+      {
+        "id": "alert-9",
+        "name": "Group modifications",
+        "description": "Streamlined incident response protocols enable swift action against potential threats.",
+        "agentStatus": "N/A",
+        "status": "Enabled",
+        "reports": [
+          "Excessive Permission User"
+        ],
+        "filters": {
+          "Excessive Permission User": [
+            {
+              "id": "rule-mvorqfe8-9",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-backup"
+            }
+          ]
+        },
+        "threshold": {
+          "enabled": false,
+          "sameUser": false,
+          "times": 2,
+          "within": 1,
+          "unit": "minutes"
+        },
+        "actions": [
+          {
+            "id": "act-livefeed",
+            "kind": "Show in LiveFeed",
+            "details": "Generate LiveFeed Alert"
+          }
+        ],
+        "processRemotely": false,
+        "agent": "",
+        "alertType": "Normal"
+      },
+      {
+        "id": "alert-10",
+        "name": "Modifications to critical groups",
+        "description": "Integration with third-party tools enhances the overall security posture of your systems.",
+        "agentStatus": "N/A",
+        "status": "Disabled",
+        "reports": [
+          "Excessive Permission Object"
+        ],
+        "filters": {
+          "Excessive Permission Object": [
+            {
+              "id": "rule-mvorqfe8-10",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-backup"
+            }
+          ]
+        },
+        "threshold": {
+          "enabled": false,
+          "sameUser": false,
+          "times": 2,
+          "within": 1,
+          "unit": "minutes"
+        },
+        "actions": [
+          {
+            "id": "act-soc@in.lepide.com",
+            "kind": "Send Email Alert",
+            "details": "Sender's Email : Testmail2025 ; Recipient's Email : soc@in.lepide.com",
+            "sendTo": "soc@in.lepide.com",
+            "settings": {
+              "sender": "Testmail2025",
+              "recipients": "soc@in.lepide.com",
+              "pastOn": false,
+              "pastDays": "7",
+              "formats": [
+                "CSV"
+              ],
+              "content": "",
+              "toUser": false,
+              "userMessage": "Hello %USERNAME%, you have received this notification because you have violated the user activity policy."
+            }
+          }
+        ],
+        "processRemotely": false,
+        "agent": "",
+        "alertType": "Critical"
+      },
+      {
+        "id": "alert-11",
+        "name": "Mass delete behaviour (Group)",
+        "description": "Help ensure that you are compliant with relevant rules and regulations",
+        "agentStatus": "N/A",
+        "status": "Enabled",
+        "reports": [
+          "Successful Reads"
+        ],
+        "filters": {
+          "Successful Reads": [
+            {
+              "id": "rule-mvorqfe8-11",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-backup"
+            }
+          ]
+        },
+        "threshold": {
+          "enabled": false,
+          "sameUser": false,
+          "times": 2,
+          "within": 1,
+          "unit": "minutes"
+        },
+        "actions": [
+          {
+            "id": "act-soc@in.lepide.com",
+            "kind": "Send Email Alert",
+            "details": "Sender's Email : Testmail2025 ; Recipient's Email : soc@in.lepide.com",
+            "sendTo": "soc@in.lepide.com",
+            "settings": {
+              "sender": "Testmail2025",
+              "recipients": "soc@in.lepide.com",
+              "pastOn": false,
+              "pastDays": "7",
+              "formats": [
+                "CSV"
+              ],
+              "content": "",
+              "toUser": false,
+              "userMessage": "Hello %USERNAME%, you have received this notification because you have violated the user activity policy."
+            }
+          }
+        ],
+        "processRemotely": false,
+        "agent": "",
+        "alertType": "Warning"
+      },
+      {
+        "id": "alert-12",
+        "name": "Mass data (Group)",
+        "description": "Help ensure that you are compliant with relevant rules and regulations",
+        "agentStatus": "N/A",
+        "status": "Enabled",
+        "reports": [
+          "Failed Reads"
+        ],
+        "filters": {
+          "Failed Reads": [
+            {
+              "id": "rule-mvorqfe8-12",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "LPDE4\\svc-backup"
+            }
+          ]
+        },
+        "threshold": {
+          "enabled": false,
+          "sameUser": false,
+          "times": 2,
+          "within": 1,
+          "unit": "minutes"
+        },
+        "actions": [
+          {
+            "id": "act-livefeed",
+            "kind": "Show in LiveFeed",
+            "details": "Generate LiveFeed Alert"
+          }
+        ],
+        "processRemotely": false,
+        "agent": "",
+        "alertType": "Normal"
+      }
+    ],
+    "ALERT_ENVIRONMENTS": [
+      {
+        "id": "all",
+        "label": "All Environments"
+      },
+      {
+        "id": "notification",
+        "label": "Notification"
+      },
+      {
+        "id": "o365",
+        "label": "External Data Sharing O365"
+      },
+      {
+        "id": "threat",
+        "label": "Threat Model"
+      },
+      {
+        "id": "ldsp2",
+        "label": "ldsp2.com"
+      },
+      {
+        "id": "fs",
+        "label": "File Server Reports"
+      }
+    ],
+    "STATUS_REPORT_KINDS": [
+      {
+        "id": "delivered",
+        "label": "Delivered Reports"
+      },
+      {
+        "id": "failed",
+        "label": "Failed Reports"
+      }
+    ],
+    "ALERT_STATUS_ROWS": [
+      {
+        "id": "status-1",
+        "environment": "fs",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "27-01-2025 01:04:07 PM",
+        "title": "Mass files copied",
+        "changes": 5,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-2",
+        "environment": "threat",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\Failed Logons) Changes Attached",
+        "sentOn": "27-01-2025 01:11:07 PM",
+        "title": "Potential brute force attack",
+        "changes": 12,
+        "source": "Active Directory",
+        "reportPath": "/auditor/reports/failed-logons"
+      },
+      {
+        "id": "status-3",
+        "environment": "notification",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "27-01-2025 01:18:07 PM",
+        "title": "Mass files copied",
+        "changes": 3,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-4",
+        "environment": "o365",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "ankit.kumar.singh@in.lepide.com",
+        "subject": "Alert: Warning \"O365\" (External Sharing) Changes Attached",
+        "sentOn": "27-01-2025 01:25:07 PM",
+        "title": "Mass files copied",
+        "changes": 8,
+        "source": "OneDrive for Business",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-5",
+        "environment": "ldsp2",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "27-01-2025 01:32:07 PM",
+        "title": "Mass files copied",
+        "changes": 1,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-6",
+        "environment": "fs",
+        "delivered": false,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "27-01-2025 01:39:07 PM",
+        "title": "Mass files copied",
+        "changes": 5,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-7",
+        "environment": "threat",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\Failed Logons) Changes Attached",
+        "sentOn": "27-01-2025 01:46:07 PM",
+        "title": "Potential brute force attack",
+        "changes": 12,
+        "source": "Active Directory",
+        "reportPath": "/auditor/reports/failed-logons"
+      },
+      {
+        "id": "status-8",
+        "environment": "notification",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "ankit.kumar.singh@in.lepide.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "27-01-2025 01:53:07 PM",
+        "title": "Mass files copied",
+        "changes": 3,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-9",
+        "environment": "o365",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Warning \"O365\" (External Sharing) Changes Attached",
+        "sentOn": "26-01-2025 01:05:07 PM",
+        "title": "Mass files copied",
+        "changes": 8,
+        "source": "OneDrive for Business",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-10",
+        "environment": "ldsp2",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "26-01-2025 01:12:07 PM",
+        "title": "Mass files copied",
+        "changes": 1,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-11",
+        "environment": "fs",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "26-01-2025 01:19:07 PM",
+        "title": "Mass files copied",
+        "changes": 5,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-12",
+        "environment": "threat",
+        "delivered": false,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "ankit.kumar.singh@in.lepide.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\Failed Logons) Changes Attached",
+        "sentOn": "26-01-2025 01:26:07 PM",
+        "title": "Potential brute force attack",
+        "changes": 12,
+        "source": "Active Directory",
+        "reportPath": "/auditor/reports/failed-logons"
+      },
+      {
+        "id": "status-13",
+        "environment": "notification",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "26-01-2025 01:33:07 PM",
+        "title": "Mass files copied",
+        "changes": 3,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-14",
+        "environment": "o365",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Warning \"O365\" (External Sharing) Changes Attached",
+        "sentOn": "26-01-2025 01:40:07 PM",
+        "title": "Mass files copied",
+        "changes": 8,
+        "source": "OneDrive for Business",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-15",
+        "environment": "ldsp2",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "26-01-2025 01:47:07 PM",
+        "title": "Mass files copied",
+        "changes": 1,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-16",
+        "environment": "fs",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "ankit.kumar.singh@in.lepide.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "26-01-2025 01:54:07 PM",
+        "title": "Mass files copied",
+        "changes": 5,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-17",
+        "environment": "threat",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\Failed Logons) Changes Attached",
+        "sentOn": "25-01-2025 01:06:07 PM",
+        "title": "Potential brute force attack",
+        "changes": 12,
+        "source": "Active Directory",
+        "reportPath": "/auditor/reports/failed-logons"
+      },
+      {
+        "id": "status-18",
+        "environment": "notification",
+        "delivered": false,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "25-01-2025 01:13:07 PM",
+        "title": "Mass files copied",
+        "changes": 3,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-19",
+        "environment": "o365",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Warning \"O365\" (External Sharing) Changes Attached",
+        "sentOn": "25-01-2025 01:20:07 PM",
+        "title": "Mass files copied",
+        "changes": 8,
+        "source": "OneDrive for Business",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-20",
+        "environment": "ldsp2",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "ankit.kumar.singh@in.lepide.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "25-01-2025 01:27:07 PM",
+        "title": "Mass files copied",
+        "changes": 1,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-21",
+        "environment": "fs",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "25-01-2025 01:34:07 PM",
+        "title": "Mass files copied",
+        "changes": 5,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      },
+      {
+        "id": "status-22",
+        "environment": "threat",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\Failed Logons) Changes Attached",
+        "sentOn": "25-01-2025 01:41:07 PM",
+        "title": "Potential brute force attack",
+        "changes": 12,
+        "source": "Active Directory",
+        "reportPath": "/auditor/reports/failed-logons"
+      },
+      {
+        "id": "status-23",
+        "environment": "notification",
+        "delivered": true,
+        "from": "gaurav's@lepsoftpvtltd.onmicrosoft.com",
+        "to": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "subject": "Alert: Critical \"Web-AD\" (192.168.10.88\\User Status Changes) Changes Attached",
+        "sentOn": "25-01-2025 01:48:07 PM",
+        "title": "Mass files copied",
+        "changes": 3,
+        "source": "File Server",
+        "reportPath": "/auditor/reports/files-copied"
+      }
+    ],
+    "WIZARD_SOURCES": [
+      {
+        "id": "auditor",
+        "label": "Lepide Auditor",
+        "reports": [
+          "All Modifications in Files and Folders",
+          "Failed Logons",
+          "Shared Folder Created & Deleted",
+          "Files Copied",
+          "Successful Reads",
+          "Failed Reads"
+        ]
+      },
+      {
+        "id": "trust",
+        "label": "Lepide Trust",
+        "reports": [
+          "Excessive Permission Object",
+          "Excessive Permission User",
+          "Open Share",
+          "Stale Data Report",
+          "Activity Outside Business Hour",
+          "Classified Files",
+          "File Classification Failures",
+          "Account Takeover Risk",
+          "All Exchange Server Permission Changes"
+        ]
+      }
+    ],
+    "FILTER_FIELDS": [
+      "Server Name",
+      "Who",
+      "Object Name",
+      "Object Path",
+      "Operation",
+      "Event Status",
+      "Process Name"
+    ],
+    "FILTER_OPERATORS": [
+      "Equal",
+      "Not Equal",
+      "Contains",
+      "Does Not Contain"
+    ],
+    "VALUE_FILTER_FIELDS": [
+      "Server",
+      "Who",
+      "Reason",
+      "Operation"
+    ],
+    "VALUE_FILTER_INCLUDES": [
+      "All",
+      "Selected only",
+      "All but excluding selected",
+      "Contains",
+      "Does Not Contain"
+    ],
+    "REASON_OPTIONS": [
+      "Client's entry in database has expired",
+      "Server's entry in database has expired",
+      "Requested protocol version # not supported",
+      "Client's key encrypted in old master key",
+      "Server's key encrypted in old master key",
+      "Client not found in Kerberos database",
+      "Password has expired"
+    ],
+    "OPERATION_OPTIONS": [
+      "Created",
+      "Modified",
+      "Deleted",
+      "Renamed",
+      "Moved",
+      "Permission Changed"
+    ],
+    "THRESHOLD_UNITS": [
+      "seconds",
+      "minutes",
+      "hours"
+    ],
+    "ALERT_TYPES": [
+      "Critical",
+      "Warning",
+      "Normal"
+    ],
+    "REPORT_FORMATS": [
+      "CSV",
+      "PDF"
+    ],
+    "SCRIPT_PARAMETERS": [
+      "Who",
+      "From",
+      "Server",
+      "WhoFrom",
+      "WhoServer",
+      "FromServer",
+      "All"
+    ],
+    "SEED_ACCOUNTS": [
+      {
+        "id": "acc-1",
+        "name": "Testmail2025",
+        "type": "Email",
+        "details": "Display Name: testmail27dec · Sender's Email: 27decme@test.com · Login: chilly@150 · Server: 192.168.30.201 · SSL Connection: None · Port: 25"
+      },
+      {
+        "id": "acc-2",
+        "name": "testemail248",
+        "type": "Email",
+        "details": "Display Name: testemail248 · Sender's Email: testemail248@lepide.com · Login: testemail248 · Server: in.lepide.com · SSL Connection: None · Port: 25"
+      }
+    ],
+    "SEED_SCRIPT_ACCOUNTS": [
+      "LPDE4\\svc-scripts"
+    ],
+    "SEED_AGENTS": [
+      "192.168.30.180",
+      "LPDE-AGENT-01"
+    ],
+    "MOBILE_APP_ID": "0D8F4B87-7939-CB99-3DB1-B1251B42A289"
+  }
+}

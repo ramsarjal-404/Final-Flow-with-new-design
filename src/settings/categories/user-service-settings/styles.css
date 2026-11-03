@@ -1,0 +1,5 @@
+/* User Service Settings (SCR-SAD-21). Tokens only. */
+.user-service-settings-lead{margin:0;font:500 13.5px/20px var(--font);color:var(--ink-2)}
+.user-service-settings-svc{display:flex;flex-direction:column;gap:2px;min-width:0;white-space:normal}
+.user-service-settings-svc b{font:600 13.5px/19px var(--font);color:var(--ink)}
+.user-service-settings-svc span{font:500 12.5px/17px var(--font);color:var(--ink-3)}

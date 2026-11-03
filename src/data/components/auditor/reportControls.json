@@ -1,0 +1,14 @@
+{
+  "$source": "src/components/auditor/reportControls.tsx",
+  "exports": {
+    "PRESETS": [
+      "Today",
+      "Yesterday",
+      "Last 7 Days",
+      "Last 30 Days",
+      "This Month",
+      "Last Month",
+      "Custom Range"
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "$source": "src/data/protect/workspace.ts",
+  "exports": {
+    "BUCKETS": [
+      "20–39d",
+      "40–59d",
+      "60–89d",
+      "90–179d",
+      "180d+"
+    ],
+    "STAGES": [
+      "Password reset",
+      "Disabled",
+      "Moved to OU",
+      "Deletion review"
+    ],
+    "OUS": [
+      "Former employees",
+      "London devices",
+      "Finance contractors",
+      "Service accounts",
+      "Engineering"
+    ],
+    "CAP": 50,
+    "G_DOMAINS": [
+      "LPDE4.local",
+      "emea.LPDE4.local",
+      "apac.LPDE4.local",
+      "corp.LPDE4.local",
+      "lepide.local",
+      "contoso.local",
+      "fabrikam.com",
+      "northwind.internal"
+    ],
+    "G_QUARANTINE": "Quarantine - Groups",
+    "VIEWS": {
+      "accounts": {
+        "title": "AD Cleaner accounts",
+        "description": "Review inactive accounts and the lifecycle actions planned for them.",
+        "label": "Accounts",
+        "search": "Search accounts or OUs",
+        "columns": [
+          "Account",
+          "Type",
+          "Organizational Unit",
+          "Last logon",
+          "Inactive",
+          "Lifecycle stage",
+          "Next action",
+          "Status"
+        ]
+      },
+      "schedule": {
+        "title": "Upcoming automated actions",
+        "description": "Verify scheduled policy actions before they reach their execution date.",
+        "label": "Scheduled actions",
+        "search": "Search scheduled actions",
+        "columns": [
+          "Scheduled for",
+          "Account",
+          "Action",
+          "Organizational Unit",
+          "Policy",
+          "Notification",
+          "State"
+        ]
+      },
+      "activity": {
+        "title": "Cleanup activity",
+        "description": "Trace detected accounts, completed remediation and failed action events.",
+        "label": "Activity events",
+        "search": "Search activity",
+        "columns": [
+          "Date and time",
+          "Event",
+          "Account",
+          "Organizational Unit",
+          "Policy",
+          "Result",
+          "Details"
+        ]
+      },
+      "runs": {
+        "title": "Policy execution history",
+        "description": "Review recent AD Cleaner runs, outcomes and generated reports.",
+        "label": "Policy runs",
+        "search": "Search policy runs",
+        "columns": [
+          "Run started",
+          "Policy",
+          "Duration",
+          "Matched",
+          "Succeeded",
+          "Failed or blocked",
+          "Status",
+          "Report"
+        ]
+      },
+      "groups": {
+        "title": "Empty groups",
+        "description": "Security and distribution groups with no members, and the action the AD Cleaner policy takes on each one.",
+        "label": "Empty groups",
+        "search": "Search groups or OUs",
+        "columns": [
+          "Group",
+          "Type",
+          "Scope",
+          "Organizational Unit",
+          "Empty for",
+          "Stage",
+          "Next action",
+          "Status"
+        ]
+      }
+    }
+  }
+}

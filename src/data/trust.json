@@ -1,0 +1,411 @@
+{
+  "$source": "src/data/trust.ts",
+  "exports": {
+    "MODULES": [
+      {
+        "key": "ai",
+        "label": "Lepide AI",
+        "path": "/ai",
+        "description": "Ask questions in plain language and generate simplified reports.",
+        "permission": "LepideAI.Access"
+      },
+      {
+        "key": "auditor",
+        "label": "Auditor",
+        "path": "/auditor",
+        "description": "Track user interactions with your data and systems.",
+        "permission": "Auditor.Reports.Predefined.View"
+      },
+      {
+        "key": "trust",
+        "label": "Trust",
+        "path": "/trust",
+        "description": "See who has access to what, how they got it, and whether it is appropriate.",
+        "permission": "Trust.Reports.View"
+      },
+      {
+        "key": "detect",
+        "label": "Detect",
+        "path": "/detect",
+        "description": "Detect threats and anomalies and respond with alerts.",
+        "permission": "Detect.Alerts.Predefined.Access"
+      },
+      {
+        "key": "protect",
+        "label": "Protect",
+        "path": "/protect",
+        "description": "Adjust overly permissive access with policies and team workflows.",
+        "permission": "Protect.Access"
+      },
+      {
+        "key": "identify",
+        "label": "Identify",
+        "path": "/identify",
+        "description": "Discover and classify sensitive data across your data sources.",
+        "permission": "EDiscovery.Cases.View"
+      },
+      {
+        "key": "mylepide",
+        "label": "My Lepide",
+        "path": "/mylepide",
+        "description": "Your saved reports and dashboards in one place.",
+        "permission": "MyLepide.Access"
+      },
+      {
+        "key": "dashboard",
+        "label": "Dashboards",
+        "path": "/dashboards",
+        "description": "Cross-module and configurable dashboards.",
+        "permission": "Dashboard.Predefined.Access"
+      }
+    ],
+    "REPORT_FOLDERS": [
+      {
+        "id": "all",
+        "label": "All Reports"
+      },
+      {
+        "id": "ad",
+        "label": "Active Directory"
+      },
+      {
+        "id": "exo",
+        "label": "Exchange Server"
+      },
+      {
+        "id": "spo",
+        "label": "SharePoint Online"
+      },
+      {
+        "id": "fs",
+        "label": "File Server"
+      },
+      {
+        "id": "od",
+        "label": "OneDrive"
+      },
+      {
+        "id": "sql",
+        "label": "SQL Server"
+      },
+      {
+        "id": "cpa",
+        "label": "Current Permission Analysis"
+      },
+      {
+        "id": "risk",
+        "label": "Risk Analysis"
+      },
+      {
+        "id": "anomaly",
+        "label": "Anomaly Analysis"
+      },
+      {
+        "id": "copilot",
+        "label": "Copilot"
+      }
+    ],
+    "TRUST_REPORTS": [
+      {
+        "id": "ad-privileged-users",
+        "name": "Privileged Users",
+        "folderId": "ad",
+        "description": "Accounts holding Domain, Enterprise or Schema admin membership.",
+        "type": "Predefined",
+        "myLepide": true,
+        "sharedWith": [
+          "Danny Murphy",
+          "Kristin Watson"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "ad-users-with-admin-rights",
+        "name": "Users with Admin Rights",
+        "folderId": "ad",
+        "description": "Users granted local or delegated administrative rights.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "ad-inactive-users-with-access",
+        "name": "Inactive Users with Access",
+        "folderId": "ad",
+        "description": "Accounts not signed in for 90+ days that still hold permissions.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [
+          "Richard William"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "ad-group-membership",
+        "name": "Group Membership",
+        "folderId": "ad",
+        "description": "Direct and nested membership for every security group.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [
+          "Bessie Cooper",
+          "Richard William"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "ad-password-never-expires",
+        "name": "Password Never Expires",
+        "folderId": "ad",
+        "description": "Enabled accounts whose password is set to never expire.",
+        "type": "Predefined",
+        "myLepide": true,
+        "sharedWith": [
+          "Kristin Watson"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "fs-permissions-by-user",
+        "name": "Permissions by User",
+        "folderId": "fs",
+        "description": "Effective permissions each user holds on files and folders.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "fs-permissions-by-object",
+        "name": "Permissions by Object",
+        "folderId": "fs",
+        "description": "Who can access a given folder, with the inheritance path.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [
+          "Kristin Watson",
+          "Albert Flores"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "fs-excessive-permissions",
+        "name": "Excessive Permissions",
+        "folderId": "fs",
+        "description": "Permissions granted but never used in the last 180 days.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "fs-open-shares",
+        "name": "Open Shares",
+        "folderId": "fs",
+        "description": "Shares accessible to Everyone, Authenticated Users or Domain Users.",
+        "type": "Predefined",
+        "myLepide": true,
+        "sharedWith": [
+          "Danny Murphy"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "fs-broken-inheritance",
+        "name": "Broken Inheritance",
+        "folderId": "fs",
+        "description": "Folders where inheritance has been disabled.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [
+          "Richard William",
+          "Danny Murphy"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "fs-permission-changes",
+        "name": "Permission Changes",
+        "folderId": "fs",
+        "description": "Permission modifications over the selected period.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [
+          "Albert Flores"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "spo-site-permissions",
+        "name": "Site Permissions",
+        "folderId": "spo",
+        "description": "Permission levels for every site collection and sub-site.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "spo-externally-shared-items",
+        "name": "Externally Shared Items",
+        "folderId": "spo",
+        "description": "Files and folders shared with external users or anonymous links.",
+        "type": "Predefined",
+        "myLepide": true,
+        "sharedWith": [
+          "Albert Flores",
+          "Bessie Cooper"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "spo-permissions-by-group",
+        "name": "Permissions by Group",
+        "folderId": "spo",
+        "description": "Site access granted through Microsoft 365 and security groups.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "exo-mailbox-permissions",
+        "name": "Mailbox Permissions",
+        "folderId": "exo",
+        "description": "Full Access, Send As and Send on Behalf permissions.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [
+          "Kristin Watson"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "exo-mailbox-delegates",
+        "name": "Mailbox Delegates",
+        "folderId": "exo",
+        "description": "Delegates configured on user and shared mailboxes.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [
+          "Danny Murphy",
+          "Kristin Watson"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "od-shared-file-permissions",
+        "name": "Shared File Permissions",
+        "folderId": "od",
+        "description": "Permissions on files shared from personal OneDrive sites.",
+        "type": "Predefined",
+        "myLepide": true,
+        "sharedWith": [
+          "Bessie Cooper"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "od-anonymous-links",
+        "name": "Anonymous Links",
+        "folderId": "od",
+        "description": "Active anyone-with-the-link sharing links.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "sql-server-roles",
+        "name": "Server Roles",
+        "folderId": "sql",
+        "description": "Logins mapped to fixed and custom server roles.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [
+          "Bessie Cooper",
+          "Richard William"
+        ],
+        "addedBy": "Lepide"
+      },
+      {
+        "id": "sql-database-permissions",
+        "name": "Database Permissions",
+        "folderId": "sql",
+        "description": "Database-level permissions for every principal.",
+        "type": "Predefined",
+        "myLepide": false,
+        "sharedWith": [],
+        "addedBy": "Lepide"
+      }
+    ],
+    "RECENT_CHANGES": [
+      {
+        "id": "c1",
+        "when": "10/23/2026 04:12 PM",
+        "who": "LPDE\\k.watson",
+        "what": "Permission added",
+        "object": "\\\\FS01\\Finance\\Budgets 2026",
+        "permission": "Everyone: Modify",
+        "risk": "High"
+      },
+      {
+        "id": "c2",
+        "when": "10/23/2026 02:48 PM",
+        "who": "LPDE\\administrator",
+        "what": "Group member added",
+        "object": "LPDE\\Domain Admins",
+        "permission": "LPDE\\j.holt",
+        "risk": "High"
+      },
+      {
+        "id": "c3",
+        "when": "10/23/2026 11:05 AM",
+        "who": "LPDE\\it-ops",
+        "what": "Inheritance disabled",
+        "object": "\\\\FS02\\Legal\\Contracts",
+        "permission": "Explicit ACL",
+        "risk": "Medium"
+      },
+      {
+        "id": "c4",
+        "when": "10/22/2026 05:31 PM",
+        "who": "LPDE\\k.watson",
+        "what": "Sharing link created",
+        "object": "sites/Board/Minutes/Q3.pdf",
+        "permission": "Anyone with the link",
+        "risk": "High"
+      },
+      {
+        "id": "c5",
+        "when": "10/22/2026 09:14 AM",
+        "who": "LPDE\\administrator",
+        "what": "Permission removed",
+        "object": "\\\\FS01\\HR\\Payroll",
+        "permission": "LPDE\\Helpdesk: Read",
+        "risk": "Low"
+      }
+    ],
+    "DASHBOARDS": [
+      {
+        "id": "permissions",
+        "label": "Permissions Overview"
+      },
+      {
+        "id": "privileged",
+        "label": "Privileged Access"
+      },
+      {
+        "id": "exposure",
+        "label": "Data Exposure"
+      }
+    ],
+    "OVERVIEW_STATS": {
+      "privilegedAccounts": 42,
+      "excessivePermissions": 1284,
+      "openShares": 37,
+      "stalePermissions": 596
+    }
+  }
+}

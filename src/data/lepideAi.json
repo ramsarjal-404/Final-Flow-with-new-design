@@ -1,0 +1,966 @@
+{
+  "$source": "src/data/lepideAi.ts",
+  "exports": {
+    "ACTION_LABEL": {
+      "disable": "Disable alert (don't tell me about this again)",
+      "view-report": "View Report",
+      "tune-settings": "Tune Alert Settings"
+    },
+    "BUCKETS": [
+      "today",
+      "yesterday",
+      "lastWeek",
+      "thisMonth",
+      "older"
+    ],
+    "BUCKET_LABELS": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "lastWeek": "Last Week",
+      "thisMonth": "This Month",
+      "older": "Older"
+    },
+    "INITIAL_ALERTS": [
+      {
+        "id": "a1",
+        "message": "I just noticed a change in your schema configuration. These kinds of changes can sometimes hint at something serious, like a Golden Ticket or DC Sync attack. Want to dig into it and see what's going on?"
+      },
+      {
+        "id": "a2",
+        "message": "Just to let you know 3 Users are currently asking co-pilot \"Credit Card\". This is something you noted as potentially high risk. Do you want to take an action here?"
+      },
+      {
+        "id": "a3",
+        "message": "James Smith has just created a new account in your Active Directory that has admin privileges. Just wanted to let you know. Would you like to:"
+      },
+      {
+        "id": "a4",
+        "message": "I've just noticed \"Neal Gamby\" has copied 148 files from a folder named \"HR Employee list\". Would you like to:"
+      },
+      {
+        "id": "a5",
+        "message": "Just to let you know 3 Users are currently asking co-pilot \"Credit Card\". This is something you noted as potentially high risk. Do you want to take an action here?"
+      },
+      {
+        "id": "a6",
+        "message": "James has just copied 100 files in the last 10 minutes. This may be fine but just wanted to let you know."
+      }
+    ],
+    "SEED_CHAT_HISTORY": [
+      {
+        "id": "c1",
+        "title": "Risk score & attack surface",
+        "timestamp": 1792986033418,
+        "messages": [
+          {
+            "id": "c1-m1",
+            "role": "user",
+            "content": "Show my risk score and attack surface",
+            "timestamp": 1792985733418
+          },
+          {
+            "id": "c1-m2",
+            "role": "ai",
+            "content": "Your overall risk score is 72/100 — moderate risk. Top exposures: 9 users have excessive permissions in your Finance AD Group, 2 admin accounts are inactive (45+ days dormant), and 4 group memberships in Exchange admin are stale. Want me to break any of these down?",
+            "timestamp": 1792985793418
+          },
+          {
+            "id": "c1-m3",
+            "role": "user",
+            "content": "Tell me about the Finance group exposures",
+            "timestamp": 1792985853418
+          },
+          {
+            "id": "c1-m4",
+            "role": "ai",
+            "content": "The Finance AD Group has 9 users with Read/Write/Modify permissions on payroll data. Of those, 2 are contractors, 1 is a service account, and 3 haven't accessed the data in 60+ days. The biggest concern is that contractor access is still active 30 days after their engagement ended.",
+            "timestamp": 1792985913418
+          },
+          {
+            "id": "c1-m5",
+            "role": "user",
+            "content": "What action should I take first?",
+            "timestamp": 1792986033418
+          }
+        ]
+      },
+      {
+        "id": "c2",
+        "title": "Sensitive data access review",
+        "timestamp": 1792975233418,
+        "messages": [
+          {
+            "id": "c2-m1",
+            "role": "user",
+            "content": "Who has access to sensitive data?",
+            "timestamp": 1792975113418
+          },
+          {
+            "id": "c2-m2",
+            "role": "ai",
+            "content": "247 users have direct or inherited access to data tagged 'sensitive' — that includes PII, financial records, and HR files. 38 of them haven't logged in in 30+ days. Want a breakdown by data type?",
+            "timestamp": 1792975173418
+          },
+          {
+            "id": "c2-m3",
+            "role": "user",
+            "content": "Yes, focus on PII",
+            "timestamp": 1792975233418
+          }
+        ]
+      },
+      {
+        "id": "c3",
+        "title": "AD changes this week",
+        "timestamp": 1792896033418,
+        "messages": [
+          {
+            "id": "c3-m1",
+            "role": "user",
+            "content": "Audit AD changes from this week",
+            "timestamp": 1792895433418
+          },
+          {
+            "id": "c3-m2",
+            "role": "ai",
+            "content": "184 changes detected in the last 7 days. Notable: 14 new accounts created, 6 admin permissions granted, 3 group policy modifications, and 2 schema changes. The schema changes are flagged as high-risk.",
+            "timestamp": 1792895493418
+          },
+          {
+            "id": "c3-m3",
+            "role": "user",
+            "content": "What schema changes?",
+            "timestamp": 1792895613418
+          },
+          {
+            "id": "c3-m4",
+            "role": "ai",
+            "content": "On Monday at 02:14 AM, the schema was modified by user 'svc-replication'. The change added a new attribute to the User class. The timing (after-hours) and the service account origin make this worth investigating.",
+            "timestamp": 1792895673418
+          },
+          {
+            "id": "c3-m5",
+            "role": "user",
+            "content": "Could it be a Golden Ticket attack?",
+            "timestamp": 1792895793418
+          },
+          {
+            "id": "c3-m6",
+            "role": "ai",
+            "content": "Possible. The combination of after-hours timing + schema modification + service account is consistent with reconnaissance for a Golden Ticket or DCSync attack. I'd recommend rotating the krbtgt password and reviewing all changes by 'svc-replication' in the last 48 hours.",
+            "timestamp": 1792895913418
+          },
+          {
+            "id": "c3-m7",
+            "role": "user",
+            "content": "Generate me a report",
+            "timestamp": 1792896033418
+          }
+        ]
+      },
+      {
+        "id": "c4",
+        "title": "Excessive admin check",
+        "timestamp": 1792644033418,
+        "messages": [
+          {
+            "id": "c4-m1",
+            "role": "user",
+            "content": "Show users with admin rights I should review",
+            "timestamp": 1792643313418
+          },
+          {
+            "id": "c4-m2",
+            "role": "ai",
+            "content": "17 users have admin or admin-equivalent privileges in your environment. 4 are Domain Admins, 6 are Enterprise Admins, and 7 have admin-level access to specific systems.",
+            "timestamp": 1792643373418
+          },
+          {
+            "id": "c4-m3",
+            "role": "user",
+            "content": "Filter to those who haven't used admin rights in 30 days",
+            "timestamp": 1792643493418
+          },
+          {
+            "id": "c4-m4",
+            "role": "ai",
+            "content": "8 of the 17 admins haven't used their elevated privileges in the last 30 days. 3 haven't used them in 90+ days, including 'admin-jdoe' (last admin action: 127 days ago) and 'svc-backup-admin' (last admin action: 184 days ago).",
+            "timestamp": 1792643553418
+          },
+          {
+            "id": "c4-m5",
+            "role": "user",
+            "content": "Show me admin-jdoe",
+            "timestamp": 1792643673418
+          },
+          {
+            "id": "c4-m6",
+            "role": "ai",
+            "content": "admin-jdoe is John Doe in IT Operations. He has Domain Admin, Local Admin on 23 servers, and root access to 2 Linux hosts. Last admin action was 127 days ago when he reset a password. Last interactive login: 12 days ago (not as admin).",
+            "timestamp": 1792643733418
+          },
+          {
+            "id": "c4-m7",
+            "role": "user",
+            "content": "What's your recommendation?",
+            "timestamp": 1792643853418
+          },
+          {
+            "id": "c4-m8",
+            "role": "ai",
+            "content": "Recommend: 1) Move John to a Just-In-Time admin model for routine tasks, 2) Remove standing Domain Admin if not needed for current role, 3) Audit svc-backup-admin — likely needs to be deactivated.",
+            "timestamp": 1792643913418
+          },
+          {
+            "id": "c4-m9",
+            "role": "user",
+            "content": "Generate the report",
+            "timestamp": 1792644033418
+          }
+        ]
+      },
+      {
+        "id": "c5",
+        "title": "Copilot readiness scan",
+        "timestamp": 1791952833418,
+        "messages": [
+          {
+            "id": "c5-m1",
+            "role": "user",
+            "content": "Am I ready for Copilot?",
+            "timestamp": 1791952593418
+          },
+          {
+            "id": "c5-m2",
+            "role": "ai",
+            "content": "Your Copilot readiness score is 62/100 — not yet recommended for full rollout. Top blockers: 47 users have access to sensitive data they shouldn't, 12% of your shared files have no sensitivity labels, and DLP policies don't yet cover M365 Copilot inputs.",
+            "timestamp": 1791952653418
+          },
+          {
+            "id": "c5-m3",
+            "role": "user",
+            "content": "What should I fix first?",
+            "timestamp": 1791952773418
+          },
+          {
+            "id": "c5-m4",
+            "role": "ai",
+            "content": "Fix in this order: 1) Remediate the 47 over-permissioned users (high impact, 1-2 day effort), 2) Auto-classify the unlabeled files using Sensitivity Labels with auto-apply (1 day), 3) Extend DLP policies to Copilot via Microsoft Purview (4 hours). After these, your readiness should be ~85+.",
+            "timestamp": 1791952833418
+          }
+        ]
+      },
+      {
+        "id": "c6",
+        "title": "Compliance setup",
+        "timestamp": 1789965633418,
+        "messages": [
+          {
+            "id": "c6-m1",
+            "role": "user",
+            "content": "How do I generate a CCPA report?",
+            "timestamp": 1789965153418
+          },
+          {
+            "id": "c6-m2",
+            "role": "ai",
+            "content": "I can generate it for you. CCPA reporting in Lepide covers: access logs for personal data, data deletion records, and consent tracking. Should I run it for the last 90 days?",
+            "timestamp": 1789965213418
+          },
+          {
+            "id": "c6-m3",
+            "role": "user",
+            "content": "Yes, last 90 days",
+            "timestamp": 1789965333418
+          },
+          {
+            "id": "c6-m4",
+            "role": "ai",
+            "content": "Generated. The report covers 1,247 CCPA-relevant events. 14 are access requests, 3 are deletion requests, and 1,230 are routine access logs to PII. All deletion requests were fulfilled within the 45-day window. Want me to email it?",
+            "timestamp": 1789965453418
+          },
+          {
+            "id": "c6-m5",
+            "role": "user",
+            "content": "Email it to compliance@",
+            "timestamp": 1789965573418
+          },
+          {
+            "id": "c6-m6",
+            "role": "ai",
+            "content": "Sent to compliance@yourcompany.com. The report ID is CCPA-2026-Q1-0042 and is also saved to your My Lepide dashboard.",
+            "timestamp": 1789965633418
+          }
+        ]
+      }
+    ],
+    "SEED_ALERT_HISTORY": [
+      {
+        "id": "ah1",
+        "alertId": "h1",
+        "alertMessage": "I just noticed a change in your schema configuration. These kinds of changes can sometimes hint at something serious, like a DC Sync attack. Want to dig into it and see what's going on?",
+        "action": "view-report",
+        "timestamp": 1792987833418
+      },
+      {
+        "id": "ah1b",
+        "alertId": "h1",
+        "alertMessage": "I just noticed a change in your schema configuration. These kinds of changes can sometimes hint at something serious, like a DC Sync attack. Want to dig into it and see what's going on?",
+        "action": "tune-settings",
+        "timestamp": 1792987953418
+      },
+      {
+        "id": "ah1c",
+        "alertId": "h6",
+        "alertMessage": "Just letting you know — LPDE4\\admin-jdoe added members to group \"Domain Admins\". Would you like to investigate?",
+        "action": "view-report",
+        "timestamp": 1792982433418
+      },
+      {
+        "id": "ah1d",
+        "alertId": "h7",
+        "alertMessage": "Heads up: 5 failed sign-ins from an unrecognised location for user \"priya.mehta\" in the last 10 minutes. Want me to dig in?",
+        "action": "disable",
+        "timestamp": 1792971633418
+      },
+      {
+        "id": "ah2",
+        "alertId": "h2",
+        "alertMessage": "Just to let you know 3 Users are currently asking co-pilot \"Credit Card\". This is something you noted as potentially high risk. Do you want to take an action here?",
+        "action": "disable",
+        "timestamp": 1792881633418
+      },
+      {
+        "id": "ah3",
+        "alertId": "h2",
+        "alertMessage": "Just to let you know 3 Users are currently asking co-pilot \"Credit Card\". This is something you noted as potentially high risk. Do you want to take an action here?",
+        "action": "view-report",
+        "timestamp": 1792881693418
+      },
+      {
+        "id": "ah2b",
+        "alertId": "h8",
+        "alertMessage": "GPO modified: \"Finance Workstations\" — password complexity was relaxed. Want me to revert or review?",
+        "action": "view-report",
+        "timestamp": 1792892433418
+      },
+      {
+        "id": "ah4",
+        "alertId": "h3",
+        "alertMessage": "I've just noticed \"Neal Gamby\" has copied 35 files from a folder named \"Finance\". Would you like to:",
+        "action": "view-report",
+        "timestamp": 1792730433418
+      },
+      {
+        "id": "ah5",
+        "alertId": "h3",
+        "alertMessage": "I've just noticed \"Neal Gamby\" has copied 35 files from a folder named \"Finance\". Would you like to:",
+        "action": "disable",
+        "timestamp": 1792730463418
+      },
+      {
+        "id": "ah4b",
+        "alertId": "h9",
+        "alertMessage": "Heads-up — 2 inactive accounts with admin rights have been dormant for 45+ days. Want me to flag them for review?",
+        "action": "tune-settings",
+        "timestamp": 1792644033418
+      },
+      {
+        "id": "ah4c",
+        "alertId": "h10",
+        "alertMessage": "Just letting you know — service account \"svc-replication\" performed a schema export at 02:14 AM. Worth a closer look?",
+        "action": "view-report",
+        "timestamp": 1792471233418
+      },
+      {
+        "id": "ah6",
+        "alertId": "h4",
+        "alertMessage": "James Smith has just created a new account in your Active Directory that has admin privileges. Just wanted to let you know.",
+        "action": "tune-settings",
+        "timestamp": 1792212033418
+      },
+      {
+        "id": "ah7",
+        "alertId": "h5",
+        "alertMessage": "James has just copied 100 files in the last 10 minutes. This may be fine but just wanted to let you know.",
+        "action": "view-report",
+        "timestamp": 1790224833418
+      },
+      {
+        "id": "ah7b",
+        "alertId": "h11",
+        "alertMessage": "Heads up — an inbound rule was added to your Exchange admin firewall last month. Want me to walk through it?",
+        "action": "disable",
+        "timestamp": 1789101633418
+      }
+    ],
+    "AI_RESPONSES": {
+      "Show my risk score and attack surface": {
+        "content": "Sure thing! I just pulled your latest numbers and here's where things stand. Overall you're at 67 out of 100 — not bad, but there's definitely room to tighten things up. Let me break it down for you.",
+        "finding": "Your score dropped about 8 points this week. The main reason? There's been a big jump in privileged access changes — 47 this week alone, which is 31% more than usual.",
+        "why": "Most of those changes are happening in your finance-related AD groups. And here's the thing that bugs me — two accounts with admin rights haven't even logged in for over 45 days. Those are basically open doors that nobody's watching.",
+        "affected": "14 privileged accounts across 3 critical systems — Finance Shares, Exchange Online, and SharePoint",
+        "nextStep": "If I were you, I'd start with those two dormant admin accounts — revoking their access takes 2 minutes and it'll bump your score right away. Want me to set that up?",
+        "actions": [
+          {
+            "label": "Let's fix those accounts",
+            "variant": "primary",
+            "action": "remediation"
+          },
+          {
+            "label": "Create a summary for the board",
+            "variant": "secondary",
+            "action": "report"
+          }
+        ]
+      },
+      "Who has access to sensitive data?": {
+        "content": "Great question — this is one of those things that tends to creep up over time. I scanned everything and found some stuff you'll want to know about.",
+        "finding": "You've got 33,742 sensitive files across your systems. The concerning part? 847 of them are over-exposed, meaning more people can access them than should be able to.",
+        "why": "The biggest issue is in Finance Shares — 9 people there have way more access than their job requires. Also spotted PII sitting in 3 public-facing OneDrive folders, which is a GDPR and HIPAA headache waiting to happen.",
+        "affected": "SharePoint has the most files (2.1M), but File Shares have the highest sensitive percentage (18%). SQL Server only has 320K files but 22% of them are sensitive — that's worth watching.",
+        "nextStep": "I'd say let's tackle those 847 over-exposed files first. I can show you exactly which ones they are and who shouldn't have access. We could also set up automatic cleanup policies for the easy ones.",
+        "actions": [
+          {
+            "label": "Show me the over-exposed files",
+            "variant": "primary",
+            "action": "remediation"
+          },
+          {
+            "label": "Pull a data classification report",
+            "variant": "secondary",
+            "action": "report"
+          }
+        ]
+      },
+      "Audit AD changes from this week": {
+        "content": "Quite a busy week in Active Directory, actually! Let me walk you through the highlights — there are a few things I think you should see.",
+        "finding": "47 changes across 12 AD groups this week. Three of those were bulk operations that affected 9+ users each. That's unusually high for your environment.",
+        "why": "Here's the one that caught my eye — on Tuesday, someone did a direct group-level permission grant in the Finance AD Group that completely skipped your approval workflow. Could be legit, could be someone taking a shortcut. Either way, it needs a look.",
+        "affected": "Finance AD Group got 9 new members, Exchange Admin Group got 4, and there were 5 individual role changes scattered across other groups",
+        "nextStep": "That unapproved change is the priority. If it was intentional, we just need to document it. If not, we should roll it back before it becomes a bigger issue. Want me to pull up the details?",
+        "actions": [
+          {
+            "label": "Show me the audit trail",
+            "variant": "primary",
+            "action": "audit"
+          },
+          {
+            "label": "Investigate the unapproved one",
+            "variant": "secondary",
+            "action": "remediation"
+          }
+        ]
+      },
+      "Generate a compliance status report": {
+        "content": "On it! I've got your compliance data right here. The good news is you're mostly in good shape — 82% overall. But there are a few gaps we should talk about before your next audit.",
+        "finding": "Three control failures are still open, and one of them — AC-2.3 — has zero evidence of review. That's the one that'll get flagged first if an auditor comes knocking.",
+        "why": "The missing review on AC-2.3 creates what auditors call a \"traceability gap.\" Basically, there's no paper trail showing someone actually looked at it. The underlying data exists in Lepide, though — so fixing this is mostly about documenting the review.",
+        "affected": "SOX 404, NIST AC-2, and ISO 27001 A.9 are all affected by this one control failure. Plus there are 12 exceptions across other control families that need attention.",
+        "nextStep": "I've already pre-filled a report template with this week's data. You can tweak it, add your own notes, and export it as a PDF. Should I open it up for you?",
+        "actions": [
+          {
+            "label": "Generate the report",
+            "variant": "primary",
+            "action": "report"
+          },
+          {
+            "label": "Let me see those control failures",
+            "variant": "secondary",
+            "action": "audit"
+          }
+        ]
+      },
+      "Find stale privileged accounts": {
+        "content": "Oh yeah, this is one of my favorite things to check because it's such a quick win. Let me look... yep, found some.",
+        "finding": "14 accounts with admin-level access haven't logged in for over 30 days. Two of them are particularly concerning — they've been dormant for 45+ days and still have Domain Admin access.",
+        "why": "These are basically unlocked doors that nobody's using. If an attacker compromises one of these, they get full admin access without triggering any of the usual login alerts. It's one of the easiest attack vectors to exploit.",
+        "affected": "j.smith@corp.com hasn't logged in for 47 days (Finance Admin), m.jones@corp.com for 62 days (DevOps Admin). The other 12 are between 30-45 days inactive.",
+        "nextStep": "The fastest fix? Revoke access for those top two right now — it's completely reversible within 30 days if someone complains. For the rest, let's set up a watchlist so we're alerted if any more go stale. Sound good?",
+        "actions": [
+          {
+            "label": "Revoke the top 2 now",
+            "variant": "primary",
+            "action": "remediation"
+          },
+          {
+            "label": "Set up a stale account watchlist",
+            "variant": "secondary",
+            "action": "watchlist"
+          }
+        ]
+      },
+      "Show recent permission changes in AD": {
+        "content": "Just checked — there's been quite a bit of activity in the last 48 hours. Let me show you what's going on.",
+        "finding": "14 permission changes across 9 AD groups. Three of them are flagged as high-risk because they involve admin-level access.",
+        "why": "The ones I'd focus on: alex.turner got admin rights to Finance Shares an hour ago, mark.chen got admin on the AD Root Group 8 hours ago (that's a big one), and john.davis got a role elevation in the SharePoint HR Site.",
+        "affected": "Finance Shares, Exchange Online, SharePoint HR Site, OneDrive, and the AD Root Group — 14 users, 5 systems total",
+        "nextStep": "That AD Root Group change is the most sensitive one. Want me to show you exactly what permissions were granted so you can verify it?",
+        "actions": [
+          {
+            "label": "Show me the details",
+            "variant": "primary",
+            "action": "remediation"
+          }
+        ]
+      },
+      "Show me critical alerts": {
+        "content": "You've got 3 active alerts — let me prioritize them for you so you know where to start.",
+        "finding": "One Critical, one High, one Medium. The critical one is about excessive permissions in your Finance AD Group — 9 users have more access than they need.",
+        "why": "I flagged this as critical because Lepide's permission drift analysis shows these users' access has crept way beyond their role baseline. It happens gradually, but it means if any of those 9 accounts get compromised, the blast radius is much bigger than it should be.",
+        "affected": "Critical: Finance AD Group (9 users, 3 systems) · High: 2 inactive admin accounts (5 systems) · Medium: Exchange permission spike (4 users)",
+        "nextStep": "Let's knock out the critical one first? I can show you exactly which permissions were added and we can start a remediation review right here.",
+        "actions": [
+          {
+            "label": "Let's tackle the critical one",
+            "variant": "primary",
+            "action": "remediation"
+          },
+          {
+            "label": "Show me all three alerts",
+            "variant": "secondary",
+            "action": "audit"
+          }
+        ]
+      },
+      "Find over-privileged users": {
+        "content": "I just ran a full scan comparing everyone's actual access against what their role requires. Here's what turned up.",
+        "finding": "23 users have more access than they need across your file shares. Finance Shares has the highest concentration — 9 over-privileged users.",
+        "why": "Excessive permissions = bigger blast radius if something goes wrong. These 23 people can access files they don't need for their jobs. It's usually not malicious — it just accumulates over time as people change roles or join new projects.",
+        "affected": "Finance Shares: 9 users · SharePoint HR Site: 6 users · OneDrive shared folders: 5 users · Azure File Storage: 3 users",
+        "nextStep": "We could clean up the obvious ones pretty quickly. I can also set up auto-revocation policies so this doesn't keep happening. What do you think?",
+        "actions": [
+          {
+            "label": "Show me who needs cleanup",
+            "variant": "primary",
+            "action": "remediation"
+          },
+          {
+            "label": "Set up auto-revocation",
+            "variant": "secondary",
+            "action": "watchlist"
+          }
+        ]
+      },
+      "Detect Entra ID sign-in anomalies": {
+        "content": "I've been watching your Entra ID sign-in patterns, and there are a few things that look a bit off this week.",
+        "finding": "7 anomalous sign-in events. 3 after-hours access attempts, 2 logins from unusual locations, and 2 cases where someone failed MFA but still got in.",
+        "why": "The one I'd look at first is priya.mehta — she's had 3 after-hours mailbox accesses this week from an IP we haven't seen before. Given that she has Exchange Admin rights, that's worth checking out.",
+        "affected": "priya.mehta@corp.com (3 events), alex.turner@corp.com (2 events), mark.chen@corp.com (2 events)",
+        "nextStep": "Want me to pull Priya's full activity timeline? I can show you exactly what emails and files she accessed during those late-night sessions.",
+        "actions": [
+          {
+            "label": "Pull Priya's activity log",
+            "variant": "primary",
+            "action": "audit"
+          },
+          {
+            "label": "Set up anomaly alerts",
+            "variant": "secondary",
+            "action": "watchlist"
+          }
+        ]
+      },
+      "Track GPO changes this week": {
+        "content": "Found 4 GPO changes this week. Most are fine, but one jumped out at me that you should definitely know about.",
+        "finding": "Someone relaxed the password complexity requirements on your \"Finance Workstations\" GPO. That's a security downgrade.",
+        "why": "Weaker passwords on machines that handle financial data? That's not great. It could also put you out of SOX compliance depending on your policy requirements. Could be an accident, could be intentional — either way, it needs review.",
+        "affected": "Finance Workstations GPO (password policy weakened) · Server Baseline GPO (audit logging modified) · Remote Access GPO (VPN timeout changed) · 200+ endpoints affected",
+        "nextStep": "I can show you a side-by-side before-and-after comparison so you can decide if it should be reverted. Want to take a look?",
+        "actions": [
+          {
+            "label": "Show me the comparison",
+            "variant": "primary",
+            "action": "audit"
+          },
+          {
+            "label": "Generate a change report",
+            "variant": "secondary",
+            "action": "report"
+          }
+        ]
+      },
+      "Show control failures this audit period": {
+        "content": "Let me pull up the current audit window for you. There are 3 open failures — and one of them is going to need your attention pretty soon.",
+        "finding": "AC-2.3 (Privileged Access Review) has no evidence of review at all. AC-3.1 and AU-6.2 have partial documentation but they're workable.",
+        "why": "AC-2.3 is the urgent one because it maps to SOX 404, NIST AC-2, and ISO 27001 A.9 — all at once. An auditor asking for evidence on this one would find nothing. The good news? Lepide has the underlying data, we just need someone to sign off on the review.",
+        "affected": "AC-2.3: no evidence (SOX 404, NIST AC-2, ISO 27001 A.9) · AC-3.1: partial docs (NIST AC-6, PCI-DSS 7.1, GDPR Art.25) · AU-6.2: mostly complete (SOX 302, NIST AU-6, HIPAA §164.312)",
+        "nextStep": "I can pre-populate the AC-2.3 review form with the data from Lepide's logs — you'd just need to verify and sign off. Shouldn't take more than 10 minutes. Want me to get it ready?",
+        "actions": [
+          {
+            "label": "Open the evidence trail",
+            "variant": "primary",
+            "action": "audit"
+          },
+          {
+            "label": "Export all control statuses",
+            "variant": "secondary",
+            "action": "report"
+          }
+        ]
+      },
+      "Export evidence for the privileged access review": {
+        "content": "I've got your evidence package ready to go! Here's what's included so you can check it before exporting.",
+        "finding": "3 control assessments and 7 supporting documents covering the full review period. Everything's time-stamped and linked back to the original Lepide audit logs.",
+        "why": "Having a solid evidence trail is what separates a smooth audit from a painful one. I've organized everything chronologically so an external auditor can follow the story from start to finish.",
+        "affected": "Controls AC-2.1, AC-2.2, AC-2.3 covered · 12 related remediation actions documented · 47 permission changes with full actor and approver details",
+        "nextStep": "Ready to export? PDF is best for formal audit submissions, CSV if your team wants to work with the raw data. Which do you prefer?",
+        "actions": [
+          {
+            "label": "Export as PDF",
+            "variant": "primary",
+            "action": "report"
+          },
+          {
+            "label": "Export as CSV",
+            "variant": "secondary",
+            "action": "report"
+          }
+        ]
+      },
+      "Review compliance posture across frameworks": {
+        "content": "Here's the bird's eye view across all your frameworks. Some good, some less good — let me walk you through it.",
+        "finding": "Overall you're at 82%. GDPR is your strongest at 91%, but PCI-DSS is lagging at 70% — mostly because of missing access review documentation.",
+        "why": "The PCI-DSS gap matters because it directly affects your ability to process card payments. The missing items are mostly around Requirement 7 (access controls) and Requirement 10 (monitoring). The data exists in Lepide — it just needs to be formally reviewed.",
+        "affected": "SOX: 85% · NIST: 76% · GDPR: 91% · HIPAA: 88% · PCI-DSS: 70% · 12 total exceptions across all frameworks",
+        "nextStep": "I'd prioritize PCI-DSS since it has the lowest score and the most business impact. Want me to generate a framework-specific report showing exactly what's missing?",
+        "actions": [
+          {
+            "label": "Generate PCI-DSS report",
+            "variant": "primary",
+            "action": "report"
+          },
+          {
+            "label": "Show me all exceptions",
+            "variant": "secondary",
+            "action": "audit"
+          }
+        ]
+      },
+      "Show audit trail for recent remediation actions": {
+        "content": "Here's everything that's been done recently — the full trail with who did what, who approved it, and when.",
+        "finding": "8 completed actions with full documentation, 5 more waiting on CISO approval. Every completed action has an actor, approver, timestamp, and a system-generated reference ID.",
+        "why": "This is exactly the kind of trail auditors love to see — it proves your organization actively resolves findings, not just reports them. Those 5 pending items should probably be escalated though, they're holding up your readiness score.",
+        "affected": "8 done: 3 permission revocations, 2 watchlists, 2 reports, 1 connector setup · 5 pending: 3 permission reviews, 2 policy updates",
+        "nextStep": "I can package this up as a formal evidence document with Lepide's reference IDs for each entry. Ready to export?",
+        "actions": [
+          {
+            "label": "View the full trail",
+            "variant": "primary",
+            "action": "audit"
+          },
+          {
+            "label": "Export as evidence",
+            "variant": "secondary",
+            "action": "report"
+          }
+        ]
+      },
+      "Audit Microsoft Copilot usage": {
+        "content": "Oh, this is interesting — Copilot adoption has been growing fast. Let me show you what I'm seeing from Lepide's Copilot Security dashboard.",
+        "finding": "47 active Copilot users across 3 departments. I found 3 interactions where users asked Copilot questions that surfaced PII data in the responses.",
+        "why": "Here's the thing people forget — Copilot can access whatever data the user has access to. So if someone has excessive permissions (and we know 23 people do), Copilot can surface sensitive data they shouldn't be seeing in the first place.",
+        "affected": "Engineering: 23 users · Marketing: 14 users · Data Science: 10 users · 3 high-risk PII interactions flagged · 847 Copilot sessions this month",
+        "nextStep": "I'd recommend two things: (1) review those 3 high-risk interactions, and (2) cross-reference Copilot users against our list of over-privileged accounts. The overlap is where the real risk is.",
+        "actions": [
+          {
+            "label": "Review the risky interactions",
+            "variant": "primary",
+            "action": "audit"
+          },
+          {
+            "label": "Cross-check permissions",
+            "variant": "secondary",
+            "action": "remediation"
+          }
+        ]
+      },
+      "What can Lepide AI help me audit?": {
+        "content": "Hey, welcome! I'm glad you asked. Think of me as your security sidekick — I'm here to make your life easier, not harder.",
+        "finding": "I can help with 5 main things: tracking who's doing what in AD and Entra ID, finding people with too much access, classifying your sensitive data, spotting unusual behavior, and generating compliance evidence.",
+        "why": "Right now your setup is partial — Entra ID is connected but AD isn't yet. Once we get AD plugged in, I'll be able to see about 70% more of what's happening in your environment. That's when things get really useful.",
+        "affected": "Currently monitoring: Entra ID (cloud identity). Still need: Active Directory, File Servers, Exchange, SharePoint, SQL Server",
+        "nextStep": "The best first step is connecting Active Directory — it takes about 5 minutes and it's what unlocks most of my superpowers. Want me to walk you through it?",
+        "actions": [
+          {
+            "label": "Yeah, let's do it!",
+            "variant": "primary",
+            "action": "none"
+          },
+          {
+            "label": "Tell me more first",
+            "variant": "secondary",
+            "action": "none"
+          }
+        ]
+      },
+      "Help me connect Active Directory": {
+        "content": "Awesome, let's get you set up! This is the single best thing you can do right now. Here's what we'll need.",
+        "finding": "The setup needs three things: your domain controller address, a service account with read access, and about 5 minutes. No agents to install — Lepide connects over LDAP, nice and clean.",
+        "why": "Without AD, I'm like a security camera that can only see the parking lot. Once it's connected, I can see permission changes, group modifications, account lifecycle events, GPO changes — basically everything that matters for your security posture.",
+        "affected": "After connecting you'll get: full AD change auditing, permission analysis, stale account detection, Group Policy monitoring, and your risk posture score will actually mean something",
+        "nextStep": "Ready? I'll guide you step by step. You'll need your domain controller hostname — most people know it off the top of their head. If not, I can help you find it.",
+        "actions": [
+          {
+            "label": "Let's start!",
+            "variant": "primary",
+            "action": "none"
+          },
+          {
+            "label": "What do I need to prepare?",
+            "variant": "secondary",
+            "action": "none"
+          }
+        ]
+      },
+      "Show what Lepide is monitoring": {
+        "content": "Let me check your current setup... okay, here's where you stand. You're connected to 1 out of 8 possible data sources.",
+        "finding": "Entra ID is live and working — that gives me cloud sign-in data and basic identity info. Everything else is still waiting to be connected.",
+        "why": "Think of it this way — you're currently seeing about 15% of the picture. Each new connection dramatically increases what I can find and protect. AD alone would bump you to about 70% visibility.",
+        "affected": "Connected: Entra ID ✅ · Not connected: Active Directory ⚠️, SharePoint ⚠️, Exchange Online ⚠️, File Servers ⚠️, OneDrive ⚠️, SQL Server ⚠️, Azure Storage ⚠️",
+        "nextStep": "AD is the biggest bang for your buck — it's the foundation everything else builds on. Takes about 5 minutes. Want to knock it out?",
+        "actions": [
+          {
+            "label": "Connect Active Directory",
+            "variant": "primary",
+            "action": "none"
+          },
+          {
+            "label": "Show me all connectors",
+            "variant": "secondary",
+            "action": "none"
+          }
+        ]
+      },
+      "How does Lepide detect insider threats?": {
+        "content": "Great question! I use three layers of detection, and each one catches different types of threats. Let me break it down simply.",
+        "finding": "Layer 1: Rule-based alerts (like \"admin rights granted outside business hours\"). Layer 2: Behavioral baselines (I learn what's normal for each user and flag deviations). Layer 3: AI correlation (I connect multiple low-risk events that together might indicate something bigger).",
+        "why": "Most security tools only do Layer 1 — basic rules. But attackers know those rules too. My behavioral analysis (Layer 2) catches the stuff rules miss because I know what \"normal\" looks like for each user. And the AI layer? That's where I catch the really sneaky stuff.",
+        "affected": "I watch: AD changes, file access patterns, permission modifications, login anomalies, data movement, Group Policy changes, and Copilot interactions",
+        "nextStep": "Once your environment is fully connected, I'll spend about 7-14 days learning everyone's patterns. After that, I start catching anomalies automatically. The more sources you connect, the smarter I get.",
+        "actions": [
+          {
+            "label": "Let's continue setup",
+            "variant": "primary",
+            "action": "none"
+          },
+          {
+            "label": "How do baselines work?",
+            "variant": "secondary",
+            "action": "none"
+          }
+        ]
+      },
+      "What reports can I generate?": {
+        "content": "I can generate quite a few different reports — and the cool part is you can ask me for any of them in plain English. Here's what's available.",
+        "finding": "Main report types: Executive Risk Summary, Compliance Status (per framework), Permission Analysis, Data Classification, Change Audit Trail, User Activity, Stale Account Report, and fully custom reports based on whatever you ask me.",
+        "why": "Every report pulls live data from your connected sources — no stale information. You can schedule them daily, weekly, or monthly so they just show up without you having to think about it. PDFs for formal stuff, CSVs for data crunching.",
+        "affected": "Available frameworks: SOX, NIST, GDPR, HIPAA, PCI-DSS, ISO 27001 · Formats: PDF, CSV · Delivery: on-demand, scheduled, email",
+        "nextStep": "Want to try one? I can generate a sample report from your Entra ID data right now so you can see what the full thing would look like once everything's connected.",
+        "actions": [
+          {
+            "label": "Generate a sample report",
+            "variant": "primary",
+            "action": "report"
+          },
+          {
+            "label": "Show me the templates",
+            "variant": "secondary",
+            "action": "none"
+          }
+        ]
+      }
+    },
+    "PROMPT_CHIPS": {
+      "ciso": [
+        "Show my risk score and attack surface",
+        "Who has access to sensitive data?",
+        "Audit AD changes from this week",
+        "Generate a compliance status report",
+        "Find stale privileged accounts"
+      ],
+      "admin": [
+        "Show recent permission changes in AD",
+        "Show me critical alerts",
+        "Find over-privileged users",
+        "Detect Entra ID sign-in anomalies",
+        "Track GPO changes this week"
+      ],
+      "auditor": [
+        "Show control failures this audit period",
+        "Export evidence for the privileged access review",
+        "Review compliance posture across frameworks",
+        "Show audit trail for recent remediation actions",
+        "Audit Microsoft Copilot usage"
+      ],
+      "newuser": [
+        "What can Lepide AI help me audit?",
+        "Help me connect Active Directory",
+        "Show what Lepide is monitoring",
+        "How does Lepide detect insider threats?",
+        "What reports can I generate?"
+      ]
+    },
+    "FOLLOW_UP_MAP": {
+      "risk score": [
+        "Who has access to sensitive data?",
+        "Find stale privileged accounts",
+        "Generate a compliance status report"
+      ],
+      "attack surface": [
+        "Who has access to sensitive data?",
+        "Find stale privileged accounts",
+        "Audit AD changes from this week"
+      ],
+      "sensitive data": [
+        "Show recent permission changes in AD",
+        "Find stale privileged accounts",
+        "Generate a compliance status report"
+      ],
+      "ad changes": [
+        "Find over-privileged users",
+        "Detect Entra ID sign-in anomalies",
+        "Find stale privileged accounts"
+      ],
+      "compliance": [
+        "Show control failures this audit period",
+        "Export evidence for the privileged access review",
+        "Audit AD changes from this week"
+      ],
+      "stale": [
+        "Show my risk score and attack surface",
+        "Show recent permission changes in AD",
+        "Generate a compliance status report"
+      ],
+      "privileged": [
+        "Show recent permission changes in AD",
+        "Find over-privileged users",
+        "Audit AD changes from this week"
+      ],
+      "permission": [
+        "Detect Entra ID sign-in anomalies",
+        "Find stale privileged accounts",
+        "Who has access to sensitive data?"
+      ],
+      "alerts": [
+        "Show recent permission changes in AD",
+        "Find over-privileged users",
+        "Track GPO changes this week"
+      ],
+      "sign-in": [
+        "Show me critical alerts",
+        "Show recent permission changes in AD",
+        "Find stale privileged accounts"
+      ],
+      "gpo": [
+        "Show my risk score and attack surface",
+        "Show me critical alerts",
+        "Generate a compliance status report"
+      ],
+      "group policy": [
+        "Show my risk score and attack surface",
+        "Show me critical alerts",
+        "Generate a compliance status report"
+      ],
+      "control": [
+        "Export evidence for the privileged access review",
+        "Review compliance posture across frameworks",
+        "Show audit trail for recent remediation actions"
+      ],
+      "evidence": [
+        "Show control failures this audit period",
+        "Generate a compliance status report",
+        "Show audit trail for recent remediation actions"
+      ],
+      "frameworks": [
+        "Show control failures this audit period",
+        "Export evidence for the privileged access review",
+        "Audit Microsoft Copilot usage"
+      ],
+      "audit trail": [
+        "Review compliance posture across frameworks",
+        "Generate a compliance status report",
+        "Show control failures this audit period"
+      ],
+      "copilot": [
+        "Who has access to sensitive data?",
+        "Find over-privileged users",
+        "Show my risk score and attack surface"
+      ],
+      "help": [
+        "Help me connect Active Directory",
+        "How does Lepide detect insider threats?",
+        "What reports can I generate?"
+      ],
+      "connect": [
+        "Show what Lepide is monitoring",
+        "How does Lepide detect insider threats?",
+        "What reports can I generate?"
+      ],
+      "monitoring": [
+        "Help me connect Active Directory",
+        "How does Lepide detect insider threats?",
+        "What can Lepide AI help me audit?"
+      ],
+      "detect": [
+        "Show what Lepide is monitoring",
+        "Help me connect Active Directory",
+        "What reports can I generate?"
+      ],
+      "insider": [
+        "Find over-privileged users",
+        "Detect Entra ID sign-in anomalies",
+        "Show recent permission changes in AD"
+      ],
+      "report": [
+        "Show my risk score and attack surface",
+        "Review compliance posture across frameworks",
+        "Who has access to sensitive data?"
+      ]
+    },
+    "EXPLORE_ACTIONS": [
+      {
+        "id": "posture",
+        "title": "Assess Security Posture",
+        "description": "Review your risk score and exposures",
+        "icon": "shield",
+        "prompt": "Show my risk score and attack surface"
+      },
+      {
+        "id": "access",
+        "title": "Audit Data Access",
+        "description": "See who can access sensitive data",
+        "icon": "users",
+        "prompt": "Who has access to sensitive data?"
+      },
+      {
+        "id": "changes",
+        "title": "Audit Recent Changes",
+        "description": "Track configuration drift in your environment",
+        "icon": "changes",
+        "prompt": "Audit AD changes from this week"
+      },
+      {
+        "id": "help",
+        "title": "Explore Capabilities",
+        "description": "See what Lepide AI can audit for you",
+        "icon": "sparkles",
+        "prompt": "What can Lepide AI help me audit?"
+      }
+    ],
+    "IDLE_NUDGES": [
+      {
+        "text": "Want to assess your risk posture? I can show you in seconds.",
+        "prompt": "Show my risk score and attack surface"
+      },
+      {
+        "text": "I can audit who has access to your sensitive data.",
+        "prompt": "Who has access to sensitive data?"
+      },
+      {
+        "text": "Need a compliance report? I can generate one for you.",
+        "prompt": "Generate a compliance status report"
+      }
+    ]
+  }
+}

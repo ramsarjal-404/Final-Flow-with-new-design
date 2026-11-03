@@ -1,0 +1,38 @@
+/* Configure Notifications (SCR-SAD-14/15). Tokens only. */
+.configure-notifications-tiles{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.configure-notifications-tiles .pick{min-height:68px;padding-right:34px}
+.configure-notifications-tiles .pick__ic{background:var(--surface-2)}
+
+/* Notification panel head (replaces the drawer's default head; the panel's own "Close panel"
+   action is kept and the generic close button hidden) */
+.drawer__head:has(> .configure-notifications-panel-head)>.lf-btn--icon{display:none}
+.configure-notifications-panel-head{flex:1;min-width:0;display:flex;align-items:center;gap:12px}
+.configure-notifications-panel-head h3{flex:1;min-width:0;margin:0;font:700 17px/24px var(--font);letter-spacing:-.02em;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.configure-notifications-panel-head .pick__ic{background:var(--surface-2)}
+.configure-notifications-fieldset{margin:0;padding:0;border:0;min-width:0;display:flex;flex-direction:column;gap:16px}
+.configure-notifications-fieldset:disabled .fld__lbl,.configure-notifications-fieldset:disabled .help{color:var(--ink-4)}
+
+/* Alert feed wizard */
+.configure-notifications-reports{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r-md)}
+.configure-notifications-group{display:flex;flex-direction:column}
+.configure-notifications-group__btn{display:flex;align-items:center;gap:8px;min-height:36px;padding:0 8px;border-radius:var(--r-xs);text-align:left;font:600 13px/18px var(--font);color:var(--ink)}
+.configure-notifications-group__btn:hover{background:var(--surface-2)}
+.configure-notifications-group__btn>span:not(.count-chip){flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.configure-notifications-group__btn svg.lf-i{color:var(--ink-3);flex:none}
+.configure-notifications-group__btn>svg.lf-i:first-child{transition:transform var(--t-base) var(--ease)}
+.configure-notifications-group__btn[aria-expanded="true"]>svg.lf-i:first-child{transform:rotate(90deg)}
+.configure-notifications-group__items{display:flex;flex-direction:column;gap:2px;margin:2px 0 6px 22px;padding-left:12px;border-left:1px solid var(--border);animation:fade-up var(--t-base) var(--ease-out)}
+.configure-notifications-filters{display:grid;grid-template-columns:260px minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.configure-notifications-filters{grid-template-columns:minmax(0,1fr)}}
+.configure-notifications-list{list-style:none;margin:0}
+.configure-notifications-list .configure-notifications-val{padding-right:10px}
+.configure-notifications-list svg.lf-i{flex:none;color:var(--ink-3)}
+.configure-notifications-coltabs{overflow-x:auto;scrollbar-width:thin}
+.configure-notifications-coltabs .seg{width:max-content;min-width:100%}
+.configure-notifications-include{display:flex;align-items:flex-end;gap:10px}
+.configure-notifications-include .fld{flex:1}
+.configure-notifications-include .lf-btn--icon{width:46px;height:46px}
+.configure-notifications-addrow{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.configure-notifications-addrow .fld{flex:1;min-width:200px}
+.configure-notifications-addrow .lf-btn{height:46px}
+.configure-notifications-tabs{align-self:flex-start;min-width:260px}

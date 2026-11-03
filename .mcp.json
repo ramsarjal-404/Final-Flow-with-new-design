@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "lepide-design-system": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "../lepide-design-system/packages/mcp/server.mjs"
+      ]
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 27124">
+<g id="Ellipse 2324" filter="url(#filter0_d_0_42)">
+<circle cx="50.5" cy="45.5" r="38.5" fill="url(#paint0_linear_0_42)"/>
+</g>
+<g id="Group 27123">
+<mask id="stroke0_0_42" fill="white">
+<path d="M62.3363 57.3374C50.6875 68.9862 36.0408 73.226 29.6221 66.8073C23.2034 60.3885 27.4432 45.7419 39.092 34.0931C50.7408 22.4443 65.3874 18.2045 71.8061 24.6233C78.2248 31.042 73.985 45.6886 62.3363 57.3374Z"/>
+</mask>
+<path id="Ellipse 1059" d="M62.3363 57.3374C50.6875 68.9862 36.0408 73.226 29.6221 66.8073C23.2034 60.3885 27.4432 45.7419 39.092 34.0931C50.7408 22.4443 65.3874 18.2045 71.8061 24.6233C78.2248 31.042 73.985 45.6886 62.3363 57.3374Z" stroke-width="4" stroke="#E9EDEF" mask="url(#stroke0_0_42)"/>
+<mask id="stroke1_0_42" fill="white">
+<path d="M62.3367 34.092C73.9854 45.7408 78.2253 60.3874 71.8065 66.8061C65.3878 73.2248 50.7412 68.985 39.0924 57.3363C27.4436 45.6875 23.2038 31.0408 29.6225 24.6221C36.0413 18.2034 50.6879 22.4432 62.3367 34.092Z"/>
+</mask>
+<path id="Ellipse 1060" d="M62.3367 34.092C73.9854 45.7408 78.2253 60.3874 71.8065 66.8061C65.3878 73.2248 50.7412 68.985 39.0924 57.3363C27.4436 45.6875 23.2038 31.0408 29.6225 24.6221C36.0413 18.2034 50.6879 22.4432 62.3367 34.092Z" stroke-width="4" stroke="#E9EDEF" mask="url(#stroke1_0_42)"/>
+<g id="Group 2456">
+<path id="Rectangle 148" d="M44.4973 38.244H47.4624L49.6588 45.4702H46.6937L44.4973 38.244Z" fill="#2E98D4"/>
+<path id="Rectangle 153" d="M44.4973 46.5028H47.4624L49.6588 53.729H46.6937L44.4973 46.5028Z" fill="#2E98D4"/>
+<path id="Rectangle 149" d="M48.6299 38.244H51.4962L53.6194 45.4702H50.7531L48.6299 38.244Z" fill="#2E98D4"/>
+<path id="Rectangle 154" d="M48.6299 46.5028H51.4962L53.6194 53.729H50.7531L48.6299 46.5028Z" fill="#2E98D4"/>
+<path id="Rectangle 151" d="M52.5851 38.244H55.5502L57.7466 45.4702H54.7815L52.5851 38.244Z" fill="#2E98D4"/>
+<path id="Rectangle 155" d="M52.5851 46.5028H55.5502L57.7466 53.729H54.7815L52.5851 46.5028Z" fill="#2E98D4"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_0_42" x="0" y="0" width="101" height="101" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="5"/>
+<feGaussianBlur stdDeviation="6"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_42"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_42" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_0_42" x1="50.5" y1="7" x2="50.5" y2="84" gradientUnits="userSpaceOnUse">
+<stop stop-color="#364765"/>
+<stop offset="1" stop-color="#162849"/>
+</linearGradient>
+</defs>
+</svg>

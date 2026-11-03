@@ -1,0 +1,161 @@
+{
+  "$source": "src/components/settings/identify/ObjectStep.tsx",
+  "exports": {
+    "CONN_FIELDS": {
+      "share": [
+        {
+          "id": "user",
+          "label": "User Name",
+          "hint": "Example : Domain\\UserName"
+        },
+        {
+          "id": "password",
+          "label": "Password",
+          "type": "password"
+        }
+      ],
+      "exchangeServer": [
+        {
+          "id": "server",
+          "label": "Server Name / IP",
+          "type": "select",
+          "options": [
+            "192.168.30.35",
+            "192.168.30.36",
+            "EXCH2019.lepide.local"
+          ]
+        },
+        {
+          "id": "user",
+          "label": "User Name",
+          "hint": "Example : Domain\\UserName"
+        },
+        {
+          "id": "password",
+          "label": "Password",
+          "type": "password"
+        }
+      ],
+      "exchangeOnline": [
+        {
+          "id": "exchange",
+          "label": "Exchange Server",
+          "type": "select",
+          "options": [
+            "outlook.office365.com",
+            "outlook.office.cn",
+            "outlook.office365.us"
+          ]
+        },
+        {
+          "id": "tenant",
+          "label": "Tenant Name"
+        },
+        {
+          "id": "client",
+          "label": "Client Id"
+        },
+        {
+          "id": "secret",
+          "label": "Secret Key",
+          "type": "password"
+        },
+        {
+          "id": "thumbprint",
+          "label": "Thumbprint",
+          "type": "password"
+        }
+      ],
+      "sharepointServer": [
+        {
+          "id": "adminUrl",
+          "label": "Central Admin URL",
+          "type": "select",
+          "options": [
+            "http://SP-2019:14717",
+            "http://SP-2016:8080"
+          ]
+        },
+        {
+          "id": "user",
+          "label": "User Name",
+          "hint": "Example : Domain\\UserName"
+        },
+        {
+          "id": "password",
+          "label": "Password",
+          "type": "password"
+        }
+      ],
+      "sharepointOnline": [
+        {
+          "id": "adminUrl",
+          "label": "Central Admin URL",
+          "type": "select",
+          "options": [
+            "lepsoftpvtltd-admin.sharepoint.com",
+            "contoso-admin.sharepoint.com"
+          ]
+        },
+        {
+          "id": "client",
+          "label": "Client Id"
+        },
+        {
+          "id": "secret",
+          "label": "Secret Key",
+          "type": "password"
+        },
+        {
+          "id": "tenant",
+          "label": "Tenant Id"
+        },
+        {
+          "id": "thumbprint",
+          "label": "Thumbprint",
+          "type": "password"
+        }
+      ],
+      "onedrive": [
+        {
+          "id": "adminUrl",
+          "label": "Tenant Admin url",
+          "type": "select",
+          "options": [
+            "lepsoftpvtltd-admin.sharepoint.com",
+            "contoso-admin.sharepoint.com"
+          ]
+        },
+        {
+          "id": "client",
+          "label": "Client ID"
+        },
+        {
+          "id": "secret",
+          "label": "Secret Key",
+          "type": "password"
+        },
+        {
+          "id": "tenant",
+          "label": "Tenant ID"
+        },
+        {
+          "id": "thumbprint",
+          "label": "Thumbprint",
+          "type": "password"
+        }
+      ],
+      "dropbox": [
+        {
+          "id": "server",
+          "label": "Server Name"
+        },
+        {
+          "id": "auth",
+          "label": "Authentication",
+          "type": "password"
+        }
+      ]
+    }
+  }
+}

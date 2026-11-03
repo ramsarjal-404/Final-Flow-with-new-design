@@ -1,0 +1,111 @@
+/* Identify reports (SCR-IDN-01 … 03). Tokens only. */
+
+/* Wrapper that only scopes Identify styles; it takes no part in the layout. */
+.idn-scope { display: contents; }
+
+/* SCR-IDN-01: tree report rows in brand (hub, "All Reports" and folders). */
+.idn-scope .tree ul button[role="treeitem"]:not(.off) { color: var(--brand); }
+.idn-scope .tree ul button[role="treeitem"]:not(.off) svg.lf-i { color: var(--brand-400); }
+
+/* SCR-IDN-02: Preview cell */
+.idn-viewfile.lf-btn--sm { height: 28px; padding: 0 11px; gap: 6px; font-size: 12px; }
+.idn-viewfile svg.lf-i { width: 14px; height: 14px; }
+.idn-na { display: inline-flex; align-items: center; gap: 6px; font: 600 12px/16px var(--font); }
+.idn-why { width: 22px; height: 22px; display: inline-grid; place-items: center; border-radius: 50%; color: var(--ink-4); cursor: help; }
+.idn-why:hover, .idn-why:focus-visible { color: var(--brand); background: var(--brand-50); }
+.idn-why:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
+
+/* SCR-IDN-03: classified file view */
+.idn-file { gap: 16px; }
+.idn-file__title { display: inline-flex; align-items: center; gap: 12px; min-width: 0; }
+.idn-file__title img { flex: none; }
+.idn-file__title > span { min-width: 0; overflow-wrap: anywhere; }
+.idn-file__chips { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+.idn-chip { height: 28px; padding: 0 12px; font: 500 12.5px/18px var(--font); color: var(--ink-2); background: var(--surface); box-shadow: inset 0 0 0 1px var(--border); }
+.idn-chip b { font-weight: 700; color: var(--ink); }
+.idn-chip--path { max-width: min(560px, 100%); min-width: 0; }
+.idn-chip--path > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--mono); font-size: 12px; }
+.idn-chip--path:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+.idn-details { padding: 12px; }
+.idn-details__list { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.idn-details__list .rd__row { padding: 10px 12px; }
+
+.idn-file__body { flex: 1; min-height: 460px; display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 16px; }
+.idn-file__body--nolist { grid-template-columns: minmax(0, 1fr); }
+.idn-patterns { min-height: 0; display: flex; flex-direction: column; }
+.idn-patterns > .tablecard { flex: 1; }
+.idn-pat { display: inline-flex; align-items: center; gap: 8px; min-width: 0; white-space: normal; }
+.idn-pat.is-sel { padding: 3px 10px 3px 4px; border-radius: var(--r-pill); background: var(--brand-50); box-shadow: inset 0 0 0 1px var(--brand-100); color: var(--brand); font-weight: 700; }
+.idn-pat__tick { width: 20px; height: 20px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--brand); color: var(--on-brand); }
+.idn-pat__tick svg.lf-i { stroke-width: 2.4; }
+.idn-patterns .lf-table td { white-space: normal; }
+.idn-patterns .filter-input input { width: 0; }
+.idn-patterns .lf-table th, .idn-patterns .lf-table td { padding-left: 12px; padding-right: 12px; }
+.idn-count { display: inline-grid; place-items: center; min-width: 64px; height: 26px; padding: 0 8px; border-radius: var(--r-sm); box-shadow: inset 0 0 0 1px var(--border);
+  font: 600 12.5px/1 var(--font); font-variant-numeric: tabular-nums; color: var(--ink-2); }
+
+/* content preview card: values panel + viewer */
+.idn-preview { padding: 0; overflow: hidden; display: grid; grid-template-columns: 230px minmax(0, 1fr); min-height: 0; }
+.idn-values { min-height: 0; display: flex; flex-direction: column; border-right: 1px solid var(--border-soft); background: var(--surface-2); }
+.idn-values__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 14px 12px 10px 16px; }
+.idn-values__head h3 { margin: 0; min-width: 0; font: 700 14px/19px var(--font); color: var(--ink); overflow-wrap: anywhere; }
+.idn-pin { flex: none; color: var(--ink-4); }
+.idn-pin.is-on { color: var(--brand); background: var(--brand-50); }
+.idn-values__search { margin: 0 12px 10px; }
+.idn-values__sub { margin: 0; padding: 6px 16px; font: 600 12px/16px var(--font); color: var(--ink-3); border-bottom: 1px solid var(--border-soft); }
+.idn-values__list { flex: 1; min-height: 0; overflow: auto; margin: 0; padding: 6px; list-style: none; display: flex; flex-direction: column; gap: 2px; scrollbar-width: thin; }
+.idn-value { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 34px; padding: 6px 10px; border-radius: var(--r-xs);
+  text-align: left; font: 500 13px/18px var(--mono); color: var(--ink-2); transition: background var(--t-fast), color var(--t-fast); }
+.idn-value:hover:not(.is-out) { background: var(--surface); color: var(--brand); }
+.idn-value.is-out { color: var(--ink-4); cursor: default; }
+.idn-value.is-active { background:var(--sel-fill); color: var(--on-brand); font-weight: 700;;box-shadow:var(--sel-shadow)}
+.idn-value__n { min-width: 20px; height: 18px; padding: 0 6px; border-radius: var(--r-pill); display: inline-grid; place-items: center; background: var(--brand-50); color: var(--brand);
+  font: 700 10.5px/1 var(--font); }
+.idn-value.is-active .idn-value__n { background: rgba(255, 255, 255, .18); color: var(--on-brand); }
+.idn-value:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
+.idn-values__empty { padding: 16px 10px; font: 500 12.5px/18px var(--font); color: var(--ink-3); }
+
+.idn-viewer { min-height: 0; min-width: 0; display: flex; flex-direction: column; }
+.idn-viewer__bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--border-soft); }
+.idn-viewer__bar .seg { flex: none; }
+.idn-viewer__nav { display: flex; align-items: center; gap: 6px; }
+.idn-counter { min-width: 52px; text-align: center; font: 600 12.5px/1 var(--font); font-variant-numeric: tabular-nums; color: var(--ink-3); }
+.idn-reveal { margin-left: 6px; }
+.idn-reveal[aria-pressed="true"] { background: var(--brand-50); color: var(--brand); border-color: var(--brand-200); }
+
+.idn-frame { flex: 1; min-height: 0; overflow: auto; margin: 16px; padding: 24px 28px; border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface);
+  font: 400 14.5px/1.75 var(--font); color: var(--ink-2); scrollbar-width: thin; }
+.idn-frame h4 { margin: 18px 0 4px; font: 700 15px/22px var(--font); color: var(--ink); }
+.idn-frame p { margin: 0 0 10px; max-width: 80ch; }
+
+/* matches as tone tags; the active one ink-filled */
+.idn-match.fx-op { display: inline-flex; height: 22px; padding: 0 8px 0 6px; margin: 0 1px; vertical-align: baseline; font: 600 12.5px/1 var(--mono); cursor: pointer;
+  transition: background var(--t-fast), color var(--t-fast), box-shadow var(--t-fast); }
+.idn-match.fx-op:hover { background: var(--brand-100); }
+.idn-match.is-active, .idn-match.is-active:hover { background:var(--sel-fill); color: var(--on-brand);;box-shadow:var(--sel-shadow)}
+.idn-match:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.idn-match.is-masked { color: transparent; text-shadow: 0 0 7px var(--brand); }
+.idn-match.is-masked.is-active { color: transparent; text-shadow: 0 0 7px var(--on-brand); }
+
+/* email rendering */
+.idn-email__subject { margin: 0 0 14px; font: 700 17px/26px var(--font); color: var(--ink); }
+.idn-email__meta { margin: 0 0 14px; padding: 0 0 12px; border-bottom: 1px solid var(--border-soft); display: grid; gap: 2px; }
+.idn-email__meta > div { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 8px; font-size: 13px; line-height: 20px; }
+.idn-email__meta dt { font-weight: 600; color: var(--ink-3); }
+.idn-email__meta dd { margin: 0; color: var(--ink-2); overflow-wrap: anywhere; }
+.idn-email__att { margin: 0 0 16px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.idn-email__att .lf-chip { height: 26px; gap: 6px; }
+.idn-email__att .lf-chip b { font-weight: 700; color: var(--brand); }
+.idn-email__sig { margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--border-soft); }
+.idn-email__sig p { margin: 0; font-size: 12.5px; line-height: 19px; color: var(--ink-3); }
+
+@media (max-width: 1100px) {
+  .idn-file__body { grid-template-columns: minmax(0, 1fr); }
+  .idn-patterns { max-height: 360px; }
+}
+@media (max-width: 760px) {
+  .idn-preview { grid-template-columns: minmax(0, 1fr); }
+  .idn-values { border-right: 0; border-bottom: 1px solid var(--border-soft); max-height: 260px; }
+  .idn-frame { margin: 12px; padding: 16px; }
+}

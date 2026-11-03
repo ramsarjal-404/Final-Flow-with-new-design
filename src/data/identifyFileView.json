@@ -1,0 +1,72 @@
+{
+  "$source": "src/data/identifyFileView.ts",
+  "exports": {
+    "PATTERNS": [
+      {
+        "name": "US Passport Number",
+        "count": 4532,
+        "prefix": "US"
+      },
+      {
+        "name": "Australian Driver's License ID",
+        "count": 6789,
+        "prefix": "AU"
+      },
+      {
+        "name": "UK Social Security Identifier",
+        "count": 4532,
+        "prefix": "UK"
+      },
+      {
+        "name": "Indian Aadhaar Identification Number",
+        "count": 1234,
+        "prefix": "IN"
+      },
+      {
+        "name": "Canadian SIN (Social Insurance Number)",
+        "count": 9876,
+        "prefix": "CA"
+      },
+      {
+        "name": "Oz Driver's License Code",
+        "count": 5432,
+        "prefix": "OZ"
+      },
+      {
+        "name": "UK National Tax Number",
+        "count": 8765,
+        "prefix": "UKT"
+      },
+      {
+        "name": "Aadhaar Unique ID",
+        "count": 2345,
+        "prefix": "AAD"
+      },
+      {
+        "name": "Canadian Social Security Number (SIN)",
+        "count": 3456,
+        "prefix": "CAS"
+      },
+      {
+        "name": "Australian License Registration Number",
+        "count": 7890,
+        "prefix": "ALR"
+      },
+      {
+        "name": "UK Insurance Reference Number",
+        "count": 4532,
+        "prefix": "UKI"
+      },
+      {
+        "name": "Aadhaar Personal ID Number",
+        "count": 5432,
+        "prefix": "APN"
+      },
+      {
+        "name": "Canadian SIN Identifier",
+        "count": 6789,
+        "prefix": "CSI"
+      }
+    ]
+  }
+}

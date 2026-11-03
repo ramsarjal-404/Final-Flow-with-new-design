@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 189">
+<path id="Ellipse 163" d="M28.2543 14.5C28.2543 22.0963 22.0963 28.2543 14.5 28.2543C6.90372 28.2543 0.745714 22.0963 0.745714 14.5C0.745714 6.90372 6.90372 0.745714 14.5 0.745714C22.0963 0.745714 28.2543 6.90372 28.2543 14.5Z" stroke-width="1.49143" stroke="white"/>
+<mask id="stroke0_0_16" fill="white">
+<path d="M24.4073 14.5C24.4073 22.5081 20.0253 29 14.6198 29C9.2143 29 4.83228 22.5081 4.83228 14.5C4.83228 6.49187 9.2143 0 14.6198 0C20.0253 0 24.4073 6.49187 24.4073 14.5Z"/>
+</mask>
+<path id="Ellipse 164" d="M24.4073 14.5C24.4073 22.5081 20.0253 29 14.6198 29C9.2143 29 4.83228 22.5081 4.83228 14.5C4.83228 6.49187 9.2143 0 14.6198 0C20.0253 0 24.4073 6.49187 24.4073 14.5Z" stroke-width="2.98286" stroke="white" mask="url(#stroke0_0_16)"/>
+<path id="Vector 262" d="M2.65896 7.00849L26.1006 7.00849" stroke-width="1.49143" stroke="white"/>
+<path id="Vector 263" d="M0.483543 14.9835L28.7585 14.9835" stroke-width="1.49143" stroke="white"/>
+<path id="Vector 264" d="M3.38375 22.9585L25.8588 22.9585" stroke-width="1.49143" stroke="white"/>
+<path id="Vector 265" d="M14.2588 0.241509V28.154" stroke-width="1.49143" stroke="white"/>
+</g>
+</svg>

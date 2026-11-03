@@ -1,0 +1,37 @@
+/* Lepide AI module extras (tokens only). Everything else comes from the Lepide Design System assistant classes. */
+
+/* Edit Alert dialog: vertical tabs beside the pane (03 § 11.3) inside the kit Modal body */
+.lepide-ai-tune{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;min-height:320px}
+.lepide-ai-tune .tabs button{width:100%}
+.lepide-ai-tune .status-row .fld{min-width:0}
+@media (max-width:620px){.lepide-ai-tune{grid-template-columns:minmax(0,1fr);min-height:0}}
+
+/* History button while its menu is open */
+.lf-btn--icon.is-active{background:var(--surface-3);color:var(--ink)}
+
+/* Left-half view switch: alerts enter from the left, history views from the right (motion only) */
+.lepide-ai-list--in-left{animation:lepide-ai-in-left var(--t-slow) var(--ease-out)}
+.lepide-ai-list--in-right{animation:lepide-ai-in-right var(--t-slow) var(--ease-out)}
+@keyframes lepide-ai-in-left{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
+@keyframes lepide-ai-in-right{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
+
+/* Archived and locked actions render as chips; keep them on the 30 px action row */
+.ax__acts .lf-chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;cursor:default;height:auto;min-height:30px;padding:5px 11px;white-space:normal;max-width:100%}
+/* The spec's long action label wraps instead of overflowing the 360 px inbox */
+.ax__acts .lf-btn{height:auto;min-height:30px;padding:5px 11px;white-space:normal;text-align:left;line-height:16px;max-width:100%}
+.ax__ic--query{background:var(--brand-50);color:var(--brand)}
+
+/* One-shot celebratory burst on the welcome state (decorative) */
+.welcome{position:relative}
+.lepide-ai-burst{position:absolute;left:50%;top:70px;width:0;height:0;pointer-events:none;z-index:1}
+.lepide-ai-burst i{position:absolute;left:-3px;top:-3px;width:6px;height:6px;border-radius:50%;background:var(--brand);opacity:0;
+  transform:rotate(var(--a)) translateY(0);animation:lepide-ai-burst .9s var(--ease-out) .15s 1 both}
+.lepide-ai-burst i:nth-child(3n){background:var(--brand-300)}
+.lepide-ai-burst i:nth-child(4n){background:var(--warning-dot);width:5px;height:5px}
+@keyframes lepide-ai-burst{0%{opacity:0;transform:rotate(var(--a)) translateY(0) scale(.6)}20%{opacity:1}100%{opacity:0;transform:rotate(var(--a)) translateY(-96px) scale(1)}}
+
+/* components-derived's generic .row (centred toolbar row) overrides the thread row; restore the assistant layout */
+.ai__chat .thread .row{align-items:flex-start;gap:12px}
+
+/* Answer chart sits in a white frame without extra bleed */
+.lai-card figure{margin:0 -6px -8px}

@@ -1,0 +1,3721 @@
+{
+  "$source": "src/data/trustReportViews.json",
+  "exports": {
+    "default": {
+      "account-lockout-report": {
+        "columns": [
+          "Server Name",
+          "User Name",
+          "When",
+          "Why",
+          "From",
+          "Where"
+        ],
+        "filterFields": [
+          "User Name",
+          "From",
+          "Where"
+        ],
+        "defaultFilter": "Server Name : [Equals[lpde4.local]]",
+        "dateRange": "Jan 1, 2023 - Nov 30, 2023",
+        "total": 5,
+        "rows": [
+          [
+            "lpde4.local",
+            "LPDE4\\Marty.Byrde",
+            "07-04-2026 07:27:43PM",
+            "",
+            "RECEPTION-PC",
+            "LPDE4\\DCD01$"
+          ],
+          [
+            "lpde4.local",
+            "LPDE4\\Lee.Russell",
+            "07-04-2026 07:25:05PM",
+            "",
+            "RECEPTION-PC",
+            "LPDE4\\DCD01$"
+          ],
+          [
+            "lpde4.local",
+            "LPDE4\\Kelly.Maxwell",
+            "07-04-2026 07:24:52PM",
+            "",
+            "RECEPTION-PC",
+            "LPDE4\\DCD01$"
+          ],
+          [
+            "lpde4.local",
+            "LPDE4\\Developer-Ext",
+            "07-04-2026 07:23:47PM",
+            "",
+            "RECEPTION-PC",
+            "LPDE4\\DCD01$"
+          ],
+          [
+            "lpde4.local",
+            "LPDE4\\Developer-Ext",
+            "07-04-2026 07:21:18PM",
+            "",
+            "RECEPTION-PC",
+            "LPDE4\\DCD01$"
+          ]
+        ]
+      },
+      "activedirectory-inactive-users": {
+        "columns": [
+          "Server Name",
+          "SAM Account Name",
+          "Object Path",
+          "Email Address",
+          "Last Logon Time",
+          "When Created",
+          "Inactivity Time (In days)",
+          "Account Age (In days)",
+          "Account Status"
+        ],
+        "filterFields": [
+          "Status",
+          "OU(s)",
+          "DC(s)"
+        ],
+        "defaultFilter": "Server Name : [Equals [lpde4.local] AND Number Of Days : [Equals [60]]",
+        "dateRange": null,
+        "total": 50,
+        "rows": [
+          [
+            "lpde4.local",
+            "$A51000-C70NF2LB8OE8",
+            "local\\lpde4\\Users\\Exchange Online-ApplicationAccount\\",
+            "N/A",
+            "Never",
+            "13-03-2023 01:48:57 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Ash.Williams",
+            "local\\lpde4\\AUS Office\\Users\\Ash Williams\\",
+            "Ash.Williams@lpde4.local",
+            "19-04-2023 02:03:31 PM",
+            "15-02-2022 04:27:14 PM",
+            "442 Day(s) 19 Hour(s)",
+            "870 Day(s)  17 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Guest",
+            "local\\lpde4\\Users\\Guest\\",
+            "N/A",
+            "Never",
+            "15-02-2022 02:07:22 PM",
+            "N/A",
+            "870 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Hank.Shrader",
+            "local\\lpde4\\AUS Office\\Users\\Hank Schrader\\",
+            "Hank.Shrader@lpde4.local",
+            "Never",
+            "15-02-2022 04:22:26 PM",
+            "N/A",
+            "870 Day(s)  17 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "HealthMailbox1ef4443",
+            "local\\lpde4\\Microsoft Exchange System Objects\\Monitoring Mailboxes\\HealthMailbox1ef4443168d14b9b83e212ab4b25dc01\\",
+            "HealthMailbox1ef4443168d14b9b83e212ab4b25dc01@lpde4.local",
+            "Never",
+            "13-03-2023 02:24:24 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "HealthMailbox3ac102e",
+            "local\\lpde4\\Microsoft Exchange System Objects\\Monitoring Mailboxes\\HealthMailbox3ac102e45d424fa88170619e72b9971f\\",
+            "HealthMailbox3ac102e45d424fa88170619e72b9971f@lpde4.local",
+            "Never",
+            "13-03-2023 02:23:33 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "HealthMailbox4cc318e",
+            "local\\lpde4\\Microsoft Exchange System Objects\\Monitoring Mailboxes\\HealthMailbox4cc318e9de7d4d6b8c24e70b4931059d\\",
+            "HealthMailbox4cc318e9de7d4d6b8c24e70b4931059d@lpde4.local",
+            "Never",
+            "13-03-2023 02:24:04 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "HealthMailbox66ba8d4",
+            "local\\lpde4\\Microsoft Exchange System Objects\\Monitoring Mailboxes\\HealthMailbox66ba8d4fef00437eb78e5dea55d19742\\",
+            "HealthMailbox66ba8d4fef00437eb78e5dea55d19742@lpde4.local",
+            "Never",
+            "13-03-2023 02:24:35 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "HealthMailbox7ad492d",
+            "local\\lpde4\\Microsoft Exchange System Objects\\Monitoring Mailboxes\\HealthMailbox7ad492d309b545b780bd77cf3160fd50\\",
+            "HealthMailbox7ad492d309b545b780bd77cf3160fd50@lpde4.local",
+            "Never",
+            "13-03-2023 02:23:43 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "HealthMailboxa91fbbb",
+            "local\\lpde4\\Microsoft Exchange System Objects\\Monitoring Mailboxes\\HealthMailboxa91fbbb56eb9406f8c3a200051c3d22e\\",
+            "HealthMailboxa91fbbb56eb9406f8c3a200051c3d22e@lpde4.local",
+            "Never",
+            "13-03-2023 02:24:45 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "HealthMailboxab056bb",
+            "local\\lpde4\\Microsoft Exchange System Objects\\Monitoring Mailboxes\\HealthMailboxab056bb09e38461480be3a5d668061c5\\",
+            "HealthMailboxab056bb09e38461480be3a5d668061c5@lpde4.local",
+            "Never",
+            "13-03-2023 02:23:22 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "HealthMailboxae5c5a4",
+            "local\\lpde4\\Microsoft Exchange System Objects\\Monitoring Mailboxes\\HealthMailboxae5c5a4611e645ea9585ec758e637c35\\",
+            "HealthMailboxae5c5a4611e645ea9585ec758e637c35@lpde4.local",
+            "Never",
+            "13-03-2023 02:23:53 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "HealthMailboxf82f0d9",
+            "local\\lpde4\\Microsoft Exchange System Objects\\Monitoring Mailboxes\\HealthMailboxf82f0d956a61479fa90afb7486790f7d\\",
+            "HealthMailboxf82f0d956a61479fa90afb7486790f7d@lpde4.local",
+            "Never",
+            "13-03-2023 02:24:14 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "James.Howlett",
+            "local\\lpde4\\US Office\\Users\\James Howlett\\",
+            "James.Howlett@lpde4.local",
+            "Never",
+            "15-02-2022 04:20:47 PM",
+            "N/A",
+            "870 Day(s)  17 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Joel.Miller",
+            "local\\lpde4\\UK Office\\Users\\Joel Miller\\",
+            "Joel.Miller@lpde4.local",
+            "Never",
+            "17-01-2023 01:38:28 PM",
+            "N/A",
+            "534 Day(s)  20 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Laszlo.Cravensworth",
+            "local\\lpde4\\UK Office\\Users\\Laszlo Cravensworth\\",
+            "Laszlo.Cravensworth@lpde4.local",
+            "Never",
+            "15-02-2022 11:07:04 PM",
+            "N/A",
+            "870 Day(s)  10 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Lee.Russell",
+            "local\\lpde4\\Asia Office\\Users\\Lee Russell\\",
+            "Lee.Russell@lpde4.local",
+            "Never",
+            "15-02-2022 04:26:09 PM",
+            "N/A",
+            "870 Day(s)  17 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Lou.Bloom",
+            "local\\lpde4\\US Office\\Users\\Lou Bloom\\",
+            "Lou.Bloom@lpde4.local",
+            "15-05-2023 12:17:01 PM",
+            "22-11-2022 10:21:09 AM",
+            "416 Day(s)  21 Hour(s)",
+            "590 Day(s)  23 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Mischievous.Megan",
+            "local\\lpde4\\AUS Office\\Users\\Mischievous Megan\\",
+            "N/A",
+            "15-05-2023 12:12:51 PM",
+            "11-05-2023 12:31:23 AM",
+            "416 Day(s)  21 Hour(s)",
+            "421 Day(s)  9 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Patrick.Bateman",
+            "local\\lpde4\\Asia Office\\Users\\Patrick Bateman\\",
+            "Patrick.Bateman@lpde4.local",
+            "28-02-2024 05:29:56 PM",
+            "15-02-2022 04:23:55 PM",
+            "127 Day(s)  16 Hour(s)",
+            "870 Day(s)  17 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Paul.Allen",
+            "local\\lpde4\\Asia Office\\Users\\Paul Allen\\",
+            "Paul.Allen@lpde4.local",
+            "27-09-2023 08:19:51 AM",
+            "15-02-2022 04:24:19 PM",
+            "282 Day(s)  1 Hour(s)",
+            "870 Day(s)  17 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Pete.Mitchell",
+            "local\\lpde4\\UK Office\\Users\\Pete Mitchell\\",
+            "Pete.Mitchell@lpde4.local",
+            "02-02-2024 02:04:20 PM",
+            "22-11-2022 10:18:03 AM",
+            "153 Day(s)  19 Hour(s)",
+            "590 Day(s)  23 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Randall.Raines",
+            "local\\lpde4\\UK Office\\Users\\Randall Raines\\",
+            "N/A",
+            "20-11-2023 08:30:51 PM",
+            "14-03-2023 11:49:14 PM",
+            "227 Day(s)  13 Hour(s)",
+            "478 Day(s)  9 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Rick.Deckard",
+            "local\\lpde4\\UK Office\\Users\\Rick Deckard\\",
+            "Rick.Deckard@lpde4.local",
+            "02-02-2024 02:01:01 PM",
+            "15-02-2022 03:59:13 PM",
+            "153 Day(s)  19 Hour(s)",
+            "870 Day(s)  17 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_11667164f765440da",
+            "local\\lpde4\\Users\\FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042\\",
+            "FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_134cd1568f7241e78",
+            "local\\lpde4\\Users\\SystemMailbox{1f05a927-c373-40ec-908f-1f4b3885fb6f}\\",
+            "SystemMailbox{1f05a927-c373-40ec-908f-1f4b3885fb6f}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_284e0c450a7c4788b",
+            "local\\lpde4\\Users\\Migration.8f3e7716-2011-43e4-96b1-aba62d229136\\",
+            "Migration.8f3e7716-2011-43e4-96b1-aba62d229136@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_2a39e7060bda41298",
+            "local\\lpde4\\Users\\SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}\\",
+            "SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_3e1c701631d949e3b",
+            "local\\lpde4\\Users\\SystemMailbox{8cc370d3-822a-4ab8-a926-bb94bd0641a9}\\",
+            "SystemMailbox{8cc370d3-822a-4ab8-a926-bb94bd0641a9}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_7717e4fb42274c1db",
+            "local\\lpde4\\Users\\SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}\\",
+            "SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_7e343a21e25f41309",
+            "local\\lpde4\\Users\\SystemMailbox{D0E409A0-AF9B-4720-92FE-AAC869B0D201}\\",
+            "SystemMailbox{D0E409A0-AF9B-4720-92FE-AAC869B0D201}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_c80e9caf9a0d42c98",
+            "local\\lpde4\\Users\\DiscoverySearchMailbox {D919BA05-46A6-415f-80AD-7E09334BB852}\\",
+            "DiscoverySearchMailbox{D919BA05-46A6-415f-80AD-7E09334BB852}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_d93ed787a92544b48",
+            "local\\lpde4\\Users\\SystemMailbox{2CE34405-31BE-455D-89D7-A7C7DA7A0DAA}\\",
+            "SystemMailbox{2CE34405-31BE-455D-89D7-A7C7DA7A0DAA}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Thomas.Anderson",
+            "local\\lpde4\\US Office\\Users\\Thomas Anderson\\",
+            "Thomas.Anderson@lpde4.local",
+            "13-12-2023 10:54:41 AM",
+            "15-02-2022 10:58:41 PM",
+            "204 Day(s)  22 Hour(s)",
+            "870 Day(s)  10 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Vincent.Vega",
+            "local\\lpde4\\AUS Office\\Users\\Vincent Vega\\",
+            "Vincent.Vega@lpde4.local",
+            "Never",
+            "23-03-2022 12:23:24 AM",
+            "N/A",
+            "835 Day(s)  9 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "krbtgt",
+            "local\\lpde4\\Users\\krbtgt\\",
+            "N/A",
+            "Never",
+            "15-02-2022 02:07:58 PM",
+            "N/A",
+            "870 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Randall.Raines",
+            "local\\lpde4\\UK Office\\Users\\Randall Raines\\",
+            "N/A",
+            "20-11-2023 08:30:51 PM",
+            "14-03-2023 11:49:14 PM",
+            "227 Day(s)  13 Hour(s)",
+            "478 Day(s)  9 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Rick.Deckard",
+            "local\\lpde4\\UK Office\\Users\\Rick Deckard\\",
+            "Rick.Deckard@lpde4.local",
+            "02-02-2024 02:01:01 PM",
+            "15-02-2022 03:59:13 PM",
+            "153 Day(s)  19 Hour(s)",
+            "870 Day(s)  17 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_11667164f765440da",
+            "local\\lpde4\\Users\\FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042\\",
+            "FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_134cd1568f7241e78",
+            "local\\lpde4\\Users\\SystemMailbox{1f05a927-c373-40ec-908f-1f4b3885fb6f}\\",
+            "SystemMailbox{1f05a927-c373-40ec-908f-1f4b3885fb6f}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_284e0c450a7c4788b",
+            "local\\lpde4\\Users\\Migration.8f3e7716-2011-43e4-96b1-aba62d229136\\",
+            "Migration.8f3e7716-2011-43e4-96b1-aba62d229136@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_2a39e7060bda41298",
+            "local\\lpde4\\Users\\SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}\\",
+            "SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_3e1c701631d949e3b",
+            "local\\lpde4\\Users\\SystemMailbox{8cc370d3-822a-4ab8-a926-bb94bd0641a9}\\",
+            "SystemMailbox{8cc370d3-822a-4ab8-a926-bb94bd0641a9}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_7717e4fb42274c1db",
+            "local\\lpde4\\Users\\SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}\\",
+            "SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_7e343a21e25f41309",
+            "local\\lpde4\\Users\\SystemMailbox{D0E409A0-AF9B-4720-92FE-AAC869B0D201}\\",
+            "SystemMailbox{D0E409A0-AF9B-4720-92FE-AAC869B0D201}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_c80e9caf9a0d42c98",
+            "local\\lpde4\\Users\\DiscoverySearchMailbox {D919BA05-46A6-415f-80AD-7E09334BB852}\\",
+            "DiscoverySearchMailbox{D919BA05-46A6-415f-80AD-7E09334BB852}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "SM_d93ed787a92544b48",
+            "local\\lpde4\\Users\\SystemMailbox{2CE34405-31BE-455D-89D7-A7C7DA7A0DAA}\\",
+            "SystemMailbox{2CE34405-31BE-455D-89D7-A7C7DA7A0DAA}@lpde4.local",
+            "Never",
+            "13-03-2023 01:48:59 PM",
+            "N/A",
+            "479 Day(s)  19 Hour(s)",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Thomas.Anderson",
+            "local\\lpde4\\US Office\\Users\\Thomas Anderson\\",
+            "Thomas.Anderson@lpde4.local",
+            "13-12-2023 10:54:41 AM",
+            "15-02-2022 10:58:41 PM",
+            "204 Day(s)  22 Hour(s)",
+            "870 Day(s)  10 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Vincent.Vega",
+            "local\\lpde4\\AUS Office\\Users\\Vincent Vega\\",
+            "Vincent.Vega@lpde4.local",
+            "Never",
+            "23-03-2022 12:23:24 AM",
+            "N/A",
+            "835 Day(s)  9 Hour(s)",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "krbtgt",
+            "local\\lpde4\\Users\\krbtgt\\",
+            "N/A",
+            "Never",
+            "15-02-2022 02:07:58 PM",
+            "N/A",
+            "870 Day(s)  19 Hour(s)",
+            "Disabled"
+          ]
+        ]
+      },
+      "activity-outside-of-business-hours": {
+        "columns": [
+          "Component Name",
+          "Server Name",
+          "Object Path",
+          "Object Type",
+          "Who",
+          "When",
+          "Operation",
+          "What",
+          "Where"
+        ],
+        "filterFields": [
+          "Component Name",
+          "Server Name",
+          "Object Path",
+          "Object Type",
+          "Who",
+          "Operation",
+          "Where"
+        ],
+        "defaultFilter": "Hours : [Not Between []]",
+        "dateRange": "Jun 01, 2024 - Jul 03, 2024",
+        "total": 179,
+        "rows": [
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "11/03/2025 20:04",
+            "Logoff",
+            "DMD01",
+            "DMD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details - Jul.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details - Jul.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details - Jan.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details - Jan.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details - Feb.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details - Feb.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details - Dec.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details - Dec.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details - Aug.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details - Aug.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details - Apr.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details - Apr.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details - Jun.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details - Jun.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details - Mar.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details - Mar.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details - May.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details - May.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details - Nov.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details - Nov.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details - Oct.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details - Oct.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details - Sep.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details - Sep.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details 2022-2023.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details 2022-2023.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "File Server",
+            "DCD01",
+            "C:\\Company Share\\Legal\\Court details 2021-2022.txt",
+            "File",
+            "LPDE4\\Developer-Ext",
+            "19/02/2025 23:13",
+            "File Deleted",
+            "DEZ-LEP-C:\\Company Share\\Legal\\Court details 2021-2022.txt-LEP--LEP-(null)",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "05/11/2024 21:23",
+            "Logoff",
+            "DMD01",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\justin.hammer",
+            "16/04/2024 23:24",
+            "Logoff",
+            "ROGSTRIX-SCAR",
+            "RECEPTION-PC"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\justin.hammer",
+            "16/04/2024 23:02",
+            "Interactive Logon",
+            "ROGSTRIX-SCAR",
+            "RECEPTION-PC"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "LPDE4\\Kelly.Maxwell",
+            "User",
+            "LPDE4\\Neal.Gamby",
+            "16/04/2024 22:22",
+            "Password Reset Attempted",
+            "Password Reset Attempted",
+            "N/A"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "16/04/2024 22:21",
+            "Interactive Logon",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "neal.gamby",
+            "16/04/2024 22:21",
+            "Remote Interactive",
+            "192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "neal.gamby",
+            "16/04/2024 22:21",
+            "Remote Interactive",
+            "192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "kelly.maxwell@lpde4.local",
+            "16/04/2024 22:20",
+            "Login Attempt Failed",
+            "expired password",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "kelly.maxwell",
+            "16/04/2024 22:20",
+            "Login Attempt Failed",
+            "expired password",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "kelly.maxwell",
+            "16/04/2024 22:20",
+            "Login Attempt Failed",
+            "expired password",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "kelly.maxwell",
+            "16/04/2024 22:20",
+            "Login Attempt Failed",
+            "expired password",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "kelly.maxwell",
+            "16/04/2024 22:20",
+            "Login Attempt Failed",
+            "expired password",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "16/04/2024 22:11",
+            "Interactive Logon",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "16/04/2024 21:48",
+            "Logoff",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "16/04/2024 00:03",
+            "Logoff",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "16/04/2024 00:03",
+            "Logoff",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "LPDE4\\Kelly.Maxwell",
+            "15/04/2024 23:55",
+            "Login Attempt Failed",
+            "The user’s password has expired.",
+            "192.168.1.15"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "LPDE4\\Kelly.Maxwell",
+            "15/04/2024 23:55",
+            "Login Attempt Failed",
+            "The user’s password has expired.",
+            "192.168.1.15"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "neal.gamby",
+            "15/04/2024 22:45",
+            "Unlock Computer",
+            "192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "neal.gamby",
+            "15/04/2024 22:45",
+            "Unlock Computer",
+            "192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "ransom.randy",
+            "15/04/2024 22:44",
+            "Login Attempt Failed",
+            "user name does not exist",
+            "ROGSTRIX-SCAR"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "15/04/2024 22:40",
+            "Interactive Logon",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "neal.gamby",
+            "15/04/2024 22:40",
+            "Remote Interactive",
+            "192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "neal.gamby",
+            "15/04/2024 22:40",
+            "Remote Interactive",
+            "192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "15/04/2024 21:37",
+            "Interactive Logon",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "marty.byrde",
+            "15/04/2024 21:32",
+            "User initiated logoff",
+            "DCD01",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Asia Office\\Users\\Developer-Ext",
+            "User",
+            "LPDE4\\Marty.Byrde",
+            "15/04/2024 21:32",
+            "Properties Modified",
+            "Properties Modified : [User-Account-Control] Modified : From: Password Never Expired. To: Password Never Expired. Account is disable.",
+            "dcd01.lpde4.local"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "LPDE4\\Developer-Ext",
+            "User",
+            "LPDE4\\marty.byrde",
+            "15/04/2024 21:32",
+            "Disabled",
+            "Disabled",
+            "N/A"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Builtin\\Remote Desktop Users",
+            "Group",
+            "LPDE4\\Marty.Byrde",
+            "15/04/2024 21:32",
+            "Members Removed",
+            "\"Members Removed : CN=Developer-Ext",
+            "OU=Users"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Builtin\\Administrators",
+            "Group",
+            "LPDE4\\Marty.Byrde",
+            "15/04/2024 21:32",
+            "Members Removed",
+            "\"Members Removed : CN=Developer-Ext",
+            "OU=Users"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Builtin\\Administrators",
+            "Group",
+            "LPDE4\\Marty.Byrde",
+            "15/04/2024 21:25",
+            "Members Added",
+            "\"Members Added : CN=Developer-Ext",
+            "OU=Users"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Builtin\\Remote Desktop Users",
+            "Group",
+            "LPDE4\\Marty.Byrde",
+            "15/04/2024 21:25",
+            "Members Added",
+            "\"Members Added : CN=Developer-Ext",
+            "OU=Users"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "LPDE4\\Developer-Ext",
+            "User",
+            "LPDE4\\Marty.Byrde",
+            "15/04/2024 21:25",
+            "Password Reset Attempted",
+            "Password Reset Attempted",
+            "N/A"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Asia Office\\Users\\Developer-Ext",
+            "User",
+            "LPDE4\\Marty.Byrde",
+            "15/04/2024 21:25",
+            "Properties Modified",
+            "Properties Modified : [User-Account-Control] Modified : From: Password Never Expired. Account is disable. To: Password Never Expired.",
+            "dcd01.lpde4.local"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "LPDE4\\Developer-Ext",
+            "User",
+            "LPDE4\\marty.byrde",
+            "15/04/2024 21:24",
+            "Enabled",
+            "Enabled",
+            "N/A"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "marty.byrde",
+            "15/04/2024 21:23",
+            "Remote Interactive",
+            "192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "marty.byrde",
+            "15/04/2024 21:23",
+            "Remote Interactive",
+            "192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "LPDE4\\Kelly.Maxwell",
+            "15/04/2024 21:17",
+            "Login Attempt Failed",
+            "The user’s password has expired.",
+            "192.168.1.15"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "LPDE4\\Kelly.Maxwell",
+            "15/04/2024 21:17",
+            "Login Attempt Failed",
+            "The user’s password has expired.",
+            "192.168.1.15"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "15/04/2024 21:15",
+            "Logoff",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "15/04/2024 20:59",
+            "Logoff",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "neal.gamby",
+            "15/04/2024 20:59",
+            "User initiated logoff",
+            "DCD01",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "15/04/2024 20:58",
+            "Session Unlocked",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "neal.gamby",
+            "15/04/2024 20:58",
+            "Unlock Computer",
+            "192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "neal.gamby",
+            "15/04/2024 20:58",
+            "Unlock Computer",
+            "192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "15/04/2024 20:58",
+            "Connected to the Remote Terminal or Remote Desktop",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "15/04/2024 20:58",
+            "Disconnected to the Remote Terminal or Remote Desktop",
+            "ROGSTRIX-SCAR",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "15/04/2024 20:58",
+            "Session Locked",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "26/03/2024 21:28",
+            "Logoff",
+            "DMD01",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "26/03/2024 21:28",
+            "Disconnected to the Remote Terminal or Remote Desktop",
+            "ROGSTRIX-SCAR",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "26/03/2024 21:28",
+            "Session Locked",
+            "ROGSTRIX-SCAR",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "20/03/2024 01:27",
+            "Logoff",
+            "DMD01",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Asia Office\\Users\\Developer-Ext",
+            "User",
+            "LPDE4\\Marty.Byrde",
+            "20/03/2024 01:26",
+            "Properties Modified",
+            "Properties Modified : [User-Account-Control] Modified : From: Password Never Expired. To: Password Never Expired. Account is disable.",
+            "dcd01.lpde4.local"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "LPDE4\\Developer-Ext",
+            "User",
+            "LPDE4\\marty.byrde",
+            "20/03/2024 01:26",
+            "Disabled",
+            "Disabled",
+            "N/A"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "20/03/2024 01:23",
+            "Disconnected to the Remote Terminal or Remote Desktop",
+            "ROGSTRIX-SCAR",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "20/03/2024 01:23",
+            "Session Locked",
+            "ROGSTRIX-SCAR",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Builtin\\Administrators",
+            "Group",
+            "LPDE4\\Marty.Byrde",
+            "20/03/2024 01:23",
+            "Members Removed",
+            "\"Members Removed : CN=Developer-Ext",
+            "OU=Users"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Builtin\\Remote Desktop Users",
+            "Group",
+            "LPDE4\\Marty.Byrde",
+            "20/03/2024 01:23",
+            "Members Removed",
+            "\"Members Removed : CN=Developer-Ext",
+            "OU=Users"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Builtin\\Remote Desktop Users",
+            "Group",
+            "LPDE4\\Marty.Byrde",
+            "20/03/2024 01:20",
+            "Members Added",
+            "\"Members Added : CN=Developer-Ext",
+            "OU=Users"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Builtin\\Administrators",
+            "Group",
+            "LPDE4\\Marty.Byrde",
+            "20/03/2024 01:20",
+            "Members Added",
+            "\"Members Added : CN=Developer-Ext",
+            "OU=Users"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "LPDE4\\Developer-Ext",
+            "User",
+            "LPDE4\\Marty.Byrde",
+            "20/03/2024 01:19",
+            "Password Reset Attempted",
+            "Password Reset Attempted",
+            "N/A"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Asia Office\\Users\\Developer-Ext",
+            "User",
+            "LPDE4\\Marty.Byrde",
+            "20/03/2024 01:19",
+            "Properties Modified",
+            "Properties Modified : [User-Account-Control] Modified : From: Password Never Expired. Account is disable. To: Password Never Expired.",
+            "dcd01.lpde4.local"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "LPDE4\\Developer-Ext",
+            "User",
+            "LPDE4\\marty.byrde",
+            "20/03/2024 01:19",
+            "Enabled",
+            "Enabled",
+            "N/A"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "marty.byrde",
+            "20/03/2024 01:19",
+            "Remote Interactive",
+            "192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "marty.byrde",
+            "20/03/2024 01:19",
+            "Remote Interactive",
+            "192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "neal.gamby",
+            "20/03/2024 01:18",
+            "User initiated logoff",
+            "DCD01",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "20/03/2024 01:18",
+            "Logoff",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "LPDE4\\Kelly.Maxwell",
+            "20/03/2024 01:17",
+            "Login Attempt Failed",
+            "The user’s password has expired.",
+            "192.168.1.15"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "LPDE4\\Kelly.Maxwell",
+            "20/03/2024 01:17",
+            "Login Attempt Failed",
+            "The user’s password has expired.",
+            "192.168.1.15"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "20/03/2024 00:58",
+            "Logoff",
+            "ROGSTRIX-SCAR",
+            "RECEPTION-PC"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "19/03/2024 23:45",
+            "Interactive Logon",
+            "ROGSTRIX-SCAR",
+            "RECEPTION-PC"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "LPDE4\\Kelly.Maxwell",
+            "19/03/2024 23:44",
+            "Login Attempt Failed",
+            "The user’s password has expired.",
+            "192.168.1.15"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "LPDE4\\Kelly.Maxwell",
+            "19/03/2024 23:44",
+            "Login Attempt Failed",
+            "The user’s password has expired.",
+            "192.168.1.15"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "19/03/2024 23:35",
+            "Interactive Logon",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "19/03/2024 23:33",
+            "Logoff",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "19/03/2024 22:18",
+            "Interactive Logon",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "19/03/2024 22:18",
+            "Interactive Logon",
+            "ROGSTRIX-SCAR - 192.168.13.1",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "03/03/2024 21:15",
+            "Session Locked",
+            "DCD01",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "03/03/2024 20:51",
+            "Interactive Logon",
+            "DCD01",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Builtin\\Administrators",
+            "Group",
+            "LPDE4\\Marty.Byrde",
+            "03/03/2024 20:43",
+            "Members Added",
+            "\"Members Added : CN=Justin Hammer",
+            "OU=Users"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "\\local\\lpde4\\Builtin\\Administrators",
+            "Group",
+            "LPDE4\\Marty.Byrde",
+            "03/03/2024 20:43",
+            "Members Removed",
+            "\"Members Removed : CN=Joel Miller",
+            "OU=Users"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "marty.byrde",
+            "03/03/2024 20:38",
+            "Interactive Logon",
+            "127.0.0.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "marty.byrde",
+            "03/03/2024 20:38",
+            "Interactive Logon",
+            "127.0.0.1",
+            "DCD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "03/03/2024 20:12",
+            "Interactive Logon",
+            "DMD01",
+            "DMD01"
+          ],
+          [
+            "Active Directory",
+            "lpde4.local",
+            "N/A",
+            "User",
+            "lpde4\\neal.gamby",
+            "03/03/2024 20:11",
+            "Logoff",
+            "DMD01",
+            "DMD01"
+          ]
+        ]
+      },
+      "all-permission-changes": {
+        "columns": [
+          "When",
+          "Server Name",
+          "Who",
+          "Object Name",
+          "Object Path",
+          "Operation",
+          "Process Name",
+          "From",
+          "What"
+        ],
+        "filterFields": [
+          "Who",
+          "Object Name",
+          "Object Path",
+          "Operation",
+          "Process Name"
+        ],
+        "defaultFilter": "Server Name : [Equals [All]]",
+        "dateRange": "Mar 26, 2024 - Mar 26, 2024",
+        "total": 23,
+        "rows": [
+          [
+            "31/10/2024 03:48:30 PM",
+            "DCD01",
+            "LPDE4\\Marty.Byrde",
+            "Design and contact.docx",
+            "C:\\Company Share\\Education\\Coursework\\Designs",
+            "File Security Changed (Permissions)",
+            "explorer.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Denied Object Name: NT AUTHORITY\\SYSTEM Permissions: Full Control Inherited: Not Inherited Applies To: This folder only Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Administrator Permissions: Full Control Inherited: Inherited Applies To: This folder only"
+          ],
+          [
+            "31/10/2024 01:14:30 PM",
+            "DCD01",
+            "LPDE4\\Marty.Byrde",
+            "Beliefs.docx",
+            "C:\\Company Share\\Education\\Students",
+            "File Security Changed (Permissions)",
+            "explorer.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Denied Object Name: LPDE4\\Ethan.Hunt Permissions: Full Control Inherited: Not Inherited Applies To: This folder only Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Administrator Permissions: Full Control Inherited: Inherited Applies To: This folder only"
+          ],
+          [
+            "31/10/2024 01:05:30 PM",
+            "DCD01",
+            "LPDE4\\Marty.Byrde",
+            "IP list.txt",
+            "C:\\Company Share\\Education\\Coursework\\Designs",
+            "File Security Changed (Permissions)",
+            "explorer.exe",
+            "DCD01",
+            "Folder Security Change (Permissions):- Access permission(s) added with following details: Access Type: Access Allowed Object Name: LPDE4\\Ethan.Hunt Permissions: List Directory"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\Marty.Byrde",
+            "Employee Records",
+            "C:\\Company Share",
+            "Folder Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "Folder Security Change (Permissions):- Access permission(s) added with following details: Access Type: Access Allowed Object Name: LPDE4\\Ethan.Hunt Permissions: List Directory"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\Marty.Byrde",
+            "Company details - final version.xlsx",
+            "C:\\Company Share",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\Marty.Byrde",
+            "Comments for trial.txt",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Private",
+            "C:\\Company Share\\Government",
+            "Folder Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "Folder Security Change (Permissions):- Access permission(s) added with following details: Access Type: Access Allowed Object Name: LPDE4\\Ethan.Hunt Permissions: List Directory"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Andrew - profile.bmp",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Ash - Profile.bmp",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "Folder Security Change (Permissions):- Access permission(s) added with following details: Access Type: Access Allowed Object Name: LPDE4\\Ethan.Hunt Permissions: List Directory"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Client portfolio.pptx",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Confidential - Pete.pdf",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Customer contact info - East.xlsx",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Customer list - FINAL.pptx",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Employee list - 2023.docx",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Expenses form.xlsx",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Investments projection.pptx",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Kelly - Profile.bmp",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Legal notes.txt",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Meeting notes - Presentation.txt",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Passport copies.pdf",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Payroll login.txt",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "PDD - Land boundaries.pdf",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ],
+          [
+            "26/07/2024 04:57:30 PM",
+            "DCD01",
+            "LPDE4\\neal.gamby",
+            "Property plans.pptx",
+            "C:\\Company Share\\Government\\Private",
+            "File Security Changed (Permissions)",
+            "mmc.exe",
+            "DCD01",
+            "File Security Change (Permissions):- Access permission(s) added user with following details: Access Type: Access Allowed Object Name: LPDE4\\Justin.Hammer Permissions: Read Data"
+          ]
+        ]
+      },
+      "all-shares": {
+        "columns": [
+          "File Server(s)",
+          "Share Folder",
+          "Path",
+          "Owner",
+          "Scan Date Time"
+        ],
+        "filterFields": [
+          "Share Type",
+          "Owner"
+        ],
+        "defaultFilter": "File Server(s) : [Equals [All]]",
+        "dateRange": null,
+        "total": 4,
+        "rows": [
+          [
+            "192.168.13.146",
+            "Stress testing",
+            "C:\\Stress testing",
+            "BUILTIN\\Administrators",
+            "28/04/2024 15:38"
+          ],
+          [
+            "192.168.1.10",
+            "Company Share",
+            "C:\\Company Share",
+            "LPDE4\\Neal.Gamby",
+            "20/04/2024 13:23"
+          ],
+          [
+            "192.168.1.15",
+            "Development",
+            "D:\\Development",
+            "LPDE4\\Justin.Hammer",
+            "20/04/2024 13:23"
+          ],
+          [
+            "192.168.1.50",
+            "IT Archive",
+            "E:\\IT Archive",
+            "LPDE4\\Roy.Petty",
+            "20/04/2024 13:23"
+          ]
+        ]
+      },
+      "anomaly-analysis": {
+        "columns": [],
+        "filterFields": [],
+        "defaultFilter": "Component Name : [Equals[All]]",
+        "dateRange": "Apr 01, 2024 - Apr 30, 2024",
+        "total": 0,
+        "rows": []
+      },
+      "copilot-access": {
+        "columns": [
+          "User Name",
+          "Email ID",
+          "License Type",
+          "License Granted On",
+          "Last Accessed On",
+          "Accessed Count",
+          "Tenant Name"
+        ],
+        "filterFields": [
+          "User Name",
+          "Email ID",
+          "License Type"
+        ],
+        "defaultFilter": "Tenant Name : [Equals [All]] AND Accessed Count in Days : [Equals [30]]",
+        "dateRange": null,
+        "total": 6,
+        "rows": [
+          [
+            "Alex",
+            "Alex@LepideCorp1.onmicrosoft.com",
+            "Microsoft_Copilot_for_Service",
+            "18-03-2025 12:05",
+            "26-03-2025 12:05",
+            "15",
+            "LepideAI.onmicrosoft.com"
+          ],
+          [
+            "neal gamby",
+            "Neal Gamby@LepideCorp1.onmicrosoft.com",
+            "Microsoft_Copilot_for_Service",
+            "20-02-2025 11:11",
+            "26-03-2025 12:05",
+            "25",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Marty Byrad",
+            "Marty@LepideCorp1.onmicrosoft.com",
+            "Microsoft_Copilot_for_Sales",
+            "30-01-2025 12:58",
+            "26-03-2025 12:05",
+            "12",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Roy Petty",
+            "Roy@LepideAI.onmicrosoft.com",
+            "Microsoft_365_Copilot",
+            "27-01-2025 12:54",
+            "26-03-2025 12:05",
+            "0",
+            "LepideAI.onmicrosoft.com"
+          ],
+          [
+            "John",
+            "John@LepideCorp1.onmicrosoft.com",
+            "Microsoft_365_Copilot",
+            "10-12-2024 10:16",
+            "26-03-2025 12:05",
+            "109",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Martin",
+            "Martin@LepideCorp1.onmicrosoft.com",
+            "Microsoft_365_Copilot",
+            "09-07-2024 14:08",
+            "26-03-2025 12:05",
+            "0",
+            "LepideSoftware.onmicrosoft.com"
+          ]
+        ]
+      },
+      "copilot-access-changed": {
+        "columns": [
+          "User Name",
+          "Email ID",
+          "Current License Type",
+          "Pervious License Type",
+          "License Chnaged On",
+          "Last Accessed On",
+          "Accessed Count",
+          "Tenant Name"
+        ],
+        "filterFields": [
+          "User Name",
+          "Email ID",
+          "Current License Type",
+          "Pervious License Type"
+        ],
+        "defaultFilter": "Tenant Name : [Equals [All]] AND Accessed Count in Days : [Equals [30]]",
+        "dateRange": "Jun 01, 2024 - Jul 03, 2024",
+        "total": 5,
+        "rows": [
+          [
+            "Jhon",
+            "Jhon@LepideAI.onmicrosoft.com",
+            "No License",
+            "No License",
+            "18-03-2025 12:05",
+            "N/A",
+            "0",
+            "LepideAI.onmicrosoft.com"
+          ],
+          [
+            "Alex",
+            "Alex@LepideCorp1.onmicrosoft.com",
+            "Microsoft_Copilot_for_Service",
+            "Microsoft_365_Copilot",
+            "07-03-2025 17:21",
+            "N/A",
+            "0",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "neal gamby",
+            "Neal Gamby@LepideCorp1.onmicrosoft.com",
+            "Microsoft_Copilot_for_Service",
+            "Microsoft_Copilot_for_Service",
+            "07-03-2025 17:17",
+            "N/A",
+            "0",
+            "LepideAI.onmicrosoft.com"
+          ],
+          [
+            "Marty Byrad",
+            "Marty@LepideCorp1.onmicrosoft.com",
+            "Microsoft_Copilot_for_Service",
+            "Microsoft_Copilot_for_Service",
+            "05-03-2025 13:19",
+            "N/A",
+            "0",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Jhon",
+            "jhon@LepideAI.onmicrosoft.com",
+            "No License",
+            "No License",
+            "28-02-2025 15:15",
+            "N/A",
+            "0",
+            "LepideAI.onmicrosoft.com"
+          ]
+        ]
+      },
+      "copilot-high-risk-searches": {
+        "columns": [
+          "User Name",
+          "Email ID",
+          "Search Query",
+          "Department",
+          "Manager",
+          "When",
+          "From",
+          "Tenant Name"
+        ],
+        "filterFields": [
+          "User Name",
+          "Email ID",
+          "Search Query",
+          "Department",
+          "Manager"
+        ],
+        "defaultFilter": "Tenant Name : [Equals [All]]",
+        "dateRange": "Jun 01, 2024 - Jul 03, 2024",
+        "total": 28,
+        "rows": [
+          [
+            "Alex",
+            "Alex@LepideCorp1.onmicrosoft.com",
+            "What are the recent legal norms signed?",
+            "Development",
+            "leo",
+            "18-03-2025 15:11",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Alex",
+            "Alex@LepideCorp1.onmicrosoft.com",
+            "changes done in accounts for this year.",
+            "Development",
+            "leo",
+            "18-03-2025 13:55",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Alex",
+            "Alex@LepideCorp1.onmicrosoft.com",
+            "Who are the stakeholders involved for Infra budget for IT",
+            "Development",
+            "leo",
+            "18-03-2025 13:55",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Alex",
+            "Alex@LepideCorp1.onmicrosoft.com",
+            "What are the client's main concerns or requirements?",
+            "Development",
+            "leo",
+            "18-03-2025 13:54",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Neal Gamby",
+            "Neal Gamby@LepideCorp1.onmicrosoft.com",
+            "Is there some data around finance for managers?",
+            "Finance",
+            "David",
+            "18-03-2025 13:53",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Neal Gamby",
+            "Neal Gamby@LepideCorp1.onmicrosoft.com",
+            "Is there some data around finance for managers?",
+            "Finance",
+            "David",
+            "18-03-2025 13:53",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Neal Gamby",
+            "Neal Gamby@LepideCorp1.onmicrosoft.com",
+            "Is there some data around finance for managers?",
+            "Finance",
+            "David",
+            "18-03-2025 13:52",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Neal Gamby",
+            "Neal Gamby@LepideCorp1.onmicrosoft.com",
+            "What are the key financial risks and opportunities?",
+            "Finance",
+            "David",
+            "18-03-2025 13:12",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Neal Gamby",
+            "Neal Gamby@LepideCorp1.onmicrosoft.com",
+            "What are the long-term goals of the organization?",
+            "Finance",
+            "David",
+            "18-03-2025 13:12",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Neal Gamby",
+            "Neal Gamby@LepideCorp1.onmicrosoft.com",
+            "New marketing scheme which will come out in this year",
+            "Finance",
+            "David",
+            "18-03-2025 13:11",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Neal Gamby",
+            "Neal Gamby@LepideCorp1.onmicrosoft.com",
+            "HR changes done in last month.",
+            "Finance",
+            "David",
+            "18-03-2025 13:06",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Alex",
+            "Alex@LepideCorp1.onmicrosoft.com",
+            "What is the timeline for the marketing activities?",
+            "Development",
+            "leo",
+            "18-03-2025 13:05",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Alex",
+            "Alex@LepideCorp1.onmicrosoft.com",
+            "What are the current staffing levels and any gaps?",
+            "Development",
+            "leo",
+            "18-03-2025 13:05",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Alex",
+            "Alex@LepideCorp1.onmicrosoft.com",
+            "how many documents are there which are yet to be verified?",
+            "Development",
+            "leo",
+            "18-03-2025 10:30",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Marty Byrad",
+            "Marty@LepideCorp1.onmicrosoft.com",
+            "Terms aligned to CCPA compliance.",
+            "Finance",
+            "David",
+            "18-03-2025 10:18",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Marty Byrad",
+            "Marty@LepideCorp1.onmicrosoft.com",
+            "How do you position your product in the market?",
+            "Finance",
+            "David",
+            "18-03-2025 10:18",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Marty Byrad",
+            "Marty@LepideCorp1.onmicrosoft.com",
+            "What are the current R&D projects and their statuses?",
+            "Finance",
+            "David",
+            "18-03-2025 10:18",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Marty Byrad",
+            "Marty@LepideCorp1.onmicrosoft.com",
+            "What innovations or improvements are being explored?",
+            "Finance",
+            "David",
+            "17-03-2025 16:03",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Marty Byrad",
+            "Marty@LepideCorp1.onmicrosoft.com",
+            "What are the benefits of using a CRM system in sales?",
+            "Finance",
+            "David",
+            "15-03-2025 15:51",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Marty Byrad",
+            "Marty@LepideCorp1.onmicrosoft.com",
+            "What are some effective techniques for upselling and cross-selling?",
+            "Finance",
+            "David",
+            "15-03-2025 15:51",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Marty Byrad",
+            "Marty@LepideCorp1.onmicrosoft.com",
+            "what are the sites and shares which are open to access.",
+            "Finance",
+            "David",
+            "15-03-2025 15:50",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Marty Byrad",
+            "Marty@LepideCorp1.onmicrosoft.com",
+            "What are the current sales figures and trends?",
+            "Finance",
+            "David",
+            "15-03-2025 15:50",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Alex",
+            "Alex@lepidesoftware.org",
+            "Which products or services are performing best?",
+            "Development",
+            "leo",
+            "11-03-2025 14:59",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Alex",
+            "Alex@lepidesoftware.org",
+            "What are the sales targets for the next quarter?",
+            "Development",
+            "leo",
+            "11-03-2025 14:59",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Alex",
+            "Alex@lepidesoftware.org",
+            "What are the key components of a successful marketing strategy?",
+            "Development",
+            "leo",
+            "11-03-2025 12:40",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Alex",
+            "Alex@lepidesoftware.org",
+            "How does the current financial performance compare to the budget?",
+            "Development",
+            "leo",
+            "11-03-2025 12:39",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Neal Gamby",
+            "Neal Gamby@LepideCorp1.onmicrosoft.com",
+            "How do you personalize your marketing efforts?",
+            "Finance",
+            "David",
+            "11-03-2025 12:39",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "Neal Gamby",
+            "Neal Gamby@LepideCorp1.onmicrosoft.com",
+            "What channels will be used for distribution?",
+            "Finance",
+            "David",
+            "11-03-2025 12:19",
+            "US",
+            "LepideCorp1.onmicrosoft.com"
+          ]
+        ]
+      },
+      "copilot-inactive-users-with-copilot-access": {
+        "columns": [
+          "User Name",
+          "Email ID",
+          "Last Copilot Access",
+          "Last Logon Time",
+          "Inactivity Time",
+          "Account Age",
+          "Tenant Name"
+        ],
+        "filterFields": [
+          "User Name",
+          "Email ID"
+        ],
+        "defaultFilter": "Tenant Name : [Equals [All]] AND Accessed Count in Days : [Equals [30]]",
+        "dateRange": null,
+        "total": 4,
+        "rows": [
+          [
+            "Ash willams",
+            "Ash@LepideCorp1.onmicrosoft.com",
+            "N/A",
+            "Never",
+            "N/A",
+            "1 Years; 236 Days; 15 Hours",
+            "LepideCorp1.onmicrosoft.com"
+          ],
+          [
+            "hank shrader",
+            "hank@LepideCorp1.onmicrosoft.com",
+            "N/A",
+            "Never",
+            "N/A",
+            "1 Years; 128 Days; 18 Hours",
+            "LepideAI.onmicrosoft.com"
+          ],
+          [
+            "joel miller",
+            "joel@LepideCorp1.onmicrosoft.com",
+            "N/A",
+            "Never",
+            "N/A",
+            "1 Years; 128 Days; 19 Hours",
+            "LepideAI.onmicrosoft.com"
+          ],
+          [
+            "paul allel",
+            "paul@LepideCorp1.onmicrosoft.com",
+            "N/A",
+            "Never",
+            "N/A",
+            "1 Years; 112 Days; 08 Hours",
+            "LepideAI.onmicrosoft.com"
+          ]
+        ]
+      },
+      "excessive-permissions-by-object": {
+        "columns": [],
+        "filterFields": [
+          "Directory"
+        ],
+        "defaultFilter": "Component Name : [Equals [All]] AND Days : [Equals [30]]",
+        "dateRange": null,
+        "total": 0,
+        "rows": []
+      },
+      "excessive-permissions-by-user": {
+        "columns": [],
+        "filterFields": [
+          "User"
+        ],
+        "defaultFilter": "Component Name : [Equals[All]] AND Days : [Equals[30]]",
+        "dateRange": null,
+        "total": 0,
+        "rows": []
+      },
+      "external-data-sharing-o365": {
+        "columns": [
+          "Component Name",
+          "Server Name",
+          "Object Path",
+          "Content Type",
+          "Compliance",
+          "Risk Level",
+          "Monetary Value",
+          "Shared With",
+          "Shared by",
+          "When",
+          "Where"
+        ],
+        "filterFields": [
+          "Component Name",
+          "Server Name",
+          "Object Path",
+          "Content Type",
+          "Compliance",
+          "Risk Level",
+          "Monetary Value",
+          "Shared With",
+          "Shared by"
+        ],
+        "defaultFilter": "",
+        "dateRange": "Jun 01, 2024 - Jul 03, 2024",
+        "total": 44,
+        "rows": [
+          [
+            "Microsoft Teams",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/LepideSoftware/Shared Documents/SampleTeams/List All Group Members (3-8-2023 5-24-22-463 PM).pdf.zip",
+            "",
+            "",
+            "",
+            "",
+            "syedlepide@gmail.com",
+            "syedlepide@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/Customer_Feedback/Shared Documents/Client portfolio.pptx",
+            "",
+            "",
+            "",
+            "",
+            "chris_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/Customer_Feedback/Shared Documents/Client portfolio.pptx",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/Customer_Feedback/Shared Documents/Confidential.pdf",
+            "",
+            "",
+            "",
+            "",
+            "chris_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/Customer_Feedback/Shared Documents/Confidential.pdf",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/Customer_Feedback/Shared Documents/Customer contact info.xlsx",
+            "",
+            "",
+            "",
+            "",
+            "chris_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/Customer_Feedback/Shared Documents/Customer contact info.xlsx",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/Customer_Feedback/Shared Documents/Customer list.pptx",
+            "",
+            "",
+            "",
+            "",
+            "chris_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/Customer_Feedback/Shared Documents/RXV.pdf",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/FinanceDepartment/Shared Documents/Current Transactions/Financial Transactions_October2020.csv",
+            "",
+            "",
+            "",
+            "",
+            "dan.goater@lepide.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "180.151.74.13"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/FinanceDepartment/Shared Documents/Current Transactions/Financial Transactions_October2020.csv",
+            "",
+            "",
+            "",
+            "",
+            "jason@lepides1.onmicrosoft.com",
+            "jason@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "125.63.100.66"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/HRDepartment/Shared Documents/EmployeeDetails/CIN_Details.txt",
+            "",
+            "",
+            "",
+            "",
+            "jack@lepides1.onmicrosoft.com",
+            "jason@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/HRDepartment/Shared Documents/EmployeeDetails/CPF Details.mht",
+            "",
+            "",
+            "",
+            "",
+            "charles@lepide8.onmicrosoft.com",
+            "jason@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/HRDepartment/Shared Documents/Performance Analysis for November",
+            "",
+            "",
+            "",
+            "",
+            "chris@adminlep.onmicrosoft.com",
+            "jason@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/HRDepartment304/Shared Documents/Employee Details/Medicare Number.txt",
+            "",
+            "",
+            "",
+            "",
+            "david@lepide.com",
+            "jason@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/HRDepartment304/Shared Documents/Employee Details/Medicare Number.txt",
+            "",
+            "",
+            "",
+            "",
+            "edward@lepide.in.com",
+            "jason@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/HRDepartment304/Shared Documents/Employee Details/Medicare Number.txt",
+            "",
+            "",
+            "",
+            "",
+            "jack@testmail.com",
+            "jason@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/MarketingStrategy/Shared Documents/General/Company Details.xlsx",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/MarketingStrategy/Shared Documents/General/Confidential.pdf",
+            "",
+            "",
+            "",
+            "",
+            "chris_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/MarketingStrategy/Shared Documents/General/Customer Info.docx",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/MarketingStrategy/Shared Documents/General/Employee list.docx",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/MarketingStrategy/Shared Documents/General/Patients ID.xlsx",
+            "",
+            "",
+            "",
+            "",
+            "chris_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/MarketingStrategy/Shared Documents/General/Staff contact info.docx",
+            "",
+            "",
+            "",
+            "",
+            "chris_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/SyedLepide/Shared Documents/Excessive by Users.csv",
+            "",
+            "",
+            "",
+            "",
+            "syedlepide@gmail.com",
+            "syedlepide@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "180.151.74.13"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/SyedLepide/Shared Documents/Excessive by Users.csv",
+            "",
+            "",
+            "",
+            "",
+            "waquarh8@gmail.com",
+            "syedlepide@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "115.241.18.194"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/SyedLepide/Shared Documents/Test",
+            "",
+            "",
+            "",
+            "",
+            "syedlepide@gmail.com",
+            "syedlepide@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "180.151.74.13"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/TLSOFT/Shared Documents/Intel/Logs/IntelChipset.log",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/TLSOFT/Shared Documents/Intel/Logs/IntelCPHS.log",
+            "",
+            "",
+            "",
+            "",
+            "chris_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/TLSOFT/Shared Documents/Intel/Logs/IntelGFX.log",
+            "",
+            "",
+            "",
+            "",
+            "chris_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/TLSOFT/Shared Documents/Intel/Logs/IntelGFXCoin.log",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/TLSOFT/Shared Documents/Intel/Logs/IntelICCS.log",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/TLSOFTONE/Shared Documents/General/1111111.txt",
+            "",
+            "",
+            "",
+            "",
+            "chris_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/TLSOFTONE/Shared Documents/General/1111111.txt",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/TLSOFTONE/Shared Documents/General/Graph.txt",
+            "",
+            "",
+            "",
+            "",
+            "chris_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "SharePoint Online",
+            "https://lepidesoftware-admin.sharepoint.com",
+            "https://lepidesoftware.sharepoint.com/sites/TLSOFTONE/Shared Documents/General/Graph.txt",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:15 AM",
+            "119.82.89.128"
+          ],
+          [
+            "OneDrive",
+            "LepideSoftware.onmicrosoft.com",
+            "https://lepidesoftware-my.sharepoint.com/personal/jason_lepidesoftware_onmicrosoft_com/Documents/Anny",
+            "",
+            "",
+            "",
+            "",
+            "annie@outlook.com",
+            "jason@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:04 AM",
+            "115.241.18.194"
+          ],
+          [
+            "OneDrive",
+            "LepideSoftware.onmicrosoft.com",
+            "https://lepidesoftware-my.sharepoint.com/personal/jason_lepidesoftware_onmicrosoft_com/Documents/Anny",
+            "",
+            "",
+            "",
+            "",
+            "george@lepide.co.in",
+            "jason@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:04 AM",
+            "115.241.18.194"
+          ],
+          [
+            "OneDrive",
+            "LepideSoftware.onmicrosoft.com",
+            "https://lepidesoftware-my.sharepoint.com/personal/jason_lepidesoftware_onmicrosoft_com/Documents/Anny",
+            "",
+            "",
+            "",
+            "",
+            "jamm@hrdeptt.com",
+            "jason@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:04 AM",
+            "115.241.18.194"
+          ],
+          [
+            "OneDrive",
+            "LepideSoftware.onmicrosoft.com",
+            "https://lepidesoftware-my.sharepoint.com/personal/jason_lepidesoftware_onmicrosoft_com/Documents/Microsoft Teams Chat Files/Patient details.docx",
+            "",
+            "",
+            "",
+            "",
+            "james@lepides1.onmicrosoft.com",
+            "jason@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:04 AM",
+            "125.63.100.66"
+          ],
+          [
+            "OneDrive",
+            "LepideSoftware.onmicrosoft.com",
+            "https://lepidesoftware-my.sharepoint.com/personal/simon_lepidesoftware_onmicrosoft_com/Documents/HR/Attendance_Jan20.xlsx.encrypt",
+            "",
+            "",
+            "",
+            "",
+            "danny@lepide.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:04 AM",
+            "180.151.74.13"
+          ],
+          [
+            "OneDrive",
+            "LepideSoftware.onmicrosoft.com",
+            "https://lepidesoftware-my.sharepoint.com/personal/simon_lepidesoftware_onmicrosoft_com/Documents/Medical/US Medicare Number.txt",
+            "",
+            "",
+            "",
+            "",
+            "aidan@lepide.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:04 AM",
+            "180.151.74.13"
+          ],
+          [
+            "OneDrive",
+            "LepideSoftware.onmicrosoft.com",
+            "https://lepidesoftware-my.sharepoint.com/personal/simon_lepidesoftware_onmicrosoft_com/Documents/Microsoft Teams Chat Files/Client portfolio.pptx",
+            "",
+            "",
+            "",
+            "",
+            "chis@outlook.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:04 AM",
+            "119.82.89.128"
+          ],
+          [
+            "OneDrive",
+            "LepideSoftware.onmicrosoft.com",
+            "https://lepidesoftware-my.sharepoint.com/personal/simon_lepidesoftware_onmicrosoft_com/Documents/Microsoft Teams Chat Files/Confidential.pdf",
+            "",
+            "",
+            "",
+            "",
+            "chris_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:04 AM",
+            "119.82.89.128"
+          ],
+          [
+            "OneDrive",
+            "LepideSoftware.onmicrosoft.com",
+            "https://lepidesoftware-my.sharepoint.com/personal/simon_lepidesoftware_onmicrosoft_com/Documents/Microsoft Teams Chat Files/Spend of June 21 Analysis.xlsx",
+            "",
+            "",
+            "",
+            "",
+            "gemma_outlook.com#ext#@lepidesoftware.onmicrosoft.com",
+            "simon@lepidesoftware.onmicrosoft.com",
+            "01-03-2025 12:00:04 AM",
+            "119.82.89.128"
+          ]
+        ]
+      },
+      "open-shares": {
+        "columns": [
+          "File Server(s)",
+          "Share Folder",
+          "Path",
+          "Owner",
+          "Open To",
+          "Open Through NTFS",
+          "Open Through Share"
+        ],
+        "filterFields": [
+          "Owner"
+        ],
+        "defaultFilter": "File Server(s): [Equals [All]]",
+        "dateRange": null,
+        "total": 5,
+        "rows": [
+          [
+            "DCD01",
+            "Budget Forecast",
+            "C:\\Budget Forecast",
+            "lpde4\\Lee.Russell",
+            "NT AUTHORITY\\Everyone;lpde4\\Domain Users;NT AUTHORITY\\Authenticated users;lpde4\\Users;Dialup;NT AUTHORITY\\Network;Batch;NT AUTHORITY\\INTERACTIVE;Anonymous Logon;Terminal Server Users;Remote Interactive Logon;This Organization",
+            "Directly Applied:NT AUTHORITY\\Everyone;lpde4\\Domain Users",
+            "Directly Applied:Everyone"
+          ],
+          [
+            "DCD01",
+            "Shareholders",
+            "C:\\Shareholders",
+            "lpde4\\Neal.Gamby",
+            "NT AUTHORITY\\Everyone;lpde4\\Domain Users;NT AUTHORITY\\Authenticated users;lpde4\\Users;Dialup;NT AUTHORITY\\Network;Batch;NT AUTHORITY\\INTERACTIVE;Anonymous Logon;Terminal Server Users;Remote Interactive Logon;This Organization",
+            "Directly Applied:NT AUTHORITY\\Everyone;lpde4\\Domain Users",
+            "Directly Applied:Everyone;Domain Users"
+          ],
+          [
+            "DCD01",
+            "Projections",
+            "C:\\Projections",
+            "lpde4\\Roy.Petty",
+            "NT AUTHORITY\\Everyone;NT AUTHORITY\\Authenticated users;lpde4\\Users;Dialup;NT AUTHORITY\\Network;Batch;NT AUTHORITY\\INTERACTIVE;Anonymous Logon;Terminal Server Users;Remote Interactive Logon;This Organization;lpde4\\Domain Users",
+            "Directly Applied:NT AUTHORITY\\Everyone",
+            "Directly Applied:Everyone"
+          ],
+          [
+            "DCD01",
+            "Company Share",
+            "C:\\Company Share",
+            "lpde4\\Administrator",
+            "NT AUTHORITY\\Everyone;lpde4\\Domain Users;NT AUTHORITY\\Authenticated users;lpde4\\Users;Dialup;NT AUTHORITY\\Network;Batch;NT AUTHORITY\\INTERACTIVE;Anonymous Logon;Terminal Server Users;Remote Interactive Logon;This Organization",
+            "Directly Applied:NT AUTHORITY\\Everyone;lpde4\\Domain Users",
+            "Directly Applied:Everyone"
+          ],
+          [
+            "DCD01",
+            "Blueprints",
+            "C:\\Blueprints",
+            "lpde4\\Marty.Byrde",
+            "NT AUTHORITY\\Everyone;NT AUTHORITY\\Authenticated users;lpde4\\Users;Dialup;NT AUTHORITY\\Network;Batch;NT AUTHORITY\\INTERACTIVE;Anonymous Logon;Terminal Server Users;Remote Interactive Logon;This Organization;lpde4\\Domain Users",
+            "Directly Applied:NT AUTHORITY\\Everyone",
+            "Directly Applied:Everyone"
+          ]
+        ]
+      },
+      "permissions-by-object": {
+        "columns": [],
+        "filterFields": [
+          "File Mask",
+          "Directory",
+          "Stale Data",
+          "Compliance",
+          "Monetary Value",
+          "Broken Inheritance"
+        ],
+        "defaultFilter": "File Server : [Equals[All]]",
+        "dateRange": null,
+        "total": 0,
+        "rows": []
+      },
+      "permissions-by-user": {
+        "columns": [],
+        "filterFields": [
+          "Stale Data",
+          "Object Path",
+          "Compliance",
+          "Monetary Value"
+        ],
+        "defaultFilter": "File Server : [Equals[All]]",
+        "dateRange": null,
+        "total": 0,
+        "rows": []
+      },
+      "stale-data-report": {
+        "columns": [
+          "File Server",
+          "Folder Path",
+          "File Name",
+          "File Size",
+          "File Access Time",
+          "Last Scan Time",
+          "Owner"
+        ],
+        "filterFields": [
+          "Folder Path",
+          "Owner"
+        ],
+        "defaultFilter": "File Server(s) : [Equals [All]]",
+        "dateRange": null,
+        "total": 0,
+        "rows": []
+      },
+      "users-whose-password-never-expires": {
+        "columns": [
+          "Server Name",
+          "Object Name",
+          "Object Path",
+          "Email Address",
+          "Password Last Set",
+          "Days Since Password Set",
+          "Object Status"
+        ],
+        "filterFields": [
+          "OU Name",
+          "Object Status"
+        ],
+        "defaultFilter": "Server Name : [Equals[lpde4.local]]",
+        "dateRange": null,
+        "total": 14,
+        "rows": [
+          [
+            "lpde4.local",
+            "Guest",
+            "\\local\\lpde4\\Users\\Guest",
+            "N/A",
+            "N/A",
+            "N/A",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Rick Deckard",
+            "\\local\\lpde4\\UK Office\\Users\\Rick Deckard",
+            "Rick.Deckard@lpde4.local",
+            "17/04/2023 18:08",
+            "702",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Ethan Hunt",
+            "\\local\\lpde4\\US Office\\Users\\Ethan Hunt",
+            "Ethan.Hunt@lpde4.local",
+            "07/11/2024 15:34",
+            "132",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Hank Schrader",
+            "\\local\\lpde4\\AUS Office\\Users\\Hank Schrader",
+            "Hank.Shrader@lpde4.local",
+            "15/02/2022 16:22",
+            "1128",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Lee Russell",
+            "\\local\\lpde4\\Asia Office\\Users\\Lee Russell",
+            "Lee.Russell@lpde4.local",
+            "15/02/2022 16:26",
+            "1128",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Neal Gamby",
+            "\\local\\lpde4\\Asia Office\\Users\\Neal Gamby",
+            "Neal.Gamby@lpde4.local",
+            "15/02/2022 16:26",
+            "1128",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Ash Williams",
+            "\\local\\lpde4\\AUS Office\\Users\\Ash Williams",
+            "Ash.Williams@lpde4.local",
+            "16/08/2022 10:54",
+            "946",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Marty Byrde",
+            "\\local\\lpde4\\US Office\\Users\\Marty Byrde",
+            "Marty.Byrde@lpde4.local",
+            "07/11/2024 15:34",
+            "132",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Thomas Anderson",
+            "\\local\\lpde4\\US Office\\Users\\Thomas Anderson",
+            "Thomas.Anderson@lpde4.local",
+            "16/06/2023 11:29",
+            "642",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Vincent Vega",
+            "\\local\\lpde4\\AUS Office\\Users\\Vincent Vega",
+            "Vincent.Vega@lpde4.local",
+            "13/12/2023 10:53",
+            "462",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Developer-Ext",
+            "\\local\\lpde4\\Asia Office\\Users\\Developer-Ext",
+            "N/A",
+            "30/09/2024 11:37",
+            "170",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Pete Mitchell",
+            "\\local\\lpde4\\UK Office\\Users\\Pete Mitchell",
+            "Pete.Mitchell@lpde4.local",
+            "22/11/2022 10:18",
+            "848",
+            "Enabled"
+          ],
+          [
+            "lpde4.local",
+            "Lou Bloom",
+            "\\local\\lpde4\\US Office\\Users\\Lou Bloom",
+            "Lou.Bloom@lpde4.local",
+            "22/11/2022 10:21",
+            "848",
+            "Disabled"
+          ],
+          [
+            "lpde4.local",
+            "Joel Miller",
+            "\\local\\lpde4\\UK Office\\Users\\Joel Miller",
+            "Joel.Miller@lpde4.local",
+            "06/03/2025 12:21",
+            "13",
+            "Enabled"
+          ]
+        ]
+      },
+      "users-with-admin-privileges": {
+        "columns": [
+          "Group Name",
+          "User Name",
+          "User Path",
+          "Object GUID",
+          "Display Name",
+          "Permission Method"
+        ],
+        "filterFields": [
+          "User Name"
+        ],
+        "defaultFilter": "Domain Name : [Equals[lpde4.local]] AND Privileges Via Group : [Include[LPDE4.LOCALDomain]] AND Backup : [Equals[Latest Backup]]",
+        "dateRange": null,
+        "total": 27,
+        "rows": [
+          [
+            "LPDE4.LOCAL\\Administrators",
+            "Marty.Byrde",
+            "LPDE4.LOCAL\\US Office\\Users",
+            "{F97935E9-7DDB-49CF-B8D5-1331B5EAA03B}",
+            "Marty Byrde",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Administrators",
+            "Neal.Gamby",
+            "LPDE4.LOCAL\\Asia Office\\Users",
+            "{38B476BD-B236-494B-952C-06D3A815A9B7}",
+            "Neal Gamby",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Administrators",
+            "Paul.Allen",
+            "LPDE4.LOCAL\\Asia Office\\Users",
+            "{743B67C7-7EE7-4591-B56A-C6B38DC5188D}",
+            "Paul Allen",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Administrators",
+            "Pete.Mitchell",
+            "LPDE4.LOCAL\\UK Office\\Users",
+            "{BD1C3F23-A5A0-40F2-9CA1-E817BD2B4228}",
+            "Pete Mitchell",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Administrators",
+            "Rick.Deckard",
+            "LPDE4.LOCAL\\UK Office\\Users",
+            "{512B3AA4-FF15-4BBC-8F33-44965CE6AA6C}",
+            "Rick Deckard",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Administrators",
+            "Roy.Petty",
+            "LPDE4.LOCAL\\UK Office\\Users",
+            "{D9C7F8FA-06C2-4189-B08C-14C049AFCE33}",
+            "Roy Petty",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Ethan.Hunt",
+            "LPDE4.LOCAL\\US Office\\Users",
+            "{6DD8ED43-654C-4B85-9DFD-6780E189B01B}",
+            "Ethan Hunt",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "James.Howlett",
+            "LPDE4.LOCAL\\US Office\\Users",
+            "{DED9FCAD-F145-4F7E-95B2-A40B04B6B8A5}",
+            "James Howlett",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Joel.Miller",
+            "LPDE4.LOCAL\\UK Office\\Users",
+            "{84E8ED00-839F-4CF7-93C9-D82426FC116D}",
+            "Joel Miller",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Kelly.Maxwell",
+            "LPDE4.LOCAL\\AUS Office\\Users",
+            "{3EC88D97-DFF9-47FE-AC5B-4C02B3EB082F}",
+            "Kelly Maxwell",
+            "Indirect via group(s)"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Lee.Russell",
+            "LPDE4.LOCAL\\Asia Office\\Users",
+            "{5B66BFEF-9DC2-41CF-84FF-5DCAE756E24A}",
+            "Lee Russell",
+            "Indirect via group(s)"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Lou.Bloom",
+            "LPDE4.LOCAL\\US Office\\Users",
+            "{29748BD6-C1E3-46A2-A3E2-0B843B823E5B}",
+            "Lou Bloom",
+            "Indirect via group(s)"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Marty.Byrde",
+            "LPDE4.LOCAL\\US Office\\Users",
+            "{F97935E9-7DDB-49CF-B8D5-1331B5EAA03B}",
+            "Marty Byrde",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Neal.Gamby",
+            "LPDE4.LOCAL\\Asia Office\\Users",
+            "{38B476BD-B236-494B-952C-06D3A815A9B7}",
+            "Neal Gamby",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Paul.Allen",
+            "LPDE4.LOCAL\\Asia Office\\Users",
+            "{743B67C7-7EE7-4591-B56A-C6B38DC5188D}",
+            "Paul Allen",
+            "Indirect via group(s)"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Pete.Mitchell",
+            "LPDE4.LOCAL\\UK Office\\Users",
+            "{BD1C3F23-A5A0-40F2-9CA1-E817BD2B4228}",
+            "Pete Mitchell",
+            "Direct and Indirect via group(s)"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Randall.Raines",
+            "LPDE4.LOCAL\\UK Office\\Users",
+            "{FFFFF718-8DFC-4E66-8F5C-FE2093791790}",
+            "Randall Raines",
+            "Indirect via group(s)"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Roy.Petty",
+            "LPDE4.LOCAL\\UK Office\\Users",
+            "{D9C7F8FA-06C2-4189-B08C-14C049AFCE33}",
+            "Roy Petty",
+            "Direct and Indirect via group(s)"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Thomas.Anderson",
+            "LPDE4.LOCAL\\US Office\\Users",
+            "{645A3F6E-D032-4E6A-AB9D-B26A346E228E}",
+            "Thomas Anderson",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Domain Admins",
+            "Vincent.Vega",
+            "LPDE4.LOCAL\\AUS Office\\Users",
+            "{1F3D73C1-2044-4D7A-8D25-76297AA1281F}",
+            "Vincent Vega",
+            "Indirect via group(s)"
+          ],
+          [
+            "LPDE4.LOCAL\\Enterprise Admins",
+            "Marty.Byrde",
+            "LPDE4.LOCAL\\US Office\\Users",
+            "{F97935E9-7DDB-49CF-B8D5-1331B5EAA03B}",
+            "Marty Byrde",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Enterprise Admins",
+            "Neal.Gamby",
+            "LPDE4.LOCAL\\Asia Office\\Users",
+            "{38B476BD-B236-494B-952C-06D3A815A9B7}",
+            "Neal Gamby",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Enterprise Admins",
+            "Roy.Petty",
+            "LPDE4.LOCAL\\UK Office\\Users",
+            "{D9C7F8FA-06C2-4189-B08C-14C049AFCE33}",
+            "Roy Petty",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Schema Admins",
+            "Ash.Williams",
+            "LPDE4.LOCAL\\AUS Office\\Users",
+            "{4270F50B-F987-4A50-9FFC-E9DE49B16786}",
+            "Ash Williams",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Schema Admins",
+            "Joel.Miller",
+            "LPDE4.LOCAL\\UK Office\\Users",
+            "{84E8ED00-839F-4CF7-93C9-D82426FC116D}",
+            "Joel Miller",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Schema Admins",
+            "Neal.Gamby",
+            "LPDE4.LOCAL\\Asia Office\\Users",
+            "{38B476BD-B236-494B-952C-06D3A815A9B7}",
+            "Neal Gamby",
+            "Direct"
+          ],
+          [
+            "LPDE4.LOCAL\\Schema Admins",
+            "Thomas.Anderson",
+            "LPDE4.LOCAL\\US Office\\Users",
+            "{645A3F6E-D032-4E6A-AB9D-B26A346E228E}",
+            "Thomas Anderson",
+            "Direct"
+          ]
+        ]
+      }
+    }
+  }
+}

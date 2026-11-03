@@ -1,0 +1,264 @@
+{
+  "$source": "src/data/identifyCatalog.ts",
+  "exports": {
+    "IDENTIFY_FOLDERS": [
+      {
+        "id": "active-directory",
+        "name": "Active Directory",
+        "component": "Active Directory",
+        "children": []
+      },
+      {
+        "id": "exchange-server",
+        "name": "Exchange Server",
+        "component": "Exchange Server",
+        "children": [
+          {
+            "kind": "report",
+            "id": "idf-1",
+            "name": "Classified Emails",
+            "slug": "classified-emails",
+            "description": "Shows all emails classified with sensitive data patterns.",
+            "disabled": false
+          },
+          {
+            "kind": "report",
+            "id": "idf-2",
+            "name": "Email Classification Failures",
+            "slug": "email-classification-failures",
+            "description": "Shows emails that could not be classified and why.",
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "id": "exchange-server-online",
+        "name": "Exchange Server Online",
+        "component": "Exchange Server Online",
+        "children": []
+      },
+      {
+        "id": "file-server",
+        "name": "File Server",
+        "component": "File Server",
+        "children": [
+          {
+            "kind": "report",
+            "id": "idf-3",
+            "name": "Classified Files",
+            "slug": "classified-files",
+            "description": "Shows all files classified with sensitive data patterns.",
+            "disabled": false
+          },
+          {
+            "kind": "report",
+            "id": "idf-4",
+            "name": "File Classification Failures",
+            "slug": "file-classification-failures",
+            "description": "Shows files that could not be classified and why.",
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "id": "sharepoint-online",
+        "name": "SharePoint Online",
+        "component": "SharePoint Online",
+        "children": [
+          {
+            "kind": "report",
+            "id": "idf-5",
+            "name": "Classified SharePoint Objects",
+            "slug": "classified-sharepoint-objects",
+            "description": "Shows SharePoint documents and list items classified with sensitive data.",
+            "disabled": false
+          },
+          {
+            "kind": "report",
+            "id": "idf-6",
+            "name": "SharePoint Object Classification Failures",
+            "slug": "sharepoint-object-classification-failures",
+            "description": "Shows SharePoint objects that could not be classified.",
+            "disabled": false
+          },
+          {
+            "kind": "report",
+            "id": "idf-7",
+            "name": "Classified OneDrive Objects",
+            "slug": "classified-onedrive-objects",
+            "description": "Shows OneDrive files classified with sensitive data patterns.",
+            "disabled": false
+          },
+          {
+            "kind": "report",
+            "id": "idf-8",
+            "name": "OneDrive Objects Classification Failures",
+            "slug": "onedrive-objects-classification-failures",
+            "description": "Shows OneDrive files that could not be classified.",
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "id": "current-permission-analysis",
+        "name": "Current Permission Analysis",
+        "component": "Current Permission Analysis",
+        "children": []
+      },
+      {
+        "id": "risk-analysis",
+        "name": "Risk Analysis",
+        "component": "Risk Analysis",
+        "children": []
+      },
+      {
+        "id": "anomaly-analysis",
+        "name": "Anomaly Analysis",
+        "component": "Anomaly Analysis",
+        "children": []
+      },
+      {
+        "id": "azure-ad",
+        "name": "Azure AD",
+        "component": "Azure AD",
+        "children": []
+      },
+      {
+        "id": "ms-teams",
+        "name": "MS Teams",
+        "component": "MS Teams",
+        "children": []
+      }
+    ],
+    "IDENTIFY_ROWS": [
+      {
+        "id": "idf-1",
+        "name": "Classified Emails",
+        "component": "Exchange Server",
+        "componentView": "(Exchange Server)",
+        "folderId": "exchange-server",
+        "description": "Shows all emails classified with sensitive data patterns.",
+        "slug": "classified-emails",
+        "myLepide": false,
+        "type": "Predefined",
+        "sharedWith": [],
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "disabled": false
+      },
+      {
+        "id": "idf-2",
+        "name": "Email Classification Failures",
+        "component": "Exchange Server",
+        "componentView": "(Exchange Server)",
+        "folderId": "exchange-server",
+        "description": "Shows emails that could not be classified and why.",
+        "slug": "email-classification-failures",
+        "myLepide": false,
+        "type": "Predefined",
+        "sharedWith": [],
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "disabled": false
+      },
+      {
+        "id": "idf-3",
+        "name": "Classified Files",
+        "component": "File Server",
+        "componentView": "(File Server)",
+        "folderId": "file-server",
+        "description": "Shows all files classified with sensitive data patterns.",
+        "slug": "classified-files",
+        "myLepide": true,
+        "type": "Predefined",
+        "sharedWith": [],
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "disabled": false
+      },
+      {
+        "id": "idf-4",
+        "name": "File Classification Failures",
+        "component": "File Server",
+        "componentView": "(File Server)",
+        "folderId": "file-server",
+        "description": "Shows files that could not be classified and why.",
+        "slug": "file-classification-failures",
+        "myLepide": false,
+        "type": "Predefined",
+        "sharedWith": [],
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "disabled": false
+      },
+      {
+        "id": "idf-5",
+        "name": "Classified SharePoint Objects",
+        "component": "SharePoint Online",
+        "componentView": "(SharePoint Online)",
+        "folderId": "sharepoint-online",
+        "description": "Shows SharePoint documents and list items classified with sensitive data.",
+        "slug": "classified-sharepoint-objects",
+        "myLepide": false,
+        "type": "Predefined",
+        "sharedWith": [],
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "disabled": false
+      },
+      {
+        "id": "idf-6",
+        "name": "SharePoint Object Classification Failures",
+        "component": "SharePoint Online",
+        "componentView": "(SharePoint Online)",
+        "folderId": "sharepoint-online",
+        "description": "Shows SharePoint objects that could not be classified.",
+        "slug": "sharepoint-object-classification-failures",
+        "myLepide": false,
+        "type": "Predefined",
+        "sharedWith": [],
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "disabled": false
+      },
+      {
+        "id": "idf-7",
+        "name": "Classified OneDrive Objects",
+        "component": "OneDrive",
+        "componentView": "(OneDrive)",
+        "folderId": "sharepoint-online",
+        "description": "Shows OneDrive files classified with sensitive data patterns.",
+        "slug": "classified-onedrive-objects",
+        "myLepide": false,
+        "type": "Predefined",
+        "sharedWith": [],
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "disabled": false
+      },
+      {
+        "id": "idf-8",
+        "name": "OneDrive Objects Classification Failures",
+        "component": "OneDrive",
+        "componentView": "(OneDrive)",
+        "folderId": "sharepoint-online",
+        "description": "Shows OneDrive files that could not be classified.",
+        "slug": "onedrive-objects-classification-failures",
+        "myLepide": false,
+        "type": "Predefined",
+        "sharedWith": [],
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "disabled": false
+      }
+    ]
+  }
+}

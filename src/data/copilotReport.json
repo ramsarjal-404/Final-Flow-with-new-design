@@ -1,0 +1,839 @@
+{
+  "$source": "src/data/copilotReport.ts",
+  "exports": {
+    "COPILOT_ROWS": [
+      {
+        "user": "Richard Watson",
+        "email": "richard@lepidesoftware.onmicrosoft.com",
+        "file": "Payment_Transactions_20.docx",
+        "path": "https://lepidesoftware-my.sharepoint.com/personal/richard_lepidesoftware_onmicrosoft_com/_layouts/15/Doc.aspx?sourcedoc={A6F9E2C4-7D31-4E89-B132-8C5A7F14E2D9}&file=Payment_Transactions_20.docx&action=default&mobileredirect=true",
+        "label": "LabelWithoutEncryption",
+        "query": "Find all records containing full names",
+        "what": "File read from https://lepidesoftware-my.share..",
+        "when": "12-11-2025 06:41:18 PM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Find all records containing full names?"
+          },
+          {
+            "role": "bot",
+            "text": "I searched the indexed PII inventory across SharePoint, OneDrive and connected file shares for documents containing full-name patterns matching common identity fields.",
+            "sectionTitle": "Key Findings:",
+            "points": [
+              "<strong>Total matches found:</strong> 318 documents (last 30 days)",
+              "<strong>Top sources:</strong> QuantumCloud SharePoint, Payments folder, HR archives",
+              "<strong>High-risk hits:</strong> 22 files combine full names with payment data"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Which of those files were accessed most often this week?"
+          },
+          {
+            "role": "bot",
+            "text": "The top three by access count are <strong>Payment_Transactions_20.docx</strong> (47 reads), <strong>PII Document.pdf</strong> (31 reads) and <strong>Compliance Check.pdf</strong> (18 reads), all on the QuantumCloud tenant."
+          },
+          {
+            "role": "user",
+            "text": "Who else looked at Payment_Transactions_20.docx besides me?"
+          },
+          {
+            "role": "bot",
+            "text": "In the last 7 days <strong>11 distinct users</strong> opened it. Apart from you, the most frequent were <strong>Amelia Smith</strong> (9 reads) and <strong>Oliver Brown</strong> (6 reads). One read came from outside corp range — flagged for review."
+          },
+          {
+            "role": "user",
+            "text": "Mask the full names in those documents."
+          },
+          {
+            "role": "bot",
+            "text": "I can apply <strong>auto-redaction</strong> using the Lepide masking policy <em>PII-FullName-Mask-v3</em>. Scope: 318 files. ETA ~12 minutes. Confirm to proceed and I'll log the change to the audit trail."
+          }
+        ]
+      },
+      {
+        "user": "James Walker",
+        "email": "james@lepidesoftware.onmicrosoft.com",
+        "file": "Financial_Data_Inquiry.xlsx",
+        "path": "https://lepidesoftware.sharepoint.com/sites/Finance/Shared Documents/General/Financial_Data_Inquiry.xlsx",
+        "label": "LabelWithoutEncryption",
+        "query": "Retrieve entries with credit card numbers",
+        "what": "File edit from https://lepidesoftware.sharep..",
+        "when": "15-11-2025 02:00:30 PM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Retrieve entries with credit card numbers?"
+          },
+          {
+            "role": "bot",
+            "text": "I scanned recent edits across the TechVerseSolutions tenant for documents that contain payment-card number patterns (PAN regex + Luhn check).",
+            "sectionTitle": "Scan Summary:",
+            "points": [
+              "<strong>Documents with PAN:</strong> 7 (4 still unencrypted)",
+              "<strong>Most recent edit:</strong> Financial Data Inquiry · 28-07 02:00 PM",
+              "<strong>Suggested action:</strong> Apply <em>Highly Sensitive</em> label and revoke external sharing"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Who edited Financial Data Inquiry last?"
+          },
+          {
+            "role": "bot",
+            "text": "<strong>James Walker</strong> from 194.167.45.74 at 28-07-2024 02:00:30 PM. Two prior edits in the last 24h were also from the same user."
+          },
+          {
+            "role": "user",
+            "text": "Show me what changed in that edit."
+          },
+          {
+            "role": "bot",
+            "text": "The diff added a column titled <em>CardNo_Last4</em> populated for 1,204 rows and one row containing what looks like a full PAN starting with 4539. Recommend immediate redaction — I can do that now."
+          },
+          {
+            "role": "user",
+            "text": "Yes, redact and notify Compliance."
+          },
+          {
+            "role": "bot",
+            "text": "Done — full PAN redacted, file relabeled <strong>Highly Sensitive</strong>, external links revoked, and Compliance notified at <em>compliance@techverse.com</em>. Incident ID <strong>LP-2024-0728-CC-019</strong>."
+          }
+        ]
+      },
+      {
+        "user": "Isabella Harris",
+        "email": "isabella@lepidesoftware.onmicrosoft.com",
+        "file": "Medical_Bills.csv",
+        "path": "https://lepidesoftware.sharepoint.com/sites/Healthcare/Shared Documents/Patients/Medical_Bills.csv",
+        "label": "Label 1",
+        "query": "List all documents tagged as sensitive",
+        "what": "File read from https://lepidesoftware.sharep..",
+        "when": "18-11-2025 09:12:39 AM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "List all documents tagged as sensitive?"
+          },
+          {
+            "role": "bot",
+            "text": "Pulling all items currently labeled <strong>Confidential</strong>, <strong>Highly Confidential</strong>, or <strong>Sensitive Data</strong> across CloudifyInc.",
+            "sectionTitle": "Inventory:",
+            "points": [
+              "<strong>Total labeled items:</strong> 1,284",
+              "<strong>By label:</strong> Confidential 612 · Highly Confidential 187 · Sensitive Data 485",
+              "<strong>Recently relabeled:</strong> Medical_Bills.csv (Default → Confidential, today)"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Any of those shared externally?"
+          },
+          {
+            "role": "bot",
+            "text": "Yes — <strong>34 items</strong> labeled Confidential or higher are shared with people outside the organization. I can list them or auto-revoke external access."
+          },
+          {
+            "role": "user",
+            "text": "List the top 5 by sensitivity."
+          },
+          {
+            "role": "bot",
+            "text": "<strong>Medical_Bills.csv</strong>, <strong>Patient_Records_Q2.xlsx</strong>, <strong>HR_Salary_Map.docx</strong>, <strong>Confidential Documents.pdf</strong> and <strong>Board_Minutes_Jul.pptx</strong>. All five are shared with at least one Gmail or Outlook personal address."
+          },
+          {
+            "role": "user",
+            "text": "Revoke external on those five and label them Highly Confidential."
+          },
+          {
+            "role": "bot",
+            "text": "Applied. External shares revoked, label upgraded, and an alert filed against each external recipient. Owners notified by email; you'll see ticket <strong>LP-DLP-1839</strong> in your <em>My Lepide</em> queue."
+          }
+        ]
+      },
+      {
+        "user": "Ethan Lewis",
+        "email": "ethan@lepidesoftware.onmicrosoft.com",
+        "file": "Access_Logs.pdf",
+        "path": "https://lepidesoftware-my.sharepoint.com/personal/ethan_lepidesoftware_onmicrosoft_com/Documents/Access_Logs.pdf",
+        "label": "N/A",
+        "query": "Show recent access logs of Users",
+        "what": "File read from https://lepidesoftware-my.share..",
+        "when": "21-11-2025 09:02:39 PM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Show recent access logs of Users?"
+          },
+          {
+            "role": "bot",
+            "text": "Showing the last 7 days of authenticated user access events across InfiniByteNetworks.",
+            "sectionTitle": "Access Summary:",
+            "points": [
+              "<strong>Total sign-ins:</strong> 12,431",
+              "<strong>Unique users:</strong> 318",
+              "<strong>Anomalies flagged:</strong> 4 (impossible-travel, off-hours)"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Show me the impossible-travel alerts."
+          },
+          {
+            "role": "bot",
+            "text": "Two stand out: <strong>Ava Clark</strong> (London → Singapore in 38 min) and <strong>Oliver Brown</strong> (NYC → Dublin in 22 min). Both occurred on 20-07-2024."
+          },
+          {
+            "role": "user",
+            "text": "What did Ava Clark do during the suspicious session?"
+          },
+          {
+            "role": "bot",
+            "text": "In that session she opened <strong>Classified_Reports.pdf</strong>, downloaded <strong>Access Logs.pdf</strong>, and attempted (denied) to grant external access to <em>Salary_2024.xlsx</em>. Sequence is consistent with a token-replay attack."
+          },
+          {
+            "role": "user",
+            "text": "Force her sessions and require MFA."
+          },
+          {
+            "role": "bot",
+            "text": "All active sessions for <strong>Ava Clark</strong> have been revoked. A conditional-access rule now requires MFA for any sign-in from a new IP for 14 days. Security team paged via <em>secops@infinibyte</em>."
+          }
+        ]
+      },
+      {
+        "user": "Ava Clark",
+        "email": "ava@lepidesoftware.onmicrosoft.com",
+        "file": "Email_Security.csv",
+        "path": "https://lepidesoftware.sharepoint.com/sites/Marketing/Shared Documents/General/Email_Security.csv",
+        "label": "Label 1",
+        "query": "Search email servers for email ID",
+        "what": "File edit from https://lepidesoftware.sharep..",
+        "when": "24-11-2025 11:30:14 AM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Search email servers for email ID?"
+          },
+          {
+            "role": "bot",
+            "text": "Looking up activity across Exchange Online mailboxes that reference the email pattern <em>@digitalnexus.com</em>.",
+            "sectionTitle": "Mail Scan:",
+            "points": [
+              "<strong>Mailboxes scanned:</strong> 412",
+              "<strong>Threads with PII attachments:</strong> 28",
+              "<strong>Forwarded externally:</strong> 5 (review recommended)"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Who forwarded those threads externally?"
+          },
+          {
+            "role": "bot",
+            "text": "<strong>Ava Clark</strong> forwarded 3 threads to a personal Gmail address on 18-07-2024. The other 2 forwards came from <strong>Sophia Davis</strong>."
+          },
+          {
+            "role": "user",
+            "text": "What attachments were on Ava's forwards?"
+          },
+          {
+            "role": "bot",
+            "text": "<strong>Email Security.csv</strong>, <strong>PII Document.pdf</strong> and a screenshot of internal credentials. All three contain Confidential-grade data."
+          },
+          {
+            "role": "user",
+            "text": "Quarantine those messages and disable her external forwarding."
+          },
+          {
+            "role": "bot",
+            "text": "Quarantine job <strong>QN-7741</strong> created for the 3 messages. The mailbox rule that auto-forwarded to Gmail has been removed. Ava's mailbox is now blocked from external forwarding by tenant policy."
+          }
+        ]
+      },
+      {
+        "user": "Noah Wilson",
+        "email": "noah@lepidesoftware.onmicrosoft.com",
+        "file": "User_Data_Security_Role.pdf",
+        "path": "https://lepidesoftware.sharepoint.com/sites/Security/Shared Documents/Roles/User_Data_Security_Role.pdf",
+        "label": "N/A",
+        "query": "Identify users with access to Copilot",
+        "what": "File read from https://lepidesoftware.sharep..",
+        "when": "27-11-2025 11:15:27 AM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Identify users with access to Copilot?"
+          },
+          {
+            "role": "bot",
+            "text": "Enumerating accounts on CyberLinkTech with an active Microsoft 365 Copilot license.",
+            "sectionTitle": "Copilot Licenses:",
+            "points": [
+              "<strong>Total Copilot-licensed users:</strong> 96",
+              "<strong>Active in the last 30 days:</strong> 71",
+              "<strong>Inactive but licensed:</strong> 25 (consider reclaim)"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Who has access but never used it?"
+          },
+          {
+            "role": "bot",
+            "text": "25 users — including <strong>Noah Wilson</strong>, <strong>Liam Taylor</strong> and <strong>Emma Johnson</strong>. Reclaiming their licenses would save ~$750/mo."
+          },
+          {
+            "role": "user",
+            "text": "Any Copilot prompts touching sensitive data?"
+          },
+          {
+            "role": "bot",
+            "text": "Yes — <strong>14 prompts</strong> in the last 7 days returned content from documents labeled Confidential or higher. Two prompts surfaced data from <em>Medical_Bills.csv</em>."
+          },
+          {
+            "role": "user",
+            "text": "Block Copilot from indexing Medical_Bills.csv."
+          },
+          {
+            "role": "bot",
+            "text": "Done — added to the Copilot exclusion list and the existing index entry purged. Reindex will skip it on the next nightly job."
+          }
+        ]
+      },
+      {
+        "user": "Sophia Davis",
+        "email": "sophia@lepidesoftware.onmicrosoft.com",
+        "file": "Usernames_Passwords.xlsx",
+        "path": "https://lepidesoftware-my.sharepoint.com/personal/sophia_lepidesoftware_onmicrosoft_com/Documents/Usernames_Passwords.xlsx",
+        "label": "LabelWithoutEncryption",
+        "query": "Check for records improperly classified",
+        "what": "File read from https://lepidesoftware-my.share..",
+        "when": "28-11-2025 03:45:10 PM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Check for records improperly classified?"
+          },
+          {
+            "role": "bot",
+            "text": "Comparing applied sensitivity labels with detected content type to find mismatches on InfinityCloud.",
+            "sectionTitle": "Misclassification Scan:",
+            "points": [
+              "<strong>Files reviewed:</strong> 4,872",
+              "<strong>Misclassified:</strong> 213 (Passport_Info.docx tagged \"General\" but contains identity data)",
+              "<strong>Recommendation:</strong> Auto-relabel as <em>Highly Sensitive</em>"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "What about Usernames_Passwords.xlsx?"
+          },
+          {
+            "role": "bot",
+            "text": "Currently labeled <strong>General</strong>, shared with <em>Anyone (unrestricted)</em>. This is a critical misclassification — I can quarantine and notify the owner now."
+          },
+          {
+            "role": "user",
+            "text": "Yes — quarantine it and any other credential files."
+          },
+          {
+            "role": "bot",
+            "text": "Quarantined 4 files: <strong>Usernames_Passwords.xlsx</strong>, <strong>SSH_Keys_Backup.txt</strong>, <strong>API_Tokens_Old.csv</strong>, <strong>Wifi_Passwords.docx</strong>. Owners notified; access logs preserved for 90 days."
+          },
+          {
+            "role": "user",
+            "text": "Auto-classify going forward?"
+          },
+          {
+            "role": "bot",
+            "text": "I'll enable Lepide's content-aware auto-classifier on InfinityCloud. New uploads will be scanned and labeled within 5 minutes. You can review the rules in <em>Identify › Classification Policies</em>."
+          }
+        ]
+      },
+      {
+        "user": "Liam Taylor",
+        "email": "liam@lepidesoftware.onmicrosoft.com",
+        "file": "Bank_Account_Details.xlsx",
+        "path": "https://lepidesoftware.sharepoint.com/sites/Finance/Shared Documents/Banking/Bank_Account_Details.xlsx",
+        "label": "Label 1",
+        "query": "Locate documents containing bank account details",
+        "what": "File read from https://lepidesoftware.sharep..",
+        "when": "01-12-2025 07:32:59 AM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Locate documents containing bank account details?"
+          },
+          {
+            "role": "bot",
+            "text": "Searching CloudMinds for documents containing IBAN, SWIFT/BIC and routing-number patterns.",
+            "sectionTitle": "Match Summary:",
+            "points": [
+              "<strong>Documents matched:</strong> 41",
+              "<strong>Owners involved:</strong> 12",
+              "<strong>Reads in the last 7 days:</strong> 89"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Most-read file?"
+          },
+          {
+            "role": "bot",
+            "text": "<strong>Bank_Account_Details.xlsx</strong> — 23 reads in the last 24 hours, primarily by <strong>Liam Taylor</strong> from 198.51.100.30."
+          },
+          {
+            "role": "user",
+            "text": "Is that within his typical access pattern?"
+          },
+          {
+            "role": "bot",
+            "text": "No — Liam's 30-day baseline is 2-3 reads/day on Finance files. Today's volume is <strong>9× baseline</strong>. Behavior consistent with bulk extraction. I recommend a step-up review."
+          },
+          {
+            "role": "user",
+            "text": "Disable his download permission for Finance until review."
+          },
+          {
+            "role": "bot",
+            "text": "Applied a temporary <strong>read-only, no-download</strong> conditional access scope on the Finance share for Liam Taylor. Manager <em>Sarah Chen</em> notified to confirm or override."
+          }
+        ]
+      },
+      {
+        "user": "Amelia Smith",
+        "email": "amelia@lepidesoftware.onmicrosoft.com",
+        "file": "Payment_Transactions_20.pdf",
+        "path": "https://lepidesoftware.sharepoint.com/sites/Finance/Shared Documents/Reports/Payment_Transactions_20.pdf",
+        "label": "N/A",
+        "query": "Generate a detailed report on payments",
+        "what": "File read from https://lepidesoftware.sharep..",
+        "when": "02-12-2025 05:25:43 PM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Generate a detailed report on payments?"
+          },
+          {
+            "role": "bot",
+            "text": "Compiling a payment-data activity report from QuantumCloud SharePoint and OneDrive sites.",
+            "sectionTitle": "Report Scope:",
+            "points": [
+              "<strong>Payment files surfaced:</strong> 58",
+              "<strong>Distinct readers:</strong> 27",
+              "<strong>Edits in the last 30 days:</strong> 14"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Export the report as PDF?"
+          },
+          {
+            "role": "bot",
+            "text": "Sure — I'll generate <strong>Payment_Activity_Report_03-08-2024.pdf</strong> and drop it into your <em>My Lepide</em> reports folder."
+          },
+          {
+            "role": "user",
+            "text": "Add a section on label coverage gaps."
+          },
+          {
+            "role": "bot",
+            "text": "Added. <strong>17%</strong> of the 58 payment files have no sensitivity label applied; another <strong>9%</strong> have <em>General</em> when content suggests Confidential. Recommendations included."
+          },
+          {
+            "role": "user",
+            "text": "Share the report with the Finance audit group."
+          },
+          {
+            "role": "bot",
+            "text": "Shared with <em>Finance-Audit@quantum.cloud</em> (read-only, watermarked, expires 30 days). Distribution list <strong>11 members</strong>; access tracked under report ID <strong>RP-2024-0803-PAY-58</strong>."
+          }
+        ]
+      },
+      {
+        "user": "Oliver Brown",
+        "email": "oliver@lepidesoftware.onmicrosoft.com",
+        "file": "Trade_Secrets.docx",
+        "path": "https://lepidesoftware-my.sharepoint.com/personal/oliver_lepidesoftware_onmicrosoft_com/_layouts/15/Doc.aspx?sourcedoc={9E4B7C12-F8D1-4A87-9B3E-21C6F8A24E91}&file=Trade_Secrets.docx&action=default&mobileredirect=true",
+        "label": "Label 1",
+        "query": "Search for potential data breaches",
+        "what": "File read from https://lepidesoftware-my.share..",
+        "when": "03-12-2025 08:50:16 AM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Search for potential data breaches?"
+          },
+          {
+            "role": "bot",
+            "text": "Cross-checking recent file activity against Lepide's anomaly model for breach indicators.",
+            "sectionTitle": "Risk Indicators:",
+            "points": [
+              "<strong>High-risk events:</strong> 6 (mass-download patterns)",
+              "<strong>Most active actor:</strong> Oliver Brown — 142 reads in 24h",
+              "<strong>External destinations:</strong> 1 (203.0.113.45 — outside corp range)"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Block that IP?"
+          },
+          {
+            "role": "bot",
+            "text": "I can add <strong>203.0.113.45</strong> to the conditional-access deny list and revoke the user's session tokens. Confirm to apply."
+          },
+          {
+            "role": "user",
+            "text": "Yes, block and revoke."
+          },
+          {
+            "role": "bot",
+            "text": "Done. IP blocked at the tenant boundary; all Oliver Brown's active sessions revoked. <strong>Trade_Secrets.docx</strong> placed in legal hold pending forensic review."
+          },
+          {
+            "role": "user",
+            "text": "Notify the SOC and open an incident."
+          },
+          {
+            "role": "bot",
+            "text": "Incident <strong>INC-2024-0804-DLP-007</strong> opened, severity <em>High</em>, assigned to <strong>SOC Tier 2</strong>. Evidence pack (file lineage, sign-in logs, IP geolocation) attached. SOC acknowledged at 08:53 AM."
+          }
+        ]
+      },
+      {
+        "user": "Emma Johnson",
+        "email": "emma@lepidesoftware.onmicrosoft.com",
+        "file": "Trade_Secrets.docx",
+        "path": "https://lepidesoftware.sharepoint.com/sites/Legal/Shared Documents/Confidential/Trade_Secrets.docx",
+        "label": "N/A",
+        "query": "Retrieve historical access logs",
+        "what": "File read from https://lepidesoftware.sharep..",
+        "when": "05-12-2025 10:03:22 PM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Retrieve historical access logs?"
+          },
+          {
+            "role": "bot",
+            "text": "Pulling 90 days of historical reads/edits for <strong>Trade_Secrets.docx</strong> on CyberLinkTech.",
+            "sectionTitle": "Access Pattern:",
+            "points": [
+              "<strong>Total events:</strong> 218",
+              "<strong>Unique readers:</strong> 14",
+              "<strong>Unusual time-of-day reads:</strong> 7 between 22:00–04:00"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Who reads it after hours?"
+          },
+          {
+            "role": "bot",
+            "text": "<strong>Emma Johnson</strong> accounts for 5 of those 7 events, all from 198.51.100.77. Worth reviewing with the data owner."
+          },
+          {
+            "role": "user",
+            "text": "Is the file shared with Anyone?"
+          },
+          {
+            "role": "bot",
+            "text": "Yes — currently labeled <em>General</em> and accessible via an <strong>unrestricted link</strong> created 47 days ago. The link has been used 31 times, including 4 anonymous accesses."
+          },
+          {
+            "role": "user",
+            "text": "Replace the public link with a named-recipient link."
+          },
+          {
+            "role": "bot",
+            "text": "Replaced. New link issued to the original 14 named readers only; anonymous link revoked. Recipients notified that the share has been tightened. Audit entry logged."
+          }
+        ]
+      },
+      {
+        "user": "Richard Watson",
+        "email": "richard@lepidesoftware.onmicrosoft.com",
+        "file": "Legal_Files_2024.pdf",
+        "path": "https://lepidesoftware.sharepoint.com/sites/Legal/Shared Documents/Cases/Legal_Files_2024.pdf",
+        "label": "LabelWithoutEncryption",
+        "query": "Identify and list users who frequently access sensitive data",
+        "what": "File read from https://lepidesoftware.sharep..",
+        "when": "06-12-2025 12:11:45 PM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Identify and list users who frequently access sensitive data?"
+          },
+          {
+            "role": "bot",
+            "text": "Ranking users on DigitalNexus by access count to <em>Highly Sensitive</em> labeled documents over the last 30 days.",
+            "sectionTitle": "Top Readers:",
+            "points": [
+              "<strong>Richard_Watson:</strong> 412 reads",
+              "<strong>James Walker:</strong> 287 reads",
+              "<strong>Isabella Harris:</strong> 196 reads"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Is Richard_Watson's pattern normal?"
+          },
+          {
+            "role": "bot",
+            "text": "He averages 4× the team baseline. Recommend a least-privilege review — many of those reads are on Legal files outside his stated role."
+          },
+          {
+            "role": "user",
+            "text": "Show me the unusual files he opened."
+          },
+          {
+            "role": "bot",
+            "text": "<strong>Legal_Files_2024.pdf</strong> (84 reads), <strong>Board_NDA_v3.docx</strong> (41), <strong>Acquisition_Plan_Q3.pptx</strong> (29). None of these are listed in his role permissions per HRIS."
+          },
+          {
+            "role": "user",
+            "text": "Trigger an access review for him."
+          },
+          {
+            "role": "bot",
+            "text": "Access review <strong>AR-2024-0806-018</strong> created and routed to <em>Lisa Martinez</em> (his manager) and <em>Compliance Lead</em>. Decision required within 5 business days; otherwise auto-restrict applies."
+          }
+        ]
+      },
+      {
+        "user": "Ethan Lewis",
+        "email": "ethan@lepidesoftware.onmicrosoft.com",
+        "file": "Classified_Reports.pdf",
+        "path": "https://lepidesoftware.sharepoint.com/sites/Compliance/Shared Documents/Backups/Classified_Reports.pdf",
+        "label": "Label 1",
+        "query": "Locate backups that include sensitive data",
+        "what": "File read from https://lepidesoftware.sharep..",
+        "when": "07-12-2025 09:27:33 AM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Locate backups that include sensitive data?"
+          },
+          {
+            "role": "bot",
+            "text": "Scanning backup repositories on InfiniByteNetworks for items currently labeled <em>Sensitive Data</em>.",
+            "sectionTitle": "Backup Scan:",
+            "points": [
+              "<strong>Backup sets matched:</strong> 9",
+              "<strong>Sensitive items inside:</strong> 1,402",
+              "<strong>Encryption status:</strong> 3 sets unencrypted"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "List the unencrypted ones."
+          },
+          {
+            "role": "bot",
+            "text": "<strong>Backup-Q3-Legal</strong>, <strong>Backup-2023-Compliance</strong>, <strong>Archive-HR-2022</strong> — all on the InfiniByte share. Recommend rotating to encrypted storage today."
+          },
+          {
+            "role": "user",
+            "text": "Where are they stored?"
+          },
+          {
+            "role": "bot",
+            "text": "All three live on <em>\\\\backup-fs01\\archives</em> on a legacy NTFS volume with no SMB encryption. The volume is reachable from any internal subnet, including guest Wi-Fi."
+          },
+          {
+            "role": "user",
+            "text": "Move them to the encrypted vault and restrict access."
+          },
+          {
+            "role": "bot",
+            "text": "Migration job <strong>BK-MIG-2024-019</strong> queued. Target: <em>encrypted-archive-eus2</em>. Access scoped to <strong>Backup-Admins</strong> group only. Source files will be securely wiped after verified copy. ETA ~2h."
+          }
+        ]
+      },
+      {
+        "user": "James Walker",
+        "email": "james@lepidesoftware.onmicrosoft.com",
+        "file": "PII_Document.pdf",
+        "path": "https://lepidesoftware-my.sharepoint.com/personal/james_lepidesoftware_onmicrosoft_com/Documents/PII_Document.pdf",
+        "label": "LabelWithoutEncryption",
+        "query": "Display the history of access requests",
+        "what": "File read from https://lepidesoftware-my.share..",
+        "when": "08-12-2025 02:56:18 PM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Display the history of access requests?"
+          },
+          {
+            "role": "bot",
+            "text": "Showing access-request history for <strong>PII Document.pdf</strong> on TechVerseSolutions.",
+            "sectionTitle": "Request History:",
+            "points": [
+              "<strong>Requests filed:</strong> 12 in the last 60 days",
+              "<strong>Approved:</strong> 8 · <strong>Denied:</strong> 3 · <strong>Pending:</strong> 1",
+              "<strong>Most frequent requester:</strong> James Walker"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Why was the pending request not actioned?"
+          },
+          {
+            "role": "bot",
+            "text": "It's been waiting 6 days on approval from <em>Compliance Lead</em>. I can ping them or auto-deny per SLA — your call."
+          },
+          {
+            "role": "user",
+            "text": "Why were the 3 requests denied?"
+          },
+          {
+            "role": "bot",
+            "text": "Two were denied for <strong>missing business justification</strong>, one because the requester's role had changed and access was no longer in scope. All denials carry a written reason in the audit trail."
+          },
+          {
+            "role": "user",
+            "text": "Auto-deny pending requests older than 7 days."
+          },
+          {
+            "role": "bot",
+            "text": "Policy <strong>auto-deny-stale-7d</strong> enabled for this file. Requesters will receive a templated denial with a link to re-submit with justification. The current pending request will hit the threshold tomorrow at 02:56 PM."
+          }
+        ]
+      },
+      {
+        "user": "Sophia Davis",
+        "email": "sophia@lepidesoftware.onmicrosoft.com",
+        "file": "Usernames_Passwords.xlsx",
+        "path": "https://lepidesoftware.sharepoint.com/sites/IT/Shared Documents/Credentials/Usernames_Passwords.xlsx",
+        "label": "N/A",
+        "query": "Check for external or third-party access",
+        "what": "File read from https://lepidesoftware.sharep..",
+        "when": "09-12-2025 06:42:50 AM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Check for external or third-party access?"
+          },
+          {
+            "role": "bot",
+            "text": "Auditing share permissions on QuantumCloud for items granted to external or anonymous principals.",
+            "sectionTitle": "External Access:",
+            "points": [
+              "<strong>Externally shared items:</strong> 187",
+              "<strong>Anonymous links active:</strong> 22",
+              "<strong>Highest-risk file:</strong> Usernames_Passwords.xlsx (Anyone, edit)"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Revoke the anonymous links?"
+          },
+          {
+            "role": "bot",
+            "text": "I can revoke all 22 anonymous links and notify each owner. Items currently labeled <em>General</em> with sensitive content will be re-evaluated automatically."
+          },
+          {
+            "role": "user",
+            "text": "Who created Usernames_Passwords.xlsx and when?"
+          },
+          {
+            "role": "bot",
+            "text": "Created by <strong>Sophia Davis</strong> on 14-06-2024 at 11:18 AM. Last modified yesterday. The file has been opened by <strong>43 unique principals</strong> — 18 of them outside the organization."
+          },
+          {
+            "role": "user",
+            "text": "Quarantine and rotate every password in it."
+          },
+          {
+            "role": "bot",
+            "text": "File quarantined to legal-hold storage. A bulk password-rotation ticket has been opened with IT (<strong>IT-ROT-2024-0809-091</strong>) — 218 credentials flagged for rotation in the next 24h. Affected users will receive reset emails."
+          }
+        ]
+      },
+      {
+        "user": "Ava Clark",
+        "email": "ava@lepidesoftware.onmicrosoft.com",
+        "file": "Compliance_Check.pdf",
+        "path": "https://lepidesoftware.sharepoint.com/sites/Compliance/Shared Documents/Audits/Compliance_Check.pdf",
+        "label": "N/A",
+        "query": "Verify that records flagged for disposition are removed",
+        "what": "File edit from https://lepidesoftware.sharep..",
+        "when": "10-12-2025 06:42:00 AM",
+        "from": "N/A",
+        "tenant": "lepidesoftware.onmicrosoft.com",
+        "turns": [
+          {
+            "role": "user",
+            "text": "Verify that records flagged for disposition are removed?"
+          },
+          {
+            "role": "bot",
+            "text": "Checking the disposition queue on QuantumCloud against the actual file inventory.",
+            "sectionTitle": "Disposition Audit:",
+            "points": [
+              "<strong>Items flagged for disposition:</strong> 64",
+              "<strong>Confirmed deleted:</strong> 58",
+              "<strong>Still present (issue):</strong> 6"
+            ]
+          },
+          {
+            "role": "user",
+            "text": "Which six are still around?"
+          },
+          {
+            "role": "bot",
+            "text": "<strong>Compliance Check.pdf</strong>, <strong>Old_HR_Notes.docx</strong>, <strong>Q1_Audit.xlsx</strong>, plus 3 more in the QuantumCloud archive. I can re-issue the deletion job now."
+          },
+          {
+            "role": "user",
+            "text": "Why weren't they deleted the first time?"
+          },
+          {
+            "role": "bot",
+            "text": "Three were under an active <em>legal hold</em> that has since been lifted. The other three failed the deletion job because of a permission error on the archive container — fixed earlier this week."
+          },
+          {
+            "role": "user",
+            "text": "Re-run the deletion now and email me the receipt."
+          },
+          {
+            "role": "bot",
+            "text": "Re-run started — job <strong>DISP-2024-0808-RR</strong>. ETA ~3 minutes. A signed deletion receipt (with hash chain and witness IDs) will be emailed to <em>Ava@ldsp.com</em> on completion and stored in the compliance vault."
+          }
+        ]
+      }
+    ]
+  }
+}

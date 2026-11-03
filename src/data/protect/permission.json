@@ -1,0 +1,485 @@
+{
+  "$source": "src/data/protect/permission.ts",
+  "exports": {
+    "TEAM_ROOT": {
+      "id": "t0",
+      "name": "Danny Murphy",
+      "kind": "lead",
+      "department": "",
+      "title": "",
+      "email": "",
+      "children": [
+        {
+          "id": "t1",
+          "name": "Richard William",
+          "kind": "manager",
+          "department": "Market",
+          "title": "Chief Marketing Officer",
+          "email": "Phil Richard@Lepide.com",
+          "children": [
+            {
+              "id": "t1a",
+              "name": "Kathryn Murphy",
+              "kind": "manager",
+              "department": "Human Resources",
+              "title": "Team Lead",
+              "email": "kathryn.m@lepide.com",
+              "children": [
+                {
+                  "id": "t1a1",
+                  "name": "Lydia Vetrovs",
+                  "kind": "employee",
+                  "department": "Development",
+                  "title": "Development",
+                  "email": "lydia.v@lepide.com",
+                  "excluded": true
+                },
+                {
+                  "id": "t1a2",
+                  "name": "Aspen Baptista",
+                  "kind": "manager",
+                  "department": "Development",
+                  "title": "Team Lead",
+                  "email": "aspen.b@lepide.com",
+                  "children": [
+                    {
+                      "id": "t1a2a",
+                      "name": "Charlie Saris",
+                      "kind": "employee",
+                      "department": "Marketing",
+                      "title": "Marketing",
+                      "email": "charlie.s@lepide.com",
+                      "excluded": true
+                    },
+                    {
+                      "id": "t1a2b",
+                      "name": "Alena Rosser",
+                      "kind": "employee",
+                      "department": "HR",
+                      "title": "HR",
+                      "email": "alena.r@lepide.com",
+                      "excluded": true
+                    },
+                    {
+                      "id": "t1a2c",
+                      "name": "Tiana Aminoff",
+                      "kind": "employee",
+                      "department": "Development",
+                      "title": "Web Developer",
+                      "email": "tiana.a@lepide.com",
+                      "excluded": true
+                    }
+                  ]
+                },
+                {
+                  "id": "t1a3",
+                  "name": "Corey Gouse",
+                  "kind": "manager",
+                  "department": "Content",
+                  "title": "Team Lead",
+                  "email": "corey.g@lepide.com",
+                  "children": [
+                    {
+                      "id": "t1a3a",
+                      "name": "Mira Rhiel Madsen",
+                      "kind": "employee",
+                      "department": "Content",
+                      "title": "Content Writer",
+                      "email": "mira.m@lepide.com",
+                      "excluded": true
+                    },
+                    {
+                      "id": "t1a3b",
+                      "name": "Zaire Saris",
+                      "kind": "employee",
+                      "department": "Support",
+                      "title": "Technical Support",
+                      "email": "zaire.s@lepide.com",
+                      "excluded": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "t2",
+          "name": "Kristin Watson",
+          "kind": "manager",
+          "department": "N/Technical support",
+          "title": "Scrum Head",
+          "email": "Kristin@Lepide.com"
+        },
+        {
+          "id": "t3",
+          "name": "Albert Flores",
+          "kind": "manager",
+          "department": "Sales",
+          "title": "Team Lead",
+          "email": "Kathryn@Lepide.com"
+        },
+        {
+          "id": "t4",
+          "name": "Bessie Cooper",
+          "kind": "manager",
+          "department": "Customer Service",
+          "title": "Sub Team Lead",
+          "email": "Guy @Lepide.com",
+          "children": [
+            {
+              "id": "t4a",
+              "name": "Kathryn Murphy",
+              "kind": "employee",
+              "department": "Human Resources",
+              "title": "Sub Team Lead",
+              "email": "Sara.Jones@lepide.com",
+              "canEnroll": true
+            },
+            {
+              "id": "t4b",
+              "name": "Savannah Nguyen",
+              "kind": "employee",
+              "department": "Finance",
+              "title": "Developer",
+              "email": "Mark_T@lepide.com"
+            },
+            {
+              "id": "t4c",
+              "name": "Darrell Steward",
+              "kind": "employee",
+              "department": "Product Management",
+              "title": "Marketing",
+              "email": "Laura@Lepide.com"
+            },
+            {
+              "id": "t4d",
+              "name": "Zain Gouse",
+              "kind": "employee",
+              "department": "Quality Assurance",
+              "title": "Sub Team Lead",
+              "email": "Tommy_M@Lepide.com"
+            },
+            {
+              "id": "t4e",
+              "name": "Skylar Schleifer",
+              "kind": "employee",
+              "department": "Operations",
+              "title": "HR Lead",
+              "email": "Nina_S@lepide.com"
+            },
+            {
+              "id": "t4f",
+              "name": "Cooper Saris",
+              "kind": "employee",
+              "department": "Research and Development",
+              "title": "Technical Support",
+              "email": "Eli.W@lepide.com"
+            }
+          ]
+        }
+      ]
+    },
+    "PERM_STATUS": {
+      "completed": {
+        "label": "Completed",
+        "pct": 100,
+        "tone": "ok"
+      },
+      "restoreProgress": {
+        "label": "Restore in Progress",
+        "pct": 75,
+        "tone": "run"
+      },
+      "scanProgress": {
+        "label": "Scan in Progress",
+        "pct": 40,
+        "tone": "run"
+      },
+      "restoreQueue": {
+        "label": "Restore in Queue",
+        "pct": 0,
+        "clock": true,
+        "tone": "queue"
+      },
+      "automationQueue": {
+        "label": "Automation in Queue",
+        "pct": 0,
+        "clock": true,
+        "tone": "queue"
+      }
+    },
+    "SEED_PERM_POLICIES": [
+      {
+        "id": "pp1",
+        "name": "Remove Stale Users on Risk management",
+        "desc": "N/A",
+        "status": "completed",
+        "updated": "13/06/2024 14:30 PM",
+        "ptype": "Remove Stale Users",
+        "scheduled": "21/06/2024 14:30 PM",
+        "active": false
+      },
+      {
+        "id": "pp2",
+        "name": "Balance sheet",
+        "desc": "N/A",
+        "status": "restoreProgress",
+        "updated": "21/05/2024 15:43 PM",
+        "ptype": "Apply Least Privilege",
+        "scheduled": "21/05/2024 15:43 PM",
+        "active": false
+      },
+      {
+        "id": "pp3",
+        "name": "Remove Stale Users Operating expenses",
+        "desc": "N/A",
+        "status": "restoreProgress",
+        "updated": "01/04/2024 16:30 PM",
+        "ptype": "Remove Stale Users",
+        "scheduled": "01/04/2024 16:30 PM",
+        "active": true
+      },
+      {
+        "id": "pp4",
+        "name": "Break-even analysis",
+        "desc": "N/A",
+        "status": "completed",
+        "updated": "07/04/2024 13:30 PM",
+        "ptype": "Remove Stale Users",
+        "scheduled": "07/04/2024 13:30 PM",
+        "active": true
+      },
+      {
+        "id": "pp5",
+        "name": "Risk management",
+        "desc": "N/A",
+        "status": "restoreProgress",
+        "updated": "09/04/2024 14:00 PM",
+        "ptype": "Remove Stale Users",
+        "scheduled": "21/06/2024 14:30 PM",
+        "active": true
+      },
+      {
+        "id": "pp6",
+        "name": "Remove Stale Users on Microfinance",
+        "desc": "N/A",
+        "status": "restoreProgress",
+        "updated": "09/04/2024 14:00 PM",
+        "ptype": "Apply Least Privilege",
+        "scheduled": "13/04/2024 21:30 PM",
+        "active": true
+      },
+      {
+        "id": "pp7",
+        "name": "Mergers and acquisitions",
+        "desc": "N/A",
+        "status": "restoreProgress",
+        "updated": "13/04/2024 21:30 PM",
+        "ptype": "Apply Least Privilege",
+        "scheduled": "01/04/2024 16:30 PM",
+        "active": true
+      },
+      {
+        "id": "pp8",
+        "name": "Technical analysis",
+        "desc": "N/A",
+        "status": "restoreQueue",
+        "updated": "21/06/2024 14:30 PM",
+        "ptype": "Remove Stale Users",
+        "scheduled": "07/04/2024 13:30 PM",
+        "active": true
+      },
+      {
+        "id": "pp9",
+        "name": "Wealth management",
+        "desc": "N/A",
+        "status": "restoreProgress",
+        "updated": "21/05/2024 15:43 PM",
+        "ptype": "Apply Least Privilege",
+        "scheduled": "01/04/2024 16:30 PM",
+        "active": true
+      },
+      {
+        "id": "pp10",
+        "name": "Financial engineering",
+        "desc": "N/A",
+        "status": "automationQueue",
+        "updated": "01/04/2024 16:30 PM",
+        "ptype": "Remove Stale Users",
+        "scheduled": "09/04/2024 14:00 PM",
+        "active": true
+      },
+      {
+        "id": "pp11",
+        "name": "FS1",
+        "desc": "N/A",
+        "status": "completed",
+        "updated": "07/04/2024 13:30 PM",
+        "ptype": "Apply Least Privilege",
+        "scheduled": "21/06/2024 14:30 PM",
+        "active": true
+      }
+    ],
+    "RESTORE_POINTS": [
+      "30/01/24 16:06:11 PM",
+      "30/02/24 12:07:26 PM",
+      "30/03/24 18:00:00 PM",
+      "30/04/24 19:06:10 PM",
+      "30/05/24 08:03:00 PM",
+      "30/06/24 16:06:28 PM"
+    ],
+    "CRITERIA": [
+      {
+        "value": "members",
+        "label": "Only Members"
+      },
+      {
+        "value": "managers",
+        "label": "Only Managers"
+      },
+      {
+        "value": "hierarchy",
+        "label": "Whole hierarchy below me"
+      }
+    ],
+    "ACTION_TYPES": [
+      "Apply Least Privilege",
+      "Remove Stale Users"
+    ],
+    "MEMBERS": [
+      {
+        "id": "m0",
+        "name": "Jenny Wilson",
+        "title": "Manager",
+        "email": "JennyWilson@cipherguard.com",
+        "kind": "lead"
+      },
+      {
+        "id": "m1",
+        "name": "Esther Howard",
+        "title": "Marketing Coordinator",
+        "email": "Esther@cipherguard.com",
+        "kind": "team",
+        "parent": "m0"
+      },
+      {
+        "id": "m2",
+        "name": "Theresa Webb",
+        "title": "Product Designer",
+        "email": "Theresa@cipherguard.com",
+        "kind": "member",
+        "parent": "m1"
+      },
+      {
+        "id": "m3",
+        "name": "Eleanor Nash",
+        "title": "IT",
+        "email": "Bessie@cipherguard.com",
+        "kind": "member",
+        "parent": "m1"
+      },
+      {
+        "id": "m4",
+        "name": "Michael Carter",
+        "title": "Data Analyst",
+        "email": "Courtney@cipherguard.com",
+        "kind": "member",
+        "parent": "m1"
+      },
+      {
+        "id": "m5",
+        "name": "Grace Lee",
+        "title": "Developer",
+        "email": "Ava@cipherguard.com",
+        "kind": "member",
+        "parent": "m1"
+      },
+      {
+        "id": "m6",
+        "name": "Joshua Kim",
+        "title": "Customer Support Specialist",
+        "email": "Sophie@cipherguard.com",
+        "kind": "member",
+        "parent": "m1"
+      },
+      {
+        "id": "m7",
+        "name": "Samantha Patel",
+        "title": "Human Resources",
+        "email": "Liam@cipherguard.com",
+        "kind": "member",
+        "parent": "m1"
+      },
+      {
+        "id": "m8",
+        "name": "David Thompson",
+        "title": "Financial Analyst",
+        "email": "Mason@cipherguard.com",
+        "kind": "member",
+        "parent": "m1"
+      },
+      {
+        "id": "m9",
+        "name": "Olivia Brown",
+        "title": "Project Manager",
+        "email": "Noah@cipherguard.com",
+        "kind": "member",
+        "parent": "m1"
+      }
+    ],
+    "FILE_SERVERS": [
+      {
+        "id": "s1",
+        "name": "192.168.30.238",
+        "shares": [
+          {
+            "id": "s1a",
+            "name": "192.168.30.238"
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "name": "FS-NYC-01",
+        "shares": [
+          {
+            "id": "s2a",
+            "name": "\\\\FS-NYC-01\\Finance"
+          },
+          {
+            "id": "s2b",
+            "name": "\\\\FS-NYC-01\\HR"
+          },
+          {
+            "id": "s2c",
+            "name": "\\\\FS-NYC-01\\Marketing"
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "name": "FS-LON",
+        "shares": [
+          {
+            "id": "s3a",
+            "name": "\\\\FS-LON\\Projects"
+          },
+          {
+            "id": "s3b",
+            "name": "\\\\FS-LON\\Public"
+          }
+        ]
+      }
+    ],
+    "WEEKDAYS": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ]
+  }
+}

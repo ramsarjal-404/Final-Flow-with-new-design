@@ -1,0 +1,715 @@
+{
+  "$source": "src/data/settings/trust.ts",
+  "exports": {
+    "TRUST_SOURCES": [
+      {
+        "id": "salesforce",
+        "label": "Salesforce",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/salesforce.png",
+        "kind": "none"
+      },
+      {
+        "id": "azure",
+        "label": "Microsoft Azure",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/azure.png",
+        "kind": "azure"
+      },
+      {
+        "id": "google",
+        "label": "Google Workspace",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/google.png",
+        "kind": "none"
+      },
+      {
+        "id": "aws",
+        "label": "Amazon Web Services",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/aws.png",
+        "kind": "aws"
+      },
+      {
+        "id": "active-directory",
+        "label": "Active Directory",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/active-directory.png",
+        "kind": "ad"
+      },
+      {
+        "id": "file-server",
+        "label": "File Server",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/file-server.png",
+        "kind": "nas",
+        "addFileServer": true
+      },
+      {
+        "id": "exchange-online",
+        "label": "Exchange Online",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/exchange.png",
+        "kind": "exchange-online"
+      },
+      {
+        "id": "sharepoint-online",
+        "label": "SharePoint Online",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/sharepoint.png",
+        "kind": "sharepoint-online"
+      },
+      {
+        "id": "nasuni",
+        "label": "Nasuni",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/nasuni.png",
+        "kind": "nas"
+      },
+      {
+        "id": "emc-isilon",
+        "label": "EMC Isilon",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/isilon.png",
+        "kind": "nas"
+      },
+      {
+        "id": "nutanix",
+        "label": "Nutanix",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/nutanix.png",
+        "kind": "nas"
+      },
+      {
+        "id": "exchange-server",
+        "label": "Exchange Server",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/exchange-onprem.png",
+        "kind": "exchange-onprem"
+      },
+      {
+        "id": "sharepoint-onprem",
+        "label": "SharePoint on Premise",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/trust/sharepoint-onprem.png",
+        "kind": "sharepoint-onprem"
+      }
+    ],
+    "WEEKDAY_NAMES": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "AD_SERVERS": [
+      "192.168.30.150",
+      "LDSP2",
+      "LDSP3-DC",
+      "192.168.30.223"
+    ],
+    "EXCHANGE_DOMAINS": [
+      "192.168.30.223",
+      "chily.com",
+      "lepide.local"
+    ],
+    "TENANTS": [
+      "LepSoftPvtLtd-.sharepoint.com",
+      "LepideDemo.onmicrosoft.com",
+      "ChilyCorp.onmicrosoft.com"
+    ],
+    "SPO_SITES": [
+      "https://lepsoftpvtltd-my.sharepoint.com/personal/sam_lepsoftpvtltd_onmicrosoft_com/",
+      "https://lepsoftpvtltd.sharepoint.com/sites/Finance",
+      "https://lepsoftpvtltd.sharepoint.com/sites/HR",
+      "https://lepsoftpvtltd.sharepoint.com/sites/Legal",
+      "https://lepsoftpvtltd.sharepoint.com/sites/Marketing"
+    ],
+    "SPP_SITES": [
+      "https:\\\\sp-2659741",
+      "https:\\\\sp-2659742",
+      "https:\\\\sp-2659743",
+      "https:\\\\sp-2659744",
+      "https:\\\\sp-2659745",
+      "https:\\\\sp-2659746"
+    ],
+    "NAS_SERVERS": [
+      "192.167.67.234",
+      "192.167.67.264",
+      "192.167.67.223"
+    ],
+    "NAS_SHARES": {
+      "192.167.67.234": [
+        "Bank Acc. Number",
+        "Financial Reports"
+      ],
+      "192.167.67.264": [
+        "Invoices",
+        "Payroll"
+      ],
+      "192.167.67.223": [
+        "HR Documents",
+        "Contracts"
+      ]
+    },
+    "CSV_IMPORT_ROWS": [
+      [
+        "Bank Acc. Number",
+        "192.167.67.234"
+      ],
+      [
+        "Bank Acc. Details",
+        "92.168.30.225"
+      ]
+    ],
+    "AUDITED_SERVERS": [
+      "192.168.30.150",
+      "192.168.30.151",
+      "192.168.30.152"
+    ],
+    "FOLDER_TREE": [
+      "Account Department",
+      "asdasdsdas",
+      "ashdvcsfsdvcsdsa",
+      "Computers",
+      "DEMOLAB USERS",
+      "Dev Computers",
+      "Dev",
+      "Our Team Uses"
+    ],
+    "APPLY_TO": [
+      "Scan Folder Only",
+      "Scan Folder and Subfolders",
+      "Scan Subfolders Only"
+    ],
+    "DOMAINS": [
+      "Chily",
+      "chily.com",
+      "lepide.local"
+    ],
+    "AD_COMPUTERS": [
+      {
+        "name": "Chily 1",
+        "dn": "CN=ADCHILY1,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 2",
+        "dn": "CN=ADCHILY2,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 3",
+        "dn": "CN=ADCHILY3,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 4",
+        "dn": "CN=ADCHILY4,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 5",
+        "dn": "CN=ADCHILY5,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 6",
+        "dn": "CN=ADCHILY6,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 7",
+        "dn": "CN=ADCHILY7,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 8",
+        "dn": "CN=ADCHILY8,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 9",
+        "dn": "CN=ADCHILY9,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 10",
+        "dn": "CN=ADCHILY10,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 11",
+        "dn": "CN=ADCHILY11,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 12",
+        "dn": "CN=ADCHILY12,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 13",
+        "dn": "CN=ADCHILY13,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 14",
+        "dn": "CN=ADCHILY14,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 15",
+        "dn": "CN=ADCHILY15,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 16",
+        "dn": "CN=ADCHILY16,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 17",
+        "dn": "CN=ADCHILY17,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 18",
+        "dn": "CN=ADCHILY18,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 19",
+        "dn": "CN=ADCHILY19,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 20",
+        "dn": "CN=ADCHILY20,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 21",
+        "dn": "CN=ADCHILY21,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 22",
+        "dn": "CN=ADCHILY22,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 23",
+        "dn": "CN=ADCHILY23,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 24",
+        "dn": "CN=ADCHILY24,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 25",
+        "dn": "CN=ADCHILY25,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 26",
+        "dn": "CN=ADCHILY26,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 27",
+        "dn": "CN=ADCHILY27,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 28",
+        "dn": "CN=ADCHILY28,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 29",
+        "dn": "CN=ADCHILY29,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 30",
+        "dn": "CN=ADCHILY30,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 31",
+        "dn": "CN=ADCHILY31,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 32",
+        "dn": "CN=ADCHILY32,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 33",
+        "dn": "CN=ADCHILY33,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 34",
+        "dn": "CN=ADCHILY34,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 35",
+        "dn": "CN=ADCHILY35,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 36",
+        "dn": "CN=ADCHILY36,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 37",
+        "dn": "CN=ADCHILY37,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 38",
+        "dn": "CN=ADCHILY38,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 39",
+        "dn": "CN=ADCHILY39,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 40",
+        "dn": "CN=ADCHILY40,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 41",
+        "dn": "CN=ADCHILY41,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 42",
+        "dn": "CN=ADCHILY42,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 43",
+        "dn": "CN=ADCHILY43,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 44",
+        "dn": "CN=ADCHILY44,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 45",
+        "dn": "CN=ADCHILY45,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 46",
+        "dn": "CN=ADCHILY46,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 47",
+        "dn": "CN=ADCHILY47,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 48",
+        "dn": "CN=ADCHILY48,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 49",
+        "dn": "CN=ADCHILY49,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 50",
+        "dn": "CN=ADCHILY50,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 51",
+        "dn": "CN=ADCHILY51,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 52",
+        "dn": "CN=ADCHILY52,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 53",
+        "dn": "CN=ADCHILY53,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 54",
+        "dn": "CN=ADCHILY54,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 55",
+        "dn": "CN=ADCHILY55,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 56",
+        "dn": "CN=ADCHILY56,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 57",
+        "dn": "CN=ADCHILY57,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 58",
+        "dn": "CN=ADCHILY58,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 59",
+        "dn": "CN=ADCHILY59,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 60",
+        "dn": "CN=ADCHILY60,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 61",
+        "dn": "CN=ADCHILY61,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 62",
+        "dn": "CN=ADCHILY62,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 63",
+        "dn": "CN=ADCHILY63,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 64",
+        "dn": "CN=ADCHILY64,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 65",
+        "dn": "CN=ADCHILY65,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 66",
+        "dn": "CN=ADCHILY66,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 67",
+        "dn": "CN=ADCHILY67,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 68",
+        "dn": "CN=ADCHILY68,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 69",
+        "dn": "CN=ADCHILY69,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 70",
+        "dn": "CN=ADCHILY70,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 71",
+        "dn": "CN=ADCHILY71,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 72",
+        "dn": "CN=ADCHILY72,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 73",
+        "dn": "CN=ADCHILY73,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 74",
+        "dn": "CN=ADCHILY74,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 75",
+        "dn": "CN=ADCHILY75,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 76",
+        "dn": "CN=ADCHILY76,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 77",
+        "dn": "CN=ADCHILY77,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 78",
+        "dn": "CN=ADCHILY78,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 79",
+        "dn": "CN=ADCHILY79,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 80",
+        "dn": "CN=ADCHILY80,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 81",
+        "dn": "CN=ADCHILY81,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 82",
+        "dn": "CN=ADCHILY82,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 83",
+        "dn": "CN=ADCHILY83,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 84",
+        "dn": "CN=ADCHILY84,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 85",
+        "dn": "CN=ADCHILY85,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 86",
+        "dn": "CN=ADCHILY86,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 87",
+        "dn": "CN=ADCHILY87,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 88",
+        "dn": "CN=ADCHILY88,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 89",
+        "dn": "CN=ADCHILY89,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 90",
+        "dn": "CN=ADCHILY90,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 91",
+        "dn": "CN=ADCHILY91,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 92",
+        "dn": "CN=ADCHILY92,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 93",
+        "dn": "CN=ADCHILY93,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 94",
+        "dn": "CN=ADCHILY94,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 95",
+        "dn": "CN=ADCHILY95,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 96",
+        "dn": "CN=ADCHILY96,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 97",
+        "dn": "CN=ADCHILY97,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 98",
+        "dn": "CN=ADCHILY98,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 99",
+        "dn": "CN=ADCHILY99,CN=Computers,DC=chily,DC=com"
+      },
+      {
+        "name": "Chily 100",
+        "dn": "CN=ADCHILY100,CN=Computers,DC=chily,DC=com"
+      }
+    ],
+    "OU_TREE": [
+      {
+        "id": "chily2",
+        "label": "Chily 2",
+        "kind": "ou",
+        "children": [
+          {
+            "id": "c234",
+            "label": "Chily 234",
+            "kind": "computer"
+          },
+          {
+            "id": "c3456",
+            "label": "Chily 3456",
+            "kind": "computer"
+          }
+        ]
+      },
+      {
+        "id": "acct",
+        "label": "Account Department",
+        "kind": "ou",
+        "children": [
+          {
+            "id": "acc01",
+            "label": "ACC-PC01",
+            "kind": "computer"
+          },
+          {
+            "id": "acc02",
+            "label": "ACC-PC02",
+            "kind": "computer"
+          }
+        ]
+      },
+      {
+        "id": "asd",
+        "label": "asdasdsdas",
+        "kind": "ou",
+        "children": [
+          {
+            "id": "asd01",
+            "label": "ASD-SRV01",
+            "kind": "computer"
+          }
+        ]
+      },
+      {
+        "id": "asf",
+        "label": "asfdvcxfsdvcsdsa",
+        "kind": "ou",
+        "children": [
+          {
+            "id": "asf01",
+            "label": "ASF-SRV01",
+            "kind": "computer"
+          }
+        ]
+      },
+      {
+        "id": "comp",
+        "label": "Computers",
+        "kind": "ou",
+        "children": [
+          {
+            "id": "fs01",
+            "label": "FS-01",
+            "kind": "computer"
+          },
+          {
+            "id": "fs02",
+            "label": "FS-02",
+            "kind": "computer"
+          }
+        ]
+      }
+    ],
+    "SHARE_COMPUTERS": [
+      {
+        "name": "XYZ1234",
+        "ip": "192.168.30.150"
+      },
+      {
+        "name": "ABC5678",
+        "ip": "192.168.30.151"
+      },
+      {
+        "name": "LMN9101",
+        "ip": "192.168.30.152"
+      },
+      {
+        "name": "QRS2345",
+        "ip": "192.168.30.153"
+      },
+      {
+        "name": "TUV6789",
+        "ip": "192.168.30.154"
+      }
+    ],
+    "SQL_SERVERS": {
+      "Local Servers": [
+        "devl174",
+        "devl174\\SQLEXPRESS"
+      ],
+      "Network Servers": [
+        "192.168.30.332",
+        "rsdr27\\sql17",
+        "Chily\\david09"
+      ]
+    },
+    "DATABASES": [
+      "0365",
+      "Permission-01",
+      "Permission 22",
+      "LepideCPA"
+    ],
+    "DEFAULT_PRIMARY": {
+      "server": "devl174",
+      "auth": "sql",
+      "user": "devl174",
+      "password": "devl1740",
+      "mode": "select",
+      "database": "",
+      "connTimeout": "60",
+      "queryTimeout": "60"
+    },
+    "STALE_OPTIONS": [
+      "30 Days",
+      "60 Days",
+      "90 Days",
+      "180 Days",
+      "365 Days"
+    ]
+  }
+}

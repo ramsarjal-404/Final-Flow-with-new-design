@@ -1,0 +1,54 @@
+{
+  "$description": "Dark theme (proposed / beta). Overrides semantic tokens by path. Applied with <html data-theme=\"dark\">.",
+  "$extensions": { "lepide": { "theme": "dark", "status": "beta", "selector": ":root[data-theme=\"dark\"]", "colorScheme": "dark" } },
+  "component": {
+    "$type": "color",
+    "toggle-off": { "$value": "#3a414d" }, "toggle-off-hover": { "$value": "#465061" }
+  },
+  "color": {
+    "$type": "color",
+    "canvas": { "$value": "#0f1216" }, "surface": { "$value": "#171b21" }, "surface-2": { "$value": "#1d222a" }, "surface-3": { "$value": "#252b34" },
+    "glass": { "$value": "rgba(23,27,33,.72)" }, "glass-strong": { "$value": "rgba(23,27,33,.88)" },
+    "border": { "$value": "#2b313b" }, "border-2": { "$value": "#363d49" }, "border-soft": { "$value": "#222831" },
+    "ink": { "$value": "#eef0f3" }, "ink-2": { "$value": "#c5cad3" }, "ink-3": { "$value": "#9aa1ad" }, "ink-4": { "$value": "#6e7581" },
+    "brand": { "$value": "#3a5fb8" }, "brand-ink": { "$value": "#8fabeb" },
+    "brand-600": { "$value": "#33549f" }, "brand-700": { "$value": "#2b4785" }, "brand-400": { "$value": "#6f8fdc" }, "brand-300": { "$value": "#5b7fd0" },
+    "brand-200": { "$value": "#2e4378" }, "brand-100": { "$value": "#22305a" }, "brand-50": { "$value": "#1a2540" },
+    "success": { "$value": "#4cc79a" }, "success-bg": { "$value": "#10261e" }, "success-text": { "$value": "#4cc79a" },
+    "warning": { "$value": "#f2b25c" }, "warning-bg": { "$value": "#2a1f0e" }, "warning-text": { "$value": "#f2b25c" },
+    "danger":  { "$value": "#f07a7e" }, "danger-bg":  { "$value": "#2c1416" }, "danger-text":  { "$value": "#f07a7e" }
+  },
+  "gradient": {
+    "sel-fill": {
+      "$type": "gradient",
+      "$value": [ { "color": "#4a6fc8", "position": 0 }, { "color": "{color.brand}", "position": 1 } ],
+      "$extensions": { "lepide": { "angle": "180deg" } }
+    }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "sh-xs": { "$value": { "color": "rgba(0,0,0,.3)", "offsetX": "0", "offsetY": "1px", "blur": "2px", "spread": "0" } },
+    "sh-sm": { "$value": [
+      { "color": "rgba(0,0,0,.28)", "offsetX": "0", "offsetY": "1px", "blur": "2px", "spread": "0" },
+      { "color": "rgba(0,0,0,.4)",  "offsetX": "0", "offsetY": "4px", "blur": "14px", "spread": "-6px" }
+    ] },
+    "sh-md": { "$value": [
+      { "color": "rgba(0,0,0,.3)", "offsetX": "0", "offsetY": "1px", "blur": "3px", "spread": "0" },
+      { "color": "rgba(0,0,0,.6)", "offsetX": "0", "offsetY": "14px", "blur": "34px", "spread": "-14px" }
+    ] },
+    "sh-lg": { "$value": [
+      { "color": "rgba(0,0,0,.3)", "offsetX": "0", "offsetY": "2px", "blur": "6px", "spread": "0" },
+      { "color": "rgba(0,0,0,.7)", "offsetX": "0", "offsetY": "28px", "blur": "70px", "spread": "-20px" }
+    ] },
+    "sel-shadow": { "$value": [
+      { "color": "{color.brand-700}", "offsetX": "0", "offsetY": "0", "blur": "0", "spread": "1px", "inset": true },
+      { "color": "rgba(255,255,255,.16)", "offsetX": "0", "offsetY": "1px", "blur": "0", "spread": "1px", "inset": true },
+      { "color": "rgba(0,0,0,.35)", "offsetX": "0", "offsetY": "1px", "blur": "2px", "spread": "0" },
+      { "color": "rgba(58,95,184,.7)", "offsetX": "0", "offsetY": "8px", "blur": "20px", "spread": "-8px" }
+    ] },
+    "sel-ring": { "$value": [
+      { "color": "{color.brand-700}", "offsetX": "0", "offsetY": "0", "blur": "0", "spread": "1px", "inset": true },
+      { "color": "rgba(255,255,255,.16)", "offsetX": "0", "offsetY": "1px", "blur": "0", "spread": "1px", "inset": true }
+    ] }
+  }
+}

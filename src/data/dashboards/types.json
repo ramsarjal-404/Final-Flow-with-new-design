@@ -1,0 +1,11 @@
+{
+  "$source": "src/data/dashboards/types.ts",
+  "exports": {
+    "STYLE_KIND": {
+      "bar": "columns",
+      "stacked": "stacked",
+      "line": "areaBars",
+      "donut": "gaugeDonut"
+    }
+  }
+}

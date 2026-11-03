@@ -1,0 +1,543 @@
+{
+  "$source": "src/data/protect/dashboard.ts",
+  "exports": {
+    "DCS": [
+      "DCD01",
+      "DCD02",
+      "DCD03"
+    ],
+    "C_RED": "var(--color-chart-series-1)",
+    "C_GOLD": "var(--prt-gold)",
+    "OVERVIEW": {
+      "c1": {
+        "ex": [
+          5000,
+          7000,
+          6000
+        ],
+        "al": [
+          4300,
+          6200,
+          3900
+        ]
+      },
+      "c2": {
+        "ex": [
+          29,
+          30,
+          20
+        ],
+        "al": [
+          21,
+          20,
+          18
+        ]
+      },
+      "c4": {
+        "ex": [
+          52000,
+          60000,
+          41000
+        ],
+        "al": [
+          38000,
+          44000,
+          30000
+        ]
+      },
+      "c5": [
+        29,
+        22,
+        15
+      ]
+    },
+    "TEAM": [
+      {
+        "label": "Total Employees",
+        "value": 83,
+        "color": "var(--prt-gold)"
+      },
+      {
+        "label": "Total Managers",
+        "value": 17,
+        "color": "var(--color-chart-series-1)"
+      },
+      {
+        "label": "Total Excluded Managers",
+        "value": 3,
+        "color": "var(--prt-olive)"
+      },
+      {
+        "label": "Total Excluded Employees",
+        "value": 17,
+        "color": "var(--prt-emerald)"
+      }
+    ],
+    "POLICY_OVERVIEW": [
+      {
+        "label": "Total Policies Completed",
+        "value": 13,
+        "tone": "ok",
+        "pill": "ok",
+        "icon": "check"
+      },
+      {
+        "label": "Total Policies in Queue",
+        "value": 3,
+        "tone": "warn",
+        "pill": "warn",
+        "icon": "clock"
+      },
+      {
+        "label": "Total Failed Policies",
+        "value": 6,
+        "tone": "bad",
+        "pill": "bad",
+        "icon": "x"
+      },
+      {
+        "label": "Total Policy Restored",
+        "value": 10,
+        "tone": "info",
+        "pill": "ok",
+        "icon": "restore"
+      },
+      {
+        "label": "Restoration in Progress",
+        "value": 3,
+        "tone": "info",
+        "pill": "warn",
+        "icon": "progress"
+      },
+      {
+        "label": "Total Restorations in Queue",
+        "value": 0,
+        "tone": "warn",
+        "pill": "warn",
+        "icon": "clock"
+      },
+      {
+        "label": "Failed Restoration",
+        "value": 5,
+        "tone": "bad",
+        "pill": "bad",
+        "icon": "x"
+      }
+    ],
+    "AD_COLORS": {
+      "users": "var(--prt-ad-blue)",
+      "computers": "var(--prt-ad-cyan)",
+      "blue": "var(--prt-ad-blue)",
+      "green": "var(--prt-ad-green)",
+      "amber": "var(--prt-ad-amber)",
+      "violet": "var(--prt-ad-violet)",
+      "red": "var(--prt-ad-red)"
+    },
+    "AD": {
+      "age": {
+        "labels": [
+          "20–39d",
+          "40–59d",
+          "60–89d",
+          "90–179d",
+          "180d+"
+        ],
+        "users": [
+          96,
+          72,
+          58,
+          44,
+          14
+        ],
+        "computers": [
+          40,
+          33,
+          26,
+          21,
+          8
+        ]
+      },
+      "lifecycle": {
+        "labels": [
+          "Password reset",
+          "Disabled",
+          "Moved to OU",
+          "Deletion review"
+        ],
+        "users": [
+          128,
+          82,
+          60,
+          14
+        ],
+        "computers": [
+          56,
+          36,
+          28,
+          8
+        ],
+        "colors": [
+          "var(--prt-ad-blue)",
+          "var(--prt-ad-amber)",
+          "var(--prt-ad-violet)",
+          "var(--prt-ad-red)"
+        ]
+      },
+      "never": {
+        "users": 89,
+        "computers": 48
+      },
+      "upcoming": {
+        "labels": [
+          "Password reset",
+          "Disable",
+          "Move to OU",
+          "Delete"
+        ],
+        "colors": [
+          "var(--prt-ad-blue)",
+          "var(--prt-ad-amber)",
+          "var(--prt-ad-violet)",
+          "var(--prt-ad-red)"
+        ],
+        "due30": [
+          "in 2 days",
+          "in 9 days",
+          "in 18 days",
+          "in 27 days"
+        ],
+        "due90": [
+          "in 6 days",
+          "in 24 days",
+          "in 51 days",
+          "in 80 days"
+        ],
+        "d30": {
+          "users": [
+            38,
+            30,
+            22,
+            6
+          ],
+          "computers": [
+            16,
+            12,
+            9,
+            2
+          ]
+        },
+        "d90": {
+          "users": [
+            82,
+            64,
+            47,
+            13
+          ],
+          "computers": [
+            34,
+            26,
+            19,
+            4
+          ]
+        }
+      },
+      "trend": {
+        "d30": {
+          "labels": [
+            "Jun 28",
+            "Jul 3",
+            "Jul 8",
+            "Jul 13",
+            "Jul 18",
+            "Jul 23",
+            "Jul 26"
+          ],
+          "detected": {
+            "users": [
+              101,
+              113,
+              104,
+              131,
+              119,
+              141,
+              127
+            ],
+            "computers": [
+              45,
+              51,
+              47,
+              58,
+              54,
+              64,
+              57
+            ]
+          },
+          "remediated": {
+            "users": [
+              63,
+              73,
+              82,
+              91,
+              102,
+              111,
+              117
+            ],
+            "computers": [
+              28,
+              33,
+              37,
+              41,
+              46,
+              50,
+              52
+            ]
+          }
+        },
+        "d90": {
+          "labels": [
+            "May 1",
+            "May 16",
+            "Jun 1",
+            "Jun 16",
+            "Jul 1",
+            "Jul 16",
+            "Jul 26"
+          ],
+          "detected": {
+            "users": [
+              219,
+              243,
+              232,
+              277,
+              268,
+              306,
+              290
+            ],
+            "computers": [
+              99,
+              109,
+              105,
+              124,
+              120,
+              137,
+              131
+            ]
+          },
+          "remediated": {
+            "users": [
+              141,
+              156,
+              174,
+              198,
+              217,
+              246,
+              264
+            ],
+            "computers": [
+              63,
+              70,
+              78,
+              89,
+              97,
+              110,
+              118
+            ]
+          }
+        }
+      }
+    },
+    "NOTIF_TYPES": {
+      "sync": {
+        "tone": "brand",
+        "cat": "Directory sync"
+      },
+      "permission": {
+        "tone": "warning",
+        "cat": "Permission change"
+      },
+      "threat": {
+        "tone": "error",
+        "cat": "Risk alert"
+      },
+      "report": {
+        "tone": "success",
+        "cat": "Report"
+      },
+      "access": {
+        "tone": "accent",
+        "cat": "Access request"
+      },
+      "stale": {
+        "tone": "na",
+        "cat": "Review overdue"
+      },
+      "adcleaner": {
+        "tone": "brand",
+        "cat": "AD Cleaner"
+      }
+    },
+    "NOTIFICATIONS": [
+      {
+        "id": 101,
+        "type": "adcleaner",
+        "src": "AD",
+        "unread": true,
+        "ago": "22 hours ago",
+        "text": [
+          "AD Cleaner set a ",
+          {
+            "b": "random password"
+          },
+          " on ",
+          {
+            "b": "24 inactive accounts"
+          },
+          " — LPDE4.local"
+        ],
+        "link": "password"
+      },
+      {
+        "id": 102,
+        "type": "adcleaner",
+        "src": "AD",
+        "unread": true,
+        "ago": "22 hours ago",
+        "text": [
+          "AD Cleaner ",
+          {
+            "b": "moved 24 accounts"
+          },
+          " to the Inactive OU — LPDE4.local"
+        ],
+        "link": "move"
+      },
+      {
+        "id": 103,
+        "type": "report",
+        "src": "AD",
+        "unread": true,
+        "ago": "22 hours ago",
+        "text": [
+          "Daily ",
+          {
+            "b": "inactive-account report"
+          },
+          " is ready — ",
+          {
+            "b": "24 accounts"
+          }
+        ],
+        "link": "report"
+      },
+      {
+        "id": 104,
+        "type": "adcleaner",
+        "src": "AD",
+        "unread": false,
+        "ago": "21 hours ago",
+        "text": [
+          "AD Cleaner run finished — ",
+          {
+            "b": "no inactive accounts"
+          },
+          " matched the criteria"
+        ],
+        "link": "none"
+      },
+      {
+        "id": 1,
+        "type": "sync",
+        "src": "Z",
+        "unread": true,
+        "ago": "1 week ago",
+        "text": [
+          {
+            "b": "Total 112"
+          },
+          " users are synced from ",
+          {
+            "b": "ZOHO"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": "threat",
+        "src": "AD",
+        "unread": true,
+        "ago": "2 days ago",
+        "text": [
+          {
+            "b": "7 users"
+          },
+          " gained ",
+          {
+            "b": "direct access"
+          },
+          " to a sensitive share"
+        ]
+      },
+      {
+        "id": 3,
+        "type": "permission",
+        "src": "AD",
+        "unread": true,
+        "ago": "3 days ago",
+        "text": [
+          {
+            "b": "45 users"
+          },
+          " were added to ",
+          {
+            "b": "Domain Admins"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "type": "access",
+        "src": "Z",
+        "unread": true,
+        "ago": "4 days ago",
+        "text": [
+          {
+            "b": "83 users"
+          },
+          " requested access to ",
+          {
+            "b": "HR Documents"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "type": "report",
+        "src": "AD",
+        "unread": false,
+        "ago": "1 week ago",
+        "text": [
+          {
+            "b": "254 users"
+          },
+          " permission report is ready to download"
+        ]
+      },
+      {
+        "id": 6,
+        "type": "stale",
+        "src": "AD",
+        "unread": false,
+        "ago": "2 weeks ago",
+        "text": [
+          {
+            "b": "5 users"
+          },
+          " have not been reviewed in ",
+          {
+            "b": "90 days"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,846 @@
+{
+  "$source": "src/data/settings/identify.ts",
+  "exports": {
+    "IDF_SOURCES": [
+      {
+        "id": "file-server",
+        "label": "File Server",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/file-server.png",
+        "kind": "share",
+        "sql": true
+      },
+      {
+        "id": "netapp-filer",
+        "label": "NetApp Filer",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/netapp.png",
+        "kind": "share",
+        "sql": true
+      },
+      {
+        "id": "exchange-server",
+        "label": "Exchange Server",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/exchange-server.png",
+        "kind": "exchangeServer",
+        "sql": true
+      },
+      {
+        "id": "exchange-online",
+        "label": "Exchange Online",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/exchange-online.png",
+        "kind": "exchangeOnline",
+        "sql": true
+      },
+      {
+        "id": "windows-cluster",
+        "label": "Windows Cluster",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/windows-cluster.png",
+        "kind": "share",
+        "sql": true
+      },
+      {
+        "id": "sharepoint-server",
+        "label": "SharePoint Server",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/sharepoint-server.png",
+        "kind": "sharepointServer",
+        "sql": true
+      },
+      {
+        "id": "sharepoint-online",
+        "label": "SharePoint Online",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/sharepoint-online.png",
+        "kind": "sharepointOnline",
+        "sql": true
+      },
+      {
+        "id": "onedrive",
+        "label": "One Drive",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/onedrive.png",
+        "kind": "onedrive",
+        "sql": true
+      },
+      {
+        "id": "dropbox",
+        "label": "Dropbox",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/dropbox.png",
+        "kind": "dropbox",
+        "sql": false
+      },
+      {
+        "id": "linux",
+        "label": "Linux",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/linux.png",
+        "kind": "share",
+        "sql": true
+      },
+      {
+        "id": "unix",
+        "label": "Unix",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/unix.png",
+        "kind": "share",
+        "sql": true
+      },
+      {
+        "id": "emc-isilon",
+        "label": "EMC Isilon",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/emc-isilon.png",
+        "kind": "share",
+        "sql": true
+      },
+      {
+        "id": "nasuni",
+        "label": "Nasuni",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/nasuni.png",
+        "kind": "share",
+        "sql": true
+      },
+      {
+        "id": "nutanix",
+        "label": "Nutanix",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/identify/nutanix.png",
+        "kind": "share",
+        "sql": true
+      }
+    ],
+    "SEED_PATTERNS": [
+      {
+        "id": "p-aba",
+        "name": "ABA Routing Number",
+        "type": "Regular Expression",
+        "description": "American Bankers Association routing transit number used in United States",
+        "expression": "\\b[0-9]{9}\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-aus-bank",
+        "name": "Australian Bank Account Number",
+        "type": "Regular Expression",
+        "description": "Bank Details of all Australian's Sydney Branches",
+        "expression": "\\b[0-9]{6,10}\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-aus-tfn",
+        "name": "Australian Tax File Number",
+        "type": "Regular Expression",
+        "description": "Nine digit tax file number issued by the ATO",
+        "expression": "\\b[0-9]{3} ?[0-9]{3} ?[0-9]{3}\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-us-passport",
+        "name": "US Passport Number",
+        "type": "Regular Expression",
+        "description": "Nine character United States passport number",
+        "expression": "\\b[A-Z0-9]{9}\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-dni",
+        "name": "Argentina National Identity (DNI)",
+        "type": "Regular Expression",
+        "description": "Documento Nacional de Identidad number",
+        "expression": "\\b[0-9]{2}\\.?[0-9]{3}\\.?[0-9]{3}\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-uk-nin",
+        "name": "UK National Insurance Number",
+        "type": "Regular Expression",
+        "description": "National Insurance number issued in the United Kingdom",
+        "expression": "\\b[A-Z]{2}[0-9]{6}[A-D]\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-cn-id",
+        "name": "Chinese Resident Identity Card Number",
+        "type": "Regular Expression",
+        "description": "18-digit resident identity card number",
+        "expression": "\\b[0-9]{17}[0-9X]\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-za-id",
+        "name": "South African ID Number",
+        "type": "Regular Expression",
+        "description": "13-digit identity number issued in South Africa",
+        "expression": "\\b[0-9]{13}\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-ca-sin",
+        "name": "Canadian Social Insurance Number (SIN)",
+        "type": "Regular Expression",
+        "description": "Nine digit social insurance number",
+        "expression": "\\b[0-9]{3}-?[0-9]{3}-?[0-9]{3}\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-aadhaar",
+        "name": "Aadhaar Number",
+        "type": "Regular Expression",
+        "description": "A 12-digit unique identity number issued in India",
+        "expression": "\\b[2-9][0-9]{3} ?[0-9]{4} ?[0-9]{4}\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-de-id",
+        "name": "German Identity Card Number",
+        "type": "Regular Expression",
+        "description": "Personalausweis number",
+        "expression": "\\b[CFGHJKLMNPRTVWXYZ0-9]{9}\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-fr-id",
+        "name": "French National ID Number",
+        "type": "Regular Expression",
+        "description": "Carte nationale d'identité number",
+        "expression": "\\b[0-9]{12}\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-br-cpf",
+        "name": "Brazilian CPF Number",
+        "type": "Regular Expression",
+        "description": "Cadastro de Pessoas Físicas number",
+        "expression": "\\b[0-9]{3}\\.?[0-9]{3}\\.?[0-9]{3}-?[0-9]{2}\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-cc",
+        "name": "Official Credit Card Number",
+        "type": "Regular Expression",
+        "description": "Indian Credit Card Bank Number",
+        "expression": "\\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})\\b",
+        "kind": "Default",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-custom-1",
+        "name": "Custom Name 1",
+        "type": "Regular Expression",
+        "description": "Bank Details of all Australian's Sydney Branches",
+        "expression": "Default Pattern",
+        "kind": "Custom",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      },
+      {
+        "id": "p-custom-2",
+        "name": "Custom Name 2",
+        "type": "Regular Expression",
+        "description": "Bank Details of all Australian's Sydney Branches",
+        "expression": "Default Pattern",
+        "kind": "Custom",
+        "riskLevel": "50",
+        "monetaryValue": "100",
+        "evidence": false,
+        "keywords": "",
+        "regexInclude": "",
+        "keywordsExclude": "",
+        "proximity": ""
+      }
+    ],
+    "SEED_TAGS": [
+      {
+        "id": "t-aus-bank",
+        "name": "Australian Bank Account Number",
+        "description": "Bank Details of all Australian's Sydney Branches",
+        "patternIds": [
+          "p-aus-bank"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "t-aba",
+        "name": "ABA Routing Number",
+        "description": "American Bankers Association routing transit number used in United States",
+        "patternIds": [
+          "p-aba"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "t-us-passport",
+        "name": "US Passport Number",
+        "description": "US National Identity",
+        "patternIds": [
+          "p-us-passport"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "t-dni",
+        "name": "Argentina National Identity (DNI)",
+        "description": "Argentina National Identity",
+        "patternIds": [
+          "p-dni"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "t-uk-nin",
+        "name": "UK National Insurance Number",
+        "description": "UK National Insurance Number",
+        "patternIds": [
+          "p-uk-nin"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "t-cn-id",
+        "name": "Chinese Resident Identity Card Number",
+        "description": "Chinese Resident Identity Card Number",
+        "patternIds": [
+          "p-cn-id"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "t-za-id",
+        "name": "South African ID Number",
+        "description": "South African ID Number",
+        "patternIds": [
+          "p-za-id"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "t-aus-tfn",
+        "name": "Australian Tax File Number",
+        "description": "Australian Tax File Number",
+        "patternIds": [
+          "p-aus-tfn"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "t-ca-sin",
+        "name": "Canadian Social Insurance Number (SIN)",
+        "description": "Canadian Social Insurance Number",
+        "patternIds": [
+          "p-ca-sin"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "t-aadhaar",
+        "name": "Aadhaar Number",
+        "description": "A 12-digit unique identity number issued in India",
+        "patternIds": [
+          "p-aadhaar"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "t-cc",
+        "name": "Credit Card Number",
+        "description": "Payment card numbers",
+        "patternIds": [
+          "p-cc"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "t-custom-1",
+        "name": "Custom Name 1",
+        "description": "Bank Details of all Australian's Sydney Branches",
+        "patternIds": [
+          "p-aus-bank",
+          "p-custom-1"
+        ],
+        "kind": "Custom"
+      },
+      {
+        "id": "t-custom-2",
+        "name": "Custom Name 2",
+        "description": "Bank Details of all Australian's Sydney Branches",
+        "patternIds": [
+          "p-aus-bank"
+        ],
+        "kind": "Custom"
+      }
+    ],
+    "SEED_TEMPLATES": [
+      {
+        "id": "tp-custom",
+        "name": "Custom",
+        "description": "Custom template built from existing tags",
+        "tagIds": [
+          "t-aus-bank",
+          "t-custom-1"
+        ],
+        "kind": "Custom"
+      },
+      {
+        "id": "tp-aus-fin",
+        "name": "Australian Financial Data",
+        "description": "Bank and tax details of Australian residents",
+        "tagIds": [
+          "t-aus-bank",
+          "t-aus-tfn",
+          "t-aba"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "tp-gdpr",
+        "name": "General Data Protection (gdpr)",
+        "description": "Personal data protected under the EU GDPR",
+        "tagIds": [
+          "t-us-passport",
+          "t-dni",
+          "t-uk-nin",
+          "t-cn-id"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "tp-us-passport",
+        "name": "US Passport Number",
+        "description": "US Passport Number",
+        "tagIds": [
+          "t-us-passport"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "tp-uk-nin",
+        "name": "UK National Insurance Number",
+        "description": "UK National Insurance Number",
+        "tagIds": [
+          "t-uk-nin"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "tp-ca-sin",
+        "name": "Canadian Social Insurance Number (SIN)",
+        "description": "Canadian Social Insurance Number",
+        "tagIds": [
+          "t-ca-sin"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "tp-aadhaar",
+        "name": "Aadhaar Number",
+        "description": "Aadhaar Number",
+        "tagIds": [
+          "t-aadhaar"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "tp-dni",
+        "name": "Argentina National Identity (DNI)",
+        "description": "Argentina National Identity (DNI)",
+        "tagIds": [
+          "t-dni"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "tp-cn-id",
+        "name": "Chinese Resident Identity Card Number",
+        "description": "Chinese Resident Identity Card Number",
+        "tagIds": [
+          "t-cn-id"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "tp-za-id",
+        "name": "South African ID Number",
+        "description": "South African ID Number",
+        "tagIds": [
+          "t-za-id"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "tp-pci",
+        "name": "Payment Card Industry (PCI)",
+        "description": "Card holder data under PCI DSS",
+        "tagIds": [
+          "t-cc",
+          "t-aba"
+        ],
+        "kind": "Default"
+      },
+      {
+        "id": "tp-phi",
+        "name": "Personal Health Information",
+        "description": "Health records and identifiers",
+        "tagIds": [
+          "t-us-passport",
+          "t-ca-sin"
+        ],
+        "kind": "Default"
+      }
+    ],
+    "FILE_TYPES": [
+      ".txt",
+      ".docx",
+      ".pdf",
+      ".rtf",
+      ".odt",
+      ".jpg",
+      ".png",
+      ".gif",
+      ".bmp",
+      ".tiff",
+      ".tar",
+      ".gz",
+      ".exe",
+      ".xls"
+    ],
+    "SEED_PROFILES": [
+      {
+        "id": "pr-ddc09",
+        "sourceId": "file-server",
+        "name": "DDC09",
+        "description": "Australian ID Card Details",
+        "conn": {
+          "user": "Chily\\Richard",
+          "password": "secret12"
+        },
+        "objects": [
+          {
+            "id": "o-1",
+            "path": "\\\\192.14.35.335\\User",
+            "server": "192.14.35.335"
+          }
+        ],
+        "templateIds": [
+          "tp-aus-fin",
+          "tp-gdpr"
+        ],
+        "fileCriteria": "All",
+        "extensions": [],
+        "ocr": false,
+        "sizeOp": "Less Than or Equal",
+        "sizeValue": "20",
+        "sizeUnit": "MB",
+        "sql": {
+          "server": "192.168.30.332",
+          "auth": "windows",
+          "user": "Chily\\David",
+          "password": "secret12",
+          "dbMode": "create",
+          "db": "0365"
+        },
+        "onTheFly": false,
+        "classifyNow": true,
+        "scheduled": false,
+        "schedule": null,
+        "classificationServer": "192.168.30.210",
+        "progress": 75,
+        "status": "Running",
+        "agentCommunication": "Success",
+        "lastStart": "13-09-2024 13:00:30 PM",
+        "lastEnd": "17-09-2024 13:00:00 PM"
+      }
+    ],
+    "SEED_AGENTS": [
+      {
+        "id": "ag-1",
+        "server": "192.168.30.90",
+        "path": "\\\\192.168.30.90\\share",
+        "user": "ldsp2\\ishan",
+        "password": "secret12",
+        "profile": "FSA"
+      }
+    ],
+    "SEED_CENTRAL": [
+      {
+        "id": "cs-1",
+        "server": "192.168.30.206",
+        "auth": "sql",
+        "user": "Chily\\David",
+        "password": "secret12",
+        "dbMode": "select",
+        "db": "TestDB09",
+        "connTimeout": "20",
+        "queryTimeout": "60",
+        "importPrevious": false
+      }
+    ],
+    "SQL_LOCAL": [
+      "LPDE0012.co.in",
+      "LPDE0013.co.in",
+      "LPDE0015.co.in",
+      "LPDE0042.co.in",
+      "LPDE00132.co.in"
+    ],
+    "SQL_NETWORK": [
+      "192.168.30.332",
+      "192.168.30.206",
+      "SQLPROD01.lepide.local"
+    ],
+    "SQL_DATABASES": [
+      "0365",
+      "TestDB09",
+      "LepideDDC",
+      "Classification01"
+    ],
+    "CLASSIFICATION_SERVERS": [
+      "192.168.30.210",
+      "192.168.30.90",
+      "192.168.30.35"
+    ],
+    "DATASETS": {
+      "Finance Shares": [
+        {
+          "path": "\\\\192.168.30.93\\Finance",
+          "server": "192.168.30.93"
+        },
+        {
+          "path": "\\\\192.168.30.93\\Payroll",
+          "server": "192.168.30.93"
+        },
+        {
+          "path": "\\\\192.168.30.94\\Accounts",
+          "server": "192.168.30.94"
+        }
+      ],
+      "HR Shares": [
+        {
+          "path": "\\\\192.168.30.95\\HR",
+          "server": "192.168.30.95"
+        },
+        {
+          "path": "\\\\192.168.30.95\\Recruitment",
+          "server": "192.168.30.95"
+        }
+      ]
+    },
+    "AUDITED_SERVERS": {
+      "192.168.30.93": [
+        "DDC Agent",
+        "Lepide Data Security Platform",
+        "RajeshSharePublish",
+        "shareFolder93",
+        "tempz",
+        "Users",
+        "Marketing",
+        "Engineering"
+      ],
+      "192.168.30.94": [
+        "Accounts",
+        "Public",
+        "Archive"
+      ]
+    },
+    "MAILBOXES_ONPREM": [
+      "Administrator",
+      "Test4",
+      "testMailbox",
+      "userA",
+      "pawan",
+      "Admin2",
+      "Helpdesk",
+      "Finance",
+      "Payroll",
+      "Reception"
+    ],
+    "MAILBOXES_ONLINE": [
+      {
+        "name": "Adam",
+        "upn": "Adam@LepSoftPvtLtd.onmicrosoft.com"
+      },
+      {
+        "name": "AK",
+        "upn": "AK@LepSoftPvtLtd.onmicrosoft.com"
+      },
+      {
+        "name": "Amir",
+        "upn": "Amir@LepSoftPvtLtd.onmicrosoft.com"
+      },
+      {
+        "name": "AmirK",
+        "upn": "AmirK@LepSoftPvtLtd.onmicrosoft.com"
+      },
+      {
+        "name": "Anand Anand",
+        "upn": "AnandAnand@LepSoftPvtLtd.onmicrosoft.com"
+      },
+      {
+        "name": "Aromal DEMO123",
+        "upn": "AromalDEMO123@LepSoftPvtLtd.onmicrosoft.com"
+      },
+      {
+        "name": "Arpit Singh",
+        "upn": "ArpitSingh@LepSoftPvtLtd.onmicrosoft.com"
+      },
+      {
+        "name": "D'souza",
+        "upn": "Dsouza@LepSoftPvtLtd.onmicrosoft.com"
+      },
+      {
+        "name": "D'SOUZAS",
+        "upn": "DSOUZAS@LepSoftPvtLtd.onmicrosoft.com"
+      },
+      {
+        "name": "Gaurav",
+        "upn": "Gaurav@LepSoftPvtLtd.onmicrosoft.com"
+      },
+      {
+        "name": "Ishan",
+        "upn": "Ishan@LepSoftPvtLtd.onmicrosoft.com"
+      },
+      {
+        "name": "Kriti",
+        "upn": "Kriti@LepSoftPvtLtd.onmicrosoft.com"
+      }
+    ],
+    "SP_SITES": [
+      "https://lepsoftpvtltd.sharepoint.com/sites/001",
+      "https://lepsoftpvtltd.sharepoint.com/sites/0022",
+      "https://lepsoftpvtltd.sharepoint.com/sites/002",
+      "https://lepsoftpvtltd.sharepoint.com/sites/011",
+      "https://lepsoftpvtltd.sharepoint.com/sites/022",
+      "https://lepsoftpvtltd.sharepoint.com/sites/himanshu",
+      "https://lepsoftpvtltd.sharepoint.com/sites/abhinavSite2",
+      "https://lepsoftpvtltd.sharepoint.com/sites/allcompany",
+      "https://lepsoftpvtltd.sharepoint.com/sites/Angel%27s",
+      "https://lepsoftpvtltd.sharepoint.com/sites/finance",
+      "https://lepsoftpvtltd.sharepoint.com/sites/hr",
+      "https://lepsoftpvtltd.sharepoint.com/sites/legal"
+    ],
+    "OD_ACCOUNTS": [
+      "https://lepsoftpvtltd-my.sharepoint.com/personal/adam_lepsoftpvtltd_onmicrosoft_com",
+      "https://lepsoftpvtltd-my.sharepoint.com/personal/amir_lepsoftpvtltd_onmicrosoft_com",
+      "https://lepsoftpvtltd-my.sharepoint.com/personal/arpit.singh_lepsoftpvtltd_onmicrosoft_com",
+      "https://lepsoftpvtltd-my.sharepoint.com/personal/ishan_lepsoftpvtltd_onmicrosoft_com",
+      "https://lepsoftpvtltd-my.sharepoint.com/personal/kriti_lepsoftpvtltd_onmicrosoft_com",
+      "https://lepsoftpvtltd-my.sharepoint.com/personal/gaurav_lepsoftpvtltd_onmicrosoft_com",
+      "https://lepsoftpvtltd-my.sharepoint.com/personal/dsouza_lepsoftpvtltd_onmicrosoft_com"
+    ],
+    "MONTHS": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ]
+  }
+}

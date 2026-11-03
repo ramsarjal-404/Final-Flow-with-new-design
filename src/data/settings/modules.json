@@ -1,0 +1,537 @@
+{
+  "$source": "src/data/settings/modules.ts",
+  "exports": {
+    "TRUST_COMPONENTS": [
+      {
+        "id": "salesforce",
+        "label": "Salesforce",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/salesforce.png"
+      },
+      {
+        "id": "azure",
+        "label": "Microsoft Azure",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/azure.png"
+      },
+      {
+        "id": "google",
+        "label": "Google Workspace",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/google.png"
+      },
+      {
+        "id": "aws",
+        "label": "Amazon Web Services",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/aws.png"
+      },
+      {
+        "id": "ad",
+        "label": "Active Directory",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/active-directory.png"
+      },
+      {
+        "id": "file-server",
+        "label": "File Server",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/file-server.png"
+      },
+      {
+        "id": "exchange-online",
+        "label": "Exchange Online",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/exchange.png"
+      },
+      {
+        "id": "sharepoint-online",
+        "label": "SharePoint Online",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/sharepoint.png"
+      },
+      {
+        "id": "nasuni",
+        "label": "Nasuni",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/nasuni.png"
+      },
+      {
+        "id": "isilon",
+        "label": "EMC Isilon",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/isilon.png"
+      },
+      {
+        "id": "nutanix",
+        "label": "Nutanix",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/nutanix.png"
+      },
+      {
+        "id": "exchange-onprem",
+        "label": "Exchange On-Premises",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/exchange-onprem.png"
+      },
+      {
+        "id": "sharepoint-onprem",
+        "label": "SharePoint On-Premises",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/sharepoint-onprem.png"
+      }
+    ],
+    "WEEK_DAYS": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "MONTH_DAYS": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28"
+    ],
+    "HOURS": [
+      "00:00",
+      "01:00",
+      "02:00",
+      "03:00",
+      "04:00",
+      "05:00",
+      "06:00",
+      "07:00",
+      "08:00",
+      "09:00",
+      "10:00",
+      "11:00",
+      "12:00",
+      "13:00",
+      "14:00",
+      "15:00",
+      "16:00",
+      "17:00",
+      "18:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00",
+      "23:00"
+    ],
+    "HRMS_PROVIDERS": [
+      {
+        "id": "zoho",
+        "label": "ZOHO People",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/zoho-people.png",
+        "fields": [
+          {
+            "key": "domain",
+            "label": "Domain Name",
+            "sample": "Zoho.in"
+          },
+          {
+            "key": "clientId",
+            "label": "Client ID",
+            "sample": "1000 MYTOQMWSLIBKO2TRIKRWLGGO2QHJWOU"
+          },
+          {
+            "key": "secret",
+            "label": "Secret Key",
+            "sample": "6dacta3ab188762256337402d239a7ef43982172ba",
+            "secret": true
+          }
+        ]
+      },
+      {
+        "id": "workable",
+        "label": "Workable",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/modules/workable.png",
+        "fields": [
+          {
+            "key": "domain",
+            "label": "Subdomain",
+            "sample": "cipherguard.workable.com"
+          },
+          {
+            "key": "clientId",
+            "label": "API Token",
+            "sample": "wk_8f2b0c1d9e7a4c55b6"
+          }
+        ]
+      }
+    ],
+    "MATCH_ATTRIBUTES": [
+      "Email ID",
+      "User's Preferred Name",
+      "Last Name",
+      "Custom"
+    ],
+    "HRMS_INTEGRATION": [
+      {
+        "id": "r1",
+        "adUser": "DE10016.LDSP1.com",
+        "sam": "tempa",
+        "email": "192.168.30.180",
+        "manager": "Mason Carter",
+        "hrUser": "Mia Anderson",
+        "hrEmail": "Benjamin Walker"
+      },
+      {
+        "id": "r2",
+        "adUser": "",
+        "sam": "LSTUSER",
+        "email": "192.168.30.92",
+        "manager": "Sophie Turner",
+        "hrUser": "Ethan Thomas",
+        "hrEmail": "Harper Hall"
+      },
+      {
+        "id": "r3",
+        "adUser": "DE10016.LDSP2.com",
+        "sam": "LSDPkoana",
+        "email": "192.168.30.92",
+        "manager": "Liam Johnson",
+        "hrUser": "James Robinson",
+        "hrEmail": "Daniel King"
+      },
+      {
+        "id": "r4",
+        "adUser": "DE10016.LDSP2.com",
+        "sam": "LDSPharry",
+        "email": "192.168.30.92",
+        "manager": "Noah Wilson",
+        "hrUser": "Isabella Lee",
+        "hrEmail": "Alexander Young"
+      },
+      {
+        "id": "r5",
+        "adUser": "",
+        "sam": "encoder",
+        "email": "192.168.30.92",
+        "manager": "Ella Davis",
+        "hrUser": "Charlotte Clark",
+        "hrEmail": "Chloe Wright"
+      },
+      {
+        "id": "r6",
+        "adUser": "DE10016.LDSP2.com",
+        "sam": "kernel26",
+        "email": "192.168.30.92",
+        "manager": "Ava Martinez",
+        "hrUser": "Amelia Lewis",
+        "hrEmail": "Michael Scott"
+      },
+      {
+        "id": "r7",
+        "adUser": "DE10016.LDSP2.com",
+        "sam": "Devl",
+        "email": "192.168.30.92",
+        "manager": "Lucas Brown",
+        "hrUser": "Oliver Harris",
+        "hrEmail": "Grace Allen"
+      }
+    ],
+    "HRMS_EDIT_ROWS": [
+      {
+        "id": "e1",
+        "adUser": "David",
+        "sam": "tempa",
+        "email": "192.168.30.180",
+        "manager": "Mason Carter",
+        "hrUser": "Mia Anderson",
+        "hrEmail": "Mia Anderson@email.com",
+        "isNew": true
+      },
+      {
+        "id": "e2",
+        "adUser": "Woke",
+        "sam": "LSTUSER",
+        "email": "192.168.30.92",
+        "manager": "Sophie Turner",
+        "hrUser": "Ethan Thomas",
+        "hrEmail": "Ethan Thomas@email.com"
+      },
+      {
+        "id": "e3",
+        "adUser": "Andre",
+        "sam": "LSDPkoana",
+        "email": "192.168.30.92",
+        "manager": "Liam Johnson",
+        "hrUser": "James Robinson",
+        "hrEmail": "James Robinson@email.com",
+        "isNew": true
+      },
+      {
+        "id": "e4",
+        "adUser": "Robbin",
+        "sam": "LDSPharry",
+        "email": "192.168.30.92",
+        "manager": "Noah Wilson",
+        "hrUser": "Isabella Lee",
+        "hrEmail": "Isabella Lee@email.com"
+      },
+      {
+        "id": "e5",
+        "adUser": "Mathews",
+        "sam": "encoder",
+        "email": "192.168.30.92",
+        "manager": "Ella Davis",
+        "hrUser": "Ethan Thomas",
+        "hrEmail": "EthanThomas@email.com"
+      },
+      {
+        "id": "e6",
+        "adUser": "Marshal",
+        "sam": "kernel26",
+        "email": "192.168.30.92",
+        "manager": "Ava Martinez",
+        "hrUser": "Ethan Thomas",
+        "hrEmail": "EthanThomas@email.com",
+        "isNew": true
+      },
+      {
+        "id": "e7",
+        "adUser": "Max",
+        "sam": "Devl",
+        "email": "192.168.30.92",
+        "manager": "Lucas Brown",
+        "hrUser": "Amelia Lewis",
+        "hrEmail": "Amelia Lewis@email.com",
+        "isNew": true
+      }
+    ],
+    "AD_INTEGRATION": [
+      {
+        "id": "a0",
+        "adUser": "Richard Wood",
+        "sam": "Richard Wood",
+        "email": "Richard@cipherguard.com",
+        "manager": "",
+        "hrUser": "",
+        "hrEmail": ""
+      },
+      {
+        "id": "a1",
+        "adUser": "Wade Warren",
+        "sam": "Wade Warren",
+        "email": "Wade@cipherguard.com",
+        "manager": "",
+        "hrUser": "",
+        "hrEmail": ""
+      },
+      {
+        "id": "a2",
+        "adUser": "Liam Johnson",
+        "sam": "Liam Johnson",
+        "email": "Liam@cipherguard.com",
+        "manager": "",
+        "hrUser": "",
+        "hrEmail": ""
+      },
+      {
+        "id": "a3",
+        "adUser": "Noah Wilson",
+        "sam": "Noah Wilson",
+        "email": "Noah@cipherguard.com",
+        "manager": "",
+        "hrUser": "",
+        "hrEmail": ""
+      },
+      {
+        "id": "a4",
+        "adUser": "Ella Davis",
+        "sam": "Ella Davis",
+        "email": "Ella@cipherguard.com",
+        "manager": "",
+        "hrUser": "",
+        "hrEmail": ""
+      },
+      {
+        "id": "a5",
+        "adUser": "Ava Martinez",
+        "sam": "Ava Martinez",
+        "email": "Ava@cipherguard.com",
+        "manager": "",
+        "hrUser": "",
+        "hrEmail": ""
+      },
+      {
+        "id": "a6",
+        "adUser": "Lucas Brown",
+        "sam": "Lucas Brown",
+        "email": "Lucas@cipherguard.com",
+        "manager": "",
+        "hrUser": "",
+        "hrEmail": ""
+      },
+      {
+        "id": "a7",
+        "adUser": "Cameron Williamson",
+        "sam": "Cameron Williamson",
+        "email": "Cameron@cipherguard.com",
+        "manager": "",
+        "hrUser": "",
+        "hrEmail": ""
+      },
+      {
+        "id": "a8",
+        "adUser": "Jerome Bell",
+        "sam": "Jerome Bell",
+        "email": "Jerome@cipherguard.com",
+        "manager": "",
+        "hrUser": "",
+        "hrEmail": ""
+      }
+    ],
+    "AD_MANAGER_SUGGESTIONS": [
+      "Jackling",
+      "Harris",
+      "Robbin",
+      "Noah",
+      "Sophia",
+      "Mia",
+      "Ava",
+      "Liam",
+      "Oliver"
+    ],
+    "SUPER_ADMINS": [
+      {
+        "id": "s1",
+        "name": "Dale",
+        "domain": "chily.com"
+      },
+      {
+        "id": "s2",
+        "name": "Johan",
+        "domain": "chily.com"
+      },
+      {
+        "id": "s3",
+        "name": "Daniel",
+        "domain": "chily.com"
+      },
+      {
+        "id": "s4",
+        "name": "Devl",
+        "domain": "chily.com"
+      }
+    ],
+    "CURRENT_ADMIN": "Johan",
+    "CSV_GUIDELINES": [
+      "Usernames and managers must use the sAMAccountName format.",
+      "Duplicate emails are allowed but may affect the delivery of email alerts to managers.",
+      "Always double-check manager entries to ensure correct team assignments."
+    ],
+    "CSV_TEMPLATE": "User Name,Email,Manager\nDevl238,devl238@chily.com,\nHarry,harry@chily.com,Devl238\n",
+    "PROTECT_AGENTS": [
+      {
+        "id": "a1",
+        "fileServer": "192.10.108.211",
+        "status": "Installed",
+        "uncPath": "C:\\Users\\User05\\Desktop\\dm\\protect-agent",
+        "logonUser": "LDSP5/Danny"
+      },
+      {
+        "id": "a2",
+        "fileServer": "192.10.108.300",
+        "status": "Installing",
+        "uncPath": "C:\\Users\\User05\\Desktop\\KM\\Z-agent",
+        "logonUser": "LDSP5/Jolly"
+      },
+      {
+        "id": "a3",
+        "fileServer": "192.10.192.168",
+        "status": "In Que",
+        "uncPath": "C:\\Users\\User05\\Desktop\\dm\\KM-agent",
+        "logonUser": "LDSP5/Thomas"
+      },
+      {
+        "id": "a4",
+        "fileServer": "192.10.192.65",
+        "status": "In Que",
+        "uncPath": "C:\\Users\\User05\\Desktop\\dm\\KM-agent",
+        "logonUser": "chily.devl/150"
+      },
+      {
+        "id": "a5",
+        "fileServer": "192.10.192.21",
+        "status": "Not installed",
+        "uncPath": "C:\\Users\\User05\\Desktop\\dm\\KM-agent",
+        "logonUser": "LDSP5/Danny"
+      }
+    ],
+    "FILE_SERVERS": [
+      "192.167.34.23",
+      "192.167.34.24",
+      "192.167.34.25",
+      "192.167.34.26",
+      "192.167.34.27",
+      "192.167.34.28",
+      "192.167.34.29",
+      "192.167.34.30",
+      "192.167.34.31",
+      "192.167.34.32",
+      "192.167.34.33",
+      "192.167.34.34",
+      "192.167.34.35"
+    ],
+    "WINRM_STEPS": [
+      {
+        "id": "enable",
+        "title": "1. Enable WinRM Service",
+        "body": [
+          "Ensure that the Windows Remote Management (WinRM) service is enabled and running on both systems."
+        ]
+      },
+      {
+        "id": "trusted-hosts",
+        "title": "2. Configure Trusted Hosts",
+        "body": [
+          "Run the following command on the LDSP Host using PowerShell or Command Prompt with Administrator privileges."
+        ],
+        "commands": [
+          {
+            "label": "Trust All Servers (Not Recommended)",
+            "command": "winrm set winrm/config/client @{TrustedHosts=\"*\"}"
+          },
+          {
+            "label": "Trust a Specific Server (Recommended)",
+            "command": "winrm set winrm/config/client @{TrustedHosts=\"192.168.1X.1XX\"}"
+          }
+        ],
+        "footnote": "Incorrect TrustedHosts configuration may cause remote scanning or policy execution failures."
+      },
+      {
+        "id": "script-execution",
+        "title": "3. Configure PowerShell Script Execution",
+        "body": [
+          "Open the Local Group Policy Editor and navigate to:"
+        ],
+        "steps": [
+          "Computer Configuration",
+          "Administrative Templates",
+          "Windows Components",
+          "Windows PowerShell",
+          "Turn on Script Execution > Enabled",
+          "Execution Policy > \"Allow local Scripts and remote signed scripts\""
+        ],
+        "footnote": "This configuration allows locally created scripts to run while maintaining security for remotely downloaded scripts."
+      }
+    ]
+  }
+}

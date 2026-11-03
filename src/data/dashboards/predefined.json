@@ -1,0 +1,2750 @@
+{
+  "$source": "src/data/dashboards/predefined.ts",
+  "exports": {
+    "PREDEFINED_DASHBOARDS": [
+      {
+        "id": "auditor",
+        "name": "Auditor",
+        "title": "Dashboard- Auditor",
+        "description": "",
+        "sharedWith": "",
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "predefined": true,
+        "widgets": [
+          {
+            "id": "auditor-failed-file-read",
+            "title": "Failed File Read",
+            "kind": "areaBars",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "yTicks": [
+                0,
+                10,
+                25,
+                50,
+                75,
+                85,
+                100
+              ],
+              "labels": [
+                "20-11-2024",
+                "21-11-2024",
+                "24-11-2024",
+                "26-11-2024",
+                "28-11-2024"
+              ],
+              "bars": [
+                21,
+                22,
+                63,
+                39,
+                33,
+                30,
+                27,
+                25,
+                21,
+                25,
+                81,
+                75,
+                76,
+                33,
+                51
+              ],
+              "line": [22, 35, 41, 45, 34, 30, 27, 24, 24, 42, 60, 77, 61, 53, 42],
+              "markers": [
+                1,
+                4,
+                7,
+                10,
+                14
+              ],
+              "barName": "Failed reads",
+              "lineName": "Trend"
+            }
+          },
+          {
+            "id": "auditor-failed-logins",
+            "title": "Failed Logins",
+            "kind": "pairedBars",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "rows": [
+                "FS1",
+                "FS2",
+                "FS3",
+                "FS4",
+                "FS5",
+                "FS6",
+                "FS7"
+              ],
+              "xTicks": [
+                0,
+                10,
+                50,
+                75,
+                100,
+                110,
+                150,
+                175,
+                200,
+                210,
+                250,
+                275,
+                300,
+                310
+              ],
+              "series": [
+                {
+                  "name": "Current period",
+                  "color": "var(--chart-red)",
+                  "values": [
+                    78,
+                    39,
+                    278,
+                    141,
+                    104,
+                    179,
+                    104
+                  ]
+                },
+                {
+                  "name": "Previous period",
+                  "color": "var(--chart-yellow)",
+                  "values": [
+                    109,
+                    141,
+                    51,
+                    318,
+                    232,
+                    293,
+                    120
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "auditor-data-being-shared",
+            "title": "Data Being Shared",
+            "kind": "gaugeDonut",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "value": "2,483",
+              "caption": "Data",
+              "startAngle": 38,
+              "segments": [
+                {
+                  "label": "FS 1",
+                  "value": 865,
+                  "color": "var(--dch-crimson)",
+                  "legendColor": "var(--chart-red)"
+                },
+                {
+                  "label": "FS 2",
+                  "value": 1079,
+                  "color": "var(--dch-amber)",
+                  "legendColor": "var(--chart-yellow)"
+                },
+                {
+                  "label": "FS 3",
+                  "value": 539,
+                  "color": "var(--chart-green)",
+                  "legendColor": "var(--dch-green-dark)"
+                }
+              ]
+            }
+          },
+          {
+            "id": "auditor-top-admins",
+            "title": "Top 10 Admins",
+            "kind": "columns",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "labels": [
+                "LDSP1",
+                "LDSP2",
+                "LDSP3",
+                "LDSP4",
+                "LDSP5",
+                "LDSP6"
+              ],
+              "values": [
+                881,
+                593,
+                740,
+                740,
+                1000,
+                798
+              ],
+              "colors": [
+                "var(--chart-green)",
+                "var(--chart-red)",
+                "var(--chart-yellow)",
+                "var(--dch-indigo)",
+                "var(--dch-purple)",
+                "var(--dch-blue)"
+              ],
+              "yTicks": [
+                0,
+                100,
+                500,
+                700,
+                800,
+                900,
+                1000
+              ],
+              "name": "Changes",
+              "slots": 9.33,
+              "offset": 1
+            }
+          },
+          {
+            "id": "auditor-security-group-changes",
+            "title": "Security Group Changes",
+            "kind": "bubbles",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "points": [
+                {
+                  "x": 5,
+                  "y": 47.5,
+                  "size": 56,
+                  "color": "var(--dch-salmon)",
+                  "label": "Product 1",
+                  "value": 56
+                },
+                {
+                  "x": 18.2,
+                  "y": 74.4,
+                  "size": 37,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 37
+                },
+                {
+                  "x": 24.8,
+                  "y": 58.3,
+                  "size": 21,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 21
+                },
+                {
+                  "x": 31.5,
+                  "y": 45.4,
+                  "size": 27,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 33,
+                  "y": 50.7,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 44.5,
+                  "y": 46.5,
+                  "size": 46,
+                  "color": "var(--dch-emerald)",
+                  "label": "Product 2",
+                  "value": 46
+                },
+                {
+                  "x": 58,
+                  "y": 73,
+                  "size": 27,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 58,
+                  "y": 31.3,
+                  "size": 22,
+                  "color": "var(--dch-salmon)",
+                  "label": "Product 1",
+                  "value": 22
+                },
+                {
+                  "x": 64.6,
+                  "y": 46.8,
+                  "size": 47,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 47
+                },
+                {
+                  "x": 77.9,
+                  "y": 84.3,
+                  "size": 38,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 38
+                },
+                {
+                  "x": 84.2,
+                  "y": 57.6,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 91.1,
+                  "y": 31.6,
+                  "size": 27,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 92.9,
+                  "y": 62.7,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 93.7,
+                  "y": 71.4,
+                  "size": 42,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 42
+                }
+              ],
+              "legend": [
+                {
+                  "label": "Product 1",
+                  "color": "var(--chart-red)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--chart-yellow)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-blue-soft)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-emerald)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-salmon-light)"
+                }
+              ]
+            }
+          },
+          {
+            "id": "auditor-teams-channels",
+            "title": "New MS Teams Channel Created",
+            "kind": "stacked",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "yTicks": [
+                0,
+                100,
+                500,
+                700,
+                800,
+                900,
+                1000
+              ],
+              "cats": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+              ],
+              "slots": 7.6,
+              "offset": 0.15,
+              "series": [
+                {
+                  "name": "FS1",
+                  "color": "var(--chart-red)",
+                  "values": [
+                    92,
+                    202,
+                    100,
+                    321,
+                    92,
+                    313,
+                    58
+                  ]
+                },
+                {
+                  "name": "FS2",
+                  "color": "var(--chart-yellow)",
+                  "values": [
+                    187,
+                    298,
+                    213,
+                    268,
+                    178,
+                    276,
+                    42
+                  ]
+                },
+                {
+                  "name": "FS3",
+                  "color": "var(--chart-green)",
+                  "values": [
+                    383,
+                    300,
+                    389,
+                    311,
+                    392,
+                    311,
+                    349
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "trust",
+        "name": "Trust",
+        "title": "Dashboard- Trust",
+        "description": "",
+        "sharedWith": "",
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "predefined": true,
+        "widgets": [
+          {
+            "id": "trust-failed-file-read",
+            "title": "Failed File Read",
+            "kind": "areaBars",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "yTicks": [
+                0,
+                10,
+                25,
+                50,
+                75,
+                85,
+                100
+              ],
+              "labels": [
+                "20-11-2024",
+                "21-11-2024",
+                "24-11-2024",
+                "26-11-2024",
+                "28-11-2024"
+              ],
+              "bars": [
+                21,
+                22,
+                63,
+                39,
+                33,
+                30,
+                27,
+                25,
+                21,
+                25,
+                81,
+                75,
+                76,
+                33,
+                51
+              ],
+              "line": [22, 35, 41, 45, 34, 30, 27, 24, 24, 42, 60, 77, 61, 53, 42],
+              "markers": [
+                1,
+                4,
+                7,
+                10,
+                14
+              ],
+              "barName": "Failed reads",
+              "lineName": "Trend"
+            }
+          },
+          {
+            "id": "trust-failed-logins",
+            "title": "Failed Logins",
+            "kind": "pairedBars",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "rows": [
+                "FS1",
+                "FS2",
+                "FS3",
+                "FS4",
+                "FS5",
+                "FS6",
+                "FS7"
+              ],
+              "xTicks": [
+                0,
+                10,
+                50,
+                75,
+                100,
+                110,
+                150,
+                175,
+                200,
+                210,
+                250,
+                275,
+                300,
+                310
+              ],
+              "series": [
+                {
+                  "name": "Current period",
+                  "color": "var(--chart-red)",
+                  "values": [
+                    78,
+                    39,
+                    278,
+                    141,
+                    104,
+                    179,
+                    104
+                  ]
+                },
+                {
+                  "name": "Previous period",
+                  "color": "var(--chart-yellow)",
+                  "values": [
+                    109,
+                    141,
+                    51,
+                    318,
+                    232,
+                    293,
+                    120
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "trust-data-being-shared",
+            "title": "Data Being Shared",
+            "kind": "gaugeDonut",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "value": "2,483",
+              "caption": "Data",
+              "startAngle": 38,
+              "segments": [
+                {
+                  "label": "FS 1",
+                  "value": 865,
+                  "color": "var(--dch-crimson)",
+                  "legendColor": "var(--chart-red)"
+                },
+                {
+                  "label": "FS 2",
+                  "value": 1079,
+                  "color": "var(--dch-amber)",
+                  "legendColor": "var(--chart-yellow)"
+                },
+                {
+                  "label": "FS 3",
+                  "value": 539,
+                  "color": "var(--chart-green)",
+                  "legendColor": "var(--dch-green-dark)"
+                }
+              ]
+            }
+          },
+          {
+            "id": "trust-top-admins",
+            "title": "Top 10 Admins",
+            "kind": "columns",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "labels": [
+                "LDSP1",
+                "LDSP2",
+                "LDSP3",
+                "LDSP4",
+                "LDSP5",
+                "LDSP6"
+              ],
+              "values": [
+                881,
+                593,
+                740,
+                740,
+                1000,
+                798
+              ],
+              "colors": [
+                "var(--chart-green)",
+                "var(--chart-red)",
+                "var(--chart-yellow)",
+                "var(--dch-indigo)",
+                "var(--dch-purple)",
+                "var(--dch-blue)"
+              ],
+              "yTicks": [
+                0,
+                100,
+                500,
+                700,
+                800,
+                900,
+                1000
+              ],
+              "name": "Changes",
+              "slots": 9.33,
+              "offset": 1
+            }
+          },
+          {
+            "id": "trust-security-group-changes",
+            "title": "Security Group Changes",
+            "kind": "bubbles",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "points": [
+                {
+                  "x": 5,
+                  "y": 47.5,
+                  "size": 56,
+                  "color": "var(--dch-salmon)",
+                  "label": "Product 1",
+                  "value": 56
+                },
+                {
+                  "x": 18.2,
+                  "y": 74.4,
+                  "size": 37,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 37
+                },
+                {
+                  "x": 24.8,
+                  "y": 58.3,
+                  "size": 21,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 21
+                },
+                {
+                  "x": 31.5,
+                  "y": 45.4,
+                  "size": 27,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 33,
+                  "y": 50.7,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 44.5,
+                  "y": 46.5,
+                  "size": 46,
+                  "color": "var(--dch-emerald)",
+                  "label": "Product 2",
+                  "value": 46
+                },
+                {
+                  "x": 58,
+                  "y": 73,
+                  "size": 27,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 58,
+                  "y": 31.3,
+                  "size": 22,
+                  "color": "var(--dch-salmon)",
+                  "label": "Product 1",
+                  "value": 22
+                },
+                {
+                  "x": 64.6,
+                  "y": 46.8,
+                  "size": 47,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 47
+                },
+                {
+                  "x": 77.9,
+                  "y": 84.3,
+                  "size": 38,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 38
+                },
+                {
+                  "x": 84.2,
+                  "y": 57.6,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 91.1,
+                  "y": 31.6,
+                  "size": 27,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 92.9,
+                  "y": 62.7,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 93.7,
+                  "y": 71.4,
+                  "size": 42,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 42
+                }
+              ],
+              "legend": [
+                {
+                  "label": "Product 1",
+                  "color": "var(--chart-red)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--chart-yellow)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-blue-soft)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-emerald)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-salmon-light)"
+                }
+              ]
+            }
+          },
+          {
+            "id": "trust-teams-channels",
+            "title": "New MS Teams Channel Created",
+            "kind": "stacked",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "yTicks": [
+                0,
+                100,
+                500,
+                700,
+                800,
+                900,
+                1000
+              ],
+              "cats": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+              ],
+              "slots": 7.6,
+              "offset": 0.15,
+              "series": [
+                {
+                  "name": "FS1",
+                  "color": "var(--chart-red)",
+                  "values": [
+                    92,
+                    202,
+                    100,
+                    321,
+                    92,
+                    313,
+                    58
+                  ]
+                },
+                {
+                  "name": "FS2",
+                  "color": "var(--chart-yellow)",
+                  "values": [
+                    187,
+                    298,
+                    213,
+                    268,
+                    178,
+                    276,
+                    42
+                  ]
+                },
+                {
+                  "name": "FS3",
+                  "color": "var(--chart-green)",
+                  "values": [
+                    383,
+                    300,
+                    389,
+                    311,
+                    392,
+                    311,
+                    349
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "detect",
+        "name": "Detect",
+        "title": "Dashboard- Detect",
+        "description": "",
+        "sharedWith": "",
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "predefined": true,
+        "widgets": [
+          {
+            "id": "detect-failed-file-read",
+            "title": "Failed File Read",
+            "kind": "areaBars",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "yTicks": [
+                0,
+                10,
+                25,
+                50,
+                75,
+                85,
+                100
+              ],
+              "labels": [
+                "20-11-2024",
+                "21-11-2024",
+                "24-11-2024",
+                "26-11-2024",
+                "28-11-2024"
+              ],
+              "bars": [
+                21,
+                22,
+                63,
+                39,
+                33,
+                30,
+                27,
+                25,
+                21,
+                25,
+                81,
+                75,
+                76,
+                33,
+                51
+              ],
+              "line": [22, 35, 41, 45, 34, 30, 27, 24, 24, 42, 60, 77, 61, 53, 42],
+              "markers": [
+                1,
+                4,
+                7,
+                10,
+                14
+              ],
+              "barName": "Failed reads",
+              "lineName": "Trend"
+            }
+          },
+          {
+            "id": "detect-failed-logins",
+            "title": "Failed Logins",
+            "kind": "pairedBars",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "rows": [
+                "FS1",
+                "FS2",
+                "FS3",
+                "FS4",
+                "FS5",
+                "FS6",
+                "FS7"
+              ],
+              "xTicks": [
+                0,
+                10,
+                50,
+                75,
+                100,
+                110,
+                150,
+                175,
+                200,
+                210,
+                250,
+                275,
+                300,
+                310
+              ],
+              "series": [
+                {
+                  "name": "Current period",
+                  "color": "var(--chart-red)",
+                  "values": [
+                    78,
+                    39,
+                    278,
+                    141,
+                    104,
+                    179,
+                    104
+                  ]
+                },
+                {
+                  "name": "Previous period",
+                  "color": "var(--chart-yellow)",
+                  "values": [
+                    109,
+                    141,
+                    51,
+                    318,
+                    232,
+                    293,
+                    120
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "detect-data-being-shared",
+            "title": "Data Being Shared",
+            "kind": "gaugeDonut",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "value": "2,483",
+              "caption": "Data",
+              "startAngle": 38,
+              "segments": [
+                {
+                  "label": "FS 1",
+                  "value": 865,
+                  "color": "var(--dch-crimson)",
+                  "legendColor": "var(--chart-red)"
+                },
+                {
+                  "label": "FS 2",
+                  "value": 1079,
+                  "color": "var(--dch-amber)",
+                  "legendColor": "var(--chart-yellow)"
+                },
+                {
+                  "label": "FS 3",
+                  "value": 539,
+                  "color": "var(--chart-green)",
+                  "legendColor": "var(--dch-green-dark)"
+                }
+              ]
+            }
+          },
+          {
+            "id": "detect-top-admins",
+            "title": "Top 10 Admins",
+            "kind": "columns",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "labels": [
+                "LDSP1",
+                "LDSP2",
+                "LDSP3",
+                "LDSP4",
+                "LDSP5",
+                "LDSP6"
+              ],
+              "values": [
+                881,
+                593,
+                740,
+                740,
+                1000,
+                798
+              ],
+              "colors": [
+                "var(--chart-green)",
+                "var(--chart-red)",
+                "var(--chart-yellow)",
+                "var(--dch-indigo)",
+                "var(--dch-purple)",
+                "var(--dch-blue)"
+              ],
+              "yTicks": [
+                0,
+                100,
+                500,
+                700,
+                800,
+                900,
+                1000
+              ],
+              "name": "Changes",
+              "slots": 9.33,
+              "offset": 1
+            }
+          },
+          {
+            "id": "detect-security-group-changes",
+            "title": "Security Group Changes",
+            "kind": "bubbles",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "points": [
+                {
+                  "x": 5,
+                  "y": 47.5,
+                  "size": 56,
+                  "color": "var(--dch-salmon)",
+                  "label": "Product 1",
+                  "value": 56
+                },
+                {
+                  "x": 18.2,
+                  "y": 74.4,
+                  "size": 37,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 37
+                },
+                {
+                  "x": 24.8,
+                  "y": 58.3,
+                  "size": 21,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 21
+                },
+                {
+                  "x": 31.5,
+                  "y": 45.4,
+                  "size": 27,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 33,
+                  "y": 50.7,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 44.5,
+                  "y": 46.5,
+                  "size": 46,
+                  "color": "var(--dch-emerald)",
+                  "label": "Product 2",
+                  "value": 46
+                },
+                {
+                  "x": 58,
+                  "y": 73,
+                  "size": 27,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 58,
+                  "y": 31.3,
+                  "size": 22,
+                  "color": "var(--dch-salmon)",
+                  "label": "Product 1",
+                  "value": 22
+                },
+                {
+                  "x": 64.6,
+                  "y": 46.8,
+                  "size": 47,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 47
+                },
+                {
+                  "x": 77.9,
+                  "y": 84.3,
+                  "size": 38,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 38
+                },
+                {
+                  "x": 84.2,
+                  "y": 57.6,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 91.1,
+                  "y": 31.6,
+                  "size": 27,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 92.9,
+                  "y": 62.7,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 93.7,
+                  "y": 71.4,
+                  "size": 42,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 42
+                }
+              ],
+              "legend": [
+                {
+                  "label": "Product 1",
+                  "color": "var(--chart-red)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--chart-yellow)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-blue-soft)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-emerald)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-salmon-light)"
+                }
+              ]
+            }
+          },
+          {
+            "id": "detect-teams-channels",
+            "title": "New MS Teams Channel Created",
+            "kind": "stacked",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "yTicks": [
+                0,
+                100,
+                500,
+                700,
+                800,
+                900,
+                1000
+              ],
+              "cats": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+              ],
+              "slots": 7.6,
+              "offset": 0.15,
+              "series": [
+                {
+                  "name": "FS1",
+                  "color": "var(--chart-red)",
+                  "values": [
+                    92,
+                    202,
+                    100,
+                    321,
+                    92,
+                    313,
+                    58
+                  ]
+                },
+                {
+                  "name": "FS2",
+                  "color": "var(--chart-yellow)",
+                  "values": [
+                    187,
+                    298,
+                    213,
+                    268,
+                    178,
+                    276,
+                    42
+                  ]
+                },
+                {
+                  "name": "FS3",
+                  "color": "var(--chart-green)",
+                  "values": [
+                    383,
+                    300,
+                    389,
+                    311,
+                    392,
+                    311,
+                    349
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "identify",
+        "name": "Identify",
+        "title": "Dashboard- Identify",
+        "description": "",
+        "sharedWith": "",
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "predefined": true,
+        "widgets": [
+          {
+            "id": "identify-failed-file-read",
+            "title": "Failed File Read",
+            "kind": "areaBars",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "yTicks": [
+                0,
+                10,
+                25,
+                50,
+                75,
+                85,
+                100
+              ],
+              "labels": [
+                "20-11-2024",
+                "21-11-2024",
+                "24-11-2024",
+                "26-11-2024",
+                "28-11-2024"
+              ],
+              "bars": [
+                21,
+                22,
+                63,
+                39,
+                33,
+                30,
+                27,
+                25,
+                21,
+                25,
+                81,
+                75,
+                76,
+                33,
+                51
+              ],
+              "line": [22, 35, 41, 45, 34, 30, 27, 24, 24, 42, 60, 77, 61, 53, 42],
+              "markers": [
+                1,
+                4,
+                7,
+                10,
+                14
+              ],
+              "barName": "Failed reads",
+              "lineName": "Trend"
+            }
+          },
+          {
+            "id": "identify-failed-logins",
+            "title": "Failed Logins",
+            "kind": "pairedBars",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "rows": [
+                "FS1",
+                "FS2",
+                "FS3",
+                "FS4",
+                "FS5",
+                "FS6",
+                "FS7"
+              ],
+              "xTicks": [
+                0,
+                10,
+                50,
+                75,
+                100,
+                110,
+                150,
+                175,
+                200,
+                210,
+                250,
+                275,
+                300,
+                310
+              ],
+              "series": [
+                {
+                  "name": "Current period",
+                  "color": "var(--chart-red)",
+                  "values": [
+                    78,
+                    39,
+                    278,
+                    141,
+                    104,
+                    179,
+                    104
+                  ]
+                },
+                {
+                  "name": "Previous period",
+                  "color": "var(--chart-yellow)",
+                  "values": [
+                    109,
+                    141,
+                    51,
+                    318,
+                    232,
+                    293,
+                    120
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "identify-data-being-shared",
+            "title": "Data Being Shared",
+            "kind": "gaugeDonut",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "value": "2,483",
+              "caption": "Data",
+              "startAngle": 38,
+              "segments": [
+                {
+                  "label": "FS 1",
+                  "value": 865,
+                  "color": "var(--dch-crimson)",
+                  "legendColor": "var(--chart-red)"
+                },
+                {
+                  "label": "FS 2",
+                  "value": 1079,
+                  "color": "var(--dch-amber)",
+                  "legendColor": "var(--chart-yellow)"
+                },
+                {
+                  "label": "FS 3",
+                  "value": 539,
+                  "color": "var(--chart-green)",
+                  "legendColor": "var(--dch-green-dark)"
+                }
+              ]
+            }
+          },
+          {
+            "id": "identify-top-admins",
+            "title": "Top 10 Admins",
+            "kind": "columns",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "labels": [
+                "LDSP1",
+                "LDSP2",
+                "LDSP3",
+                "LDSP4",
+                "LDSP5",
+                "LDSP6"
+              ],
+              "values": [
+                881,
+                593,
+                740,
+                740,
+                1000,
+                798
+              ],
+              "colors": [
+                "var(--chart-green)",
+                "var(--chart-red)",
+                "var(--chart-yellow)",
+                "var(--dch-indigo)",
+                "var(--dch-purple)",
+                "var(--dch-blue)"
+              ],
+              "yTicks": [
+                0,
+                100,
+                500,
+                700,
+                800,
+                900,
+                1000
+              ],
+              "name": "Changes",
+              "slots": 9.33,
+              "offset": 1
+            }
+          },
+          {
+            "id": "identify-security-group-changes",
+            "title": "Security Group Changes",
+            "kind": "bubbles",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "points": [
+                {
+                  "x": 5,
+                  "y": 47.5,
+                  "size": 56,
+                  "color": "var(--dch-salmon)",
+                  "label": "Product 1",
+                  "value": 56
+                },
+                {
+                  "x": 18.2,
+                  "y": 74.4,
+                  "size": 37,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 37
+                },
+                {
+                  "x": 24.8,
+                  "y": 58.3,
+                  "size": 21,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 21
+                },
+                {
+                  "x": 31.5,
+                  "y": 45.4,
+                  "size": 27,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 33,
+                  "y": 50.7,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 44.5,
+                  "y": 46.5,
+                  "size": 46,
+                  "color": "var(--dch-emerald)",
+                  "label": "Product 2",
+                  "value": 46
+                },
+                {
+                  "x": 58,
+                  "y": 73,
+                  "size": 27,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 58,
+                  "y": 31.3,
+                  "size": 22,
+                  "color": "var(--dch-salmon)",
+                  "label": "Product 1",
+                  "value": 22
+                },
+                {
+                  "x": 64.6,
+                  "y": 46.8,
+                  "size": 47,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 47
+                },
+                {
+                  "x": 77.9,
+                  "y": 84.3,
+                  "size": 38,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 38
+                },
+                {
+                  "x": 84.2,
+                  "y": 57.6,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 91.1,
+                  "y": 31.6,
+                  "size": 27,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 92.9,
+                  "y": 62.7,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 93.7,
+                  "y": 71.4,
+                  "size": 42,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 42
+                }
+              ],
+              "legend": [
+                {
+                  "label": "Product 1",
+                  "color": "var(--chart-red)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--chart-yellow)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-blue-soft)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-emerald)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-salmon-light)"
+                }
+              ]
+            }
+          },
+          {
+            "id": "identify-teams-channels",
+            "title": "New MS Teams Channel Created",
+            "kind": "stacked",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "yTicks": [
+                0,
+                100,
+                500,
+                700,
+                800,
+                900,
+                1000
+              ],
+              "cats": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+              ],
+              "slots": 7.6,
+              "offset": 0.15,
+              "series": [
+                {
+                  "name": "FS1",
+                  "color": "var(--chart-red)",
+                  "values": [
+                    92,
+                    202,
+                    100,
+                    321,
+                    92,
+                    313,
+                    58
+                  ]
+                },
+                {
+                  "name": "FS2",
+                  "color": "var(--chart-yellow)",
+                  "values": [
+                    187,
+                    298,
+                    213,
+                    268,
+                    178,
+                    276,
+                    42
+                  ]
+                },
+                {
+                  "name": "FS3",
+                  "color": "var(--chart-green)",
+                  "values": [
+                    383,
+                    300,
+                    389,
+                    311,
+                    392,
+                    311,
+                    349
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "copilot",
+        "name": "Copilot",
+        "title": "Dashboard - Copilot",
+        "description": "",
+        "sharedWith": "",
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "predefined": true,
+        "widgets": [
+          {
+            "id": "copilot-inactive-users",
+            "title": "Inactive User With Copilot",
+            "kind": "areaBars",
+            "tools": [
+              "list",
+              "filter",
+              "calendar"
+            ],
+            "data": {
+              "yTicks": [
+                0,
+                10,
+                25,
+                50,
+                75,
+                85,
+                100
+              ],
+              "labels": [
+                "20-11-2024",
+                "21-11-2024",
+                "24-11-2024",
+                "26-11-2024",
+                "28-11-2024"
+              ],
+              "bars": [
+                21,
+                22,
+                63,
+                39,
+                33,
+                30,
+                27,
+                25,
+                21,
+                25,
+                81,
+                75,
+                76,
+                33,
+                51
+              ],
+              "line": [22, 35, 41, 45, 34, 30, 27, 24, 24, 42, 60, 77, 61, 53, 42],
+              "markers": [
+                1,
+                4,
+                7,
+                10,
+                14
+              ],
+              "barName": "Failed reads",
+              "lineName": "Trend"
+            }
+          },
+          {
+            "id": "copilot-inactive-departments",
+            "title": "Most Inactive Department On Copilot",
+            "kind": "pairedBars",
+            "tools": [
+              "list",
+              "filter",
+              "calendar"
+            ],
+            "data": {
+              "rows": [
+                "FS1",
+                "FS2",
+                "FS3",
+                "FS4",
+                "FS5",
+                "FS6",
+                "FS7"
+              ],
+              "xTicks": [
+                0,
+                10,
+                50,
+                75,
+                100,
+                110,
+                150,
+                175,
+                200,
+                210,
+                250,
+                275,
+                300,
+                310
+              ],
+              "series": [
+                {
+                  "name": "Current period",
+                  "color": "var(--chart-red)",
+                  "values": [
+                    78,
+                    39,
+                    278,
+                    141,
+                    104,
+                    179,
+                    104
+                  ]
+                },
+                {
+                  "name": "Previous period",
+                  "color": "var(--chart-yellow)",
+                  "values": [
+                    109,
+                    141,
+                    51,
+                    318,
+                    232,
+                    293,
+                    120
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "copilot-active-departments",
+            "title": "Most Active Department On Copilot",
+            "kind": "bubbles",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "points": [
+                {
+                  "x": 5,
+                  "y": 47.5,
+                  "size": 56,
+                  "color": "var(--dch-salmon)",
+                  "label": "Product 1",
+                  "value": 56
+                },
+                {
+                  "x": 18.2,
+                  "y": 74.4,
+                  "size": 37,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 37
+                },
+                {
+                  "x": 24.8,
+                  "y": 58.3,
+                  "size": 21,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 21
+                },
+                {
+                  "x": 31.5,
+                  "y": 45.4,
+                  "size": 27,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 33,
+                  "y": 50.7,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 44.5,
+                  "y": 46.5,
+                  "size": 46,
+                  "color": "var(--dch-emerald)",
+                  "label": "Product 2",
+                  "value": 46
+                },
+                {
+                  "x": 58,
+                  "y": 73,
+                  "size": 27,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 58,
+                  "y": 31.3,
+                  "size": 22,
+                  "color": "var(--dch-salmon)",
+                  "label": "Product 1",
+                  "value": 22
+                },
+                {
+                  "x": 64.6,
+                  "y": 46.8,
+                  "size": 47,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 47
+                },
+                {
+                  "x": 77.9,
+                  "y": 84.3,
+                  "size": 38,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 38
+                },
+                {
+                  "x": 84.2,
+                  "y": 57.6,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 91.1,
+                  "y": 31.6,
+                  "size": 27,
+                  "color": "var(--dch-violet)",
+                  "label": "Product 2",
+                  "value": 27
+                },
+                {
+                  "x": 92.9,
+                  "y": 62.7,
+                  "size": 24,
+                  "color": "var(--dch-amber)",
+                  "label": "Product 2",
+                  "value": 24
+                },
+                {
+                  "x": 93.7,
+                  "y": 71.4,
+                  "size": 42,
+                  "color": "var(--dch-bubble-blue)",
+                  "label": "Product 2",
+                  "value": 42
+                }
+              ],
+              "legend": [
+                {
+                  "label": "Product 1",
+                  "color": "var(--chart-red)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--chart-yellow)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-blue-soft)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-emerald)"
+                },
+                {
+                  "label": "Product 2",
+                  "color": "var(--dch-salmon-light)"
+                }
+              ]
+            }
+          },
+          {
+            "id": "copilot-sensitive-data",
+            "title": "Sensitive Data Accessed By Copilot",
+            "subtitle": "Top 3  Users, No. of days - 10 Days",
+            "kind": "calloutDonut",
+            "tools": [
+              "filter",
+              "calendar"
+            ],
+            "data": {
+              "startAngle": -3,
+              "showValues": true,
+              "segments": [
+                {
+                  "label": "Richard Woody",
+                  "value": 31,
+                  "weight": 31,
+                  "color": "var(--dch-crimson)"
+                },
+                {
+                  "label": "Neal Gamby",
+                  "value": 2,
+                  "weight": 10,
+                  "color": "var(--dch-amber)"
+                },
+                {
+                  "label": "Andrew James",
+                  "value": 27,
+                  "weight": 26,
+                  "color": "var(--chart-green)"
+                }
+              ]
+            }
+          },
+          {
+            "id": "copilot-alerts",
+            "title": "Copilot Alerts Triggered",
+            "kind": "dateColumns",
+            "span": 2,
+            "tools": [
+              "list",
+              "calendar"
+            ],
+            "data": {
+              "labels": [
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025",
+                "27/01/2025"
+              ],
+              "values": [
+                26,
+                40,
+                11,
+                49,
+                18,
+                32,
+                40,
+                49,
+                40,
+                22,
+                40,
+                40,
+                40,
+                25,
+                10,
+                22,
+                8,
+                50
+              ],
+              "yTicks": [
+                0,
+                10,
+                20,
+                30,
+                40,
+                50
+              ],
+              "color": "var(--chart-red)",
+              "name": "Alerts",
+              "slots": 19.1,
+              "offset": 0.57
+            }
+          },
+          {
+            "id": "copilot-usage",
+            "title": "Copilot Usage Comparison",
+            "subtitle": "Copilot has been used 29 times more this year",
+            "kind": "multiArea",
+            "span": 3,
+            "tools": [
+              "list",
+              "filter"
+            ],
+            "data": {
+              "labels": [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+              ],
+              "yTicks": [
+                0,
+                50,
+                100,
+                150,
+                200,
+                250,
+                300,
+                350,
+                400,
+                450
+              ],
+              "series": [
+                {
+                  "name": "2023",
+                  "color": "var(--chart-red)",
+                  "values": [
+                    173,
+                    258,
+                    380,
+                    219,
+                    135,
+                    216,
+                    53,
+                    252,
+                    340,
+                    252,
+                    55,
+                    216,
+                    135,
+                    219,
+                    378,
+                    261,
+                    172
+                  ],
+                  "markers": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                  ],
+                  "legendColor": "var(--dch-crimson)",
+                  "width": 2.6
+                },
+                {
+                  "name": "2024",
+                  "color": "var(--dch-orange)",
+                  "fill": "var(--chart-yellow)",
+                  "values": [
+                    208,
+                    150,
+                    82,
+                    126,
+                    252,
+                    334,
+                    251,
+                    90,
+                    43,
+                    91,
+                    251,
+                    333,
+                    251,
+                    125,
+                    82,
+                    150,
+                    210
+                  ],
+                  "markers": [
+                    0,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    16
+                  ],
+                  "legendColor": "var(--dch-amber)",
+                  "width": 2.6
+                },
+                {
+                  "name": "2025",
+                  "color": "var(--chart-green)",
+                  "values": [
+                    55,
+                    100,
+                    160,
+                    270,
+                    450,
+                    280,
+                    190,
+                    150,
+                    245,
+                    335,
+                    340,
+                    335,
+                    210,
+                    175,
+                    440,
+                    155,
+                    55
+                  ],
+                  "markers": [
+                    0,
+                    4,
+                    7,
+                    9,
+                    15,
+                    16
+                  ],
+                  "legendColor": "var(--dch-lime)",
+                  "width": 2.2
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ccpa",
+        "name": "CCPA",
+        "title": "Detect - CCPA",
+        "description": "",
+        "sharedWith": "",
+        "sharedBy": "",
+        "addedBy": "",
+        "addedOn": "",
+        "predefined": true,
+        "manage": true,
+        "widgets": [
+          {
+            "id": "ccpa-risk-health",
+            "title": "CCPA -Risk Health Check",
+            "subtitle": "Component - File Server  Server - 192.168.30.221",
+            "kind": "speedometer",
+            "tools": [
+              "filter"
+            ],
+            "data": {
+              "ticks": [
+                0,
+                10,
+                20,
+                30,
+                45,
+                60,
+                70,
+                85,
+                100
+              ],
+              "bands": [
+                {
+                  "to": 29,
+                  "color": "var(--chart-green)",
+                  "label": "Low risk"
+                },
+                {
+                  "to": 64,
+                  "color": "var(--dch-amber)",
+                  "label": "Medium risk"
+                },
+                {
+                  "to": 100,
+                  "color": "var(--dch-crimson)",
+                  "label": "High risk"
+                }
+              ],
+              "value": 56,
+              "label": "87 km/h",
+              "name": "Risk health"
+            }
+          },
+          {
+            "id": "ccpa-threat-events",
+            "title": "Area of Most Threat",
+            "subtitle": "Component - File Server  Server - 192.168.30.221",
+            "kind": "donut3d",
+            "tools": [
+              "filter",
+              "calendar"
+            ],
+            "data": {
+              "startAngle": 264,
+              "clockwise": false,
+              "segments": [
+                {
+                  "label": "Failed Reads",
+                  "value": 23,
+                  "color": "var(--dch-crimson)",
+                  "side": "var(--dch-crimson-side)"
+                },
+                {
+                  "label": "Admin Group Changes",
+                  "callout": "Admin Group\nChanges",
+                  "value": 27,
+                  "color": "var(--dch-amber)",
+                  "side": "var(--dch-amber-side)"
+                },
+                {
+                  "label": "Failed Logon",
+                  "value": 50,
+                  "color": "var(--dch-lime)",
+                  "side": "var(--dch-lime-side)"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ccpa-threat-access",
+            "title": "Area of Most Threat",
+            "subtitle": "Component - File Server  Server - 192.168.30.221",
+            "kind": "donut3d",
+            "tools": [
+              "calendar"
+            ],
+            "data": {
+              "startAngle": 264,
+              "clockwise": false,
+              "segments": [
+                {
+                  "label": "Open Share",
+                  "value": 23,
+                  "color": "var(--dch-crimson)",
+                  "side": "var(--dch-crimson-side)"
+                },
+                {
+                  "label": "Excessive Permission User",
+                  "value": 77,
+                  "color": "var(--dch-amber)",
+                  "side": "var(--dch-amber-side)"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ccpa-risk-reduction",
+            "title": "Measurable Risk Reduction",
+            "subtitle": "Component - File Server  Server - 192.168.30.221",
+            "kind": "multiArea",
+            "span": 3,
+            "tools": [
+              "list",
+              "filter"
+            ],
+            "data": {
+              "labels": [
+                "2024-08-22",
+                "2024-08-22",
+                "2024-08-22",
+                "2024-08-22",
+                "2024-08-22",
+                "2024-08-22",
+                "2024-08-22",
+                "2024-08-22",
+                "2024-08-22",
+                "2024-08-22"
+              ],
+              "yTicks": [
+                0,
+                50,
+                100,
+                150,
+                200,
+                250,
+                300,
+                350,
+                400,
+                450
+              ],
+              "series": [
+                {
+                  "name": "Critical",
+                  "color": "var(--chart-red)",
+                  "values": [
+                    173,
+                    258,
+                    380,
+                    219,
+                    135,
+                    216,
+                    53,
+                    252,
+                    340,
+                    252,
+                    55,
+                    216,
+                    135,
+                    219,
+                    378,
+                    261,
+                    172
+                  ],
+                  "markers": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                  ],
+                  "legendColor": "var(--dch-crimson)",
+                  "width": 4.6
+                },
+                {
+                  "name": "Warning",
+                  "color": "var(--dch-orange)",
+                  "fill": "var(--chart-yellow)",
+                  "values": [
+                    208,
+                    150,
+                    82,
+                    126,
+                    252,
+                    334,
+                    251,
+                    90,
+                    43,
+                    91,
+                    251,
+                    333,
+                    251,
+                    125,
+                    82,
+                    150,
+                    210
+                  ],
+                  "markers": [
+                    0,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    16
+                  ],
+                  "legendColor": "var(--dch-amber)",
+                  "width": 4.6
+                },
+                {
+                  "name": "Normal",
+                  "color": "var(--chart-green)",
+                  "values": [
+                    55,
+                    100,
+                    160,
+                    270,
+                    450,
+                    280,
+                    190,
+                    150,
+                    245,
+                    335,
+                    340,
+                    335,
+                    210,
+                    175,
+                    440,
+                    155,
+                    55
+                  ],
+                  "markers": [
+                    0,
+                    4,
+                    7,
+                    9,
+                    15,
+                    16
+                  ],
+                  "legendColor": "var(--dch-lime)",
+                  "width": 6.2
+                }
+              ]
+            }
+          }
+        ],
+        "sections": [
+          {
+            "title": "High Risk Assets",
+            "widgets": [
+              {
+                "id": "ccpa-finance",
+                "title": "Finance",
+                "subtitle": "Component - File Server  Server - 192.168.30.221",
+                "kind": "calloutDonut",
+                "titleEdit": true,
+                "tools": [
+                  "filter"
+                ],
+                "data": {
+                  "startAngle": 38,
+                  "legend": true,
+                  "segments": [
+                    {
+                      "label": "Copies",
+                      "value": 32,
+                      "color": "var(--dch-crimson)"
+                    },
+                    {
+                      "label": "Failed Attempts",
+                      "value": 40,
+                      "color": "var(--dch-amber)"
+                    },
+                    {
+                      "label": "Deletion",
+                      "value": 20,
+                      "color": "var(--chart-green)"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "ccpa-hr",
+                "title": "HR",
+                "subtitle": "Component - File Server  Server - 192.168.30.221",
+                "kind": "calloutDonut",
+                "titleEdit": true,
+                "tools": [
+                  "filter"
+                ],
+                "data": {
+                  "startAngle": 38,
+                  "legend": true,
+                  "segments": [
+                    {
+                      "label": "Failed Attempts",
+                      "value": 32,
+                      "color": "var(--dch-crimson)"
+                    },
+                    {
+                      "label": "Permission Changes",
+                      "value": 24,
+                      "color": "var(--dch-amber)"
+                    },
+                    {
+                      "label": "Copies",
+                      "value": 36,
+                      "color": "var(--chart-green)"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "ccpa-directors",
+                "title": "Directors",
+                "subtitle": "Component - File Server  Server - 192.168.30.221",
+                "kind": "calloutDonut",
+                "titleEdit": true,
+                "tools": [
+                  "filter"
+                ],
+                "data": {
+                  "startAngle": -3,
+                  "legend": true,
+                  "segments": [
+                    {
+                      "label": "Failed Attempts",
+                      "value": 31,
+                      "color": "var(--dch-crimson)"
+                    },
+                    {
+                      "label": "Permission Changes",
+                      "value": 10,
+                      "color": "var(--dch-amber)"
+                    },
+                    {
+                      "label": "Copies",
+                      "value": 26,
+                      "color": "var(--chart-green)"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "ccpa-sensitive-types",
+                "title": "Sensitive Data By Type",
+                "kind": "columns",
+                "tools": [
+                  "calendar"
+                ],
+                "data": {
+                  "labels": [
+                    "IPV4",
+                    "Credit Card",
+                    "Email",
+                    "Zip code",
+                    "UK Zip Code",
+                    "Admin"
+                  ],
+                  "values": [
+                    881,
+                    593,
+                    740,
+                    740,
+                    1000,
+                    798
+                  ],
+                  "colors": [
+                    "var(--chart-green)",
+                    "var(--chart-red)",
+                    "var(--chart-yellow)",
+                    "var(--dch-indigo)",
+                    "var(--dch-purple)",
+                    "var(--dch-blue)"
+                  ],
+                  "yTicks": [
+                    0,
+                    100,
+                    500,
+                    700,
+                    800,
+                    900,
+                    1000
+                  ],
+                  "name": "Files",
+                  "slots": 9.33,
+                  "offset": 1
+                }
+              },
+              {
+                "id": "ccpa-excessive-users",
+                "title": "Excessive Users - CCPA",
+                "subtitle": "Server - ldsp2   Sharepath - ldsp2",
+                "kind": "rings",
+                "tools": [
+                  "filter"
+                ],
+                "data": {
+                  "rings": [
+                    {
+                      "label": "Excessive permissions",
+                      "value": 90,
+                      "color": "var(--dch-crimson)",
+                      "track": "var(--dch-track-pink)"
+                    },
+                    {
+                      "label": "Open shares",
+                      "value": 65,
+                      "color": "var(--dch-amber)",
+                      "track": "var(--dch-track-amber)"
+                    },
+                    {
+                      "label": "Inactive users",
+                      "value": 50,
+                      "color": "var(--dch-emerald)",
+                      "track": "var(--dch-track-mint)"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "ccpa-external-sharing",
+                "title": "External Data Sharing",
+                "kind": "areaBars",
+                "tools": [
+                  "calendar"
+                ],
+                "data": {
+                  "yTicks": [
+                    0,
+                    10,
+                    25,
+                    50,
+                    75,
+                    85,
+                    100
+                  ],
+                  "labels": [
+                    "20-11-2024",
+                    "21-11-2024",
+                    "24-11-2024",
+                    "26-11-2024",
+                    "28-11-2024"
+                  ],
+                  "bars": [
+                    21,
+                    22,
+                    63,
+                    39,
+                    33,
+                    30,
+                    27,
+                    25,
+                    21,
+                    25,
+                    81,
+                    75,
+                    76,
+                    33,
+                    51
+                  ],
+                  "line": [22, 35, 41, 45, 34, 30, 27, 24, 24, 42, 60, 77, 61, 53, 42],
+                  "markers": [
+                    1,
+                    4,
+                    7,
+                    10,
+                    14
+                  ],
+                  "barName": "Failed reads",
+                  "lineName": "Trend"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "lepide-design-system": {
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/../lepide-design-system/packages/mcp/server.mjs"
+      ]
+    }
+  }
+}

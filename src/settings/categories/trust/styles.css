@@ -1,0 +1,104 @@
+/* Trust Settings (MOD-SDS). Tokens only; built from Lepide Design System rules. */
+
+/* ---------- picker tiles ---------- */
+.trust-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.trust-tile{padding-right:14px}
+.trust-tile .pick__text{flex:1}
+.trust-tile__ic{background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--border-soft)}
+.trust-tile__n{flex:none}
+
+/* ---------- search with explicit clear ---------- */
+.trust-search{min-width:220px}
+.trust-search .lf-input{padding-right:6px}
+.trust-search input::-webkit-search-cancel-button{display:none}
+.trust-clear{width:26px;height:26px;flex:none;display:grid;place-items:center;border-radius:50%;color:var(--ink-3)}
+.trust-clear:hover{background:var(--surface-3);color:var(--ink)}
+
+/* ---------- sub-page header ---------- */
+.trust-sub{display:flex;flex-direction:column;gap:14px;padding:16px 20px}
+.trust-crumbs{margin:0}
+.trust-crumb-btn{font:inherit;color:inherit;transition:color var(--t-fast)}
+.trust-crumb-btn:hover{color:var(--brand)}
+.trust-back{width:30px;height:30px;border:1px solid var(--border);background:var(--surface);box-shadow:var(--sh-xs)}
+.trust-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px 14px}
+.trust-head__text{flex:1 1 280px;min-width:0}
+.trust-head h3{margin:0;font:700 19px/26px var(--font);letter-spacing:-.02em;color:var(--ink)}
+.trust-head small{display:block;margin-top:2px;font:500 13px/18px var(--font);color:var(--ink-3)}
+.trust-logo{width:44px;height:44px;flex:none;border-radius:13px;display:grid;place-items:center;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--border-soft);overflow:hidden}
+.trust-logo img{width:28px;height:28px;object-fit:contain}
+.trust-tabs{overflow-x:auto;scrollbar-width:thin}
+.trust-tabs .seg{min-width:max-content;max-width:560px}
+
+/* ---------- table toolbar ---------- */
+.trust-stale{gap:10px}
+.trust-stale>.text-sm{color:var(--ink-2);white-space:nowrap}
+.trust-stale .fld{min-width:140px}
+.trust-list{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:2px;font-weight:500}
+.trust-celldd .dd__trigger{height:32px;min-width:120px;background:var(--surface);font-size:12.5px}
+
+/* ---------- radio / checkbox inside page-form fields (page-form styles every input) ---------- */
+.trust-root .page-form .fld .lf-radio input,.trust-form .fld .lf-radio input{width:15px;height:15px;padding:0;border:0;box-shadow:none;animation:none}
+.trust-root .page-form .fld .lf-check input,.trust-form .fld .lf-check input{width:1px;height:1px;padding:0;border:0}
+.trust-radio{display:inline-flex;align-items:center}
+.trust-radio input{accent-color:var(--brand);width:15px!important;height:15px!important;margin:0}
+
+/* ---------- forms ---------- */
+.trust-inline{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.trust-inline>.lf-btn,.trust-inline>.rel>.lf-btn{height:46px;flex:none}
+.trust-inline>.grow{min-width:200px}
+.trust-unit{display:flex;align-items:center;gap:10px}
+.trust-unit input{flex:1;min-width:0}
+.trust-db{display:flex;flex-direction:column;gap:10px}
+.trust-step-h{margin:0;font:700 16px/22px var(--font);letter-spacing:-.01em;color:var(--ink)}
+.trust-step{font:inherit}
+.trust-step.steps__item--done:hover{color:var(--ink)}
+.trust-fieldset{margin:0;padding:14px 16px 16px;border:1px solid var(--border-soft);border-radius:var(--r-md);display:flex;flex-direction:column;gap:12px}
+.trust-fieldset legend{padding:0 6px;font:700 13.5px/18px var(--font);color:var(--ink)}
+.trust-find{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;gap:12px;align-items:end}
+.trust-find>.lf-btn{height:46px}
+@media (max-width:760px){.trust-find{grid-template-columns:minmax(0,1fr)}}
+.trust-band{display:flex;flex-direction:column;gap:12px;padding:14px 16px;border-radius:var(--r-md);background:var(--surface-2)}
+.trust-time{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.trust-cal{display:flex;justify-content:flex-start;padding:6px;border:1px solid var(--border-soft);border-radius:var(--r-md);width:max-content;max-width:100%}
+
+/* ---------- schedule chips + summary ---------- */
+.trust-chipset{display:flex;flex-wrap:wrap;gap:6px}
+.trust-chipset--dates .trust-pickchip{min-width:40px;padding:0 8px}
+.trust-pickchip{height:32px;padding:0 14px;border-radius:var(--r-pill);border:1px solid var(--border);background:var(--surface);
+  font:600 12.5px/1 var(--font);color:var(--ink-2);transition:background var(--t-fast),border-color var(--t-fast),color var(--t-fast)}
+.trust-pickchip:hover:not(:disabled){border-color:var(--border-2);color:var(--ink)}
+.trust-pickchip[aria-pressed="true"]{background:var(--sel-fill);border-color:var(--brand-600);color:#fff;box-shadow:var(--sel-shadow)}
+.trust-pickchip:disabled{opacity:.45;cursor:not-allowed}
+.trust-summary{min-height:46px;padding:12px 14px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--surface-2);font:500 13px/19px var(--font);color:var(--ink-2)}
+.trust-summary.is-off{opacity:.6}
+.trust-summary.is-bad{border-color:var(--danger);background:var(--surface);box-shadow:0 0 0 3px var(--danger-bg);animation:shake .32s var(--ease)}
+
+/* ---------- chips with remove ---------- */
+.trust-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:28px;align-items:center}
+.trust-chip{height:28px;padding:0 6px 0 11px;gap:6px}
+.trust-chip button{width:18px;height:18px;display:grid;place-items:center;border-radius:50%;color:var(--ink-3)}
+.trust-chip button:hover{background:var(--danger-bg);color:var(--danger-text)}
+
+/* ---------- small tables and trees in dialogs ---------- */
+.trust-mini{border:1px solid var(--border-soft);border-radius:var(--r-md)}
+.trust-treebox{padding:10px;border:1px solid var(--border-soft);border-radius:var(--r-md);background:var(--surface);max-height:300px;overflow:auto}
+.trust-treebox .tree{margin:0;overflow:visible}
+.trust-treebox .tree ul button[aria-selected="true"],.trust-tree-node[aria-selected="true"]{background:var(--sel-fill)!important;color:#fff!important;box-shadow:var(--sel-shadow)!important}
+.trust-treebox .tree ul button[aria-selected="true"] svg.lf-i,.trust-tree-node[aria-selected="true"] svg.lf-i{color:rgba(255,255,255,.7)!important}
+.trust-tree-row{display:flex;align-items:center;gap:2px}
+.trust-tree-node{flex:1;min-width:0;display:flex;align-items:center;gap:8px;min-height:34px;padding:6px 10px;border-radius:var(--r-sm);text-align:left;font:600 13px/18px var(--font);color:var(--ink)}
+.trust-tree-node:hover{background:var(--surface-2)}
+.trust-tree-node svg.lf-i{color:var(--ink-3)}
+.trust-tree-node>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trust-tree-check{display:flex;align-items:center;min-height:32px;padding:2px 8px}
+.trust-tree-check .lf-check>span:last-child{display:inline-flex;align-items:center;gap:6px}
+.trust-tree-check svg.lf-i{color:var(--ink-4)}
+.trust-shuttle{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.2fr);gap:12px;align-items:start}
+.trust-shuttle__mid{align-self:center}
+@media (max-width:720px){.trust-shuttle{grid-template-columns:minmax(0,1fr)}.trust-shuttle__mid{justify-self:center;transform:rotate(90deg)}}
+
+/* ---------- misc ---------- */
+.trust-tipwrap{display:inline-flex}
+.trust-tipwrap>button:disabled{pointer-events:none}
+.trust-linkbtn{display:inline-flex;align-items:center;gap:6px;font:600 13px/18px var(--font);color:var(--brand-ink)}
+.trust-linkbtn:hover{text-decoration:underline}

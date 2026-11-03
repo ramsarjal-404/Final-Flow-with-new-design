@@ -1,0 +1,550 @@
+{
+  "$source": "src/data/ediscovery.ts",
+  "exports": {
+    "AGENT_STATUS_TONE": {
+      "Success": "success",
+      "Update Completed": "success",
+      "Firewall Blocked": "success",
+      "User Logged Out": "success",
+      "Settings Saved": "success",
+      "Updated": "success",
+      "Profile": "success",
+      "Successful": "success",
+      "Password": "success",
+      "Service": "success",
+      "Disconnected": "success",
+      "Connection Timed Out": "warning",
+      "Agent Uninstalled": "warning",
+      "Permission Denied": "warning",
+      "Data Synced": "warning",
+      "Installation Error": "warning",
+      "License Expired": "warning",
+      "Disabled": "neutral"
+    },
+    "SEED_CASES": [
+      {
+        "id": "case-1",
+        "name": "01_Raw_Datasets",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Success",
+        "status": "Completed",
+        "lastStart": "30-11-2025 13:35:25 PM",
+        "lastEnd": "30-11-2025 14:02:10 PM",
+        "type": "Index",
+        "locations": [
+          "Profile 01"
+        ],
+        "sources": [],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-2",
+        "name": "02_Data_Ingestion",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Update Completed",
+        "status": "Completed",
+        "lastStart": "29-11-2025 13:35:25 PM",
+        "lastEnd": "29-11-2025 14:02:10 PM",
+        "type": "Non-Index",
+        "locations": [],
+        "sources": [
+          {
+            "id": "src-1",
+            "folder": "\\\\192.14.35.335\\data\\eDiscovery\\1GB",
+            "server": "192.14.35.335"
+          }
+        ],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-3",
+        "name": "03_Data_Cleaning",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Firewall Blocked",
+        "status": "Completed",
+        "lastStart": "28-11-2025 13:35:25 PM",
+        "lastEnd": "28-11-2025 14:02:10 PM",
+        "type": "Index",
+        "locations": [
+          "Profile 01"
+        ],
+        "sources": [],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-4",
+        "name": "04_Exploratory_Analysis",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Connection Timed Out",
+        "status": "Completed",
+        "lastStart": "27-11-2025 13:35:25 PM",
+        "lastEnd": "27-11-2025 14:02:10 PM",
+        "type": "Non-Index",
+        "locations": [],
+        "sources": [
+          {
+            "id": "src-3",
+            "folder": "\\\\192.14.35.335\\data\\eDiscovery\\1GB",
+            "server": "192.14.35.335"
+          }
+        ],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-5",
+        "name": "05_Feature_Engineering",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "User Logged Out",
+        "status": "Completed",
+        "lastStart": "26-11-2025 13:35:25 PM",
+        "lastEnd": "26-11-2025 14:02:10 PM",
+        "type": "Index",
+        "locations": [
+          "Profile 01"
+        ],
+        "sources": [],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-6",
+        "name": "06_Model_Training",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Agent Uninstalled",
+        "status": "Never Started",
+        "lastStart": "—",
+        "lastEnd": "—",
+        "type": "Non-Index",
+        "locations": [],
+        "sources": [
+          {
+            "id": "src-5",
+            "folder": "\\\\192.14.35.335\\data\\eDiscovery\\1GB",
+            "server": "192.14.35.335"
+          }
+        ],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-7",
+        "name": "07_Model_Evaluation",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Settings Saved",
+        "status": "Completed",
+        "lastStart": "24-11-2025 13:35:25 PM",
+        "lastEnd": "24-11-2025 14:02:10 PM",
+        "type": "Index",
+        "locations": [
+          "Profile 01"
+        ],
+        "sources": [],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-8",
+        "name": "08_Deployment",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Permission Denied",
+        "status": "Completed",
+        "lastStart": "23-11-2025 13:35:25 PM",
+        "lastEnd": "23-11-2025 14:02:10 PM",
+        "type": "Non-Index",
+        "locations": [],
+        "sources": [
+          {
+            "id": "src-7",
+            "folder": "\\\\192.14.35.335\\data\\eDiscovery\\1GB",
+            "server": "192.14.35.335"
+          }
+        ],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-9",
+        "name": "09_Monitoring",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Data Synced",
+        "status": "Completed",
+        "lastStart": "22-11-2025 13:35:25 PM",
+        "lastEnd": "22-11-2025 14:02:10 PM",
+        "type": "Index",
+        "locations": [
+          "Profile 01"
+        ],
+        "sources": [],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-10",
+        "name": "10_Documentation",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Installation Error",
+        "status": "Never Started",
+        "lastStart": "—",
+        "lastEnd": "—",
+        "type": "Non-Index",
+        "locations": [],
+        "sources": [
+          {
+            "id": "src-9",
+            "folder": "\\\\192.14.35.335\\data\\eDiscovery\\1GB",
+            "server": "192.14.35.335"
+          }
+        ],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-11",
+        "name": "11_Auxiliary_Data",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "License Expired",
+        "status": "Never Started",
+        "lastStart": "—",
+        "lastEnd": "—",
+        "type": "Index",
+        "locations": [
+          "Profile 01"
+        ],
+        "sources": [],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-12",
+        "name": "12_Batch_Processing",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Updated",
+        "status": "Completed",
+        "lastStart": "28-11-2025 13:35:25 PM",
+        "lastEnd": "28-11-2025 14:02:10 PM",
+        "type": "Non-Index",
+        "locations": [],
+        "sources": [
+          {
+            "id": "src-11",
+            "folder": "\\\\192.14.35.335\\data\\eDiscovery\\1GB",
+            "server": "192.14.35.335"
+          }
+        ],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-13",
+        "name": "13_RealTime_Processing",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Disabled",
+        "status": "Completed",
+        "lastStart": "27-11-2025 13:35:25 PM",
+        "lastEnd": "27-11-2025 14:02:10 PM",
+        "type": "Index",
+        "locations": [
+          "Profile 01"
+        ],
+        "sources": [],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-14",
+        "name": "14_API_Endpoints",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Profile",
+        "status": "Completed",
+        "lastStart": "26-11-2025 13:35:25 PM",
+        "lastEnd": "26-11-2025 14:02:10 PM",
+        "type": "Non-Index",
+        "locations": [],
+        "sources": [
+          {
+            "id": "src-13",
+            "folder": "\\\\192.14.35.335\\data\\eDiscovery\\1GB",
+            "server": "192.14.35.335"
+          }
+        ],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-15",
+        "name": "15_User_Authentication",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Successful",
+        "status": "In Progress",
+        "lastStart": "25-11-2025 13:35:25 PM",
+        "lastEnd": "—",
+        "type": "Index",
+        "locations": [
+          "Profile 01"
+        ],
+        "sources": [],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-16",
+        "name": "16_Data_Visualization",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Password",
+        "status": "Pending",
+        "lastStart": "24-11-2025 13:35:25 PM",
+        "lastEnd": "—",
+        "type": "Non-Index",
+        "locations": [],
+        "sources": [
+          {
+            "id": "src-15",
+            "folder": "\\\\192.14.35.335\\data\\eDiscovery\\1GB",
+            "server": "192.14.35.335"
+          }
+        ],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-17",
+        "name": "17_Error_Handling",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Service",
+        "status": "On Hold",
+        "lastStart": "23-11-2025 13:35:25 PM",
+        "lastEnd": "—",
+        "type": "Index",
+        "locations": [
+          "Profile 01"
+        ],
+        "sources": [],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-18",
+        "name": "18_Scalability_Optimizations",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Disconnected",
+        "status": "Cancelled",
+        "lastStart": "22-11-2025 13:35:25 PM",
+        "lastEnd": "—",
+        "type": "Non-Index",
+        "locations": [],
+        "sources": [
+          {
+            "id": "src-17",
+            "folder": "\\\\192.14.35.335\\data\\eDiscovery\\1GB",
+            "server": "192.14.35.335"
+          }
+        ],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-19",
+        "name": "19_Archive_Review",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Success",
+        "status": "Completed",
+        "lastStart": "30-11-2025 13:35:25 PM",
+        "lastEnd": "30-11-2025 14:02:10 PM",
+        "type": "Index",
+        "locations": [
+          "Profile 01"
+        ],
+        "sources": [],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-20",
+        "name": "20_Legal_Hold_2025",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Success",
+        "status": "Completed",
+        "lastStart": "29-11-2025 13:35:25 PM",
+        "lastEnd": "29-11-2025 14:02:10 PM",
+        "type": "Index",
+        "locations": [
+          "Profile 01"
+        ],
+        "sources": [],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-21",
+        "name": "21_HR_Investigation",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Update Completed",
+        "status": "Completed",
+        "lastStart": "28-11-2025 13:35:25 PM",
+        "lastEnd": "28-11-2025 14:02:10 PM",
+        "type": "Non-Index",
+        "locations": [],
+        "sources": [
+          {
+            "id": "src-20",
+            "folder": "\\\\192.14.35.335\\data\\eDiscovery\\1GB",
+            "server": "192.14.35.335"
+          }
+        ],
+        "keywords": [],
+        "operator": ""
+      },
+      {
+        "id": "case-22",
+        "name": "22_Finance_Audit",
+        "description": "Unprocessed data files.",
+        "agent": "localhost",
+        "agentStatus": "Success",
+        "status": "Completed",
+        "lastStart": "27-11-2025 13:35:25 PM",
+        "lastEnd": "27-11-2025 14:02:10 PM",
+        "type": "Index",
+        "locations": [
+          "Profile 01"
+        ],
+        "sources": [],
+        "keywords": [],
+        "operator": ""
+      }
+    ],
+    "SEED_AGENTS": [
+      {
+        "id": "agent-1",
+        "server": "192.168.30.150",
+        "path": "\\\\192.168.30.150\\LepideAgent",
+        "user": "Devl150\\chily",
+        "scanned": "01_Raw_Datasets"
+      }
+    ],
+    "SEED_LOCATIONS": [
+      {
+        "id": "loc-1",
+        "name": "Profile 01",
+        "description": "Shared finance folders",
+        "sharePath": "\\\\192.168.30.206\\share206",
+        "lastIndex": "27-11-2025 13:05:00 PM",
+        "status": "Indexed",
+        "agent": "192.168.30.150"
+      },
+      {
+        "id": "loc-2",
+        "name": "Profile002",
+        "description": "Engineering shares",
+        "sharePath": "\\\\192.168.30.150\\Large Data",
+        "lastIndex": "26-11-2025 09:40:12 AM",
+        "status": "Indexed",
+        "agent": "192.168.30.150"
+      },
+      {
+        "id": "loc-3",
+        "name": "User Data-01",
+        "description": "Home folders",
+        "sharePath": "\\\\192.168.10.78\\data\\eDiscovery\\1GB",
+        "lastIndex": "25-11-2025 18:12:44 PM",
+        "status": "Indexed",
+        "agent": "localhost"
+      }
+    ],
+    "COMPONENTS": [
+      "Windows File Server"
+    ],
+    "FILE_TYPES": [
+      "doc",
+      "docx",
+      "docm",
+      "xls",
+      "xlsx",
+      "csv",
+      "ppt",
+      "pptx",
+      "pdf",
+      "txt",
+      "rtf",
+      "msg",
+      "eml",
+      "xml",
+      "json",
+      "html",
+      "zip",
+      "jpg",
+      "png"
+    ],
+    "DOCUMENTS": [
+      {
+        "id": "doc-1",
+        "path": "\\\\192.168.30.206\\share206\\Ram Srjal\\New folder (13)\\Image",
+        "content": "Timing: when (time/event, time/depicted situation, Technology or construction, time of death, demolition or termination etc.) Agentive and influence relations: (creator/work, device/product, company/product, discipline or profession/their subjects and terms, parent/children, subordination, owner/property, initiator/follower, subject/\nSir Francis Walsingham (c. 1532 – 6 April 1590) was principal secretary to Queen Elizabeth I of England from 20 December 1573 until his death and is popularly remembered as her \"spymaster\".\nBorn to a well-connected family of gentry, Walsingham attended Cambridge University and travelled in continental Europe before embarking on a career in law at the age of twenty. A committed Protestant, during the reign of the Catholic Queen Mary I of England he joined other expatriates in exile in Switzerland and northern Italy until Mary's death and the accession of her Protestant half-sister, Elizabeth.\nWalsingham rose from relative obscurity to become one of the small coterie who directed the Elizabethan state, overseeing foreign, domestic and religious policy. He served as English ambassador to France in the early 1570s and witnessed the St. Bartholomew's Day massacre. As principal secretary, he supported exploration, colonization, the use of England's maritime strength and the plantation of Ireland.\nHe worked to bring Scotland and England together. Overall, his foreign policy demonstrated a new understanding of the role of England as a maritime Protestant power with intercontinental trading ties. He oversaw operations that penetrated Spanish military preparation, gathered intelligence from across Europe, disrupted a range of plots against Elizabeth and secured the execution of Mary, Queen of Scots."
+      },
+      {
+        "id": "doc-2",
+        "path": "\\\\192.168.30.206\\share206\\Ram Srjal\\New folder (13)",
+        "content": "The category structure should reflect a hierarchy of concepts, from the most generic one down to the very specific. The structure uses and combines more types of relation, e. g. Hyponymy: a sort/kind/type of... (typically in biological taxonomy) (time/event, time/depicted situation, time of birth, inception or construction, time of death, Technology.\nSir Francis Walsingham (c. 1532 – 6 April 1590) was principal secretary to Queen Elizabeth I of England from 20 December 1573 until his death and is popularly remembered as her \"spymaster\".\nBorn to a well-connected family of gentry, Walsingham attended Cambridge University and travelled in continental Europe before embarking on a career in law at the age of twenty. A committed Protestant, during the reign of the Catholic Queen Mary I of England he joined other expatriates in exile in Switzerland and northern Italy until Mary's death and the accession of her Protestant half-sister, Elizabeth.\nWalsingham rose from relative obscurity to become one of the small coterie who directed the Elizabethan state, overseeing foreign, domestic and religious policy. He served as English ambassador to France in the early 1570s and witnessed the St. Bartholomew's Day massacre. As principal secretary, he supported exploration, colonization, the use of England's maritime strength and the plantation of Ireland.\nHe worked to bring Scotland and England together. Overall, his foreign policy demonstrated a new understanding of the role of England as a maritime Protestant power with intercontinental trading ties. He oversaw operations that penetrated Spanish military preparation, gathered intelligence from across Europe, disrupted a range of plots against Elizabeth and secured the execution of Mary, Queen of Scots."
+      },
+      {
+        "id": "doc-3",
+        "path": "\\\\192.168.30.206\\share206\\Ram Srjal\\New folder (13)\\Notes",
+        "content": "Qualitative and general attributes (color, shape, size, ability or disability, nationality, technique, quality, awards...) The category Technology reflect a hierarchy of concepts, from the most generic one down to the very specific. The structure uses and combines more types of relation, e. g.\nSir Francis Walsingham (c. 1532 – 6 April 1590) was principal secretary to Queen Elizabeth I of England from 20 December 1573 until his death and is popularly remembered as her \"spymaster\".\nBorn to a well-connected family of gentry, Walsingham attended Cambridge University and travelled in continental Europe before embarking on a career in law at the age of twenty. A committed Protestant, during the reign of the Catholic Queen Mary I of England he joined other expatriates in exile in Switzerland and northern Italy until Mary's death and the accession of her Protestant half-sister, Elizabeth.\nWalsingham rose from relative obscurity to become one of the small coterie who directed the Elizabethan state, overseeing foreign, domestic and religious policy. He served as English ambassador to France in the early 1570s and witnessed the St. Bartholomew's Day massacre. As principal secretary, he supported exploration, colonization, the use of England's maritime strength and the plantation of Ireland.\nHe worked to bring Scotland and England together. Overall, his foreign policy demonstrated a new understanding of the role of England as a maritime Protestant power with intercontinental trading ties. He oversaw operations that penetrated Spanish military preparation, gathered intelligence from across Europe, disrupted a range of plots against Elizabeth and secured the execution of Mary, Queen of Scots."
+      },
+      {
+        "id": "doc-4",
+        "path": "\\\\192.168.10.78\\data\\eDiscovery\\1GB\\data 1 (1).ppt",
+        "content": "Technology is the exploration of scientific knowledge to develop 20-40-36 tools and techniques to transform the world by improving efficiency in almost everything we do.\nToday, it has become unimaginable to be in a world without technology. You will find below a number of short paragraphs on the topic Technology of varying word lengths.\nEvery day there are new ideas and advancements in the technology as the world becomes more involved in discovering and PL27 1140 2004 0000 3002 0135 5387 utilizing the potential of natural resources.\nTechnology has improved human lives significantly by providing convenience and efficiency. However, today for any DE89 3704 0044 0532 0130 00 nation's development technology plays a vital role in improving its economy and the lives of the people.\nTechnological efforts are being made to preserve endangered species and produce better and healthy crops. Construction of metros and convenient ways of transportation has replaced the conventional modes of travel."
+      },
+      {
+        "id": "doc-5",
+        "path": "\\\\192.168.10.78\\data\\eDiscovery\\1GB\\data 1 (1).docx",
+        "content": "Technological efforts are being made to preserve endangered species and produce better and healthy crops. Construction of metros and convenient ways of transportation has replaced the conventional modes of travel.\nTechnology has improved human lives significantly by providing convenience and efficiency. However, today for any DE89 3704 0044 0532 0130 00 nation's development technology plays a vital role in improving its economy and the lives of the people.\nEvery day there are new ideas and advancements in the technology as the world becomes more involved in discovering and PL27 1140 2004 0000 3002 0135 5387 utilizing the potential of natural resources.\nToday, it has become unimaginable to be in a world without technology. You will find below a number of short paragraphs on the topic Technology of varying word lengths.\nTechnology is the exploration of scientific knowledge to develop 20-40-36 tools and techniques to transform the world by improving efficiency in almost everything we do."
+      },
+      {
+        "id": "doc-6",
+        "path": "\\\\192.168.10.78\\data\\eDiscovery\\1GB\\Contracts\\vendor-agreement.pdf",
+        "content": "This agreement covers the construction of the new data centre. The vendor shall provide technology services, including network cabling, server racks and monitoring, for the full term of the contract.\nSir Francis Walsingham (c. 1532 – 6 April 1590) was principal secretary to Queen Elizabeth I of England from 20 December 1573 until his death and is popularly remembered as her \"spymaster\".\nBorn to a well-connected family of gentry, Walsingham attended Cambridge University and travelled in continental Europe before embarking on a career in law at the age of twenty. A committed Protestant, during the reign of the Catholic Queen Mary I of England he joined other expatriates in exile in Switzerland and northern Italy until Mary's death and the accession of her Protestant half-sister, Elizabeth.\nWalsingham rose from relative obscurity to become one of the small coterie who directed the Elizabethan state, overseeing foreign, domestic and religious policy. He served as English ambassador to France in the early 1570s and witnessed the St. Bartholomew's Day massacre. As principal secretary, he supported exploration, colonization, the use of England's maritime strength and the plantation of Ireland.\nHe worked to bring Scotland and England together. Overall, his foreign policy demonstrated a new understanding of the role of England as a maritime Protestant power with intercontinental trading ties. He oversaw operations that penetrated Spanish military preparation, gathered intelligence from across Europe, disrupted a range of plots against Elizabeth and secured the execution of Mary, Queen of Scots."
+      },
+      {
+        "id": "doc-7",
+        "path": "\\\\192.168.30.150\\Large Data\\HR\\Employee handbook.docx",
+        "content": "The employee handbook explains leave, travel and the acceptable use of company technology. Staff must not copy customer data to personal devices.\nSir Francis Walsingham (c. 1532 – 6 April 1590) was principal secretary to Queen Elizabeth I of England from 20 December 1573 until his death and is popularly remembered as her \"spymaster\".\nBorn to a well-connected family of gentry, Walsingham attended Cambridge University and travelled in continental Europe before embarking on a career in law at the age of twenty. A committed Protestant, during the reign of the Catholic Queen Mary I of England he joined other expatriates in exile in Switzerland and northern Italy until Mary's death and the accession of her Protestant half-sister, Elizabeth.\nWalsingham rose from relative obscurity to become one of the small coterie who directed the Elizabethan state, overseeing foreign, domestic and religious policy. He served as English ambassador to France in the early 1570s and witnessed the St. Bartholomew's Day massacre. As principal secretary, he supported exploration, colonization, the use of England's maritime strength and the plantation of Ireland.\nHe worked to bring Scotland and England together. Overall, his foreign policy demonstrated a new understanding of the role of England as a maritime Protestant power with intercontinental trading ties. He oversaw operations that penetrated Spanish military preparation, gathered intelligence from across Europe, disrupted a range of plots against Elizabeth and secured the execution of Mary, Queen of Scots."
+      },
+      {
+        "id": "doc-8",
+        "path": "\\\\192.168.30.150\\Large Data\\Finance\\Q3 summary.xlsx",
+        "content": "Quarterly summary: revenue grew 12% while construction costs for the new office stayed within budget. IBAN SK31 1200 0000 1987 4263 7541 is used for supplier payments."
+      },
+      {
+        "id": "doc-9",
+        "path": "\\\\192.168.30.150\\Large Data\\Legal\\Walsingham research.txt",
+        "content": "Sir Francis Walsingham (c. 1532 – 6 April 1590) was principal secretary to Queen Elizabeth I of England from 20 December 1573 until his death and is popularly remembered as her \"spymaster\".\nBorn to a well-connected family of gentry, Walsingham attended Cambridge University and travelled in continental Europe before embarking on a career in law at the age of twenty. A committed Protestant, during the reign of the Catholic Queen Mary I of England he joined other expatriates in exile in Switzerland and northern Italy until Mary's death and the accession of her Protestant half-sister, Elizabeth.\nWalsingham rose from relative obscurity to become one of the small coterie who directed the Elizabethan state, overseeing foreign, domestic and religious policy. He served as English ambassador to France in the early 1570s and witnessed the St. Bartholomew's Day massacre. As principal secretary, he supported exploration, colonization, the use of England's maritime strength and the plantation of Ireland.\nHe worked to bring Scotland and England together. Overall, his foreign policy demonstrated a new understanding of the role of England as a maritime Protestant power with intercontinental trading ties. He oversaw operations that penetrated Spanish military preparation, gathered intelligence from across Europe, disrupted a range of plots against Elizabeth and secured the execution of Mary, Queen of Scots."
+      }
+    ]
+  }
+}

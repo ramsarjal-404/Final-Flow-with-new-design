@@ -1,0 +1,86 @@
+{
+  "$source": "src/data/settings/admin.ts",
+  "exports": {
+    "ROLES": [
+      "Admin",
+      "Data Viewer"
+    ],
+    "DATE_FORMATS": [
+      {
+        "id": "DD-MMM-YYYY",
+        "label": "[DD]-[MMM]-[YYYY]"
+      },
+      {
+        "id": "DD-MM-YYYY",
+        "label": "[DD]-[MM]-[YYYY]"
+      },
+      {
+        "id": "MM-DD-YYYY",
+        "label": "[MM]-[DD]-[YYYY]"
+      },
+      {
+        "id": "YYYY-MM-DD",
+        "label": "[YYYY]-[MM]-[DD]"
+      }
+    ],
+    "LOG_TENANTS": [
+      "LepSoftpvtltd.onmicrosoft.com",
+      "lepidecorp1.onmicrosoft.com",
+      "DevSoft001.onmicrosoft.com",
+      "Lepide001.onmicrosoft.com"
+    ],
+    "LOG_DOMAINS": [
+      "Chilly.com",
+      "ldsp2.com",
+      "abc.com",
+      "qa.test@chilly.com"
+    ],
+    "DATE_TIME_DISPLAY": [
+      "System Default",
+      "Local Time",
+      "UTC"
+    ],
+    "REFRESH_INTERVALS": [
+      "5 Minutes",
+      "10 Minutes",
+      "15 Minutes",
+      "30 Minutes",
+      "60 Minutes"
+    ],
+    "BACKUP_RETENTION": [
+      "3 Months",
+      "6 Months",
+      "1 Year",
+      "2 Years",
+      "3 Years"
+    ],
+    "LOGON_DB_SIZES": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "DEFAULT_GENERAL": {
+      "subscriptionZip": "Yes",
+      "alertZip": "Yes",
+      "dateTimeDisplay": "System Default",
+      "refreshInterval": "15 Minutes",
+      "backupRetention": "1 Year",
+      "logDirectory": "C:\\Program Files\\Lepide\\Logs",
+      "maxLogFileSize": "15",
+      "retentionDays": "10",
+      "timeRetention": false,
+      "concurrentSessions": "2",
+      "concurrentThreads": "50",
+      "collectFrequency": "5",
+      "logonDbSize": "1",
+      "diskSpaceLimit": "",
+      "skipBlankReports": true,
+      "skipFromInfo": true,
+      "encryptArchive": true,
+      "dailyChangeReport": true
+    },
+    "adminActions": {}
+  }
+}

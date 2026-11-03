@@ -1,0 +1,193 @@
+{
+  "$source": "src/data/protect.ts",
+  "exports": {
+    "PROTECT_AGENTS": [
+      {
+        "id": "a1",
+        "fileServer": "192.10.108.211",
+        "status": "Installed",
+        "uncPath": "C:\\Users\\User05\\Desktop\\dm\\protect-agent",
+        "logonUser": "LDSP5/Danny"
+      },
+      {
+        "id": "a2",
+        "fileServer": "192.10.108.300",
+        "status": "Installing",
+        "uncPath": "C:\\Users\\User05\\Desktop\\KM\\Z-agent",
+        "logonUser": "LDSP5/Jolly"
+      },
+      {
+        "id": "a3",
+        "fileServer": "192.10.192.168",
+        "status": "In Que",
+        "uncPath": "C:\\Users\\User05\\Desktop\\dm\\KM-agent",
+        "logonUser": "LDSP5/Thomas"
+      },
+      {
+        "id": "a4",
+        "fileServer": "192.10.192.65",
+        "status": "In Que",
+        "uncPath": "C:\\Users\\User05\\Desktop\\dm\\KM-agent",
+        "logonUser": "chily.devl/150"
+      },
+      {
+        "id": "a5",
+        "fileServer": "192.10.192.21",
+        "status": "Not installed",
+        "uncPath": "C:\\Users\\User05\\Desktop\\dm\\KM-agent",
+        "logonUser": "LDSP5/Danny"
+      }
+    ],
+    "FILE_SERVERS": [
+      "192.167.34.23",
+      "192.167.34.24",
+      "192.167.34.25",
+      "192.167.34.26",
+      "192.167.34.27",
+      "192.167.34.28",
+      "192.167.34.29",
+      "192.167.34.30",
+      "192.167.34.31",
+      "192.167.34.32",
+      "192.167.34.33",
+      "192.167.34.34",
+      "192.167.34.35"
+    ],
+    "SETTINGS_CATEGORIES": [
+      {
+        "id": "add-data-source",
+        "label": "Add Data Source"
+      },
+      {
+        "id": "manage-component",
+        "label": "Manage Component"
+      },
+      {
+        "id": "trust",
+        "label": "Trust Settings"
+      },
+      {
+        "id": "identify",
+        "label": "Identify Settings"
+      },
+      {
+        "id": "protect",
+        "label": "Protect Settings"
+      },
+      {
+        "id": "general",
+        "label": "General Settings"
+      },
+      {
+        "id": "role-management",
+        "label": "Role management"
+      },
+      {
+        "id": "lepide-iq",
+        "label": "Lepide IQ"
+      },
+      {
+        "id": "logs",
+        "label": "Logs"
+      },
+      {
+        "id": "backup-restore",
+        "label": "Backup & Restore"
+      },
+      {
+        "id": "exported-files",
+        "label": "Exported Files"
+      },
+      {
+        "id": "application-url",
+        "label": "Application URL"
+      },
+      {
+        "id": "manage-domains",
+        "label": "Manage Domains"
+      },
+      {
+        "id": "subscription",
+        "label": "Subscription"
+      },
+      {
+        "id": "configure-notifications",
+        "label": "Configure Notifications"
+      },
+      {
+        "id": "license-management",
+        "label": "License Management"
+      }
+    ],
+    "PROTECT_SUBCATEGORIES": [
+      {
+        "id": "hrms",
+        "label": "HRMS"
+      },
+      {
+        "id": "active-directory",
+        "label": "Active Directory"
+      },
+      {
+        "id": "csv",
+        "label": "CSV"
+      },
+      {
+        "id": "email-configuration",
+        "label": "Email Configuration"
+      },
+      {
+        "id": "super-admin",
+        "label": "Super Admin Privileges"
+      },
+      {
+        "id": "settings",
+        "label": "Settings"
+      }
+    ],
+    "WINRM_STEPS": [
+      {
+        "id": "enable",
+        "title": "1. Enable WinRM Service",
+        "body": [
+          "Ensure that the Windows Remote Management (WinRM) service is enabled and running on both systems."
+        ]
+      },
+      {
+        "id": "trusted-hosts",
+        "title": "2. Configure Trusted Hosts",
+        "body": [
+          "Run the following command on the LDSP Host using PowerShell or Command Prompt with Administrator privileges."
+        ],
+        "commands": [
+          {
+            "label": "Trust All Servers (Not Recommended)",
+            "command": "winrm set winrm/config/client @{TrustedHosts=\"*\"}"
+          },
+          {
+            "label": "Trust a Specific Server (Recommended)",
+            "command": "winrm set winrm/config/client @{TrustedHosts=\"192.168.1X.1XX\"}"
+          }
+        ],
+        "footnote": "Incorrect TrustedHosts configuration may cause remote scanning or policy execution failures."
+      },
+      {
+        "id": "script-execution",
+        "title": "3. Configure PowerShell Script Execution",
+        "body": [
+          "Open the Local Group Policy Editor:",
+          "Navigate to:"
+        ],
+        "steps": [
+          "1 → Computer Configuration",
+          "2 → Administrative Templates",
+          "3 → Windows Components",
+          "4 → Windows PowerShell",
+          "5 → Turn on Script Execution > Enabled",
+          "6 → Execution Policy > \"Allow local Scripts and remote signed scripts\""
+        ],
+        "footnote": "This configuration allows locally created scripts to run while maintaining security for remotely downloaded scripts."
+      }
+    ]
+  }
+}

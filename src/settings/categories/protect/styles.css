@@ -1,0 +1,73 @@
+/* Protect Settings (category `protect`): tokens only, prefix protect-. */
+.protect-seg{overflow-x:auto;scrollbar-width:none}
+.protect-seg::-webkit-scrollbar{display:none}
+.protect-seg button{flex:1 0 auto;white-space:nowrap}
+.protect-seg button[aria-disabled="true"]{color:var(--ink-4);cursor:not-allowed}
+.protect-seg button[aria-disabled="true"]:hover{color:var(--ink-4)}
+
+.protect-heading{margin:0;font:700 15px/22px var(--font);letter-spacing:-.01em;color:var(--ink)}
+.protect-lead{margin:0;font:400 13px/19px var(--font);color:var(--ink-3)}
+.protect-note{margin:0;font:400 12.5px/18px var(--font);color:var(--ink-3)}
+.protect-note b{color:var(--ink-2)}
+
+.protect-provider{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:16px;border-radius:var(--r-md);border:1px dashed var(--border-2);background:var(--surface-2);text-align:center}
+.protect-provider span{font:500 12px/16px var(--font);color:var(--ink-3)}
+.protect-logo{width:auto;height:28px;max-width:140px;object-fit:contain}
+
+.protect-added{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:var(--r-md);background:var(--surface-2);border:1px solid var(--border-soft)}
+.protect-added .grow b{display:block;font:700 13.5px/18px var(--font);color:var(--ink)}
+.protect-added .grow span{display:block;font:500 12.5px/18px var(--font);color:var(--ink-3)}
+
+.protect-group{display:flex;flex-direction:column;gap:14px;padding:16px;border-radius:var(--r-md);border:1px solid var(--border-soft)}
+.protect-group>h4{margin:0;font:700 13.5px/18px var(--font);color:var(--ink)}
+
+.protect-crumbs{display:flex;align-items:center;gap:8px;font:600 12.5px/18px var(--font);color:var(--ink-3)}
+.protect-crumbs b{color:var(--ink)}
+.protect-back{display:inline-flex;align-items:center;gap:6px;font:600 13px/18px var(--font);color:var(--brand-ink)}
+.protect-back:hover{text-decoration:underline}
+
+/* grouped table (integration / review) */
+.protect-gt .lf-table th.protect-gt__grp{height:36px;text-align:left;font:700 12px/16px var(--font);color:var(--ink-2);background:var(--surface-3);border-left:1px solid var(--border-soft)}
+.protect-gt .lf-table th.protect-gt__grp:first-child{border-left:0}
+.protect-gt .lf-table tr.protect-gt__cols th{top:36px}
+.protect-gt .lf-table tr.filter-row th{top:78px}
+.protect-gt .lf-table td{max-width:none}
+.protect-gt__foot{padding:12px 20px;border-top:1px solid var(--border-soft);font:600 12.5px/18px var(--font);color:var(--ink-3)}
+.protect-cell{width:100%;min-width:120px;height:32px;padding:0 10px;border-radius:var(--r-sm);border:1px solid var(--border);background:var(--surface);font:500 13px/18px var(--font);color:var(--ink);outline:none}
+.protect-cell:focus{border-color:var(--brand-300);box-shadow:var(--ring)}
+.protect-cell.is-empty{border-style:dashed;border-color:var(--warning-dot);background:var(--warning-bg)}
+.protect-cell::placeholder{color:var(--ink-4)}
+
+/* agent picker (DLG-SDS-71) */
+.protect-shuttle{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media (max-width:700px){.protect-shuttle{grid-template-columns:minmax(0,1fr)}}
+.protect-list{display:flex;flex-direction:column;min-height:260px;border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden}
+.protect-list__head{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;background:var(--surface-2);border-bottom:1px solid var(--border-soft);font:700 13px/18px var(--font);color:var(--ink)}
+.protect-list__head .grow{flex:1}
+.protect-list__body{flex:1;max-height:260px;overflow:auto;padding:4px 8px}
+.protect-list__row{display:flex;align-items:center;min-height:36px;padding:0 4px;border-radius:var(--r-xs);cursor:grab}
+.protect-list__row:hover{background:var(--surface-2)}
+.protect-list__empty{padding:16px;font:500 13px/18px var(--font);color:var(--ink-3);text-align:center}
+.protect-drop{flex:1;display:grid;place-items:center;align-content:center;gap:8px;min-height:260px;padding:20px;border-radius:var(--r-md);border:1px dashed var(--border-2);background:var(--surface-2);font:600 13px/18px var(--font);color:var(--ink-3);text-align:center;transition:background var(--t-fast),border-color var(--t-fast)}
+.protect-drop:hover,.protect-drop.is-over{background:var(--brand-50);border-color:var(--brand-300);color:var(--brand-ink)}
+.protect-list.is-over{border-color:var(--brand-300);box-shadow:var(--ring)}
+
+/* WinRM accordion */
+.protect-acc{display:flex;flex-direction:column;gap:8px}
+.protect-acc__item{border:1px solid var(--border-soft);border-radius:var(--r-md);overflow:hidden;background:var(--surface)}
+.protect-acc__btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:0 16px;text-align:left;font:700 13.5px/18px var(--font);color:var(--ink)}
+.protect-acc__btn:hover{background:var(--surface-2)}
+.protect-acc__btn svg.lf-i{transition:transform var(--t-base) var(--ease);color:var(--ink-3)}
+.protect-acc__btn[aria-expanded="true"] svg.lf-i{transform:rotate(180deg)}
+.protect-acc__body{display:flex;flex-direction:column;gap:10px;padding:4px 16px 16px;font:400 13px/20px var(--font);color:var(--ink-2)}
+.protect-acc__body p{margin:0}
+.protect-acc__body ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.protect-cmd{display:flex;flex-direction:column;gap:6px}
+.protect-cmd b{font:600 12.5px/18px var(--font);color:var(--ink)}
+.protect-cmd code{display:block;padding:10px 12px;border-radius:var(--r-sm);background:var(--surface-3);font:500 12.5px/18px var(--mono);color:var(--ink);overflow-x:auto;white-space:pre}
+.protect-foot{font:500 12.5px/18px var(--font);color:var(--ink-3)}
+
+.protect-pills{display:flex;gap:8px;flex-wrap:wrap}
+.protect-pill[aria-pressed="true"]{background:var(--sel-fill);border-color:var(--brand-600);color:#fff;box-shadow:var(--sel-shadow)}
+.protect-statusbox{padding:12px 14px;border-radius:var(--r-md);background:var(--surface-2);border:1px solid var(--border-soft);font:600 13px/18px var(--font);color:var(--ink)}
+.protect-err{font:600 12.5px/18px var(--font);color:var(--danger-text)}

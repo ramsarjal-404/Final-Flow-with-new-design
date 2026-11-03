@@ -1,0 +1,1071 @@
+{
+  "$source": "src/data/settings/subscription.ts",
+  "exports": {
+    "SUB_SOURCES": [
+      {
+        "id": "auditor",
+        "label": "Lepide Auditor",
+        "reports": [
+          "All Environment Changes",
+          "Activity Outside of Business Hours",
+          "External Data Sharing O365",
+          "File Server Reports",
+          "All File Server Interactions",
+          "Site Collection Admin Removed",
+          "Site Collection Admin Added",
+          "Site Collection Changes",
+          "Alert Summary",
+          "Open Shares",
+          "SQL Server Reports",
+          "EMC Isilon Reports",
+          "Nutanix Reports",
+          "Nasuni Reports"
+        ]
+      },
+      {
+        "id": "trust",
+        "label": "Lepide Trust",
+        "reports": [
+          "Excessive Permission Object",
+          "Excessive Permission User",
+          "Current Permission Analysis",
+          "Classification Failed",
+          "Permissions by Object",
+          "Permissions by User",
+          "Shared Permissions",
+          "Stale Users"
+        ]
+      }
+    ],
+    "SUB_FILTER_FIELDS": [
+      "Who",
+      "Object Path",
+      "Object Name",
+      "Server Name",
+      "Operation",
+      "Site Collection Name",
+      "Site Collection URL"
+    ],
+    "SUB_FILTER_OPERATORS": [
+      "Equal",
+      "Not Equal",
+      "Contains",
+      "Does Not Contain"
+    ],
+    "DELIVERY_MECHANISMS": [
+      "Send Email",
+      "Save Report on disk"
+    ],
+    "REPORT_FORMATS": [
+      "CSV",
+      "PDF"
+    ],
+    "DISK_PATH": "C:\\Program Files (x86)\\Lepide Data Security Platform\\LDSP Web Console\\exportedpdf\\",
+    "DURATIONS": {
+      "Daily": [
+        "Past 24 Hours",
+        "Previous Day"
+      ],
+      "Weekly": [
+        "Past 7 Days",
+        "Previous Week"
+      ],
+      "Monthly": [
+        "Past 30 Days",
+        "Previous Month"
+      ]
+    },
+    "SEED_SUBSCRIPTIONS": [
+      {
+        "id": "sub-1",
+        "name": "DE10016.LDSP1.com",
+        "description": "192.168.30.180",
+        "enabled": true,
+        "reports": [
+          "All File Server Interactions",
+          "Site Collection Admin Removed",
+          "Site Collection Admin Added",
+          "Site Collection Changes"
+        ],
+        "filters": {
+          "All File Server Interactions": [
+            {
+              "id": "rule-mvorqfhi-1",
+              "field": "Who",
+              "operator": "Not Equal",
+              "value": "sfsfs f"
+            },
+            {
+              "id": "rule-mvorqfhi-2",
+              "field": "Object Path",
+              "operator": "Not Equal",
+              "value": "sadfsafasfas"
+            }
+          ],
+          "Site Collection Admin Removed": [
+            {
+              "id": "rule-mvorqfhi-3",
+              "field": "Site Collection Name",
+              "operator": "Not Equal",
+              "value": "asfsafasfsaf"
+            },
+            {
+              "id": "rule-mvorqfhi-4",
+              "field": "Site Collection URL",
+              "operator": "Not Equal",
+              "value": "safdasdfasfasfds"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "id": "act-mvorqfhi-5",
+            "kind": "disk",
+            "from": "N/A",
+            "to": "N/A",
+            "formats": [
+              "CSV",
+              "PDF"
+            ],
+            "path": "C:\\Program Files (x86)\\Lepide Data Security Platform\\LDSP Web Console\\exportedpdf\\"
+          },
+          {
+            "id": "act-mvorqfhi-6",
+            "kind": "email",
+            "from": "testmail27dec",
+            "to": "ishaan@gmail.com, ankit@gmail.com, karan@gmail.com",
+            "formats": [
+              "CSV"
+            ],
+            "path": "N/A"
+          },
+          {
+            "id": "act-mvorqfhi-7",
+            "kind": "email",
+            "from": "testmail27dec",
+            "to": "ram@gmail.com",
+            "formats": [
+              "CSV"
+            ],
+            "path": "N/A"
+          }
+        ],
+        "schedules": [
+          {
+            "id": "sch-mvorqfhi-8",
+            "type": "Daily",
+            "selection": "Daily",
+            "time": "03:01:00",
+            "duration": "Past 24 Hours",
+            "startOn": "15/01/2025"
+          },
+          {
+            "id": "sch-mvorqfhi-9",
+            "type": "Weekly",
+            "selection": "Tuesday, Friday",
+            "time": "01:03:01",
+            "duration": "Past 7 Days",
+            "startOn": "15/01/2025"
+          },
+          {
+            "id": "sch-mvorqfhi-10",
+            "type": "Monthly",
+            "selection": "16th, 22nd, 23rd, 29th",
+            "time": "01:02:02",
+            "duration": "Past 30 Days",
+            "startOn": "15/01/2025"
+          }
+        ]
+      },
+      {
+        "id": "sub-2",
+        "name": "DE10016.LDSP2.com",
+        "description": "192.168.30.92",
+        "enabled": true,
+        "reports": [
+          "All Environment Changes"
+        ],
+        "filters": {},
+        "actions": [
+          {
+            "id": "act-mvorqfhi-11",
+            "kind": "disk",
+            "from": "N/A",
+            "to": "N/A",
+            "formats": [
+              "CSV"
+            ],
+            "path": "C:\\Program Files (x86)\\Lepide Data Security Platform\\LDSP Web Console\\exportedpdf\\"
+          }
+        ],
+        "schedules": [
+          {
+            "id": "sch-mvorqfhi-12",
+            "type": "Monthly",
+            "selection": "1st, 2nd",
+            "time": "01:01:02",
+            "duration": "Past 30 Days",
+            "startOn": "15/01/2025"
+          }
+        ]
+      },
+      {
+        "id": "sub-3",
+        "name": "Daily Environment Changes",
+        "description": "Every change across the estate, sent to the ops team",
+        "enabled": true,
+        "reports": [
+          "All Environment Changes",
+          "Activity Outside of Business Hours"
+        ],
+        "filters": {
+          "All Environment Changes": [
+            {
+              "id": "rule-mvorqfhi-13",
+              "field": "Operation",
+              "operator": "Equal",
+              "value": "Deleted"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "id": "act-mvorqfhi-14",
+            "kind": "email",
+            "from": "admin@company.com",
+            "to": "ops@company.com",
+            "formats": [
+              "PDF"
+            ],
+            "path": "N/A"
+          }
+        ],
+        "schedules": [
+          {
+            "id": "sch-mvorqfhi-15",
+            "type": "Daily",
+            "selection": "Daily",
+            "time": "08:00:00",
+            "duration": "Past 24 Hours",
+            "startOn": "15/01/2025"
+          }
+        ]
+      },
+      {
+        "id": "sub-4",
+        "name": "1 month",
+        "description": "Monthly environment summary",
+        "enabled": true,
+        "reports": [
+          "All Environment Changes"
+        ],
+        "filters": {},
+        "actions": [
+          {
+            "id": "act-mvorqfhi-16",
+            "kind": "disk",
+            "from": "N/A",
+            "to": "N/A",
+            "formats": [
+              "PDF"
+            ],
+            "path": "C:\\Program Files (x86)\\Lepide Data Security Platform\\LDSP Web Console\\exportedpdf\\"
+          }
+        ],
+        "schedules": [
+          {
+            "id": "sch-mvorqfhi-17",
+            "type": "Monthly",
+            "selection": "1st, 2nd",
+            "time": "01:01:02",
+            "duration": "Past 30 Days",
+            "startOn": "15/01/2025"
+          }
+        ]
+      },
+      {
+        "id": "sub-5",
+        "name": "tst mfa 1",
+        "description": "MFA sender test",
+        "enabled": false,
+        "reports": [
+          "All Environment Changes"
+        ],
+        "filters": {},
+        "actions": [
+          {
+            "id": "act-mvorqfhi-18",
+            "kind": "email",
+            "from": "shashi@lepsoftpvtltd.onmicrosoft.com",
+            "to": "karan.bastola@in.lepide.com",
+            "formats": [
+              "CSV"
+            ],
+            "path": "N/A"
+          }
+        ],
+        "schedules": [
+          {
+            "id": "sch-mvorqfhi-19",
+            "type": "Monthly",
+            "selection": "13th",
+            "time": "10:15:00",
+            "duration": "Past 30 Days",
+            "startOn": "15/01/2025"
+          }
+        ]
+      },
+      {
+        "id": "sub-6",
+        "name": "Weekly Permission Review",
+        "description": "Excessive permissions for the data owners",
+        "enabled": true,
+        "reports": [
+          "Excessive Permission Object",
+          "Excessive Permission User"
+        ],
+        "filters": {},
+        "actions": [
+          {
+            "id": "act-mvorqfhi-20",
+            "kind": "email",
+            "from": "testmail27dec",
+            "to": "ishaan@gmail.com",
+            "formats": [
+              "CSV",
+              "PDF"
+            ],
+            "path": "N/A"
+          }
+        ],
+        "schedules": [
+          {
+            "id": "sch-mvorqfhi-21",
+            "type": "Weekly",
+            "selection": "Monday",
+            "time": "09:00:00",
+            "duration": "Past 7 Days",
+            "startOn": "15/01/2025"
+          }
+        ]
+      },
+      {
+        "id": "sub-7",
+        "name": "Open Shares Digest",
+        "description": "192.168.30.92",
+        "enabled": true,
+        "reports": [
+          "Open Shares"
+        ],
+        "filters": {
+          "Open Shares": [
+            {
+              "id": "rule-mvorqfhi-22",
+              "field": "Server Name",
+              "operator": "Contains",
+              "value": "FS01"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "id": "act-mvorqfhi-23",
+            "kind": "disk",
+            "from": "N/A",
+            "to": "N/A",
+            "formats": [
+              "CSV"
+            ],
+            "path": "C:\\Program Files (x86)\\Lepide Data Security Platform\\LDSP Web Console\\exportedpdf\\"
+          }
+        ],
+        "schedules": [
+          {
+            "id": "sch-mvorqfhi-24",
+            "type": "Weekly",
+            "selection": "Friday",
+            "time": "18:30:00",
+            "duration": "Previous Week",
+            "startOn": "15/01/2025"
+          }
+        ]
+      },
+      {
+        "id": "sub-8",
+        "name": "SQL Server Audit",
+        "description": "SQL changes for compliance",
+        "enabled": true,
+        "reports": [
+          "SQL Server Reports"
+        ],
+        "filters": {},
+        "actions": [
+          {
+            "id": "act-mvorqfhi-25",
+            "kind": "email",
+            "from": "testmail27dec",
+            "to": "dba@company.com",
+            "formats": [
+              "PDF"
+            ],
+            "path": "N/A"
+          }
+        ],
+        "schedules": [
+          {
+            "id": "sch-mvorqfhi-26",
+            "type": "Daily",
+            "selection": "Daily",
+            "time": "06:00:00",
+            "duration": "Previous Day",
+            "startOn": "15/01/2025"
+          }
+        ]
+      },
+      {
+        "id": "sub-9",
+        "name": "Isilon Weekly",
+        "description": "192.168.30.92",
+        "enabled": false,
+        "reports": [
+          "EMC Isilon Reports"
+        ],
+        "filters": {},
+        "actions": [
+          {
+            "id": "act-mvorqfhi-27",
+            "kind": "disk",
+            "from": "N/A",
+            "to": "N/A",
+            "formats": [
+              "CSV"
+            ],
+            "path": "C:\\Program Files (x86)\\Lepide Data Security Platform\\LDSP Web Console\\exportedpdf\\"
+          }
+        ],
+        "schedules": [
+          {
+            "id": "sch-mvorqfhi-28",
+            "type": "Weekly",
+            "selection": "Wednesday",
+            "time": "02:00:00",
+            "duration": "Past 7 Days",
+            "startOn": "15/01/2025"
+          }
+        ]
+      },
+      {
+        "id": "sub-10",
+        "name": "Stale Users Monthly",
+        "description": "Users inactive for 90 days",
+        "enabled": true,
+        "reports": [
+          "Stale Users"
+        ],
+        "filters": {},
+        "actions": [
+          {
+            "id": "act-mvorqfhi-29",
+            "kind": "email",
+            "from": "admin@company.com",
+            "to": "it-security@company.com",
+            "formats": [
+              "CSV"
+            ],
+            "path": "N/A"
+          }
+        ],
+        "schedules": [
+          {
+            "id": "sch-mvorqfhi-30",
+            "type": "Monthly",
+            "selection": "1st",
+            "time": "07:00:00",
+            "duration": "Previous Month",
+            "startOn": "15/01/2025"
+          }
+        ]
+      }
+    ],
+    "STATUS_FOLDERS": [
+      "All Environment",
+      "Activity Outside of Business Hours",
+      "Alert Summary",
+      "Open Shares",
+      "SQL Server Reports",
+      "File Server Reports",
+      "EMC Isilon Reports",
+      "Nutanix Reports",
+      "Nasuni Reports",
+      "Current Permission Analysis",
+      "Classification Failed"
+    ],
+    "SEED_DELIVERIES": [
+      {
+        "id": "dr-mvorqfhi-31",
+        "folder": "All Environment",
+        "outcome": "Delivered",
+        "subscription": "tst mfa 1",
+        "report": "All Environment Changes",
+        "from": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "to": "karan.bastola@in.lepide.com",
+        "subject": "Subscription Name : [tst mfa 1] Report Name : [All Environment Changes] Schedule Time : [10:15:00]",
+        "sentOn": "29-01-2025 10:22:10 AM",
+        "scheduleType": "Monthly",
+        "duration": "Past 30 Days",
+        "scheduleTime": "10:15:00"
+      },
+      {
+        "id": "dr-mvorqfhi-32",
+        "folder": "All Environment",
+        "outcome": "Delivered",
+        "subscription": "Daily Environment Changes",
+        "report": "All Environment Changes",
+        "from": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "to": "ops@company.com",
+        "subject": "Subscription Name : [Daily Environment Changes] Report Name : [All Environment Changes] Schedule Time : [08:00:00]",
+        "sentOn": "28-01-2025 08:00:41 AM",
+        "scheduleType": "Daily",
+        "duration": "Past 24 Hours",
+        "scheduleTime": "08:00:00"
+      },
+      {
+        "id": "dr-mvorqfhi-33",
+        "folder": "All Environment",
+        "outcome": "Failed",
+        "subscription": "1 month",
+        "report": "All Environment Changes",
+        "from": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "to": "karan.bastola@in.lepide.com",
+        "subject": "Subscription Name : [1 month] Report Name : [All Environment Changes] Schedule Time : [01:01:02]",
+        "sentOn": "01-01-2025 01:01:09 AM",
+        "scheduleType": "Monthly",
+        "duration": "Past 30 Days",
+        "scheduleTime": "01:01:02"
+      },
+      {
+        "id": "dr-mvorqfhi-34",
+        "folder": "Activity Outside of Business Hours",
+        "outcome": "Delivered",
+        "subscription": "Daily Environment Changes",
+        "report": "Activity Outside of Business Hours",
+        "from": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "to": "ops@company.com",
+        "subject": "Subscription Name : [Daily Environment Changes] Report Name : [Activity Outside of Business Hours] Schedule Time : [08:00:00]",
+        "sentOn": "28-01-2025 08:01:02 AM",
+        "scheduleType": "Daily",
+        "duration": "Past 24 Hours",
+        "scheduleTime": "08:00:00"
+      },
+      {
+        "id": "dr-mvorqfhi-35",
+        "folder": "Activity Outside of Business Hours",
+        "outcome": "Delivered",
+        "subscription": "Daily Environment Changes",
+        "report": "Activity Outside of Business Hours",
+        "from": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "to": "ops@company.com",
+        "subject": "Subscription Name : [Daily Environment Changes] Report Name : [Activity Outside of Business Hours] Schedule Time : [08:00:00]",
+        "sentOn": "27-01-2025 08:00:58 AM",
+        "scheduleType": "Daily",
+        "duration": "Past 24 Hours",
+        "scheduleTime": "08:00:00"
+      },
+      {
+        "id": "dr-mvorqfhi-36",
+        "folder": "Activity Outside of Business Hours",
+        "outcome": "Failed",
+        "subscription": "Daily Environment Changes",
+        "report": "Activity Outside of Business Hours",
+        "from": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "to": "ops@company.com",
+        "subject": "Subscription Name : [Daily Environment Changes] Report Name : [Activity Outside of Business Hours] Schedule Time : [08:00:00]",
+        "sentOn": "26-01-2025 08:00:30 AM",
+        "scheduleType": "Daily",
+        "duration": "Past 24 Hours",
+        "scheduleTime": "08:00:00"
+      },
+      {
+        "id": "dr-mvorqfhi-37",
+        "folder": "Open Shares",
+        "outcome": "Delivered",
+        "subscription": "Open Shares Digest",
+        "report": "Open Shares",
+        "from": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "to": "karan.bastola@in.lepide.com",
+        "subject": "Subscription Name : [Open Shares Digest] Report Name : [Open Shares] Schedule Time : [18:30:00]",
+        "sentOn": "24-01-2025 06:30:12 PM",
+        "scheduleType": "Weekly",
+        "duration": "Previous Week",
+        "scheduleTime": "18:30:00"
+      },
+      {
+        "id": "dr-mvorqfhi-38",
+        "folder": "SQL Server Reports",
+        "outcome": "Delivered",
+        "subscription": "SQL Server Audit",
+        "report": "SQL Server Reports",
+        "from": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "to": "dba@company.com",
+        "subject": "Subscription Name : [SQL Server Audit] Report Name : [SQL Server Reports] Schedule Time : [06:00:00]",
+        "sentOn": "29-01-2025 06:00:21 AM",
+        "scheduleType": "Daily",
+        "duration": "Previous Day",
+        "scheduleTime": "06:00:00"
+      },
+      {
+        "id": "dr-mvorqfhi-39",
+        "folder": "SQL Server Reports",
+        "outcome": "Failed",
+        "subscription": "SQL Server Audit",
+        "report": "SQL Server Reports",
+        "from": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "to": "dba@company.com",
+        "subject": "Subscription Name : [SQL Server Audit] Report Name : [SQL Server Reports] Schedule Time : [06:00:00]",
+        "sentOn": "28-01-2025 06:00:18 AM",
+        "scheduleType": "Daily",
+        "duration": "Previous Day",
+        "scheduleTime": "06:00:00"
+      },
+      {
+        "id": "dr-mvorqfhi-40",
+        "folder": "EMC Isilon Reports",
+        "outcome": "Delivered",
+        "subscription": "Isilon Weekly",
+        "report": "EMC Isilon Reports",
+        "from": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "to": "karan.bastola@in.lepide.com",
+        "subject": "Subscription Name : [Isilon Weekly] Report Name : [EMC Isilon Reports] Schedule Time : [02:00:00]",
+        "sentOn": "22-01-2025 02:00:44 AM",
+        "scheduleType": "Weekly",
+        "duration": "Past 7 Days",
+        "scheduleTime": "02:00:00"
+      },
+      {
+        "id": "dr-mvorqfhi-41",
+        "folder": "Current Permission Analysis",
+        "outcome": "Delivered",
+        "subscription": "Weekly Permission Review",
+        "report": "Current Permission Analysis",
+        "from": "shashi@lepsoftpvtltd.onmicrosoft.com",
+        "to": "ishaan@gmail.com",
+        "subject": "Subscription Name : [Weekly Permission Review] Report Name : [Current Permission Analysis] Schedule Time : [09:00:00]",
+        "sentOn": "27-01-2025 09:00:16 AM",
+        "scheduleType": "Weekly",
+        "duration": "Past 7 Days",
+        "scheduleTime": "09:00:00"
+      }
+    ],
+    "SEED_EXPORTED_FILES": [
+      {
+        "id": "seed-1",
+        "name": "Applicationlogs_1665741863.zip",
+        "start": 10,
+        "rate": 7
+      },
+      {
+        "id": "seed-2",
+        "name": "Applicationlogs_1665741871.zip",
+        "start": 85,
+        "rate": 3
+      },
+      {
+        "id": "seed-3",
+        "name": "Auditlogs_1665741902.zip",
+        "start": 15,
+        "rate": 5
+      },
+      {
+        "id": "seed-4",
+        "name": "Applicationlogs_1665740012.zip",
+        "start": 100,
+        "rate": 0
+      }
+    ],
+    "RESTORE_DOMAINS": [
+      "www.newserver16.com",
+      "DE10016.LDSP1.com",
+      "DE10016.LDSP2.com"
+    ],
+    "DOMAIN_BACKUPS": {
+      "www.newserver16.com": [
+        {
+          "date": "18/12/2025",
+          "time": "02:30 PM"
+        },
+        {
+          "date": "25/03/2026",
+          "time": "09:15 PM"
+        },
+        {
+          "date": "12/07/2024",
+          "time": "03:45 PM"
+        },
+        {
+          "date": "30/11/2023",
+          "time": "11:00 PM"
+        },
+        {
+          "date": "05/01/2025",
+          "time": "08:30 PM"
+        }
+      ],
+      "DE10016.LDSP1.com": [
+        {
+          "date": "15/04/2025",
+          "time": "09:25 AM"
+        },
+        {
+          "date": "02/12/2024",
+          "time": "10:34 AM"
+        }
+      ],
+      "DE10016.LDSP2.com": []
+    },
+    "OBJECT_CLASSES": [
+      "User",
+      "Contact",
+      "Group",
+      "Computer"
+    ],
+    "OBJECT_OPERATIONS": [
+      "Deleted",
+      "Modified",
+      "Created",
+      "Moved",
+      "Renamed"
+    ],
+    "BACKUP_OUS": [
+      "DE10016.LDSP1.com",
+      "DE10016.LDSP2.com",
+      "OU=Finance,DC=newserver16,DC=com",
+      "OU=Sales,DC=newserver16,DC=com"
+    ],
+    "AD_LEGEND": [
+      {
+        "kind": "deleted",
+        "label": "Objects deleted from AD"
+      },
+      {
+        "kind": "moved",
+        "label": "Objects moved in AD"
+      },
+      {
+        "kind": "added",
+        "label": "Objects added to AD"
+      },
+      {
+        "kind": "renamed",
+        "label": "Objects renamed in AD"
+      },
+      {
+        "kind": "modified",
+        "label": "Objects modified in AD"
+      }
+    ],
+    "AD_ROOT": "DC= www.DC-newserver 16,DC=com",
+    "AD_MODIFICATIONS": [
+      {
+        "id": "m1",
+        "label": "Signature New Attribute Added to object",
+        "kind": "modified",
+        "detail": "New Attribute Signature Added to object",
+        "action": "Delete Object Attribute-Signature from DC= www.DC-newserver 16,DC=com"
+      },
+      {
+        "id": "m2",
+        "label": "replusTuCatellectorAttribute Addedtest",
+        "kind": "added",
+        "detail": "New Attribute misExchMaster AccountSid Added to object",
+        "action": "Delete Object Attribute-msExchMaster AccountSid from DC= www.DC-newserver 16,DC=com"
+      },
+      {
+        "id": "m3",
+        "label": "Auditing Policy New Attribute Added to object",
+        "kind": "modified",
+        "detail": "New Attribute Auditing Policy Added to object",
+        "action": "Delete Object Attribute-Auditing Policy from DC= www.DC-newserver 16,DC=com"
+      },
+      {
+        "id": "m4",
+        "label": "WellKnown Objects Attribute Added to object",
+        "kind": "modified",
+        "detail": "New Attribute WellKnown Objects Added to object",
+        "action": "Delete Object Attribute-WellKnown Objects from DC= www.DC-newserver 16,DC=com"
+      },
+      {
+        "id": "m5",
+        "label": "OtherWellKnown Objects - Attribute Added to object",
+        "kind": "renamed",
+        "detail": "Attribute OtherWellKnown Objects Added to object",
+        "action": "Delete Object Attribute-OtherWellKnown Objects from DC= www.DC-newserver 16,DC=com"
+      }
+    ],
+    "GP_BACKUPS": [
+      {
+        "id": "gp1",
+        "ip": "www.gwv19.com",
+        "backup": "2025_04_28_11_30_AM",
+        "dateTime": "4/28/2025 11:30:00 AM",
+        "size": "107.1 KB"
+      },
+      {
+        "id": "gp2",
+        "ip": "www.gwv19.com",
+        "backup": "2025_04_25_18_03_PM",
+        "dateTime": "4/25/2025 6:03:00 PM",
+        "size": "108.4 KB"
+      }
+    ],
+    "GP_LEGEND": [
+      {
+        "kind": "deleted",
+        "label": "Group Policy Object Deleted"
+      },
+      {
+        "kind": "renamed",
+        "label": "Group Policy Object Renamed"
+      },
+      {
+        "kind": "added",
+        "label": "Group Policy Object Created"
+      },
+      {
+        "kind": "modified",
+        "label": "Group Policy Object Modified"
+      }
+    ],
+    "GP_OBJECTS": [
+      {
+        "id": "g1",
+        "name": "27",
+        "kind": "modified",
+        "settings": [
+          {
+            "op": "Setting Modified",
+            "path": "General Details"
+          }
+        ]
+      },
+      {
+        "id": "g2",
+        "name": "4676",
+        "kind": "modified",
+        "settings": [
+          {
+            "op": "Setting Modified",
+            "path": "General Details"
+          },
+          {
+            "op": "Setting Removed",
+            "path": "General Delegation Settings"
+          }
+        ]
+      },
+      {
+        "id": "g3",
+        "name": "Audit",
+        "kind": "added",
+        "settings": [
+          {
+            "op": "Setting Added",
+            "path": "General Details"
+          }
+        ]
+      },
+      {
+        "id": "g4",
+        "name": "AuditGPObyLeastUse",
+        "kind": "modified",
+        "settings": [
+          {
+            "op": "Setting Removed",
+            "path": "General Details"
+          }
+        ]
+      },
+      {
+        "id": "g5",
+        "name": "Default Domain Controllers Policy",
+        "kind": "modified",
+        "settings": [
+          {
+            "op": "Setting Modified",
+            "path": "Security Filtering"
+          }
+        ]
+      },
+      {
+        "id": "g6",
+        "name": "GPO BKP",
+        "kind": "deleted",
+        "settings": [
+          {
+            "op": "Setting Removed",
+            "path": "General Details"
+          }
+        ]
+      },
+      {
+        "id": "g7",
+        "name": "gpobyleastuse",
+        "kind": "modified",
+        "settings": [
+          {
+            "op": "Setting Removed",
+            "path": "General Details"
+          },
+          {
+            "op": "Setting Removed",
+            "path": "General Details"
+          },
+          {
+            "op": "Setting Removed",
+            "path": "General Details"
+          },
+          {
+            "op": "Setting Removed",
+            "path": "General Details"
+          },
+          {
+            "op": "Setting Removed",
+            "path": "General Delegation Settings"
+          },
+          {
+            "op": "Setting Removed",
+            "path": "General Delegation Settings"
+          },
+          {
+            "op": "Setting Removed",
+            "path": "General Delegation Settings"
+          }
+        ]
+      },
+      {
+        "id": "g8",
+        "name": "New Group Policy Object",
+        "kind": "renamed",
+        "settings": [
+          {
+            "op": "Setting Renamed",
+            "path": "General Details"
+          }
+        ]
+      }
+    ],
+    "GP_VERIFY": [
+      "Add Setting Unique ID at General Details in gpobyleastuse where setting value is {5-409817-5F5F-838-9685-FECSA0-026F2}",
+      "Add Setting Domain at General Details in gpobyleastuse where setting value is www.newserver 16.com",
+      "Add Setting Created Time at General Details in gpobyleastuse where setting value is 11/11/2024 12:31:42",
+      "Add Setting Modified Time at General Details in gpobyleastuse where setting value is 11/11/2024 22:36:19",
+      "Add Setting Owner at General Details in gpobyleastuse where setting value is NEWSERVER16\\Domain Admins",
+      "Add Setting Inherited from parents at General Delegation Settings in gpobyleastuse where setting value is No",
+      "Add Setting Permission Setting at General Delegation Settings in gpobyleastuse where setting value is Group or User name: newserver\\",
+      "Add Setting Group or User Name at General Security Filtering in gpobyleastuse where setting value is NT AUTHORITY\\Authenticated Users",
+      "Add Setting Filter Data Available at General Details in gpobyleastuse where setting value is Enabled",
+      "Add Setting Filter Name: Description at General WMI Filtering in gpobyleastuse where setting value is None Not Applicable"
+    ],
+    "TOMBSTONE_OBJECTS": [
+      {
+        "id": "t1",
+        "name": "CN={0026931D-DF71-4F38-AF24-27A8B8FEE5A5}",
+        "objectClass": "group Policy Container",
+        "deleted": "12-Dec-24 2:47:05",
+        "created": "12-Dec-24 2:44:10",
+        "children": [
+          "CN-Machine",
+          "CN-User"
+        ]
+      },
+      {
+        "id": "t2",
+        "name": "CN={01AD0B1B-24F6-4280-ACE3-1B2C5D9E07A1}",
+        "objectClass": "group Policy Container",
+        "deleted": "12-Dec-24 2:47:05",
+        "created": "12-Dec-24 2:44:10",
+        "children": [
+          "CN-Machine",
+          "CN-User"
+        ]
+      },
+      {
+        "id": "t3",
+        "name": "CN={02023E03-75E6-4E1A-A10C-6F1D2B7C9A44}",
+        "objectClass": "group Policy Container",
+        "deleted": "12-Dec-24 2:47:05",
+        "created": "12-Dec-24 2:44:10",
+        "children": [
+          "CN-Machine",
+          "CN-User"
+        ]
+      }
+    ],
+    "ARCHIVE_COMPONENTS": [
+      "Active Directory, Group Policy And Exchange Server",
+      "Cloud Component",
+      "Exchange Online",
+      "File Server",
+      "SQL Server",
+      "SharePoint Server",
+      "SharePoint Online"
+    ],
+    "ARCHIVE_DATABASES": {
+      "Active Directory, Group Policy And Exchange Server": "ram_testing for AD",
+      "Cloud Component": "Cloud_Audit",
+      "Exchange Online": "Exch_Audit",
+      "File Server": "FS_Audit",
+      "SQL Server": "SQL_Audit",
+      "SharePoint Server": "SP_Audit",
+      "SharePoint Online": "SPO_Audit"
+    },
+    "ARCHIVE_SERVERS": [
+      "192.168.30.180",
+      "192.168.30.92"
+    ],
+    "ARCHIVE_SQL_SERVER": "192.168.30.8",
+    "WEEKDAYS": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "SEED_ARCHIVES": [
+      {
+        "id": "arc-1",
+        "componentType": "Exchange Server",
+        "componentName": "Active Directory, Group Policy And Exchange Server",
+        "server": "192.168.30.180",
+        "path": "D:\\Archives\\AD",
+        "schedule": "Archive data on every Monday At - 17:00",
+        "status": "Running",
+        "deleteOlderDays": "",
+        "olderThanDays": "90",
+        "deleteRecords": false,
+        "shrink": false
+      }
+    ],
+    "SEED_RESTORED_DBS": [
+      {
+        "id": "rdb-1",
+        "name": "ArchiveDB_2025",
+        "sqlServer": "SQL-PROD-01",
+        "component": "192.168.30.212"
+      },
+      {
+        "id": "rdb-2",
+        "name": "BackupDB_March",
+        "sqlServer": "SQL-PROD-02",
+        "component": "192.168.30.211"
+      },
+      {
+        "id": "rdb-3",
+        "name": "LogArchive_Q1",
+        "sqlServer": "SQL-DEV-01",
+        "component": "192.168.30.121"
+      }
+    ]
+  }
+}

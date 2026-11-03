@@ -1,0 +1,47 @@
+{
+  "$source": "src/data/dashboards/store.tsx",
+  "exports": {
+    "PRINCIPALS": {
+      "users": [
+        {
+          "name": "Neal Gamby",
+          "domain": "LPDE4.local"
+        },
+        {
+          "name": "Andrew James",
+          "domain": "LPDE4.local"
+        },
+        {
+          "name": "Richard Woody",
+          "domain": "LPDE4.local"
+        },
+        {
+          "name": "Kristin Watson",
+          "domain": "LPDE4.local"
+        },
+        {
+          "name": "Albert Flores",
+          "domain": "emea.LPDE4.local"
+        }
+      ],
+      "groups": [
+        {
+          "name": "Domain Admins",
+          "domain": "LPDE4.local"
+        },
+        {
+          "name": "HR Team",
+          "domain": "LPDE4.local"
+        },
+        {
+          "name": "Finance",
+          "domain": "LPDE4.local"
+        },
+        {
+          "name": "IT Support",
+          "domain": "emea.LPDE4.local"
+        }
+      ]
+    }
+  }
+}

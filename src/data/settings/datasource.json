@@ -1,0 +1,1026 @@
+{
+  "$source": "src/data/settings/datasource.ts",
+  "exports": {
+    "DATA_SOURCES": [
+      {
+        "id": "salesforce",
+        "label": "Salesforce",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/datasource/logos/salesforce.png"
+      },
+      {
+        "id": "ad",
+        "label": "Active Directory",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/datasource/logos/active-directory.png",
+        "activeDirectory": true
+      },
+      {
+        "id": "file-server",
+        "label": "File Server",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/datasource/logos/file-server.png",
+        "fileServerType": "list"
+      },
+      {
+        "id": "exchange-server",
+        "label": "Exchange Server",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/datasource/logos/exchange-server.png"
+      },
+      {
+        "id": "nasuni",
+        "label": "Nasuni",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/datasource/logos/nasuni.png",
+        "fileServerType": "nasuni"
+      },
+      {
+        "id": "isilon",
+        "label": "EMC Isilon",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/datasource/logos/emc-isilon.png",
+        "fileServerType": "emc"
+      },
+      {
+        "id": "nutanix",
+        "label": "Nutanix",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/datasource/logos/nutanix.png",
+        "fileServerType": "nutanix"
+      },
+      {
+        "id": "netapp",
+        "label": "Net App Filer",
+        "logo": "https://lepide.vercel.app/blueprint/assets/settings/datasource/logos/netapp.png",
+        "fileServerType": "netapp7"
+      }
+    ],
+    "AD_DOMAINS": [
+      {
+        "id": "d1",
+        "domain": "chily.local",
+        "controller": "DC01.chily.local",
+        "logon": "CHILY\\devl150"
+      }
+    ],
+    "SERVER_TYPE_LABEL": {
+      "windows": "Windows",
+      "netapp7": "Netapp7- Mode",
+      "netappCluster": "Netapp Cluster Mode",
+      "emc": "EMC Server",
+      "nasuni": "Nasuni Server",
+      "nutanix": "Nutanix Server"
+    },
+    "ADD_TITLE": {
+      "windows": "Add Windows File Server",
+      "netapp7": "Add NetApp7 Mode",
+      "netappCluster": "Add NetApp Cluster Mode",
+      "emc": "Add EMC Server",
+      "nasuni": "Add Nasuni Server",
+      "nutanix": "Add Nutanix Server"
+    },
+    "SINGLE_TYPES": [
+      {
+        "type": "windows",
+        "label": "Windows"
+      },
+      {
+        "type": "netapp7",
+        "label": "Netapp 7-Mode"
+      },
+      {
+        "type": "netappCluster",
+        "label": "Netapp Cluster Mode"
+      },
+      {
+        "type": "emc",
+        "label": "EMC Server"
+      },
+      {
+        "type": "nasuni",
+        "label": "Nasuni Server"
+      },
+      {
+        "type": "nutanix",
+        "label": "Nutanix Server"
+      }
+    ],
+    "MULTIPLE_TYPES": [
+      {
+        "type": "windows",
+        "label": "Windows"
+      },
+      {
+        "type": "netapp7",
+        "label": "Netapp 7-Mode"
+      }
+    ],
+    "FILE_SERVERS": [
+      {
+        "communication": "agent",
+        "logonUser": "Current user",
+        "sharePath": "",
+        "sqlServer": "NDR27\\SQL16",
+        "database": "LEPIDE200",
+        "authMode": "Sql Server Authentication",
+        "timeGap": 24,
+        "patternMode": true,
+        "dataInsertion": "Lepide Console",
+        "id": "fs1",
+        "name": "192.168.30.150",
+        "type": "windows",
+        "domain": "myDomain00151",
+        "agentStatus": "File Server Unavailable or Access Denied",
+        "auditStatus": "Auditing Started",
+        "lastUpdate": "Dec 24 2024, 06:11 PM"
+      },
+      {
+        "communication": "agent",
+        "logonUser": "Current user",
+        "sharePath": "",
+        "sqlServer": "NDR27\\SQL16",
+        "database": "LEPIDE200",
+        "authMode": "Sql Server Authentication",
+        "timeGap": 24,
+        "patternMode": true,
+        "dataInsertion": "Lepide Console",
+        "id": "fs2",
+        "name": "192.168.30.151",
+        "type": "netapp7",
+        "domain": "myDomain00152",
+        "agentStatus": "Installed",
+        "auditStatus": "Auditing Started",
+        "lastUpdate": "Dec 23 2024, 08:22 PM"
+      },
+      {
+        "communication": "agent",
+        "logonUser": "Current user",
+        "sharePath": "",
+        "sqlServer": "NDR27\\SQL16",
+        "database": "LEPIDE200",
+        "authMode": "Sql Server Authentication",
+        "timeGap": 24,
+        "patternMode": true,
+        "dataInsertion": "Lepide Console",
+        "id": "fs3",
+        "name": "192.168.30.152",
+        "type": "netappCluster",
+        "domain": "myDomain00152",
+        "agentStatus": "Installed via foreign Server",
+        "auditStatus": "Auditing Started",
+        "lastUpdate": "Dec 23 2024, 08:22 PM"
+      },
+      {
+        "communication": "agent",
+        "logonUser": "Current user",
+        "sharePath": "",
+        "sqlServer": "NDR27\\SQL16",
+        "database": "LEPIDE200",
+        "authMode": "Sql Server Authentication",
+        "timeGap": 24,
+        "patternMode": true,
+        "dataInsertion": "Lepide Console",
+        "id": "fs4",
+        "name": "192.168.30.153",
+        "type": "emc",
+        "domain": "myDomain00152",
+        "agentStatus": "Installed",
+        "auditStatus": "Auditing Started",
+        "lastUpdate": "Dec 23 2024, 08:22 PM"
+      },
+      {
+        "communication": "agent",
+        "logonUser": "Current user",
+        "sharePath": "",
+        "sqlServer": "NDR27\\SQL16",
+        "database": "LEPIDE200",
+        "authMode": "Sql Server Authentication",
+        "timeGap": 24,
+        "patternMode": true,
+        "dataInsertion": "Lepide Console",
+        "id": "fs5",
+        "name": "192.168.30.154",
+        "type": "nasuni",
+        "domain": "myDomain00152",
+        "agentStatus": "Not Installed",
+        "auditStatus": "Auditing Stopped",
+        "lastUpdate": "Dec 23 2024, 08:22 PM"
+      },
+      {
+        "communication": "agent",
+        "logonUser": "Current user",
+        "sharePath": "",
+        "sqlServer": "NDR27\\SQL16",
+        "database": "LEPIDE200",
+        "authMode": "Sql Server Authentication",
+        "timeGap": 24,
+        "patternMode": true,
+        "dataInsertion": "Lepide Console",
+        "id": "fs6",
+        "name": "192.168.30.155",
+        "type": "nutanix",
+        "domain": "myDomain00152",
+        "agentStatus": "Not Installed",
+        "auditStatus": "Auditing Stopped",
+        "lastUpdate": "Dec 23 2024, 08:22 PM"
+      },
+      {
+        "communication": "agent",
+        "logonUser": "Current user",
+        "sharePath": "",
+        "sqlServer": "NDR27\\SQL16",
+        "database": "LEPIDE200",
+        "authMode": "Sql Server Authentication",
+        "timeGap": 24,
+        "patternMode": true,
+        "dataInsertion": "Lepide Console",
+        "id": "fs7",
+        "name": "192.168.30.156",
+        "type": "windows",
+        "domain": "myDomain00152",
+        "agentStatus": "Not Installed",
+        "auditStatus": "Auditing Stopped",
+        "lastUpdate": "Dec 23 2024, 08:22 PM"
+      },
+      {
+        "communication": "agent",
+        "logonUser": "Current user",
+        "sharePath": "",
+        "sqlServer": "NDR27\\SQL16",
+        "database": "LEPIDE200",
+        "authMode": "Sql Server Authentication",
+        "timeGap": 24,
+        "patternMode": true,
+        "dataInsertion": "Lepide Console",
+        "id": "fs8",
+        "name": "192.168.30.221",
+        "type": "windows",
+        "domain": "myDomain00152",
+        "agentStatus": "Not Installed",
+        "auditStatus": "Auditing Stopped",
+        "lastUpdate": "Dec 23 2025, 08:22 PM"
+      }
+    ],
+    "DOMAIN_COMPUTERS": [
+      {
+        "name": "19216830202",
+        "objectClass": "computer",
+        "dn": "CN=19216830202,CN=Computers,DC=chily,DC=local"
+      },
+      {
+        "name": "8R2EMP-SER",
+        "objectClass": "computer",
+        "dn": "CN=8R2EMP-SERVER,CN=Computers,DC=chily,DC=local"
+      },
+      {
+        "name": "ABC-6453EB",
+        "objectClass": "computer",
+        "dn": "CN=A_jon,OU=RJ45,DC=chily,DC=local"
+      },
+      {
+        "name": "AD6-CLIENT",
+        "objectClass": "computer",
+        "dn": "CN=aaaa,CN=Builtin,DC=chily,DC=local"
+      },
+      {
+        "name": "AKASH-W10",
+        "objectClass": "computer",
+        "dn": "CN=ABC-6453EBB32D5,CN=Computers,DC=chily,DC=local"
+      },
+      {
+        "name": "FS-HR-02",
+        "objectClass": "computer",
+        "dn": "CN=FS-HR-02,OU=Servers,DC=chily,DC=local"
+      }
+    ],
+    "DOMAIN_USERS": [
+      {
+        "name": "chilly\\abhineetk",
+        "objectClass": "user",
+        "dn": "CN=Abhineet K,OU=Users,DC=chily,DC=local"
+      },
+      {
+        "name": "chilly\\ishans",
+        "objectClass": "user",
+        "dn": "CN=Ishan S,OU=Users,DC=chily,DC=local"
+      },
+      {
+        "name": "chilly\\ankits",
+        "objectClass": "user",
+        "dn": "CN=Ankit S,OU=Users,DC=chily,DC=local"
+      },
+      {
+        "name": "chilly\\richard",
+        "objectClass": "user",
+        "dn": "CN=Richard,OU=Admins,DC=chily,DC=local"
+      },
+      {
+        "name": "Finance Team",
+        "objectClass": "group",
+        "dn": "CN=Finance Team,OU=Groups,DC=chily,DC=local"
+      }
+    ],
+    "DOMAINS": [
+      "192.168.30.151",
+      "chily.local",
+      "ldsp2.com"
+    ],
+    "CANDIDATE_SERVERS": [
+      {
+        "name": "192.168.30.170",
+        "domain": "CHILY"
+      },
+      {
+        "name": "192.168.30.180",
+        "domain": "CHILY"
+      },
+      {
+        "name": "192.168.30.190",
+        "domain": "CHILY"
+      },
+      {
+        "name": "192.168.30.200",
+        "domain": "CHILY"
+      }
+    ],
+    "AUDIT_RULES": [
+      {
+        "id": "r1",
+        "name": "Myrule1",
+        "servers": [
+          "192.168.30.150",
+          "192.168.30.151",
+          "192.168.30.153"
+        ],
+        "policy": "Policy321",
+        "enabled": false,
+        "users": "Excluded users",
+        "targets": [
+          {
+            "name": "chilly\\abhineetk",
+            "type": "User"
+          }
+        ],
+        "priority": 1
+      },
+      {
+        "id": "r2",
+        "name": "Myrule2",
+        "servers": [
+          "192.168.30.151"
+        ],
+        "policy": "Policy321",
+        "enabled": false,
+        "users": "Excluded users",
+        "targets": [
+          {
+            "name": "Finance Team",
+            "type": "Group"
+          }
+        ],
+        "priority": 2
+      },
+      {
+        "id": "r3",
+        "name": "All users",
+        "servers": [
+          "192.168.30.151"
+        ],
+        "policy": "Policy321",
+        "enabled": true,
+        "users": "Excluded users",
+        "targets": [
+          {
+            "name": "chilly\\ishans",
+            "type": "User"
+          }
+        ],
+        "priority": 3
+      },
+      {
+        "id": "r4",
+        "name": "NetworkGroupA",
+        "servers": [
+          "192.168.30.152",
+          "192.168.30.154"
+        ],
+        "policy": "Policy456",
+        "enabled": true,
+        "users": "All users",
+        "targets": [],
+        "priority": 4
+      },
+      {
+        "id": "r5",
+        "name": "NetworkGroupB",
+        "servers": [
+          "192.168.30.155"
+        ],
+        "policy": "Policy789",
+        "enabled": true,
+        "users": "Excluded users",
+        "targets": [
+          {
+            "name": "chilly\\richard",
+            "type": "User"
+          }
+        ],
+        "priority": 5
+      },
+      {
+        "id": "r6",
+        "name": "CustomRule1",
+        "servers": [
+          "192.168.30.156",
+          "192.168.30.157"
+        ],
+        "policy": "Policy123",
+        "enabled": false,
+        "users": "Specific users",
+        "targets": [
+          {
+            "name": "chilly\\ankits",
+            "type": "User"
+          }
+        ],
+        "priority": 6
+      },
+      {
+        "id": "r7",
+        "name": "CustomRule2",
+        "servers": [
+          "192.168.30.158"
+        ],
+        "policy": "Policy123",
+        "enabled": true,
+        "users": "All users",
+        "targets": [],
+        "priority": 7
+      },
+      {
+        "id": "r8",
+        "name": "Rule no. 21",
+        "servers": [
+          "192.168.30.150",
+          "192.168.30.170"
+        ],
+        "policy": "Audit All",
+        "enabled": true,
+        "users": "All users",
+        "targets": [],
+        "priority": 1
+      }
+    ],
+    "POLICY_OBJECT_KINDS": [
+      "Directory",
+      "File Mask",
+      "Process",
+      "Event",
+      "Monitoring Time"
+    ],
+    "AUDIT_POLICIES": [
+      {
+        "id": "p0",
+        "name": "Audit All",
+        "description": "All type of access by all processes",
+        "objects": [
+          {
+            "id": "o1",
+            "kind": "Directory",
+            "value": "All Directions",
+            "include": true
+          },
+          {
+            "id": "o2",
+            "kind": "Event",
+            "value": "File - Content View",
+            "include": true
+          },
+          {
+            "id": "o3",
+            "kind": "Event",
+            "value": "File - Copy",
+            "include": true
+          },
+          {
+            "id": "o4",
+            "kind": "Event",
+            "value": "File - Delete",
+            "include": true
+          },
+          {
+            "id": "o5",
+            "kind": "Event",
+            "value": "File - Modify",
+            "include": true
+          },
+          {
+            "id": "o6",
+            "kind": "File Mask",
+            "value": "All Files",
+            "include": true
+          },
+          {
+            "id": "o7",
+            "kind": "Process",
+            "value": "All Processes",
+            "include": true
+          },
+          {
+            "id": "o8",
+            "kind": "Monitoring Time",
+            "value": "One Time Only",
+            "include": true
+          }
+        ]
+      },
+      {
+        "id": "p1",
+        "name": "DE10016.LDSP1.com",
+        "description": "",
+        "objects": [
+          {
+            "id": "o1",
+            "kind": "Directory",
+            "value": "All Directions",
+            "include": true
+          },
+          {
+            "id": "o2",
+            "kind": "Event",
+            "value": "File - Content View",
+            "include": true
+          },
+          {
+            "id": "o3",
+            "kind": "Event",
+            "value": "File - Copy",
+            "include": true
+          },
+          {
+            "id": "o4",
+            "kind": "Event",
+            "value": "File - Delete",
+            "include": true
+          },
+          {
+            "id": "o5",
+            "kind": "Event",
+            "value": "File - Modify",
+            "include": true
+          },
+          {
+            "id": "o6",
+            "kind": "File Mask",
+            "value": "All Files",
+            "include": true
+          },
+          {
+            "id": "o7",
+            "kind": "Process",
+            "value": "All Processes",
+            "include": true
+          },
+          {
+            "id": "o8",
+            "kind": "Monitoring Time",
+            "value": "One Time Only",
+            "include": true
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "name": "DE10016.LDSP2.com",
+        "description": "",
+        "objects": [
+          {
+            "id": "o1",
+            "kind": "Directory",
+            "value": "All Directions",
+            "include": true
+          },
+          {
+            "id": "o2",
+            "kind": "Event",
+            "value": "File - Content View",
+            "include": true
+          },
+          {
+            "id": "o3",
+            "kind": "Event",
+            "value": "File - Copy",
+            "include": true
+          },
+          {
+            "id": "o4",
+            "kind": "Event",
+            "value": "File - Delete",
+            "include": true
+          },
+          {
+            "id": "o5",
+            "kind": "Event",
+            "value": "File - Modify",
+            "include": true
+          },
+          {
+            "id": "o6",
+            "kind": "File Mask",
+            "value": "All Files",
+            "include": true
+          },
+          {
+            "id": "o7",
+            "kind": "Process",
+            "value": "All Processes",
+            "include": true
+          },
+          {
+            "id": "o8",
+            "kind": "Monitoring Time",
+            "value": "One Time Only",
+            "include": true
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "name": "Policy321",
+        "description": "",
+        "objects": [
+          {
+            "id": "o1",
+            "kind": "Directory",
+            "value": "All Directions",
+            "include": true
+          },
+          {
+            "id": "o2",
+            "kind": "Event",
+            "value": "File - Content View",
+            "include": true
+          },
+          {
+            "id": "o3",
+            "kind": "Event",
+            "value": "File - Copy",
+            "include": true
+          },
+          {
+            "id": "o4",
+            "kind": "Event",
+            "value": "File - Delete",
+            "include": true
+          },
+          {
+            "id": "o5",
+            "kind": "Event",
+            "value": "File - Modify",
+            "include": true
+          },
+          {
+            "id": "o6",
+            "kind": "File Mask",
+            "value": "All Files",
+            "include": true
+          },
+          {
+            "id": "o7",
+            "kind": "Process",
+            "value": "All Processes",
+            "include": true
+          },
+          {
+            "id": "o8",
+            "kind": "Monitoring Time",
+            "value": "One Time Only",
+            "include": true
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "name": "Policy456",
+        "description": "",
+        "objects": [
+          {
+            "id": "o1",
+            "kind": "Directory",
+            "value": "All Directions",
+            "include": true
+          },
+          {
+            "id": "o2",
+            "kind": "Event",
+            "value": "File - Content View",
+            "include": true
+          },
+          {
+            "id": "o3",
+            "kind": "Event",
+            "value": "File - Copy",
+            "include": true
+          },
+          {
+            "id": "o4",
+            "kind": "Event",
+            "value": "File - Delete",
+            "include": true
+          },
+          {
+            "id": "o5",
+            "kind": "Event",
+            "value": "File - Modify",
+            "include": true
+          },
+          {
+            "id": "o6",
+            "kind": "File Mask",
+            "value": "All Files",
+            "include": true
+          },
+          {
+            "id": "o7",
+            "kind": "Process",
+            "value": "All Processes",
+            "include": true
+          },
+          {
+            "id": "o8",
+            "kind": "Monitoring Time",
+            "value": "One Time Only",
+            "include": true
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "name": "Policy789",
+        "description": "",
+        "objects": [
+          {
+            "id": "o1",
+            "kind": "Directory",
+            "value": "All Directions",
+            "include": true
+          },
+          {
+            "id": "o2",
+            "kind": "Event",
+            "value": "File - Content View",
+            "include": true
+          },
+          {
+            "id": "o3",
+            "kind": "Event",
+            "value": "File - Copy",
+            "include": true
+          },
+          {
+            "id": "o4",
+            "kind": "Event",
+            "value": "File - Delete",
+            "include": true
+          },
+          {
+            "id": "o5",
+            "kind": "Event",
+            "value": "File - Modify",
+            "include": true
+          },
+          {
+            "id": "o6",
+            "kind": "File Mask",
+            "value": "All Files",
+            "include": true
+          },
+          {
+            "id": "o7",
+            "kind": "Process",
+            "value": "All Processes",
+            "include": true
+          },
+          {
+            "id": "o8",
+            "kind": "Monitoring Time",
+            "value": "One Time Only",
+            "include": true
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "name": "Policy123",
+        "description": "",
+        "objects": [
+          {
+            "id": "o1",
+            "kind": "Directory",
+            "value": "All Directions",
+            "include": true
+          },
+          {
+            "id": "o2",
+            "kind": "Event",
+            "value": "File - Content View",
+            "include": true
+          },
+          {
+            "id": "o3",
+            "kind": "Event",
+            "value": "File - Copy",
+            "include": true
+          },
+          {
+            "id": "o4",
+            "kind": "Event",
+            "value": "File - Delete",
+            "include": true
+          },
+          {
+            "id": "o5",
+            "kind": "Event",
+            "value": "File - Modify",
+            "include": true
+          },
+          {
+            "id": "o6",
+            "kind": "File Mask",
+            "value": "All Files",
+            "include": true
+          },
+          {
+            "id": "o7",
+            "kind": "Process",
+            "value": "All Processes",
+            "include": true
+          },
+          {
+            "id": "o8",
+            "kind": "Monitoring Time",
+            "value": "One Time Only",
+            "include": true
+          }
+        ]
+      }
+    ],
+    "POLICY_OBJECT_VALUES": {
+      "Directory": [
+        "All Directions",
+        "C:\\Shares\\Finance",
+        "D:\\HR",
+        "\\\\FS01\\Projects"
+      ],
+      "File Mask": [
+        "All Files",
+        "*.docx",
+        "*.xlsx",
+        "*.pdf"
+      ],
+      "Process": [
+        "All Processes",
+        "explorer.exe",
+        "robocopy.exe"
+      ],
+      "Event": [
+        "File - Content View",
+        "File - Copy",
+        "File - Delete",
+        "File - Modify",
+        "Folder - Create",
+        "Permission - Change"
+      ],
+      "Monitoring Time": [
+        "One Time Only",
+        "Business Hours",
+        "Weekends",
+        "Always"
+      ]
+    },
+    "USER_GROUPS": [
+      {
+        "id": "g1",
+        "name": "Ankits",
+        "description": "Audit all",
+        "policy": "Audit All",
+        "users": [
+          {
+            "id": "u1",
+            "name": "chilly\\abhineetk",
+            "domain": "chilly",
+            "type": "domain user",
+            "policy": "audit all but shares",
+            "description": "123654789"
+          },
+          {
+            "id": "u2",
+            "name": "chilly\\abhineetk",
+            "domain": "chilly",
+            "type": "domain user",
+            "policy": "audit all but shares",
+            "description": "123654789"
+          },
+          {
+            "id": "u3",
+            "name": "chilly\\abhineetk",
+            "domain": "chilly",
+            "type": "domain user",
+            "policy": "audit all but shares",
+            "description": "123654789"
+          },
+          {
+            "id": "u4",
+            "name": "chilly\\abhineetk",
+            "domain": "chilly",
+            "type": "domain user",
+            "policy": "audit all but shares",
+            "description": "123654789"
+          }
+        ]
+      },
+      {
+        "id": "g2",
+        "name": "Ishans",
+        "description": "Audit all",
+        "policy": "Audit All",
+        "users": [
+          {
+            "id": "u5",
+            "name": "chilly\\abhineetk",
+            "domain": "chilly",
+            "type": "domain user",
+            "policy": "audit all but shares",
+            "description": "123654789"
+          },
+          {
+            "id": "u6",
+            "name": "chilly\\abhineetk",
+            "domain": "chilly",
+            "type": "domain user",
+            "policy": "audit all but shares",
+            "description": "123654789"
+          },
+          {
+            "id": "u7",
+            "name": "chilly\\abhineetk",
+            "domain": "chilly",
+            "type": "domain user",
+            "policy": "audit all but shares",
+            "description": "123654789"
+          }
+        ]
+      }
+    ],
+    "BACKUPS": [
+      {
+        "id": "b1",
+        "name": "12_v192",
+        "path": "C:\\Users DEVL\\150\\Desktop",
+        "created": "8/4/2025   11:54:41 AM"
+      },
+      {
+        "id": "b2",
+        "name": "2222_v192",
+        "path": "C:\\Users DEVL\\150\\Desktop",
+        "created": "8/4/2025   11:54:41 AM"
+      },
+      {
+        "id": "b3",
+        "name": "custom",
+        "path": "C:\\Users DEVL\\150\\Desktop",
+        "created": "8/4/2025   11:54:41 AM"
+      },
+      {
+        "id": "b4",
+        "name": "DE10016.LDSP2.com",
+        "path": "C:\\Users DEVL\\150\\Desktop",
+        "created": "8/4/2025   05:06:19 PM"
+      }
+    ],
+    "WINRM_STEPS": [
+      {
+        "id": "service",
+        "title": "Enable WinRM Service",
+        "body": [
+          "Ensure that the Windows Remote Management (WinRM) service is enabled and running on both systems."
+        ]
+      },
+      {
+        "id": "hosts",
+        "title": "Configure Trusted Hosts",
+        "body": [
+          "Run the following command on the LDSP Host using PowerShell or Command Prompt with Administrator privileges.",
+          "Trust All Servers (Not Recommended)",
+          "`winrm set winrm/config/client @{TrustedHosts=\"*\"}`",
+          "Trust a Specific Server (Recommended)",
+          "`winrm set winrm/config/client @{TrustedHosts=\"192.168.1X.1XX\"}`",
+          "Incorrect TrustedHosts configuration may cause remote scanning or policy execution failures."
+        ]
+      },
+      {
+        "id": "ps",
+        "title": "Configure PowerShell Script Execution",
+        "body": [
+          "Open the Local Group Policy Editor and navigate to: Computer Configuration → Administrative Templates → Windows Components → Windows PowerShell.",
+          "Turn on Script Execution > Enabled; Execution Policy > \"Allow local Scripts and remote signed scripts\".",
+          "This configuration allows locally created scripts to run while maintaining security for remotely downloaded scripts."
+        ]
+      }
+    ]
+  }
+}
