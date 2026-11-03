@@ -54,7 +54,7 @@ related: [page-header, empty-state, button, chip]
 |---|---|
 | Rest | `--sh-sm`, `--border-soft` |
 | Hover (`.lf-card--lift` only) | `--sh-md`, `--border`; shadow and border transition over `--t-base` |
-| High contrast theme (beta) | Cards get a 1 px `--border` border |
+| High contrast theme | Cards get a 1 px `--border` border |
 
 ## Accessibility
 - `Card` and `SetCard` render `<section>`; their titles are `<h3>`. Keep the heading order of the page: the page title is the `<h2>` from `PageHeader`.

@@ -1,16 +1,16 @@
 /* Auditor: Data Accessed by Copilot (tokens only). */
-.lf-table td.aud-first { color: var(--brand); }
+.lf-table td.aud-first { color:var(--brand-ink); }
 .aud-dl { padding: var(--s2); display: flex; flex-direction: column; min-width: 0; }
 .aud-dl__title { margin: 0 0 var(--s3); font: 700 14px/20px var(--font); color: var(--ink); }
 .aud-dl__foot { display: flex; gap: var(--s2); }
 .aud-dl__foot .lf-btn { flex: 1; }
-.aud-cv__kicker { margin: 0 0 2px; display: flex; align-items: center; gap: 6px; font: 600 12px/16px var(--font); color: var(--brand); }
+.aud-cv__kicker { margin: 0 0 2px; display: flex; align-items: center; gap: 6px; font: 600 12px/16px var(--font); color:var(--brand-ink); }
 .aud-cv__kicker svg.lf-i { width: 13px; height: 13px; }
-.cv__who h3 b { font-weight: 700; color: var(--brand); }
+.cv__who h3 b { font-weight: 700; color:var(--brand-ink); }
 .aud-cv { display: flex; flex-direction: column; gap: var(--s5); }
 .aud-cv__file { margin: 0 !important; }
 .aud-cv__points { margin: 6px 0 0; padding: 0; list-style: none; counter-reset: pt; display: flex; flex-direction: column; gap: 6px; }
 .aud-cv__points li { counter-increment: pt; padding: 10px var(--s3) 10px 36px; position: relative; border-radius: var(--r-sm); background: var(--surface-2); font-size: 13px; line-height: 19px; }
 .aud-cv__points li::before { content: counter(pt); position: absolute; left: 12px; top: 10px; width: 16px; height: 16px; border-radius: 5px; display: grid; place-items: center;
-  background: var(--brand-50); color: var(--brand); font: 700 10.5px/1 var(--font); }
+  background: var(--brand-50); color:var(--brand-ink); font: 700 10.5px/1 var(--font); }
 .aud-cv__points li strong { font-weight: 700; color: var(--ink); }

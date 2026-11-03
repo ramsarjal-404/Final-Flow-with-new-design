@@ -37,7 +37,7 @@
 .dashboards-hint b{color:var(--ink);font-weight:700}
 .dashboards-hint:hover{border-color:var(--brand-300);background:var(--brand-50);color:var(--ink-2)}
 .dashboards-hint:focus-visible{outline:none;box-shadow:var(--ring)}
-.dashboards-hint__ring{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:var(--surface);color:var(--brand);box-shadow:var(--sh-md),inset 0 0 0 1px var(--border-soft)}
+.dashboards-hint__ring{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:var(--surface);color:var(--brand-ink);box-shadow:var(--sh-md),inset 0 0 0 1px var(--border-soft)}
 .dashboards-empty{display:flex;padding:0}
 
 /* Section band (CCPA "High Risk Assets") */

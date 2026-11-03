@@ -14,7 +14,7 @@
 .add-data-source-head{display:flex;flex-direction:column;gap:10px}
 .add-data-source-crumbs{margin-bottom:0}
 .add-data-source-head__row{display:flex;align-items:flex-start;gap:var(--s3)}
-.add-data-source-head__ic{width:38px;height:38px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--brand-50);color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand-100)}
+.add-data-source-head__ic{width:38px;height:38px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--brand-50);color:var(--brand-ink);box-shadow:inset 0 0 0 1px var(--brand-100)}
 .add-data-source-head h3{margin:0;font:700 20px/28px var(--font);letter-spacing:-.02em;color:var(--ink)}
 .add-data-source-head p{margin:2px 0 0;max-width:80ch;font:400 13.5px/20px var(--font);color:var(--ink-3)}
 .add-data-source-body{display:grid;grid-template-columns:230px minmax(0,1fr);gap:var(--s4);align-items:start}
@@ -30,7 +30,7 @@
 /* ---------- wizard frame ---------- */
 .add-data-source-wiz__top{gap:var(--s3)}
 .add-data-source-wiz__head h3{margin:0;font:700 20px/28px var(--font);letter-spacing:-.02em;color:var(--ink)}
-.add-data-source-eyebrow{margin:0 0 var(--s1);font:600 12.5px/16px var(--font);color:var(--brand)}
+.add-data-source-eyebrow{margin:0 0 var(--s1);font:600 12.5px/16px var(--font);color:var(--brand-ink)}
 .add-data-source-wiz .wiz-card__body{gap:18px}
 .add-data-source-step-title{margin:0;font:700 15px/22px var(--font);letter-spacing:-.01em;color:var(--ink)}
 .add-data-source-lead{margin:-8px 0 0;font:400 13px/19px var(--font);color:var(--ink-3)}
@@ -41,7 +41,7 @@
 .add-data-source-note{margin:0;font:500 12.5px/18px var(--font);color:var(--ink-3)}
 .add-data-source-note b{color:var(--ink-2)}
 .add-data-source-info{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;color:var(--ink-3);cursor:help;vertical-align:middle}
-.add-data-source-info:hover,.add-data-source-info:focus-visible{color:var(--brand);background:var(--brand-50)}
+.add-data-source-info:hover,.add-data-source-info:focus-visible{color:var(--brand-ink);background:var(--brand-50)}
 .add-data-source-inline{display:flex;align-items:flex-end;gap:var(--s2)}
 .add-data-source-inline>.fld{flex:1;min-width:0}
 .add-data-source-inline>.lf-btn{flex:none;height:46px}

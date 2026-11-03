@@ -1,13 +1,18 @@
 {
-  "$description": "High-contrast theme (proposed / beta). Overrides semantic tokens by path. Applied with <html data-theme=\"hc\">. Also: 1px border on cards and sidebar, no canvas washes, 3px solid black focus outline.",
-  "$extensions": { "lepide": { "theme": "hc", "status": "beta", "selector": ":root[data-theme=\"hc\"]", "colorScheme": "light" } },
+  "$description": "High-contrast theme (stable). Overrides semantic tokens by path. Applied with <html data-theme=\"hc\">. Also: 1px border on cards and sidebar, no canvas washes, 3px solid black focus outline.",
+  "$extensions": { "lepide": { "theme": "hc", "status": "stable", "selector": ":root[data-theme=\"hc\"]", "colorScheme": "light" } },
   "color": {
     "$type": "color",
     "canvas": { "$value": "#ffffff" }, "surface-2": { "$value": "#ffffff" }, "surface-3": { "$value": "#eceef1" },
     "glass": { "$value": "#ffffff" }, "glass-strong": { "$value": "#ffffff" },
     "ink": { "$value": "#000000" }, "ink-2": { "$value": "#1f2328" }, "ink-3": { "$value": "#3d434c" }, "ink-4": { "$value": "#5b616b" },
     "border": { "$value": "#5b616b" }, "border-2": { "$value": "#3d434c" }, "border-soft": { "$value": "#5b616b" },
-    "brand": { "$value": "#0f3480" }, "brand-ink": { "$value": "#0f3480" }
+    "brand": { "$value": "#0f3480" }, "brand-ink": { "$value": "#0f3480" },
+    "success-dot": { "$value": "#0f7353" }, "warning-dot": { "$value": "#985107" }
+  },
+  "component": {
+    "$type": "color",
+    "toggle-off": { "$value": "#5b616b" }, "toggle-off-hover": { "$value": "#3d434c" }
   },
   "gradient": {
     "sel-fill": { "$type": "color", "$value": "{color.brand}", "$description": "Solid brand, no gradient" }

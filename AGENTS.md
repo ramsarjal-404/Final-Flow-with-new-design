@@ -32,6 +32,9 @@ closest golden screen, `get_component` for each component, `get_tokens` / `searc
 - No-results text names what is missing: `No reports match "finance".`; when that isn't known, use
   `No results match your search or filters.` (DataTable's default). No "Sorry", no exclamation marks.
 - Selected states use the selected finish (`--sel-fill` + `--sel-shadow`, white text).
+- Brand-coloured text and icons use `--brand-ink`; `--brand` is for fills (buttons, selected states). `--ink-4` is only
+  for placeholders, disabled items and decorative icons — text people need to read is `--ink-3` or darker. This keeps
+  every theme (light, dark, high contrast) at WCAG AA.
 - Form fields go inside `.page-form` (pages) or a `Modal` body, which is where field styles apply.
 - `Dropdown` / `SelectField` for every select in React; `IconButton` (with `label`) for icon-only buttons.
   In static HTML with no script, a native `<select>` inside `.page-form .fld` is the accepted fallback (it is styled to match).

@@ -19,7 +19,7 @@
 .ax__acts .lf-chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;cursor:default;height:auto;min-height:30px;padding:5px 11px;white-space:normal;max-width:100%}
 /* The spec's long action label wraps instead of overflowing the 360 px inbox */
 .ax__acts .lf-btn{height:auto;min-height:30px;padding:5px 11px;white-space:normal;text-align:left;line-height:16px;max-width:100%}
-.ax__ic--query{background:var(--brand-50);color:var(--brand)}
+.ax__ic--query{background:var(--brand-50);color:var(--brand-ink)}
 
 /* One-shot celebratory burst on the welcome state (decorative) */
 .welcome{position:relative}

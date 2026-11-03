@@ -28,7 +28,7 @@
     "ink":          { "$value": "{primitive.gray.950}", "$description": "Primary text, avatars, tooltip fill" },
     "ink-2":        { "$value": "{primitive.gray.700}", "$description": "Secondary text, labels, table body" },
     "ink-3":        { "$value": "{primitive.gray.600}", "$description": "Muted text (passes 4.5:1 on white)" },
-    "ink-4":        { "$value": "{primitive.gray.400}", "$description": "Placeholders, disabled text, group labels. Not for body text (fails AA)" },
+    "ink-4":        { "$value": "{primitive.gray.400}", "$description": "Placeholders, disabled items and decorative icons (3:1 on surface). Never text people need to read: use --ink-3" },
 
     "success":      { "$value": "{primitive.green.600}" },
     "success-bg":   { "$value": "{primitive.green.50}" },
@@ -42,7 +42,7 @@
     "danger-bg":    { "$value": "{primitive.red.50}" },
     "danger-text":  { "$value": "{primitive.red.700}" },
     "danger-dot":   { "$value": "{primitive.red.400}" },
-    "info":         { "$value": "{color.brand}" },
+    "info":         { "$value": "{color.brand-ink}", "$description": "Info tone text and icons (brand text colour)" },
     "info-bg":      { "$value": "{color.brand-50}" },
 
     "c1": { "$value": "{primitive.blue.500}",  "$description": "Chart series 1 — blue" },

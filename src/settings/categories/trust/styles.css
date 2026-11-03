@@ -18,7 +18,7 @@
 .trust-sub{display:flex;flex-direction:column;gap:14px;padding:var(--s4) var(--s5)}
 .trust-crumbs{margin:0}
 .trust-crumb-btn{font:inherit;color:inherit;transition:color var(--t-fast)}
-.trust-crumb-btn:hover{color:var(--brand)}
+.trust-crumb-btn:hover{color:var(--brand-ink)}
 .trust-back{width:30px;height:30px;border:1px solid var(--border);background:var(--surface);box-shadow:var(--sh-xs)}
 .trust-head{display:flex;align-items:center;flex-wrap:wrap;gap:var(--s3) 14px}
 .trust-head__text{flex:1 1 280px;min-width:0}

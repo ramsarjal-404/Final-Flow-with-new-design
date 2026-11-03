@@ -1,6 +1,6 @@
 {
-  "$description": "Dark theme (proposed / beta). Overrides semantic tokens by path. Applied with <html data-theme=\"dark\">.",
-  "$extensions": { "lepide": { "theme": "dark", "status": "beta", "selector": ":root[data-theme=\"dark\"]", "colorScheme": "dark" } },
+  "$description": "Dark theme (stable). Overrides semantic tokens by path. Applied with <html data-theme=\"dark\">.",
+  "$extensions": { "lepide": { "theme": "dark", "status": "stable", "selector": ":root[data-theme=\"dark\"]", "colorScheme": "dark" } },
   "component": {
     "$type": "color",
     "toggle-off": { "$value": "#3a414d" }, "toggle-off-hover": { "$value": "#465061" }
@@ -12,7 +12,8 @@
     "border": { "$value": "#2b313b" }, "border-2": { "$value": "#363d49" }, "border-soft": { "$value": "#222831" },
     "ink": { "$value": "#eef0f3" }, "ink-2": { "$value": "#c5cad3" }, "ink-3": { "$value": "#9aa1ad" }, "ink-4": { "$value": "#6e7581" },
     "brand": { "$value": "#3a5fb8" }, "brand-ink": { "$value": "#8fabeb" },
-    "brand-600": { "$value": "#33549f" }, "brand-700": { "$value": "#2b4785" }, "ai-glow": { "$value": "#5d8df5" }, "brand-400": { "$value": "#6f8fdc" }, "brand-300": { "$value": "#5b7fd0" },
+    "brand-600": { "$value": "#33549f" }, "brand-700": { "$value": "#2b4785" }, "ai-glow": { "$value": "#5d8df5" },
+    "on-brand-tint": { "$value": "rgba(0,0,0,.18)", "$description": "A white tint is too faint on the lighter dark-theme brand; a dark tint keeps white counts at 6:1" }, "brand-400": { "$value": "#6f8fdc" }, "brand-300": { "$value": "#5b7fd0" },
     "brand-200": { "$value": "#2e4378" }, "brand-100": { "$value": "#22305a" }, "brand-50": { "$value": "#1a2540" },
     "success": { "$value": "#4cc79a" }, "success-bg": { "$value": "#10261e" }, "success-text": { "$value": "#4cc79a" },
     "warning": { "$value": "#f2b25c" }, "warning-bg": { "$value": "#2a1f0e" }, "warning-text": { "$value": "#f2b25c" },
@@ -50,5 +51,8 @@
       { "color": "{color.brand-700}", "offsetX": "0", "offsetY": "0", "blur": "0", "spread": "1px", "inset": true },
       { "color": "rgba(255,255,255,.16)", "offsetX": "0", "offsetY": "1px", "blur": "0", "spread": "1px", "inset": true }
     ] }
+  },
+  "effect": {
+    "focus-outline": { "$value": "2px solid rgba(143,171,235,.7)", "$description": "Light brand outline: the light theme's dark-blue outline disappears on dark surfaces" }
   }
 }

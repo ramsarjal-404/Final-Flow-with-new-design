@@ -5,7 +5,7 @@
 .manage-component-tile__add{position:absolute;top:50%;right:12px;width:22px;height:22px;margin-top:-11px;border-radius:50%;display:grid;place-items:center;color:var(--ink-3);background:var(--surface-3)}
 .manage-component-tile:hover .manage-component-tile__add{color:var(--ink);background:var(--brand-50)}
 .manage-component-tile--added{border-color:var(--border)}
-.manage-component-tile--new .pick__ic{background:var(--brand-50);color:var(--brand)}
+.manage-component-tile--new .pick__ic{background:var(--brand-50);color:var(--brand-ink)}
 .manage-component-lead{margin:0;font:400 13.5px/20px var(--font);color:var(--ink-3)}
 .manage-component-cred .toolbar{padding:14px var(--s4) var(--s3)}
 .manage-component-cred .lf-table td{height:48px}
@@ -18,7 +18,7 @@
 .manage-component-all__name:hover span{text-decoration:underline}
 
 /* wizard */
-.manage-component-eyebrow{margin:0 0 var(--s1);font:600 12.5px/16px var(--font);color:var(--brand)}
+.manage-component-eyebrow{margin:0 0 var(--s1);font:600 12.5px/16px var(--font);color:var(--brand-ink)}
 .manage-component-title{margin:0;font:700 20px/28px var(--font);letter-spacing:-.02em;color:var(--ink)}
 .manage-component-wiz__grid{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:420px}
 .manage-component-rail{padding:var(--s4);border-right:1px solid var(--border-soft);background:var(--surface-2)}
@@ -33,7 +33,7 @@
 @media (max-width:760px){.manage-component-two{grid-template-columns:minmax(0,1fr)}}
 .manage-component-info{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;color:var(--ink-3);cursor:help}
 button.manage-component-info{cursor:pointer}
-.manage-component-info:hover,.manage-component-info:focus-visible{color:var(--brand);background:var(--brand-50)}
+.manage-component-info:hover,.manage-component-info:focus-visible{color:var(--brand-ink);background:var(--brand-50)}
 .manage-component-ok{display:inline-flex;align-items:center;gap:6px;font:600 13px/18px var(--font);color:var(--success-text)}
 .manage-component-copilot{display:flex;align-items:center;gap:14px;padding:14px var(--s4);border-radius:var(--r-md);border:1px solid var(--border);background:var(--surface)}
 .manage-component-copilot b{display:block;font:700 14px/20px var(--font);color:var(--ink)}

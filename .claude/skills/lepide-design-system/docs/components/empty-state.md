@@ -37,7 +37,7 @@ related: [loading, banner, card, button]
 | `compact` | Min-height 160, padding 28 20; icon tile 44 × 44 with a 20 px icon; title 600 15/22 |
 | `tone="error"` | Adds `.empty--error`: icon tile `--danger-bg` fill with a `--danger-text` icon. The icon defaults to `alert` but an explicit `icon` wins. Combines with `compact` (`.empty--compact`: 44 px tile, 20 px icon, 160 px min-height) |
 
-Dark theme (beta): the dots are drawn in 8 % white.
+Dark theme: the dots are drawn in 8 % white.
 
 ## States
 None. The `ring-out` pulse stops after one cycle under `prefers-reduced-motion`.

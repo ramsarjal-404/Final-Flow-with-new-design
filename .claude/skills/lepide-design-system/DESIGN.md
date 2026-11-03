@@ -121,14 +121,14 @@ things rise 6–10 px and fade in, hover lifts by 1–2 px, pressed things shrin
 | `--ink` | `#121417` | Primary text, avatars, tooltip fill |
 | `--ink-2` | `#4a4f58` | Secondary text, labels, body in tables |
 | `--ink-3` | `#666b74` | Muted text (AA-adjusted; the original was `#7c818b`) |
-| `--ink-4` | `#a7abb3` | Placeholders, disabled text, group labels |
+| `--ink-4` | `#898d93` | Placeholders, disabled items, decorative icons (3:1). Never text people need to read: use `--ink-3` |
 
 **Status tones** (background / text / dot)
 
 | Tone | Base | `-bg` | `-text` (AA) | `-dot` |
 |---|---|---|---|---|
-| Success | `#12805c` | `#e8f6f0` | `#0f7353` | `#1fae7a` |
-| Warning | `#b4610a` | `#fdf3e4` | `#985107` | `#f09a28` |
+| Success | `#12805c` | `#e8f6f0` | `#0f7353` | `#1ea976` |
+| Warning | `#b4610a` | `#fdf3e4` | `#985107` | `#ce8422` |
 | Danger | `#cf3a3f` | `#fdeeee` | `#b3313a` | `#ec5a5f` |
 | Info | `= --brand` | `= --brand-50` | `= --brand-ink` | `--brand-400` |
 
@@ -158,7 +158,7 @@ background:
 ### 2.2 Colour — dark and high-contrast themes
 
 Set with `<html data-theme="dark">` or `data-theme="hc"` (stored in `localStorage['lepide.theme']`).
-**Status: light is stable; dark and high contrast are beta (proposed).**
+**Status: all three themes are stable.** Every text and icon colour pair meets WCAG 2.2 AA in each theme; `npm run contrast` (`tokens/contrast.mjs`) checks them and runs in `npm test`.
 
 | Token | Dark | High contrast |
 |---|---|---|

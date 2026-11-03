@@ -28,7 +28,7 @@
 button.tru-tree__label:hover { background: var(--surface-2); color: var(--ink); }
 .tru-tree__label.is-leaf { cursor: default; }
 .tru-tree__label.is-selectable { color: var(--ink); font-weight: 600; }
-.tru-tree__label.is-selectable:hover { color: var(--brand); }
+.tru-tree__label.is-selectable:hover { color:var(--brand-ink); }
 .tru-tree__label[aria-pressed="true"], .tru-tree__label[aria-pressed="true"]:hover { background:var(--sel-fill); color:var(--on-brand);;box-shadow:var(--sel-shadow)}
 .tru-tree__label[aria-pressed="true"] svg.lf-i { color:var(--on-brand-2); }
 .tru-tree__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
