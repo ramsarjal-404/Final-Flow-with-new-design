@@ -72,7 +72,7 @@ export default function AnomalyAnalysis() {
           <section className={'lf-card panel' + (showTrend ? '' : ' panel--wide')}>
             <h3 className="lf-card__title">Total Anomalies<small>By user · select a bar to open that user's anomalies</small></h3>
             <Chart kind="columns" title="Total Anomalies by user" height={showTrend ? 270 : 300}
-              data={{ name: 'Total Anomalies', labels: users.map((u) => u.user.split('\\').pop()), values: users.map((u) => u.total) }}
+              data={{ name: 'Total Anomalies', labels: users.map((u) => u.user.split('\\').pop() ?? u.user), values: users.map((u) => u.total) }}
               onSelect={(_, i) => { const u = users[i]; if (u) pickUser(u.user); }} />
           </section>
           {showTrend && (
