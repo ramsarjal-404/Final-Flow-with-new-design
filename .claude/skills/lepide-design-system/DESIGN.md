@@ -99,6 +99,7 @@ things rise 6–10 px and fade in, hover lifts by 1–2 px, pressed things shrin
 | `--brand-200` | `#c7d4ef` | Filter input with a value |
 | `--brand-100` | `#e3eaf8` | Text selection, brand chip ring, avatar fill |
 | `--brand-50` | `#f2f5fc` | Brand tint backgrounds (selected option, info banner) |
+| `--ai-glow` | `#2f6bf0` | Lepide AI orb highlight, with `--brand` and `--brand-700`; illustration only, never text or UI fills |
 | `--brand-ink` | `= --brand` | Brand-coloured text (lighter in dark theme) |
 | `--on-brand` | `#ffffff` | Text and icons on brand fills and the selected finish |
 
@@ -166,6 +167,7 @@ Set with `<html data-theme="dark">` or `data-theme="hc"` (stored in `localStorag
 | `--ink` / `-2` / `-3` / `-4` | `#eef0f3` / `#c5cad3` / `#9aa1ad` / `#6e7581` | `#000000` / `#1f2328` / `#3d434c` / `#5b616b` |
 | `--brand` | `#3a5fb8` (`--brand-ink` `#8fabeb`) | `#0f3480` |
 | `--brand-50…200` | `#1a2540`, `#22305a`, `#2e4378` | (unchanged) |
+| `--ai-glow` | `#5d8df5` | (unchanged) |
 | Success / warning / danger text | `#4cc79a` / `#f2b25c` / `#f07a7e` | (unchanged) |
 | Shadows | Black-based, deeper | None |
 | Selected finish | Gradient `#4a6fc8`→brand, `--brand-700` edge | Solid brand, 2 px black inset ring |

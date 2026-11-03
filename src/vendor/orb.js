@@ -460,7 +460,9 @@ void main() {
     return {
       canvas,
       pause() { s.paused = true; },
-      resume() { if (s.paused) { s.paused = false; last = 0; wake(); } }
+      resume() { if (s.paused) { s.paused = false; last = 0; wake(); } },
+      /* Added for Lepide: recolour in place (theme change) without a new WebGL context. */
+      setColors(colors) { s.colors = s.colors.map((c, i) => String(colors[i] ?? c)); wake(); }
     };
   }
 

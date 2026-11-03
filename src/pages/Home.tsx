@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Icon, ModuleIcon, type ModuleIconName } from '../ui';
 import { useAuth, type Permission } from '../app/auth';
 import home from '../data/home.json';
-import { mountOrb } from '../vendor/orb.js';
+import { mountThemedOrb } from '../vendor/themedOrb';
 
 /* SCR-PLAT-02 Home launcher, drawn as ui-design-system/04 § 2 (decisions D-01, D-04, D-05). */
 type HomeModule = { group: 'Security modules' | 'Workspace'; name: string; description: string; ai?: boolean; tag?: string };
@@ -30,7 +30,7 @@ function useOrb(slot: React.RefObject<HTMLDivElement>) {
       orbHost = document.createElement('div');
       orbHost.className = 'orb-container'; orbHost.style.cssText = 'position:absolute;inset:0';
       el.appendChild(orbHost);
-      try { mountOrb(orbHost, { colors: ['#1c4599', '#2f6bf0', '#122f6c'], backgroundColor: '#ffffff', glow: 2, bleed: 0, thickness: 1.2, highlight: 1.6, clear: true }); }
+      try { mountThemedOrb(orbHost, { glow: 2, bleed: 0, thickness: 1.2, highlight: 1.6 }); }
       catch { orbHost.classList.add('orb--fallback'); }
     } else el.appendChild(orbHost);
     return () => { orbHost?.remove(); };

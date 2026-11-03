@@ -10,6 +10,7 @@
     "brand-200":   { "$value": "{primitive.blue.200}", "$description": "Filter input with a value" },
     "brand-100":   { "$value": "{primitive.blue.100}", "$description": "Text selection, brand chip ring, avatar fill" },
     "brand-50":    { "$value": "{primitive.blue.50}",  "$description": "Brand tint backgrounds (selected option, info banner)" },
+    "ai-glow":     { "$value": "#2f6bf0", "$description": "Lepide AI orb highlight (with --brand and --brand-700); illustration only, never text or UI fills" },
     "brand-ink":   { "$value": "{color.brand}",        "$description": "Brand-coloured text (lighter in dark theme)" },
     "on-brand":    { "$value": "{primitive.gray.0}",   "$description": "Text and icons on brand fills and the selected finish" },
 

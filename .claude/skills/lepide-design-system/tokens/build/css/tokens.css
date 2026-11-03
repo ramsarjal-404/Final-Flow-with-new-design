@@ -10,6 +10,7 @@
   --brand-200:#c7d4ef;
   --brand-100:#e3eaf8;
   --brand-50:#f2f5fc;
+  --ai-glow:#2f6bf0;
   --brand-ink:var(--brand);
   --on-brand:#ffffff;
   --canvas:#f2f3f5;
@@ -234,6 +235,7 @@
   --brand-ink:#8fabeb;
   --brand-600:#33549f;
   --brand-700:#2b4785;
+  --ai-glow:#5d8df5;
   --brand-400:#6f8fdc;
   --brand-300:#5b7fd0;
   --brand-200:#2e4378;

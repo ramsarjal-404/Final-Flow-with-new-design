@@ -49,7 +49,20 @@ related: [avatar, icon, segmented]
 
 `ToneTag` tones: `good`, `warn`, `bad` (same fills and text as the chip tones), `info` (`--brand-50`, `--brand`), `none` (default: `--surface-3`, `--ink-3`).
 
-`toneFor(status)` returns `bad` for words like failed, error, disabled, stopped, expired, denied, offline, critical; `warn` for warning, pending, queued, paused, partial, degraded, waiting, not configured; `info` for running, in progress, indexing, scanning, installing, updating; `good` for enabled, active, success, completed, online, connected, healthy, licensed; otherwise `none`. The checks run in that order, so "Running" maps to `info`.
+`toneFor(status)` maps a status label to a tone. It looks the whole label up in `STATUS_TONES` (exported, so you can read
+or extend the table) and otherwise matches **whole words** in the order bad → warn → info → none → good, so
+"Completed with errors" is `bad` and "Unhealthy" never reads as "healthy". A label starting with "not" that isn't in
+the table is `warn`. Unknown labels are `none`. Off states are neutral, not errors.
+
+| Tone | Statuses |
+|---|---|
+| `bad` | Failed, Error, Stopped, Expired, Denied, Invalid, Offline, Critical, Down, Disconnected, Unhealthy, Broken, Revoked, Blocked, Unreachable, Not running, Not connected |
+| `warn` | Warning, Pending, Queued, In queue, Paused, Partial, Expiring, Degraded, Waiting, Unlicensed, Incomplete, On hold, Not configured, Not licensed, Not started |
+| `info` | In progress, Indexing, Scanning, Installing, Updating, Starting, Syncing, Processing |
+| `none` | Disabled, Inactive, Uninstalled, Not installed, Cancelled, Scheduled, Draft, Downloaded, Never started, Ready to install |
+| `good` | Enabled, Active, Running, Success, Successful, Completed, Installed, Indexed, Online, Connected, Healthy, Valid, Licensed, Ready, Up to date |
+
+When a screen has its own vocabulary, pass the tone explicitly or spread `STATUS_TONES` into your own map.
 
 One size each. Inside tables a chip truncates with an ellipsis; inside KPI cards it is 24 px tall.
 

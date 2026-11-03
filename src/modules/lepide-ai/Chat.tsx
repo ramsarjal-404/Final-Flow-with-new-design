@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Icon, IconButton, ModuleIcon, useToast, type IconName } from '../../ui';
-import { mountOrb } from '../../vendor/orb.js';
+import { mountThemedOrb } from '../../vendor/themedOrb';
 import {
   EXPLORE_ACTIONS, IDLE_NUDGES, PANEL_LABEL, PROMPT_CHIPS, commitGreeting, followUps, greetingText, peekGreetingIndex, timeAgo,
   type Msg, type MsgAction,
@@ -21,7 +21,7 @@ function useOrb(slot: React.RefObject<HTMLDivElement>) {
       orbHost.style.cssText = 'position:absolute;inset:0';
       el.appendChild(orbHost);
       try {
-        mountOrb(orbHost, { colors: ['#1c4599', '#2f6bf0', '#122f6c'], backgroundColor: '#ffffff', glow: 2, bleed: 0, thickness: 1, highlight: 1.6, hoverIntensity: 1, trail: 1, rotateOnHover: true, followCursor: true, clear: true });
+        mountThemedOrb(orbHost, { glow: 2, bleed: 0, thickness: 1, highlight: 1.6, hoverIntensity: 1, trail: 1, rotateOnHover: true, followCursor: true });
       } catch { orbHost.classList.add('orb--fallback'); }
     } else el.appendChild(orbHost);
     return () => { orbHost?.remove(); };
