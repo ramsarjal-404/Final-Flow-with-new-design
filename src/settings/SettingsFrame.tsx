@@ -66,7 +66,7 @@ export default function SettingsFrame() {
     <div className="sub">
       <PageHeader crumbs={crumbs} title={title}
         actions={<div className="actions" ref={setActions} style={{ display: 'contents' }} />}>
-        <div ref={setDescription} className="settings__desc" />
+        <div ref={setDescription} />
       </PageHeader>
       <div className="settings">
         <nav className="lf-card snav" aria-label="Categories">

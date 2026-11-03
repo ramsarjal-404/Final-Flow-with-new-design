@@ -5,7 +5,7 @@
    visually hidden and the body shows a badge + text instead. */
 .modal__card:has(.configure-notifications-untitled) .mhead{padding-bottom:0}
 .modal__card:has(.configure-notifications-untitled) .mhead__text h3{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.configure-notifications-untitled{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding-top:4px}
+.configure-notifications-untitled{display:flex;flex-direction:column;align-items:center;gap:var(--s3);text-align:center;padding-top:var(--s1)}
 .configure-notifications-untitled h4{margin:0;font:700 17px/24px var(--font);letter-spacing:-.02em;color:var(--ink)}
 .configure-notifications-untitled p{margin:0;font:500 13.5px/20px var(--font);color:var(--ink-2);max-width:40ch}
 .configure-notifications-badge{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--brand-50);color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand-100)}
@@ -13,22 +13,22 @@
 .configure-notifications-badge--warn{background:var(--warning-bg);color:var(--warning-text);box-shadow:none}
 
 /* Detect account dialogs */
-.configure-notifications-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.configure-notifications-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5);align-items:start}
 @media (max-width:760px){.configure-notifications-cols{grid-template-columns:minmax(0,1fr)}}
 .configure-notifications-col{display:flex;flex-direction:column;gap:14px;min-width:0}
 .configure-notifications-h{margin:0;font:700 13.5px/18px var(--font);color:var(--ink)}
 .configure-notifications-lead{margin:0;font:500 13px/19px var(--font);color:var(--ink-3)}
 .configure-notifications-test{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:14px;border-radius:var(--r-md);background:var(--surface-2)}
-.configure-notifications-qr{width:132px;height:132px;padding:8px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--border);color:var(--ink)}
+.configure-notifications-qr{width:132px;height:132px;padding:var(--s2);border-radius:var(--r-md);background:var(--surface);border:1px solid var(--border);color:var(--ink)}
 .configure-notifications-qr svg{display:block;width:100%;height:100%}
-.configure-notifications-app{display:flex;gap:16px;align-items:center}
+.configure-notifications-app{display:flex;gap:var(--s4);align-items:center}
 
 /* Bordered value box (SIEM filters, values, class picker) */
 .configure-notifications-box{display:flex;flex-direction:column;min-height:0;border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface);overflow:hidden}
-.configure-notifications-box>header{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border-soft);background:var(--surface-2);font:700 13px/18px var(--font);color:var(--ink)}
-.configure-notifications-box__body{display:flex;flex-direction:column;gap:2px;padding:8px;max-height:260px;overflow:auto}
-.configure-notifications-box__empty{padding:14px 8px;font:500 13px/18px var(--font);color:var(--ink-3)}
-.configure-notifications-val{display:flex;align-items:center;gap:8px;min-height:36px;padding:0 4px 0 10px;border-radius:var(--r-xs);font:500 13px/18px var(--font);color:var(--ink-2)}
+.configure-notifications-box>header{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);padding:10px 14px;border-bottom:1px solid var(--border-soft);background:var(--surface-2);font:700 13px/18px var(--font);color:var(--ink)}
+.configure-notifications-box__body{display:flex;flex-direction:column;gap:2px;padding:var(--s2);max-height:260px;overflow:auto}
+.configure-notifications-box__empty{padding:14px var(--s2);font:500 13px/18px var(--font);color:var(--ink-3)}
+.configure-notifications-val{display:flex;align-items:center;gap:var(--s2);min-height:36px;padding:0 var(--s1) 0 10px;border-radius:var(--r-xs);font:500 13px/18px var(--font);color:var(--ink-2)}
 .configure-notifications-val:hover{background:var(--surface-2)}
 .configure-notifications-val>span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .configure-notifications-val .lf-btn--icon{width:28px;height:28px}
@@ -37,4 +37,4 @@
 .lf-btn.configure-notifications-dis{opacity:.45;cursor:not-allowed}
 
 /* Generated query text */
-.configure-notifications-query{margin:0;padding:14px 16px;border-radius:var(--r-md);background:var(--surface-2);border:1px solid var(--border-soft);font:500 12.5px/19px var(--mono);color:var(--ink-2);white-space:pre-wrap;overflow-wrap:anywhere;max-height:260px;overflow:auto}
+.configure-notifications-query{margin:0;padding:14px var(--s4);border-radius:var(--r-md);background:var(--surface-2);border:1px solid var(--border-soft);font:500 12.5px/19px var(--mono);color:var(--ink-2);white-space:pre-wrap;overflow-wrap:anywhere;max-height:260px;overflow:auto}

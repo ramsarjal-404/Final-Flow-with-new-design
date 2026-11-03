@@ -13,6 +13,8 @@
   --ai-glow:#2f6bf0;
   --brand-ink:var(--brand);
   --on-brand:#ffffff;
+  --on-brand-2:rgba(255,255,255,.7);
+  --on-brand-tint:rgba(255,255,255,.18);
   --canvas:#f2f3f5;
   --surface:#ffffff;
   --surface-2:#f7f8f9;
@@ -199,6 +201,12 @@
   --drawer-w:440px;
   --drawer-inset:12px;
   --toast-w:360px;
+  --col-xs:52px;
+  --col-s:96px;
+  --col-m:120px;
+  --col-l:160px;
+  --col-xl:200px;
+  --col-2xl:240px;
   --lai-tone-danger:var(--danger);
   --lai-tone-warning:var(--warning);
   --lai-tone-success:var(--success);

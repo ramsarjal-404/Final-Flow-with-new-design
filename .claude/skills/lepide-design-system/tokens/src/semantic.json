@@ -13,6 +13,8 @@
     "ai-glow":     { "$value": "#2f6bf0", "$description": "Lepide AI orb highlight (with --brand and --brand-700); illustration only, never text or UI fills" },
     "brand-ink":   { "$value": "{color.brand}",        "$description": "Brand-coloured text (lighter in dark theme)" },
     "on-brand":    { "$value": "{primitive.gray.0}",   "$description": "Text and icons on brand fills and the selected finish" },
+    "on-brand-2":  { "$value": "rgba(255,255,255,.7)", "$description": "Icons and secondary text on brand fills and the selected finish" },
+    "on-brand-tint": { "$value": "rgba(255,255,255,.18)", "$description": "Count pills and badges on brand fills and the selected finish" },
 
     "canvas":       { "$value": "{primitive.gray.50}",  "$description": "Page background" },
     "surface":      { "$value": "{primitive.gray.0}",   "$description": "Cards, dialogs, menus, inputs" },

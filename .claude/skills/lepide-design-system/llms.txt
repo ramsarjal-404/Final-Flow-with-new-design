@@ -40,7 +40,7 @@ Build UI from the components, use only tokens for values, one primary button per
 - [Avatar](docs/components/avatar.md): Round initials avatar with a tint picked from the name, and Person, an avatar plus name and optional detail on one line. (Avatar, Person)
 - [Card](docs/components/card.md): White rounded containers. Card for content panels, SetCard for settings sections with head, body and footer, KeyValues for read-only field tiles. (Card, SetCard, KeyValues)
 - [Chip](docs/components/chip.md): Small read-only pills. Chip labels a thing, ToneTag shows a status with a dot and text, Counter shows a number. (Chip, ToneTag, Counter)
-- [Icon](docs/components/icon.md): Thin Lucide-style line icons (1.6 stroke, currentColor), the product module glyphs, and the Lepide mark in its white tile. (Icon, ModuleIcon, BrandMark)
+- [Icon](docs/components/icon.md): Thin Lucide-style line icons (1.6 stroke, currentColor), the product module glyphs, and the Lepide mark in its white tile. (Icon, ModuleIcon, BrandMark, MARK_URL)
 - [Banner](docs/components/banner.md): Inline tinted message strip with a tone icon, text, an optional action and an optional dismiss button — for persistent notices inside a page, card or dialog. (Banner)
 - [EmptyState](docs/components/empty-state.md): Centred block on a dotted field with an icon tile, a title, an optional message and an action — for empty lists, no results and load errors. (EmptyState)
 - [Loading](docs/components/loading.md): Loading feedback — shimmering skeleton table rows, a centred page spinner, and a determinate or indeterminate progress bar. (SkeletonRows, PageLoader, ProgressBar)

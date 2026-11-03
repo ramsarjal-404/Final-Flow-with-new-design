@@ -2,23 +2,23 @@
 .sql-authentication-tabs{overflow-x:auto;scrollbar-width:thin;align-self:stretch}
 .sql-authentication-tabs .seg{width:max-content;min-width:100%}
 .sql-authentication-lead{margin:0;font:500 13px/19px var(--font);color:var(--ink-3)}
-.sql-authentication-block{gap:12px}
+.sql-authentication-block{gap:var(--s3)}
 
 /* Server Name + Browse on one row; the button lines up with the input, not the label */
 .sql-authentication-inline{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start}
-.sql-authentication-inline>.lf-btn{margin-top:28px}
+.sql-authentication-inline>.lf-btn{margin-top:var(--s7)}
 
 /* Database choice rows: radio + its own control */
-.sql-authentication-db{gap:8px}
-.sql-authentication-dbrow{display:grid;grid-template-columns:180px minmax(0,1fr);gap:12px;align-items:center}
+.sql-authentication-db{gap:var(--s2)}
+.sql-authentication-dbrow{display:grid;grid-template-columns:180px minmax(0,1fr);gap:var(--s3);align-items:center}
 .sql-authentication-dbrow>label{min-height:46px}
 @media (max-width:620px){.sql-authentication-dbrow{grid-template-columns:minmax(0,1fr)}}
 
 /* Server listbox (Select SQL Server) */
 .sql-authentication-listbox{display:flex;flex-direction:column;gap:2px;padding:6px;border:1px solid var(--border);border-radius:var(--r-md);max-height:260px;overflow:auto}
-.sql-authentication-listbox .pop__item[aria-selected="true"]{background:var(--sel-fill);color:#fff;box-shadow:var(--sel-shadow)}
-.sql-authentication-listbox .pop__item[aria-selected="true"]::after{background:#fff}
+.sql-authentication-listbox .pop__item[aria-selected="true"]{background:var(--sel-fill);color:var(--on-brand);box-shadow:var(--sel-shadow)}
+.sql-authentication-listbox .pop__item[aria-selected="true"]::after{background:var(--on-brand)}
 
 /* Label with an info tooltip */
-.sql-authentication-lbl{display:inline-flex;align-items:center;gap:4px}
+.sql-authentication-lbl{display:inline-flex;align-items:center;gap:var(--s1)}
 .sql-authentication-info.lf-btn--icon{width:24px;height:24px;color:var(--ink-3)}

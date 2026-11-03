@@ -13,8 +13,8 @@
 /* Card grid */
 .dashboards-card--full{grid-column:1/-1}
 .dashboards-card{gap:0}
-.dashboards-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;min-height:30px}
-.dashboards-card__title{display:flex;align-items:center;gap:4px;min-width:0}
+.dashboards-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--s3);min-height:30px}
+.dashboards-card__title{display:flex;align-items:center;gap:var(--s1);min-width:0}
 .dashboards-card__title h3{margin:0;font:700 15px/22px var(--font);letter-spacing:-.01em;color:var(--ink);overflow-wrap:anywhere}
 .dashboards-card__title .lf-btn--icon,.dashboards-card__tools .lf-btn--icon{width:30px;height:30px;color:var(--ink-3)}
 .dashboards-card__tools{display:flex;align-items:center;gap:2px;flex:none;margin:-4px -6px 0 0}
@@ -26,12 +26,12 @@
 .dashboards-card__body .page-loader{min-height:270px}
 .dashboards-card__body .empty{margin:0;min-height:240px}
 .dashboards-card__table{border:1px solid var(--border-soft);border-radius:var(--r-md);overflow:auto}
-.dashboards-card__foot{margin-top:10px;padding-top:12px;border-top:1px solid var(--border-soft);font:500 13px/18px var(--font)}
+.dashboards-card__foot{margin-top:10px;padding-top:var(--s3);border-top:1px solid var(--border-soft);font:500 13px/18px var(--font)}
 
 /* Editor canvas: panels show a dashed outline */
 .dashboards-card--edit{border:1px dashed var(--border-2)}
 .dashboards-card--edit:hover{border-color:var(--ink-4)}
-.dashboards-hint{width:100%;min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:40px 24px;
+.dashboards-hint{width:100%;min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:var(--s10) var(--s6);
   border:1.5px dashed var(--border-2);border-radius:var(--r-lg);background:var(--surface-2);font:500 15px/22px var(--font);color:var(--ink-3);
   transition:border-color var(--t-fast),background var(--t-fast),color var(--t-fast)}
 .dashboards-hint b{color:var(--ink);font-weight:700}
@@ -57,28 +57,28 @@
 .dashboards-avs:focus-visible{outline:none;box-shadow:var(--ring)}
 
 /* Shared With / picker */
-.dashboards-share__tools{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:12px}
+.dashboards-share__tools{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:var(--s3)}
 .dashboards-share__tools .lf-field{min-width:180px}
 .dashboards-share__tbl{max-height:280px;border:1px solid var(--border-soft);border-radius:var(--r-md)}
 .dashboards-share__tbl .lf-check{min-height:28px}
 
 /* Add Graph wizard */
-.dashboards-wiz__tools{display:flex;align-items:flex-end;gap:12px}
+.dashboards-wiz__tools{display:flex;align-items:flex-end;gap:var(--s3)}
 .dashboards-wiz__tools .fld{width:200px;flex:none}
 .dashboards-wiz__list{display:flex;flex-direction:column;border:1px solid var(--border-soft);border-radius:var(--r-md);overflow:hidden}
-.dashboards-wiz__list h4{margin:0;padding:12px 14px;font:700 13px/18px var(--font);color:var(--ink);background:var(--surface-2);border-bottom:1px solid var(--border-soft)}
+.dashboards-wiz__list h4{margin:0;padding:var(--s3) 14px;font:700 13px/18px var(--font);color:var(--ink);background:var(--surface-2);border-bottom:1px solid var(--border-soft)}
 .dashboards-wiz__scroll{max-height:300px;overflow:auto;padding:6px}
 .dashboards-wiz__list .empty{min-height:180px}
 .dashboards-wiz__list .pager{border-top:1px solid var(--border-soft)}
 .dashboards-wiz__report{margin:0;font:500 14px/20px var(--font);color:var(--ink-3)}
 .dashboards-wiz__report b{color:var(--ink)}
 .dashboards-styles{grid-template-columns:repeat(4,minmax(0,1fr))}
-.dashboards-styles .pick{flex-direction:column;align-items:center;gap:8px;padding:16px 10px 12px;text-align:center}
+.dashboards-styles .pick{flex-direction:column;align-items:center;gap:var(--s2);padding:var(--s4) 10px var(--s3);text-align:center}
 .dashboards-styles .pick[aria-checked="true"]{border-color:var(--brand);box-shadow:inset 0 0 0 .5px var(--ink)}
 .dashboards-styles .pick:focus-visible{outline:none;box-shadow:var(--ring)}
 .dashboards-styles .pick__ic{width:44px;height:44px}
 .dashboards-styles .pick__ic svg{width:24px;height:24px}
-.dashboards-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.dashboards-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4)}
 
 @media (max-width:620px){
   .dashboards-styles{grid-template-columns:repeat(2,minmax(0,1fr))}

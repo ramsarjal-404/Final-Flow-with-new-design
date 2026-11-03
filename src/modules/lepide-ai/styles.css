@@ -1,7 +1,7 @@
 /* Lepide AI module extras (tokens only). Everything else comes from the Lepide Design System assistant classes. */
 
 /* Edit Alert dialog: vertical tabs beside the pane (03 § 11.3) inside the kit Modal body */
-.lepide-ai-tune{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;min-height:320px}
+.lepide-ai-tune{display:grid;grid-template-columns:200px minmax(0,1fr);gap:var(--s5);min-height:320px}
 .lepide-ai-tune .tabs button{width:100%}
 .lepide-ai-tune .status-row .fld{min-width:0}
 @media (max-width:620px){.lepide-ai-tune{grid-template-columns:minmax(0,1fr);min-height:0}}
@@ -31,7 +31,7 @@
 @keyframes lepide-ai-burst{0%{opacity:0;transform:rotate(var(--a)) translateY(0) scale(.6)}20%{opacity:1}100%{opacity:0;transform:rotate(var(--a)) translateY(-96px) scale(1)}}
 
 /* components-derived's generic .row (centred toolbar row) overrides the thread row; restore the assistant layout */
-.ai__chat .thread .row{align-items:flex-start;gap:12px}
+.ai__chat .thread .row{align-items:flex-start;gap:var(--s3)}
 
 /* Answer chart sits in a white frame without extra bleed */
 .lai-card figure{margin:0 -6px -8px}

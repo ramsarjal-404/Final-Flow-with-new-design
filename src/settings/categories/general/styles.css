@@ -11,8 +11,8 @@
 .general-checks{display:flex;flex-direction:column;gap:10px;padding:14px 0 2px}
 .general-foot{position:sticky;bottom:0;z-index:5;box-shadow:var(--sh-md)}
 .general-foot .set-card__foot{border-top:0}
-.general-inline{display:inline-flex;align-items:center;gap:8px;font:600 13px/18px var(--font);color:var(--ink-2)}
-.general-lock[aria-pressed="true"]{background:var(--sel-fill);color:#fff;border-color:var(--brand-600);box-shadow:var(--sel-shadow)}
+.general-inline{display:inline-flex;align-items:center;gap:var(--s2);font:600 13px/18px var(--font);color:var(--ink-2)}
+.general-lock[aria-pressed="true"]{background:var(--sel-fill);color:var(--on-brand);border-color:var(--brand-600);box-shadow:var(--sel-shadow)}
 
 /* API White Listing (DLG-SAD-01) */
 .allow-form{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:10px;align-items:start}

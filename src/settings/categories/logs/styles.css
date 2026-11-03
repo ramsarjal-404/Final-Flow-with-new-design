@@ -1,24 +1,24 @@
 /* Logs (SCR-SAD-04), date range popover (DLG-SAD-07), Delete Logon Activity (DLG-SAD-08). Tokens only. */
 .logs-lbl{font:600 13px/18px var(--font);color:var(--ink-3);white-space:nowrap}
-.logs-dr__pop{width:340px;padding:8px}
-.logs-dr__pop .pop__item[aria-selected="true"]{background:var(--sel-fill);color:#fff;box-shadow:var(--sel-shadow)}
-.logs-dr__custom{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:10px 4px 4px;border-top:1px solid var(--border-soft);margin-top:6px}
+.logs-dr__pop{width:340px;padding:var(--s2)}
+.logs-dr__pop .pop__item[aria-selected="true"]{background:var(--sel-fill);color:var(--on-brand);box-shadow:var(--sel-shadow)}
+.logs-dr__custom{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:10px var(--s1) var(--s1);border-top:1px solid var(--border-soft);margin-top:6px}
 .logs-dr__custom .fld input{height:40px;padding:0 10px;font-size:13px}
 .logs-dr__err{grid-column:1/-1}
 .logs-dr__chip{font-variant-numeric:tabular-nums}
 .logs-dr__chip .logs-dr__sep{color:var(--ink-4)}
 
 .logs-dla{padding:0;overflow:visible}
-.logs-dla__top{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--border-soft)}
+.logs-dla__top{display:flex;align-items:center;gap:10px;padding:14px var(--s5);border-bottom:1px solid var(--border-soft)}
 .logs-dla__top .crumbs{margin:0}
-.logs-dla__grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;padding:20px}
-.logs-dla__src{display:flex;flex-direction:column;gap:4px}
-.logs-dla__src button{display:flex;align-items:center;gap:10px;width:100%;min-height:40px;padding:8px 12px;border-radius:var(--r-sm);text-align:left;font:600 13px/18px var(--font);color:var(--ink-2);transition:background var(--t-fast),color var(--t-fast)}
+.logs-dla__grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:var(--s5);padding:var(--s5)}
+.logs-dla__src{display:flex;flex-direction:column;gap:var(--s1)}
+.logs-dla__src button{display:flex;align-items:center;gap:10px;width:100%;min-height:40px;padding:var(--s2) var(--s3);border-radius:var(--r-sm);text-align:left;font:600 13px/18px var(--font);color:var(--ink-2);transition:background var(--t-fast),color var(--t-fast)}
 .logs-dla__src button:hover{background:var(--surface-2);color:var(--ink)}
-.logs-dla__src button[aria-pressed="true"]{background:var(--sel-fill);color:#fff;box-shadow:var(--sel-shadow)}
-.logs-dla__main{display:flex;flex-direction:column;gap:16px;min-width:0}
+.logs-dla__src button[aria-pressed="true"]{background:var(--sel-fill);color:var(--on-brand);box-shadow:var(--sel-shadow)}
+.logs-dla__main{display:flex;flex-direction:column;gap:var(--s4);min-width:0}
 .logs-dla__main h3{margin:0;font:700 17px/24px var(--font);letter-spacing:-.02em;color:var(--ink)}
-.logs-dla__form{display:grid;grid-template-columns:minmax(0,1fr) 200px auto;gap:12px;align-items:start}
+.logs-dla__form{display:grid;grid-template-columns:minmax(0,1fr) 200px auto;gap:var(--s3);align-items:start}
 .logs-dla__form .lf-btn{height:46px;margin-top:25px}
 @media (max-width:860px){
   .logs-dla__grid{grid-template-columns:minmax(0,1fr)}

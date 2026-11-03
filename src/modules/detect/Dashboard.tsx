@@ -66,9 +66,9 @@ export default function Dashboard() {
       threat: { kind: 'columns' as ChartKind, data: { name: 'Alerts', labels: models.map((m) => m.name), values: models.map((m) => scale(2 + (hash(m.name) % 9), r('threat'))) } },
       anomalies: { kind: 'multiArea' as ChartKind, data: { labels: ANOMALY_DATES.slice(-anomalyN), series: [{ name: 'Never seen changes', values: ANOMALY_VALUES.slice(-anomalyN).map((v) => Math.round(v * factor)) }] } },
       criticality: { kind: 'stacked' as ChartKind, data: { cats: ['12-06-2024', '13-06-2024', '14-06-2024'], series: [
-        { name: 'High', color: '#cf3a3f', values: [11, 7, 9].map((v) => scale(v, r('criticality'))) },
-        { name: 'Medium', color: '#ee8a5f', values: [6, 8, 5].map((v) => scale(v, r('criticality'))) },
-        { name: 'Low', color: '#1c4599', values: [2, 3, 4].map((v) => scale(v, r('criticality'))) },
+        { name: 'High', color: 'var(--dch-crimson)', values: [11, 7, 9].map((v) => scale(v, r('criticality'))) },
+        { name: 'Medium', color: 'var(--dch-orange)', values: [6, 8, 5].map((v) => scale(v, r('criticality'))) },
+        { name: 'Low', color: 'var(--chart-green)', values: [2, 3, 4].map((v) => scale(v, r('criticality'))) },
       ] } },
       responses: { kind: 'multiArea' as ChartKind, data: { labels: ['10-04-2024', '15-04-2024', '20-04-2024'], series: ipSeries.map((ip) => ({ name: ip, values: [0, 1, 2].map((i) => scale(1 + ((hash(ip) >> i) % 4), r('responses'))) })) } },
       type: { kind: 'columns' as ChartKind, data: { name: 'Alerts', labels: ['Brute Force Attack', 'Group Modifications', 'Mass data copy'], values: [2, 3, 4].map((v) => scale(v, r('type'))) } },

@@ -4,8 +4,8 @@ exports: [DataTable, Pager]
 category: data
 status: stable
 summary: Table card with title and count, sortable headers, an optional column filter row, checkbox selection, row open and row actions, client-side paging, skeleton loading and empty states, and a sticky first column.
-classes: [lf-card, lf-card__title, tablecard, tablecard--flat, toolbar, count-chip, tbl-wrap, is-scrolled, lf-table, th-check, td-check, th-sort, filter-row, filter-input, has-value, lf-check, lf-check__box, rows-in, lf-row, is-sel, lf-row__end, lf-row__actions, lf-row__open, lf-mono, td-wrap, lf-na, empty-cell, sk-rows, sr-only, pager, total, pg, lf-btn, lf-btn--icon]
-tokens: [--table-head-h, --table-row-h, --table-filter-h, --card-radius, --surface, --surface-2, --surface-3, --border-soft, --border, --ink, --ink-2, --ink-3, --ink-4, --brand, --brand-50, --brand-200, --brand-300, --brand-ink, --sel-fill, --sel-ring, --ring, --type-table, --type-table-head, --mono]
+classes: [lf-card, lf-card__title, tablecard, tablecard--flat, toolbar, count-chip, tbl-wrap, is-scrolled, lf-table, th-check, td-check, th-sort, filter-row, filter-input, has-value, lf-check, lf-check__box, rows-in, lf-row, is-sel, lf-row__end, lf-row__actions, col-xs, col-s, col-m, col-l, col-min-l, col-min-xl, col-min-2xl, lf-row__open, lf-mono, td-wrap, lf-na, empty-cell, sk-rows, sr-only, pager, total, pg, lf-btn, lf-btn--icon]
+tokens: [--col-xs, --col-s, --col-m, --col-l, --col-xl, --col-2xl, --table-head-h, --table-row-h, --table-filter-h, --card-radius, --surface, --surface-2, --surface-3, --border-soft, --border, --ink, --ink-2, --ink-3, --ink-4, --brand, --brand-50, --brand-200, --brand-300, --brand-ink, --sel-fill, --sel-ring, --ring, --type-table, --type-table-head, --mono]
 related: [drawer, empty-state, loading, menu, button]
 ---
 
@@ -129,25 +129,28 @@ Columns are `Column<T>` objects: `{ key, header, value?, render?, width?, minWid
 (full definition under Props). The column title field is `header`.
 
 Plain HTML (with `@lepide/ds-css`) — the markup `DataTable` renders, for static pages. `<svg class="lf-i">` icons as in
-the Icon page (`arrow` for the open circle and pager steps, `sort` in sortable headers, `more` for row actions):
+the Icon page (`arrow` for the open circle and pager steps, `sort` in sortable headers, `more` for row actions).
+Column widths are classes, not inline styles: `.col-xs` 52 (open) · `.col-s` 96 (actions) · `.col-m` 120 (status) ·
+`.col-l` 160 (role, date) fix a width; `.col-min-l` / `.col-min-xl` 200 / `.col-min-2xl` 240 set the minimum of a column
+that takes the remaining space. Put a fixed class on the `<th>` and on that column's `<td>`s.
 ```html
 <section class="lf-card tablecard">
   <div class="toolbar">
-    <h3 class="lf-card__title" style="margin:0">All users<small class="count-chip">6 users</small></h3>
+    <h3 class="lf-card__title">All users<small class="count-chip">6 users</small></h3>
   </div>
   <div class="tbl-wrap">
     <table class="lf-table">
       <thead><tr>
-        <th><button type="button" class="th-sort">Name<svg class="lf-i" viewBox="0 0 24 24" aria-hidden="true">…</svg></button></th>
-        <th>Status</th>
-        <th style="width:96px"><span class="sr-only">Actions</span></th>
-        <th style="width:52px"><span class="sr-only">Open</span></th>
+        <th class="col-min-xl"><button type="button" class="th-sort">Name<svg class="lf-i" viewBox="0 0 24 24" aria-hidden="true">…</svg></button></th>
+        <th class="col-m">Status</th>
+        <th class="col-s"><span class="sr-only">Actions</span></th>
+        <th class="col-xs"><span class="sr-only">Open</span></th>
       </tr></thead>
       <tbody class="rows-in">
         <tr class="lf-row" tabindex="0">
           <td title="Ann Lee">Ann Lee</td>
           <td><span class="fx-op fx-op--good">Active</span></td>
-          <td class="lf-row__end" style="width:96px"><span class="lf-row__actions">
+          <td class="lf-row__end col-s"><span class="lf-row__actions">
             <button type="button" class="lf-btn lf-btn--icon" aria-label="More actions"><svg class="lf-i" viewBox="0 0 24 24" aria-hidden="true">…</svg></button>
           </span></td>
           <td class="lf-row__end"><span class="lf-row__open" aria-hidden="true"><svg class="lf-i" viewBox="0 0 24 24">…</svg></span></td>

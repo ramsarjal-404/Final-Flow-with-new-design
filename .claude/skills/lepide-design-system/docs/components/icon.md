@@ -1,6 +1,6 @@
 ---
 title: Icon
-exports: [Icon, ModuleIcon, BrandMark]
+exports: [Icon, ModuleIcon, BrandMark, MARK_URL]
 category: display
 status: stable
 summary: Thin Lucide-style line icons (1.6 stroke, currentColor), the product module glyphs, and the Lepide mark in its white tile.
@@ -15,6 +15,7 @@ related: [button, chip, empty-state, menu]
 - `Icon` for every line icon in the UI: inside buttons (via their `icon` prop), menus, chips, fields, banners, empty states and table cells.
 - `ModuleIcon` for the Lepide product modules (Auditor, Detect, Protect, …) in the sidebar, home tiles and Lepide AI surfaces.
 - `BrandMark` for the Lepide logo in the sidebar, top bar and sign-in page.
+- `MARK_URL` (the mark as an SVG data URL) where you need the image itself: a favicon, an `<img>` outside the tile, a plain-HTML page.
 
 ## When not to use
 - Filled, duotone or emoji icons, or icons from other sets mixed in: the system uses one outline style.
@@ -69,7 +70,7 @@ None. Icons follow their container's colour, so hover, selected and disabled col
 
 ## Example
 ```tsx
-import { Icon, ModuleIcon, BrandMark } from '@lepide/ds-react';
+import { Icon, ModuleIcon, BrandMark, MARK_URL } from '@lepide/ds-react';
 
 <span className="row">
   <Icon name="server" />

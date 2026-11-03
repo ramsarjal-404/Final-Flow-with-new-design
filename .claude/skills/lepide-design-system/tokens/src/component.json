@@ -49,6 +49,12 @@
     "drawer-w":   { "$value": "440px", "$description": "Chat drawer 500, record drawer 480" },
     "drawer-inset": { "$value": "12px", "$description": "Drawer floats this far inside the window edge" },
     "toast-w":    { "$value": "360px" },
+    "col-xs":     { "$value": "52px",  "$description": "Table column: open arrow" },
+    "col-s":      { "$value": "96px",  "$description": "Table column: row actions" },
+    "col-m":      { "$value": "120px", "$description": "Table column: status, severity" },
+    "col-l":      { "$value": "160px", "$description": "Table column: role, date, schedule" },
+    "col-xl":     { "$value": "200px", "$description": "Table column minimum: names, sources" },
+    "col-2xl":    { "$value": "240px", "$description": "Table column minimum: titles, emails" },
 
     "lai-tone-danger":     { "$type": "color", "$value": "{color.danger}" },
     "lai-tone-warning":    { "$type": "color", "$value": "{color.warning}" },

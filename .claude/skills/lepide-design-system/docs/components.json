@@ -1203,6 +1203,13 @@
         "is-sel",
         "lf-row__end",
         "lf-row__actions",
+        "col-xs",
+        "col-s",
+        "col-m",
+        "col-l",
+        "col-min-l",
+        "col-min-xl",
+        "col-min-2xl",
         "lf-row__open",
         "lf-mono",
         "td-wrap",
@@ -1217,6 +1224,12 @@
         "lf-btn--icon"
       ],
       "tokens": [
+        "--col-xs",
+        "--col-s",
+        "--col-m",
+        "--col-l",
+        "--col-xl",
+        "--col-2xl",
         "--table-head-h",
         "--table-row-h",
         "--table-filter-h",
@@ -1257,7 +1270,7 @@
         "States": "| State | Behaviour |\n|---|---|\n| Sorting | Click a sortable header: ascending; click again: descending; again: ascending. Sorting never clears. Numbers compare numerically; everything else with a case-insensitive, numeric-aware string compare. `initialSort` sets the starting sort |\n| Search | `search` (e.g. the value of a `SearchField`) keeps rows where any column's `value` contains the text, case-insensitive. Applied before column filters |\n| Column filters | Each filter keeps rows whose column `value` contains the typed text (case-insensitive, max 200 characters). Filters combine with AND |\n| Paging | `pageSizes` default `[10, 25, 50, 100]`; `defaultPageSize` default is the first size. Changing search, a filter or the page size goes back to page 1. The page input accepts a number on Enter or blur and reverts if out of range |\n| Row hover | Cells turn `--surface-2`; row actions and the open arrow appear |\n| Keyboard focus on a row | Cells turn `--brand-50` |\n| Selected / active | Keys in `selected`, or the row matching `activeKey`, get `.is-sel`: `--brand-50` cells and a 3 px brand bar on the left of the first cell |\n| Select all | The header checkbox selects every enabled row on the current page (keeping selections on other pages); it is indeterminate when some are selected; clicking it when all are on deselects that page only |\n| Disabled row | `isRowDisabled(row)` sets `aria-disabled`, disables its checkbox, skips it in select-all and stops it opening or being selected. The row shows `--ink-4` text, a not-allowed cursor and no hover highlight; add a status in a cell saying why |\n| Loading | `loading`: 7 skeleton rows (`.sk-rows`, 10 px shimmering pill bars), count chip reads \"Loading…\", pager hidden |\n| Empty | `rows` is empty and `empty` is given: your `empty` content (usually an `EmptyState`) fills the body, centred on the visible width; pager hidden |\n| No results | Search or filters exclude every row (or `rows` is empty with no `empty`): the `noResults` text, centred, 180 tall, `--ink-3`. Pass a specific line when you know what is listed (`noResults=\"No servers match your search.\"`) |\n\nSelection is controlled: pass `selected` and update it from `onSelectedChange(keys)`. `selectable=\"single\"` renders no checkboxes: clicking a row (or Enter / Space on a focused row) selects it, calling `onSelectedChange([key])`; the row gets `aria-selected=\"true\"` and the selected style. If `onRowOpen` is also set, the same click opens it.",
         "Accessibility": "- Real `<table>` markup with `<th>` headers. Sorted columns carry `aria-sort=\"ascending\"` / `\"descending\"`; sort controls are buttons.\n- With `onRowOpen`, each row is focusable (`tabIndex=0`); Enter or Space opens it. A click opens it unless it lands on a button, link, input, label, select or `.lf-toggle` inside the row, so cell controls keep working.\n- Checkboxes are labelled \"Select row\" and \"Select all rows on this page\". Filter inputs are labelled \"Filter {header}\". The actions and open columns have visually hidden headers (\"Actions\", \"Open\").\n- Pager buttons are labelled \"First page\", \"Previous page\", \"Next page\", \"Last page\"; the input is labelled \"Page\"; the size menu is \"Rows per page\".\n- Selected rows add a left bar, not only a tint. Give every row-action `IconButton` a `label` (it becomes its name and tooltip).\n- Skeleton rows are `aria-hidden`; the count chip says \"Loading…\".",
         "Do and don't": "| Do | Don't |\n|---|---|\n| Make the first column the record's name or key | Lead with an id, date or checkbox-only column the user can't recognise |\n| `value` returns plain text or a number; `render` handles the look | Return JSX from `value` (sorting and search break) |\n| `align: 'right'` for numbers, `mono` for ids and paths | Centre-align text columns |\n| 2–3 `IconButton` row actions; put the rest in a `Menu` | A row of five buttons in every row |\n| `empty` with an `EmptyState` and a create action | A blank table body |\n| Use `noun` so counts read naturally: `['user', 'users']` | \"1 records\" |",
-        "Example": "```tsx\nimport { useState } from 'react';\nimport { DataTable, SearchField, Button, IconButton, EmptyState, ToneTag, type Column } from '@lepide/ds-react';\n\ntype User = { id: string; name: string; department: string; lastLogon: string; failed: number; status: 'Enabled' | 'Disabled' };\n\nconst columns: Column<User>[] = [\n  { key: 'name', header: 'Name', sortable: true, filterable: true, minWidth: 220 },\n  { key: 'department', header: 'Department', sortable: true, filterable: true },\n  { key: 'lastLogon', header: 'Last logon', sortable: true, width: 160 },\n  { key: 'failed', header: 'Failed logons', sortable: true, align: 'right', width: 140 },\n  { key: 'status', header: 'Status', value: (u) => u.status,\n    render: (u) => <ToneTag tone={u.status === 'Enabled' ? 'good' : 'none'}>{u.status}</ToneTag> },\n];\n\nexport function UsersTable({ users, loading, onOpen }: { users: User[]; loading: boolean; onOpen: (u: User) => void }) {\n  const [q, setQ] = useState('');\n  const [selected, setSelected] = useState<string[]>([]);\n  return (\n    <DataTable\n      title=\"Users\" noun={['user', 'users']} rows={users} rowKey={(u) => u.id} columns={columns} loading={loading}\n      search={q} initialSort={{ key: 'failed', dir: 'desc' }}\n      toolbar={<>\n        <SearchField value={q} onChange={setQ} placeholder=\"Search users\" />\n        <Button icon=\"download\" disabled={!selected.length}>Export {selected.length || ''}</Button>\n      </>}\n      selectable=\"multi\" selected={selected} onSelectedChange={setSelected}\n      onRowOpen={onOpen}\n      rowActions={(u) => <IconButton icon=\"edit\" label=\"Edit\" onClick={() => onOpen(u)} />}\n      empty={<EmptyState icon=\"users\" title=\"No users yet\" message=\"Add a domain to start collecting users.\" />}\n    />\n  );\n}\n```\n\nColumns are `Column<T>` objects: `{ key, header, value?, render?, width?, minWidth?, sortable?, filterable?, mono?, wrap?, align? }`\n(full definition under Props). The column title field is `header`.\n\nPlain HTML (with `@lepide/ds-css`) — the markup `DataTable` renders, for static pages. `<svg class=\"lf-i\">` icons as in\nthe Icon page (`arrow` for the open circle and pager steps, `sort` in sortable headers, `more` for row actions):\n```html\n<section class=\"lf-card tablecard\">\n  <div class=\"toolbar\">\n    <h3 class=\"lf-card__title\" style=\"margin:0\">All users<small class=\"count-chip\">6 users</small></h3>\n  </div>\n  <div class=\"tbl-wrap\">\n    <table class=\"lf-table\">\n      <thead><tr>\n        <th><button type=\"button\" class=\"th-sort\">Name<svg class=\"lf-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">…</svg></button></th>\n        <th>Status</th>\n        <th style=\"width:96px\"><span class=\"sr-only\">Actions</span></th>\n        <th style=\"width:52px\"><span class=\"sr-only\">Open</span></th>\n      </tr></thead>\n      <tbody class=\"rows-in\">\n        <tr class=\"lf-row\" tabindex=\"0\">\n          <td title=\"Ann Lee\">Ann Lee</td>\n          <td><span class=\"fx-op fx-op--good\">Active</span></td>\n          <td class=\"lf-row__end\" style=\"width:96px\"><span class=\"lf-row__actions\">\n            <button type=\"button\" class=\"lf-btn lf-btn--icon\" aria-label=\"More actions\"><svg class=\"lf-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">…</svg></button>\n          </span></td>\n          <td class=\"lf-row__end\"><span class=\"lf-row__open\" aria-hidden=\"true\"><svg class=\"lf-i\" viewBox=\"0 0 24 24\">…</svg></span></td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n  <div class=\"pager\">\n    <span class=\"total\">6 users</span>\n    <button type=\"button\" class=\"lf-btn\" aria-label=\"Previous page\" disabled><svg class=\"lf-i\" viewBox=\"0 0 24 24\">…</svg></button>\n    <span class=\"pg\"><input aria-label=\"Page\" value=\"1\"><span>/ 1</span></span>\n    <button type=\"button\" class=\"lf-btn\" aria-label=\"Next page\" disabled><svg class=\"lf-i\" viewBox=\"0 0 24 24\">…</svg></button>\n  </div>\n</section>\n```",
+        "Example": "```tsx\nimport { useState } from 'react';\nimport { DataTable, SearchField, Button, IconButton, EmptyState, ToneTag, type Column } from '@lepide/ds-react';\n\ntype User = { id: string; name: string; department: string; lastLogon: string; failed: number; status: 'Enabled' | 'Disabled' };\n\nconst columns: Column<User>[] = [\n  { key: 'name', header: 'Name', sortable: true, filterable: true, minWidth: 220 },\n  { key: 'department', header: 'Department', sortable: true, filterable: true },\n  { key: 'lastLogon', header: 'Last logon', sortable: true, width: 160 },\n  { key: 'failed', header: 'Failed logons', sortable: true, align: 'right', width: 140 },\n  { key: 'status', header: 'Status', value: (u) => u.status,\n    render: (u) => <ToneTag tone={u.status === 'Enabled' ? 'good' : 'none'}>{u.status}</ToneTag> },\n];\n\nexport function UsersTable({ users, loading, onOpen }: { users: User[]; loading: boolean; onOpen: (u: User) => void }) {\n  const [q, setQ] = useState('');\n  const [selected, setSelected] = useState<string[]>([]);\n  return (\n    <DataTable\n      title=\"Users\" noun={['user', 'users']} rows={users} rowKey={(u) => u.id} columns={columns} loading={loading}\n      search={q} initialSort={{ key: 'failed', dir: 'desc' }}\n      toolbar={<>\n        <SearchField value={q} onChange={setQ} placeholder=\"Search users\" />\n        <Button icon=\"download\" disabled={!selected.length}>Export {selected.length || ''}</Button>\n      </>}\n      selectable=\"multi\" selected={selected} onSelectedChange={setSelected}\n      onRowOpen={onOpen}\n      rowActions={(u) => <IconButton icon=\"edit\" label=\"Edit\" onClick={() => onOpen(u)} />}\n      empty={<EmptyState icon=\"users\" title=\"No users yet\" message=\"Add a domain to start collecting users.\" />}\n    />\n  );\n}\n```\n\nColumns are `Column<T>` objects: `{ key, header, value?, render?, width?, minWidth?, sortable?, filterable?, mono?, wrap?, align? }`\n(full definition under Props). The column title field is `header`.\n\nPlain HTML (with `@lepide/ds-css`) — the markup `DataTable` renders, for static pages. `<svg class=\"lf-i\">` icons as in\nthe Icon page (`arrow` for the open circle and pager steps, `sort` in sortable headers, `more` for row actions).\nColumn widths are classes, not inline styles: `.col-xs` 52 (open) · `.col-s` 96 (actions) · `.col-m` 120 (status) ·\n`.col-l` 160 (role, date) fix a width; `.col-min-l` / `.col-min-xl` 200 / `.col-min-2xl` 240 set the minimum of a column\nthat takes the remaining space. Put a fixed class on the `<th>` and on that column's `<td>`s.\n```html\n<section class=\"lf-card tablecard\">\n  <div class=\"toolbar\">\n    <h3 class=\"lf-card__title\">All users<small class=\"count-chip\">6 users</small></h3>\n  </div>\n  <div class=\"tbl-wrap\">\n    <table class=\"lf-table\">\n      <thead><tr>\n        <th class=\"col-min-xl\"><button type=\"button\" class=\"th-sort\">Name<svg class=\"lf-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">…</svg></button></th>\n        <th class=\"col-m\">Status</th>\n        <th class=\"col-s\"><span class=\"sr-only\">Actions</span></th>\n        <th class=\"col-xs\"><span class=\"sr-only\">Open</span></th>\n      </tr></thead>\n      <tbody class=\"rows-in\">\n        <tr class=\"lf-row\" tabindex=\"0\">\n          <td title=\"Ann Lee\">Ann Lee</td>\n          <td><span class=\"fx-op fx-op--good\">Active</span></td>\n          <td class=\"lf-row__end col-s\"><span class=\"lf-row__actions\">\n            <button type=\"button\" class=\"lf-btn lf-btn--icon\" aria-label=\"More actions\"><svg class=\"lf-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">…</svg></button>\n          </span></td>\n          <td class=\"lf-row__end\"><span class=\"lf-row__open\" aria-hidden=\"true\"><svg class=\"lf-i\" viewBox=\"0 0 24 24\">…</svg></span></td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n  <div class=\"pager\">\n    <span class=\"total\">6 users</span>\n    <button type=\"button\" class=\"lf-btn\" aria-label=\"Previous page\" disabled><svg class=\"lf-i\" viewBox=\"0 0 24 24\">…</svg></button>\n    <span class=\"pg\"><input aria-label=\"Page\" value=\"1\"><span>/ 1</span></span>\n    <button type=\"button\" class=\"lf-btn\" aria-label=\"Next page\" disabled><svg class=\"lf-i\" viewBox=\"0 0 24 24\">…</svg></button>\n  </div>\n</section>\n```",
         "Props": ""
       },
       "doc": "docs/components/data-table.md"
@@ -2262,6 +2275,14 @@
           ],
           "inherits": [],
           "forwardsRef": false
+        },
+        {
+          "name": "MARK_URL",
+          "import": "@lepide/ds-react",
+          "source": "packages/react/src/Icon.tsx",
+          "kind": "constant",
+          "description": "URL of the Lepide mark SVG (a data URL), for <img>, favicons or a plain-HTML page.",
+          "type": "string"
         }
       ],
       "classes": [
@@ -2287,14 +2308,14 @@
         "menu"
       ],
       "guidance": {
-        "When to use": "- `Icon` for every line icon in the UI: inside buttons (via their `icon` prop), menus, chips, fields, banners, empty states and table cells.\n- `ModuleIcon` for the Lepide product modules (Auditor, Detect, Protect, …) in the sidebar, home tiles and Lepide AI surfaces.\n- `BrandMark` for the Lepide logo in the sidebar, top bar and sign-in page.",
+        "When to use": "- `Icon` for every line icon in the UI: inside buttons (via their `icon` prop), menus, chips, fields, banners, empty states and table cells.\n- `ModuleIcon` for the Lepide product modules (Auditor, Detect, Protect, …) in the sidebar, home tiles and Lepide AI surfaces.\n- `BrandMark` for the Lepide logo in the sidebar, top bar and sign-in page.\n- `MARK_URL` (the mark as an SVG data URL) where you need the image itself: a favicon, an `<img>` outside the tile, a plain-HTML page.",
         "When not to use": "- Filled, duotone or emoji icons, or icons from other sets mixed in: the system uses one outline style.\n- An icon as the only content of a control without a name: use `IconButton` (it requires `label`).\n- Status meaning carried by an icon alone: pair it with text, or use `ToneTag`.\n- Most components take an `icon` prop (`Button`, `Chip`, `Menu` items, `EmptyState`); pass the name there rather than nesting an `<Icon>`.",
         "Anatomy": "**Icon**: `<svg class=\"lf-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">`, sized by `size` (default 16 px) through `width`/`height` attributes and inline style. `svg.lf-i` supplies `fill: none`, `stroke: currentColor`, stroke-width 1.6 (`--icon-stroke`), round caps and joins, `flex: none`. The icon takes the text colour of its parent. An unknown `name` renders an empty svg.\n\nContainer CSS often overrides the size: chips 12 px (stroke 2), menu items 15 px, buttons and fields 16 px, banners 16 px, vertical tabs 16 px.\n\n**ModuleIcon**: `<svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\">`, default 20 px (`size`). The glyphs draw with `currentColor`; there is no `lf-i` class.\n\n**BrandMark**: `<span class=\"lf-dock__mark\">` — a 36 × 36 white tile (`--surface`), radius 11, `--sh-xs` plus a 1 px inset `--border-soft` ring — holding the mark as a 24 × 24 `<img alt=\"\">` (the mark is sky blue `#2996D3`). `size` changes the tile only; the image stays 24 px.",
         "Variants and sizes": "Size tokens (pass the number to `size`):\n\n| Token | px | Typical use |\n|---|---|---|\n| `--icon-xs` | 12 | Chips, sort arrows, filter inputs |\n| `--icon-sm` | 14 | Small buttons, tree children, dismiss `x` |\n| `--icon-md` | 16 | Default: buttons, fields, banners |\n| `--icon-nav` | 19 | Sidebar navigation |\n| `--icon-tile` | 20 | Module tiles (`ModuleIcon` default) |\n| `--icon-lg` | 24 | Empty states |\n\n**Line icon names** (`IconName`) — every key of `line` in `packages/react/src/assets/icons.json`, the single source\nof icon paths (in plain HTML, copy the value into `<svg class=\"lf-i\" viewBox=\"0 0 24 24\">…</svg>`): `settings` `chevron` `arrow` `plus` `search` `calendar` `refresh` `external` `share` `up` `down` `eye` `folder` `file` `filter` `download` `user` `logout` `collapse` `chevron-right` `chevrons-left` `chevrons-right` `check` `x` `minus` `sort` `trash` `chevron-left` `lock` `sparkles` `star` `bell` `users` `clipboard` `home` `mail` `file-search` `edit` `more` `info` `alert` `upload` `server` `database` `globe` `key` `shield` `clock` `play` `pause` `link` `copy` `layers` `archive` `list` `sliders` `plug` `card` `history` `restore` `send` `terminal` `cpu` `tag` `cloud` `building` `user_plus` `save` `grid`\n\nNote the underscore in `user_plus`. `more` is three horizontal dots (row actions).\n\n**Module icon names** (`ModuleIconName`): `ai` `auditor` `trust` `detect` `protect` `identify` `mylepide` `dashboards` `settings`",
         "States": "None. Icons follow their container's colour, so hover, selected and disabled colours come from the parent (for example ink-3 at rest, ink on hover, white inside a selected item).",
         "Accessibility": "- All three are decorative: `Icon` and `ModuleIcon` are `aria-hidden=\"true\"`, and `BrandMark`'s image has `alt=\"\"`. The accessible name must come from visible text or an `aria-label` on the control.\n- Next to `BrandMark`, show the product name as text (\"Lepide\").\n- Never use an icon as the only indicator of state; selected states also change fill and ARIA attributes.",
         "Do and don't": "| Do | Don't |\n|---|---|\n| Use names from the lists above | Paste other SVGs or icon fonts |\n| Let icons inherit colour from their container | Hard-code icon colours |\n| 1.6 stroke outlines everywhere | Filled or mixed icon styles |\n| `IconButton` with `label` for icon-only actions | A bare `<Icon>` inside a `<button>` with no name |\n| `ModuleIcon` only for the product modules | Module glyphs as generic UI icons |",
-        "Example": "```tsx\nimport { Icon, ModuleIcon, BrandMark } from '@lepide/ds-react';\n\n<span className=\"row\">\n  <Icon name=\"server\" />\n  FS-01.corp.local\n</span>\n\n<span className=\"row\"><ModuleIcon name=\"auditor\" /> Auditor</span>\n\n<span className=\"row\"><BrandMark size={34} /> <b>Lepide</b></span>\n```\n\nPlain HTML (with `@lepide/ds-css`):\n```html\n<svg class=\"lf-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n  <circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 16v-4\"/><path d=\"M12 8h.01\"/>\n</svg>\n```",
+        "Example": "```tsx\nimport { Icon, ModuleIcon, BrandMark, MARK_URL } from '@lepide/ds-react';\n\n<span className=\"row\">\n  <Icon name=\"server\" />\n  FS-01.corp.local\n</span>\n\n<span className=\"row\"><ModuleIcon name=\"auditor\" /> Auditor</span>\n\n<span className=\"row\"><BrandMark size={34} /> <b>Lepide</b></span>\n```\n\nPlain HTML (with `@lepide/ds-css`):\n```html\n<svg class=\"lf-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n  <circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 16v-4\"/><path d=\"M12 8h.01\"/>\n</svg>\n```",
         "Props": ""
       },
       "doc": "docs/components/icon.md"
@@ -4005,6 +4026,148 @@
       "doc": "docs/components/setting-row.md"
     },
     {
+      "id": "sign-in",
+      "title": "Sign in",
+      "category": "patterns",
+      "status": "stable",
+      "summary": "The whole sign-in page — glass card with the form (email, password, keep me signed in) and an illustration panel with highlight slides. Validation, loading and error states are built in.",
+      "exports": [
+        {
+          "name": "SignIn",
+          "import": "@lepide/ds-react",
+          "source": "packages/react/src/auth.tsx",
+          "kind": "component",
+          "description": null,
+          "props": [
+            {
+              "name": "onSubmit",
+              "type": "(values: SignInValues) => void | Promise<void>",
+              "required": true,
+              "default": null,
+              "description": "Called with valid input. Return a promise to show the loading state; reject (or throw) an Error to show its\nmessage under the password field. Resolving shows \"Signed in\"."
+            },
+            {
+              "name": "eyebrow",
+              "type": "string",
+              "required": false,
+              "default": "'Lepide Data Security Platform'",
+              "description": null
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "required": false,
+              "default": "'Sign in to your console'",
+              "description": null
+            },
+            {
+              "name": "subtitle",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": null
+            },
+            {
+              "name": "forgotPasswordTo",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Link for \"Forgot password?\" (rendered through LepideProvider's link). Omit to hide it."
+            },
+            {
+              "name": "requestAccessTo",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Link for \"Request access\" in the footer. Omit to hide the footer."
+            },
+            {
+              "name": "slides",
+              "type": "SignInSlide[]",
+              "required": false,
+              "default": "[]",
+              "description": "Highlights shown on the illustration panel, with dots to switch between them."
+            },
+            {
+              "name": "art",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Replaces the default shield illustration."
+            },
+            {
+              "name": "defaultKeepSignedIn",
+              "type": "boolean",
+              "required": false,
+              "default": "true",
+              "description": "Initial state of \"Keep me signed in\"."
+            }
+          ],
+          "inherits": [],
+          "forwardsRef": false
+        }
+      ],
+      "classes": [
+        "login-page",
+        "stage",
+        "auth",
+        "card",
+        "screen",
+        "auth-eyebrow",
+        "auth-sub",
+        "field",
+        "row-label",
+        "input-icon",
+        "lead-ico",
+        "err-line",
+        "eye",
+        "btn",
+        "btn__icon",
+        "spinner",
+        "foot",
+        "auth__art",
+        "security-background",
+        "art__copy",
+        "art__kicker",
+        "art__title",
+        "art__text",
+        "art__nav"
+      ],
+      "tokens": [
+        "--glass-strong",
+        "--brand",
+        "--brand-100",
+        "--brand-200",
+        "--surface",
+        "--ink",
+        "--ink-3",
+        "--danger-text",
+        "--c2",
+        "--c3",
+        "--c4",
+        "--c5",
+        "--c6"
+      ],
+      "related": [
+        "icon",
+        "text-field",
+        "checkbox",
+        "button"
+      ],
+      "guidance": {
+        "When to use": "- The product's sign-in page. It is a whole page: render it outside the console shell and outside any card.",
+        "When not to use": "- Re-authenticating inside the console (session expired, confirm with password): use a `Modal` with a `PasswordField`.\n- Sign-up, password reset or one-time-code pages: build them from the same `.login-page` classes (see the static\n  `examples/html/sign-in.html`); the component covers sign-in only.",
+        "Anatomy": "1. Page `.login-page` → `.stage` → `.auth`: a 1120 px glass card (`--glass-strong`, radius 32) in two halves.\n2. Form half: `BrandMark` (52 px tile), eyebrow (`.auth-eyebrow`), title 600 30/38 (`h1`), optional subtitle.\n3. Fields: 48 px tall, radius 14, a leading 18 px icon (`.lead-ico`); the password has a show/hide eye button.\n   \"Forgot password?\" sits on the label row when `forgotPasswordTo` is set.\n4. \"Keep me signed in\" checkbox, then a 50 px primary pill button with an arrow.\n5. Footer \"New to Lepide? Request access\" when `requestAccessTo` is set.\n6. Illustration half `.auth__art` (radius 24, radial blue gradient): the shield illustration (or `art`), and when\n   `slides` are given, the current slide's kicker, title and text with dots to switch (2 or more slides).",
+        "Variants and sizes": "One layout. Below 860 px the illustration panel hides and the form fills the card.",
+        "States": "| State | Change |\n|---|---|\n| Field error | Red border on the input and a message with an alert icon under it; the button shakes once; focus moves to the first invalid field |\n| Loading | While `onSubmit`'s promise is pending: spinner, \"Signing in…\", `aria-busy`; further submits are ignored |\n| Done | Promise resolved: check icon, \"Signed in\" |\n| Failed | Promise rejected: the error's message under the password field (\"Wrong email or password.\"), focus on the password |",
+        "Accessibility": "- Labels are real `<label for>`s; errors are linked with `aria-describedby` and announced (`role=\"alert\"`).\n- The eye button is `aria-pressed` and named \"Show password\" / \"Hide password\".\n- `autocomplete=\"username\"` and `\"current-password\"` let password managers fill the form.\n- Slide copy is `aria-live=\"polite\"`; each dot is named \"Show highlight 2 of 3: Lepide Auditor\".",
+        "Do and don't": "| Do | Don't |\n|---|---|\n| Reject with a short, plain message: \"Wrong email or password.\" | Say which of the two was wrong |\n| Keep two or three highlight slides with one-line text | Marketing paragraphs on the panel |\n| Pass router paths to `forgotPasswordTo` / `requestAccessTo` (rendered through `LepideProvider`'s link) | Hard-code `<a>` tags that reload the app |",
+        "Example": "```tsx\nimport { SignIn } from '@lepide/ds-react';\n\n<SignIn\n  onSubmit={async ({ email, password, keepSignedIn }) => {\n    const ok = await api.signIn(email, password, keepSignedIn);\n    if (!ok) throw new Error('Wrong email or password.');\n  }}\n  subtitle=\"Use your Lepide account or your corp.lepide.local credentials.\"\n  forgotPasswordTo=\"/forgot-password\"\n  requestAccessTo=\"/request-access\"\n  slides={[\n    { kicker: 'Lepide Detect', title: 'Spot unusual activity before it becomes a breach', text: 'Real-time alerts on mass deletions and unusual logons.' },\n    { kicker: 'Lepide Auditor', title: 'Know who changed what, where and when', text: 'Readable audit trails for every data source.' },\n  ]}\n/>\n```\n\nPlain HTML: copy `examples/html/sign-in.html`.",
+        "Props": ""
+      },
+      "doc": "docs/components/sign-in.md"
+    },
+    {
       "id": "text-field",
       "title": "Text field",
       "category": "forms",
@@ -5271,6 +5434,27 @@
       "source": "packages/react/src/pickers.tsx",
       "kind": "type",
       "definition": "type TileOption = { value: string; label: string; description?: ReactNode; icon?: IconName; /** Logo image URL instead of an icon. */ image?: string; disabled?: boolean };"
+    },
+    {
+      "name": "SignInProps",
+      "import": "@lepide/ds-react",
+      "source": "packages/react/src/auth.tsx",
+      "kind": "type",
+      "definition": "type SignInProps = { /** Called with valid input. Return a promise to show the loading state; reject (or throw) an Error to show its * message under the password field. Resolving shows \"Signed in\". */ onSubmit: (values: SignInValues) => void | Promise<void>; eyebrow?: string; title?: string; subtitle?: ReactNode; /** Link for \"Forgot password?\" (rendered through LepideProvider's link). Omit to hide it. */ forgotPasswordTo?: string; /** Link for \"Request access\" in the footer. Omit to hide the footer. */ requestAccessTo?: string; /** Highlights shown on the illustration panel, with dots to switch between them. */ slides?: SignInSlide[]; /** Replaces the default shield illustration. */ art?: ReactNode; /** Initial state of \"Keep me signed in\". */ defaultKeepSignedIn?: boolean; };"
+    },
+    {
+      "name": "SignInSlide",
+      "import": "@lepide/ds-react",
+      "source": "packages/react/src/auth.tsx",
+      "kind": "type",
+      "definition": "type SignInSlide = { kicker: string; title: string; text: ReactNode };"
+    },
+    {
+      "name": "SignInValues",
+      "import": "@lepide/ds-react",
+      "source": "packages/react/src/auth.tsx",
+      "kind": "type",
+      "definition": "type SignInValues = { email: string; password: string; keepSignedIn: boolean };"
     },
     {
       "name": "SectionNavItem",

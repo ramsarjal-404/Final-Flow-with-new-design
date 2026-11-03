@@ -1,10 +1,10 @@
 /* Backup & Restore (SCR-SAD-05 … 08, DLG-SAD-09 … 20). Tokens only; built on Lepide Design System classes. */
 .backup-restore-nav{overflow-x:auto;scrollbar-width:none}
 .backup-restore-nav .seg{min-width:560px}
-.backup-restore-section{display:flex;flex-direction:column;gap:16px;min-width:0}
+.backup-restore-section{display:flex;flex-direction:column;gap:var(--s4);min-width:0}
 
 /* Import / Export Database */
-.backup-restore-transfer{display:flex;flex-direction:column;align-items:center;gap:20px;padding:32px 24px}
+.backup-restore-transfer{display:flex;flex-direction:column;align-items:center;gap:var(--s5);padding:var(--s8) var(--s6)}
 .backup-restore-drop{width:min(520px,100%)}
 .backup-restore-drop.is-busy{opacity:.55;pointer-events:none}
 .backup-restore-drop .upload{min-height:200px}
@@ -17,40 +17,40 @@
 .backup-restore-cta:hover:not(:disabled){text-decoration:underline}
 .backup-restore-cta:disabled,.backup-restore-art:disabled{cursor:not-allowed}
 .backup-restore-run{display:flex;flex-direction:column;align-items:center;gap:10px;width:min(520px,100%)}
-.backup-restore-progress{display:flex;flex-direction:column;gap:8px;width:100%}
+.backup-restore-progress{display:flex;flex-direction:column;gap:var(--s2);width:100%}
 .backup-restore-progress .text-sm{color:var(--ink-2);text-align:center}
 .backup-restore-last{margin:0;font:500 12.5px/18px var(--font);color:var(--ink-3);text-align:center}
 
 /* AD Restore wizard */
-.backup-restore-spacer{flex:1;min-width:0;display:flex;align-items:center;justify-content:flex-end;padding-right:4px}
+.backup-restore-spacer{flex:1;min-width:0;display:flex;align-items:center;justify-content:flex-end;padding-right:var(--s1)}
 .backup-restore-spacer .lf-muted{font:500 12.5px/16px var(--font)}
 .backup-restore-form{display:flex;flex-direction:column;gap:14px;max-width:720px}
 .backup-restore-form .section-label{margin:6px 0 -2px}
-.backup-restore-source{display:grid;grid-template-columns:220px minmax(0,1fr);gap:12px;align-items:start}
+.backup-restore-source{display:grid;grid-template-columns:220px minmax(0,1fr);gap:var(--s3);align-items:start}
 @media (max-width:620px){.backup-restore-source{grid-template-columns:minmax(0,1fr)}}
 .backup-restore-backup{max-width:440px}
-.backup-restore-inline{display:flex;align-items:center;gap:8px;min-width:0}
+.backup-restore-inline{display:flex;align-items:center;gap:var(--s2);min-width:0}
 .backup-restore-inline--end{align-items:flex-end}
 .backup-restore-inline>input{flex:1;min-width:0}
 .backup-restore-inline .lf-btn{height:46px;flex:none}
 .backup-restore-inline .lf-btn--icon{width:46px}
 .backup-restore-backup input[readonly]:not(:disabled){cursor:pointer}
 .backup-restore-loading{min-height:260px;display:grid}
-.backup-restore-review{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:16px;align-items:start}
+.backup-restore-review{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:var(--s4);align-items:start}
 @media (max-width:1100px){.backup-restore-review{grid-template-columns:minmax(0,1fr)}}
 .backup-restore-treecard{padding:14px}
 .backup-restore-treecard .tree{overflow:visible}
-.backup-restore-treeroot{display:flex;align-items:center;gap:8px;min-height:36px;padding:6px 10px;font:600 13px/18px var(--font);color:var(--ink)}
+.backup-restore-treeroot{display:flex;align-items:center;gap:var(--s2);min-height:36px;padding:6px 10px;font:600 13px/18px var(--font);color:var(--ink)}
 .backup-restore-treeroot svg.lf-i{color:var(--ink-3)}
 .backup-restore-treerow{display:flex;align-items:center;gap:6px;padding-left:6px;min-width:0}
 .backup-restore-treerow .lf-check{min-height:32px}
 .backup-restore-treerow>button{flex:1;min-width:0}
-.backup-restore-treecard .tree ul .backup-restore-treerow>button[aria-current="true"]{background:var(--sel-fill);color:#fff;box-shadow:var(--sel-shadow)}
+.backup-restore-treecard .tree ul .backup-restore-treerow>button[aria-current="true"]{background:var(--sel-fill);color:var(--on-brand);box-shadow:var(--sel-shadow)}
 .backup-restore-detail p{margin:0;font:500 13px/19px var(--font);color:var(--ink-2)}
 .backup-restore-detail p.muted{color:var(--ink-3)}
 .backup-restore-detail .tablecard{margin-top:10px}
-.backup-restore-legend{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px}
-.backup-restore-legend li{display:inline-flex;align-items:center;gap:8px;font:500 12.5px/18px var(--font);color:var(--ink-2)}
+.backup-restore-legend{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px var(--s4)}
+.backup-restore-legend li{display:inline-flex;align-items:center;gap:var(--s2);font:500 12.5px/18px var(--font);color:var(--ink-2)}
 .backup-restore-dot{width:10px;height:10px;flex:none;border-radius:3px;background:var(--ink-4)}
 .backup-restore-dot--bad{background:var(--danger-dot)}
 .backup-restore-dot--good{background:var(--success-dot)}
@@ -58,29 +58,29 @@
 .backup-restore-dot--info{background:var(--brand)}
 .backup-restore-dot--none{background:var(--ink-3)}
 .backup-restore-child td{background:var(--surface-2)}
-.backup-restore-verify{margin:0;padding:12px 16px 12px 36px;border-radius:var(--r-md);background:var(--surface-2);display:flex;flex-direction:column;gap:8px;
+.backup-restore-verify{margin:0;padding:var(--s3) var(--s4) var(--s3) 36px;border-radius:var(--r-md);background:var(--surface-2);display:flex;flex-direction:column;gap:var(--s2);
   font:500 13px/19px var(--font);color:var(--ink-2);overflow-wrap:anywhere}
 
 /* Dialog building blocks */
-.backup-restore-checks{display:flex;flex-wrap:wrap;gap:4px 18px}
+.backup-restore-checks{display:flex;flex-wrap:wrap;gap:var(--s1) 18px}
 .backup-restore-box{display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:var(--r-md);border:1px solid var(--border);transition:opacity var(--t-fast)}
 .backup-restore-box.is-inactive{opacity:.55;background:var(--surface-2)}
 .backup-restore-box__title{margin:0;font:700 13px/18px var(--font);color:var(--ink)}
 .backup-restore-list{display:flex;flex-direction:column;gap:2px;max-height:200px;overflow:auto}
 .backup-restore-search.is-disabled .lf-input{opacity:.6;cursor:not-allowed}
 .backup-restore-search input:disabled{cursor:not-allowed}
-.backup-restore-steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font:500 13px/19px var(--font);color:var(--ink-2);overflow-wrap:anywhere}
-.backup-restore-checkrow{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px}
+.backup-restore-steps{margin:0;padding-left:var(--s5);display:flex;flex-direction:column;gap:var(--s2);font:500 13px/19px var(--font);color:var(--ink-2);overflow-wrap:anywhere}
+.backup-restore-checkrow{display:flex;align-items:center;flex-wrap:wrap;gap:var(--s2) var(--s3)}
 .backup-restore-checkrow .fld{flex:0 1 220px}
 .backup-restore-checkrow .fld{position:relative}
 .backup-restore-checkrow .fld__lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-.backup-restore-time{display:flex;align-items:center;gap:8px}
+.backup-restore-time{display:flex;align-items:center;gap:var(--s2)}
 .backup-restore-time .dd{width:96px}
-.backup-restore-dates{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.backup-restore-dates{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:var(--s1)}
 .backup-restore-dates button{height:36px;border-radius:var(--r-sm);border:1px solid var(--border);background:var(--surface);font:600 13px/1 var(--font);color:var(--ink-2);
   font-variant-numeric:tabular-nums;transition:background var(--t-fast),color var(--t-fast),border-color var(--t-fast)}
 .backup-restore-dates button:hover{border-color:var(--border-2);color:var(--ink)}
-.backup-restore-dates button[aria-pressed="true"]{background:var(--sel-fill);border-color:var(--brand-600);color:#fff;box-shadow:var(--sel-shadow)}
+.backup-restore-dates button[aria-pressed="true"]{background:var(--sel-fill);border-color:var(--brand-600);color:var(--on-brand);box-shadow:var(--sel-shadow)}
 .backup-restore-archives .lf-btn--icon[data-danger]:hover:not(:disabled){background:var(--danger-bg);color:var(--danger-text)}
 .backup-restore-archives .lf-btn--icon{width:30px;height:30px;color:var(--ink-3)}
 .backup-restore-checks .lf-check input:disabled:checked+.lf-check__box{background:var(--ink-4);border-color:var(--ink-4)}
