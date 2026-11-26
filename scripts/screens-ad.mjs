@@ -83,7 +83,7 @@ await step(`__click('.wiz-card__foot button', 'Next')`, 900);
 await shot('03-configure-auditing.webp', false);
 await step(`__click('[role=dialog] button', 'Next')`, 900);
 await shot('04-gpo.webp', false);
-await step(`__click('[role=dialog] button', 'Done')`, 900);
+await step(`__click('[role=dialog] button', 'Use this GPO')`, 900);
 await shot('05-components.webp');
 await step(`__click('.wiz-card__foot button', 'Next')`);
 await shot('06-ip.webp');
@@ -101,7 +101,7 @@ await shot('09-object-classes.webp');
 await step(`__click('button', 'Create logon/logoff script')`, 900);
 await shot('10-logon-script.webp', false);
 await step(`__click('[role=dialog] button', 'Cancel')`, 700);
-await step(`__click('.wiz-card__foot button', 'Finish')`, 3500);
+await step(`__click('.wiz-card__foot button', 'Add domain')`, 3500);
 await shot('11-status.webp');
 
 ws.close(); proc.kill(); await sleep(400);

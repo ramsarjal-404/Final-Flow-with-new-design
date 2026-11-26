@@ -183,7 +183,7 @@
       "edit": "Edit <domain>"
     },
     "frame": "Full-page wizard: 'Back to the list' + breadcrumb 'Active Directory / <title>', eyebrow 'Step N of M · <step>', Steps bar, one white card with the step and a footer.",
-    "footer": "Back (left, from step 2) · Cancel · primary Next (→). The last data step's primary is 'Finish' (add) or 'Save' (edit). The Status step shows only 'Done', enabled when the run ends.",
+    "footer": "Back (left, from step 2) · Cancel · primary Next (→). The last data step's primary is 'Add domain' (add) or 'Save changes' (edit). The Status step shows only 'View domain', enabled when the run ends.",
     "modes": {
       "express": {
         "label": "Express configuration",
@@ -209,7 +209,7 @@
           "status"
         ]
       },
-      "edit": "Same steps as the domain's mode without 'status'; the mode and the domain name can't change; no Configure auditing dialog; Save writes the changes and returns to the overview with toast 'Active Directory updated'."
+      "edit": "Same steps as the domain's mode without 'status'; the mode and the domain name can't change; no Configure auditing dialog; 'Save changes' writes the changes and returns to the overview with toast 'Active Directory updated'."
     },
     "validation": "On Next: invalid fields get aria-invalid (red outline) and an error toast 'Check the highlighted fields' with the message below. Fields clear their error as soon as they change.",
     "steps": [
@@ -638,7 +638,7 @@
           "banner",
           "button"
         ],
-        "does": "The domain is saved when Finish is clicked; this step runs the tasks with a progress bar, then 'Done' opens the overview on the new domain with toast 'Active Directory added'.",
+        "does": "The domain is saved when 'Add domain' is clicked; this step runs the tasks with a progress bar, then 'View domain' opens the overview on the new domain with toast 'Active Directory added'.",
         "tasks": [
           "Validating credentials for <domain>",
           "Enabling audit policies through \"<GPO>\" — or 'Skipping audit policies (set up manually)'",
@@ -684,7 +684,7 @@
     },
     {
       "id": "selectGpo",
-      "title": "Group Policy Object selection",
+      "title": "Select a Group Policy Object",
       "icon": "file",
       "screenshot": "screens/04-gpo.webp",
       "components": [
@@ -733,7 +733,7 @@
           "default": true
         }
       ],
-      "footer": "Back (to Configure auditing) · Cancel · primary Done",
+      "footer": "Back (to Configure auditing) · Cancel · primary Use this GPO",
       "next": "wizard step 2 (components)"
     },
     {

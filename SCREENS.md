@@ -14,7 +14,7 @@ the screen like the screenshot with the Lepide Design System ([AGENTS.md](AGENTS
 
 | Flow | Steps and dialogs | Docs |
 |---|---|---|
-| **Add and manage an Active Directory data source** | Domain credentials → Domain configuration → IP configuration → Database settings → Organizational units → Object classes → Status → dialog “Configure auditing” → dialog “Group Policy Object selection” → dialog “Create logon/logoff script” | [FLOW.md](flows/active-directory/FLOW.md) · [flow.json](flows/active-directory/flow.json) |
+| **Add and manage an Active Directory data source** | Domain credentials → Domain configuration → IP configuration → Database settings → Organizational units → Object classes → Status → dialog “Configure auditing” → dialog “Select a Group Policy Object” → dialog “Create logon/logoff script” | [FLOW.md](flows/active-directory/FLOW.md) · [flow.json](flows/active-directory/flow.json) |
 
 ## How the code is organised
 
@@ -678,9 +678,9 @@ the screen like the screenshot with the Lepide Design System ([AGENTS.md](AGENTS
 
 - **Flow** [Add and manage an Active Directory data source](flows/active-directory/FLOW.md) · **Code** [`src/settings/categories/add-data-source/AdWizard.tsx`](src/settings/categories/add-data-source/AdWizard.tsx)
 
-#### Group Policy Object selection
+#### Select a Group Policy Object
 
-![Group Policy Object selection](flows/active-directory/screens/04-gpo.webp)
+![Select a Group Policy Object](flows/active-directory/screens/04-gpo.webp)
 
 - **Flow** [Add and manage an Active Directory data source](flows/active-directory/FLOW.md) · **Code** [`src/settings/categories/add-data-source/AdWizard.tsx`](src/settings/categories/add-data-source/AdWizard.tsx)
 

@@ -19,18 +19,18 @@ Add Data Source (picker) ── Active Directory tile
    │                                   (no domain yet → straight to the wizard)
    ▼
 Overview: "Added data source for Active Directory" ── Add domain ─┐
-   ▲   (Edit → wizard in edit mode, ends with Save)                │
+   ▲   (Edit → wizard in edit mode, ends with Save changes)        │
    │                                                               ▼
    │   Wizard "Data Source for Active Directory"
    │   1 Domain credentials ── Next ─▶ dialog "Configure auditing"
-   │                                     ├─ Yes ─▶ dialog "Group Policy Object selection" ── Done ─┐
-   │                                     └─ No ───────────────────────────────────────────────────┤
-   │   2 Domain configuration ◀────────────────────────────────────────────────────────────────────┘
+   │                                     ├─ Yes ─▶ dialog "Select a Group Policy Object" ── Use this GPO ─┐
+   │                                     └─ No ───────────────────────────────────────────────────────────┤
+   │   2 Domain configuration ◀───────────────────────────────────────────────────────────────────────────┘
    │   3 IP configuration
-   │   4 Database settings          (Express ends here: Finish)
+   │   4 Database settings          (Express ends here: Add domain)
    │   5 Organizational units       (Advanced only)
    │   6 Object classes             (Advanced only; gear → dialog "Create logon/logoff script")
-   │   7 Status  (progress run) ── Done
+   │   7 Status  (progress run) ── View domain
    └──────────────────────────────────────┘
 ```
 
@@ -38,7 +38,7 @@ Overview: "Added data source for Active Directory" ── Add domain ─┐
 |---|---|
 | **Express configuration** — "Configure the domain with default settings." | Domain credentials · Domain configuration · IP configuration · Database settings · Status |
 | **Advanced configuration** (default) — "Configure the domain with each setting individually." | Domain credentials · Domain configuration · IP configuration · Database settings · Organizational units · Object classes · Status |
-| **Edit** (from the overview) | The domain's steps without Status. Mode and domain name are fixed, no Configure auditing dialog; the last button is **Save**. |
+| **Edit** (from the overview) | The domain's steps without Status. Mode and domain name are fixed, no Configure auditing dialog; the last button is **Save changes**. |
 
 ## Where it lives in code
 
@@ -100,9 +100,12 @@ component page before changing a part.
 
 ## 2. Wizard frame
 
+Button labels follow DESIGN.md §10: the primary names the action (**Add domain**, **Save changes**, **Use this GPO**,
+**View domain**); **Next** only on steps before the last.
+
 Full-page wizard (not a dialog): **Back to the list** + breadcrumb `Active Directory / Data Source for Active Directory`,
 eyebrow "Step N of M · <step>", the step bar, one white card. Footer: **Back** (from step 2) · **Cancel** · primary
-**Next →**; the last data step says **Finish** (add) or **Save** (edit). Esc or Cancel returns to the overview.
+**Next →**; the last data step says **Add domain** (add) or **Save changes** (edit). Esc or Cancel returns to the overview.
 
 **Validation:** on Next, invalid fields are outlined (`aria-invalid`) and an error toast "Check the highlighted fields"
 explains what to fix. A field clears its error as soon as it changes.
@@ -138,16 +141,16 @@ Active Directory will:" — enable the system audit policies (System, Logon/Logo
 Detailed Tracking, Policy Change, Account Management, DS Access, Account Logon) and set up the audit entries (table:
 Auditing entries for · Naming context · Principal · Access).
 RadioGroup: **Yes, the software can make the required changes.** (default) / **No, I will adjust these settings
-manually later.** Footer Cancel · **Next** → Yes opens *Group Policy Object selection*; No goes to step 2.
+manually later.** Footer Cancel · **Next** → Yes opens *Select a Group Policy Object*; No goes to step 2.
 
-### Dialog · Group Policy Object selection
+### Dialog · Select a Group Policy Object
 
-![Group Policy Object selection](screens/04-gpo.webp)
+![Select a Group Policy Object](screens/04-gpo.webp)
 
 Server name or IP (defaults to the preferred DC) · **Create new GPO (recommended)** with name `Audit AD` (required) or
 **Select an existing GPO** (Default Domain Controllers Policy, Default Domain Policy, Standard Domain Guidelines,
 Standard Domain Policy) · checkbox "Create a backup of the selected GPO before enabling auditing" (existing GPO only).
-Footer Back · Cancel · **Done** → step 2.
+Footer Back · Cancel · **Use this GPO** → step 2.
 
 ### Step 2 · Domain configuration
 
@@ -191,7 +194,7 @@ Link **Configure LDAPS** (info toast). Tool: **Restore to default**.
 | Backup path | TextField + **Same as data path** | default = data path |
 
 Express shows the note "all organizational units and object classes are audited. Change this later by editing the
-domain." and its primary is **Finish**.
+domain." and its primary is **Add domain**.
 
 ### Step 5 · Organizational units (Advanced)
 
@@ -211,7 +214,7 @@ and "N of M record(s)"; right: **Selected OU path (N)** with **Clear all** and a
 Secret, RID Manager, Print Queue ticked). Two checkbox lists with search and select-all: **Active Directory object
 classes**, **Exchange Server object classes**; summary "All except the selected N class(es) will be audited."
 **More audit settings:** Audit failed logon (✓) · Audit successful user logon/logoff + gear → *Create logon/logoff
-script*. Error: "Select at least one object class, or audit all of them." Primary **Finish** (saves the domain).
+script*. Error: "Select at least one object class, or audit all of them." Primary **Add domain** (saves the domain).
 
 ### Dialog · Create logon/logoff script
 
@@ -226,7 +229,7 @@ and runs only on it." · Path to save the file (default `\\DC01\NETLOGON\`). Foo
 
 Task table with a progress bar: Validating credentials · Enabling audit policies through "<GPO>" (or skipped) ·
 Installing agent on <preferred DC> (with an agent) · Creating database · Starting auditing. When auditing is manual, a
-warning banner follows. **Done** opens the overview on the new domain with the toast "Active Directory added".
+warning banner follows. **View domain** opens the overview on the new domain with the toast "Active Directory added".
 
 ## Data
 

@@ -242,8 +242,8 @@ export default function AdWizard({ edit, onClose, onDone }: { edit?: AdDomain; o
     <>
       <WizardFrame root="Active Directory" crumb={title} steps={steps.map((s) => LABEL[s])} step={step} onClose={onClose} busy={busy}
         footer={cur === 'status'
-          ? <><span className="spacer" /><Button variant="primary" onClick={next} disabled={!runDone}>Done</Button></>
-          : <WizardFooter onBack={step > 0 ? back : undefined} onCancel={onClose} onNext={next} nextLabel={edit && last ? 'Save' : last ? 'Finish' : 'Next'} />}>
+          ? <><span className="spacer" /><Button variant="primary" onClick={next} disabled={!runDone}>View domain</Button></>
+          : <WizardFooter onBack={step > 0 ? back : undefined} onCancel={onClose} onNext={next} nextLabel={edit && last ? 'Save changes' : last ? 'Add domain' : 'Next'} />}>
         <div className="row row--wrap ad-step-head">
           <div className="grow">
             <h4 className="add-data-source-step-title">{LABEL[cur]}</h4>
@@ -553,8 +553,8 @@ function SelectGpo({ open, d, setD, onBack, onClose, onDone }: { open: boolean; 
     onDone();
   };
   return (
-    <Modal open={open} onClose={onClose} title="Group Policy Object selection" icon="file" size="md"
-      footer={<><Button icon="chevron-left" onClick={onBack}>Back</Button><span className="spacer" /><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Done</Button></>}>
+    <Modal open={open} onClose={onClose} title="Select a Group Policy Object" icon="file" size="md"
+      footer={<><Button icon="chevron-left" onClick={onBack}>Back</Button><span className="spacer" /><Button onClick={onClose}>Cancel</Button><Button variant="primary" onClick={done}>Use this GPO</Button></>}>
       <p className="add-data-source-note" style={{ fontWeight: 400 }}>Choose the Group Policy Object the audit policies are applied through.</p>
       <TextField label="Server name or IP" value={server || d.preferredDc || d.domain} maxLength={256} onChange={setServer} />
       <div className="stack stack--sm">
