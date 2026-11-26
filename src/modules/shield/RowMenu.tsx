@@ -20,10 +20,11 @@ export function RowMenu({ label, items }: { label: string; items: MenuItem[] }) 
   }, [pos, close]);
   const open = () => {
     if (pos) return close();
-    const r = btn.current!.getBoundingClientRect();
-    const h = items.length * 38 + 14;
-    const up = r.bottom + h + 8 > innerHeight && r.top - h - 8 > 0;
-    setPos({ right: innerWidth - r.right, ...(up ? { bottom: innerHeight - r.top + 6 } : { top: r.bottom + 6 }) });
+    const button = btn.current!.getBoundingClientRect();
+    const menuHeight = items.length * 38 + 14;
+    // Open upwards when there is no room below.
+    const up = button.bottom + menuHeight + 8 > innerHeight && button.top - menuHeight - 8 > 0;
+    setPos({ right: innerWidth - button.right, ...(up ? { bottom: innerHeight - button.top + 6 } : { top: button.bottom + 6 }) });
   };
   return (
     <>

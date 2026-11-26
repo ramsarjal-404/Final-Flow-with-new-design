@@ -165,8 +165,8 @@ part of this prototype yet").
 | [shield.css](../../src/modules/shield/shield.css) | Module styles (tokens only) |
 | [nav.ts](../../src/app/nav.ts) · [Home.tsx](../../src/pages/Home.tsx) · [home.json](../../src/data/home.json) | Sidebar entry and sub-menu · featured Home card |
 
-The page files are ported from the live prototype's compiled code and skip type checking (`// @ts-nocheck`); the
-data shapes are documented in `types.ts`. Data is in memory: a page reload restores the seed data.
+Every file is typed against `types.ts` and checked by `npm run build`. Data is in memory: a page reload restores the
+seed data.
 
 ## Not built
 

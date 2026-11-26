@@ -1,7 +1,12 @@
-// @ts-nocheck — ported from the live prototype (https://lepide-new-ui.vercel.app/shield); shapes are in ./types.ts.
-/* Seed data and the vocabulary of AI Shield: roles, sign-in sources, risk levels, policy actions, outcomes, activity kinds, people, endpoints, sessions, admin activity and the server facts. */
+/* Seed data and the vocabulary of AI Shield: roles, sign-in sources, risk levels, policy actions, outcomes, activity kinds, people, endpoints, sessions, admin activity and the server facts.
+   Ported from the live prototype (https://lepide-new-ui.vercel.app/shield). Shapes: ./types.ts. */
+import type { StatusTone, Tone } from '../../ui';
+import type {
+  ActivityEntry, ActivityKind, Endpoint, Outcome, PolicyAction, ProtectionPolicy, Risk, Role, Session, ShieldPerson, Unit,
+} from './types';
 
-export const ROLES = {
+/** Each role: its name, plural, one-line description (help in the role pickers) and chip tone. */
+export const ROLES: Record<Role, { label: string; plural: string; blurb: string; tone: Tone }> = {
   owner: {
     label: 'Owner',
     plural: 'Owners',
@@ -27,13 +32,14 @@ export const ROLES = {
     tone: 'neutral',
   },
 };
-export const SIGN_IN_SOURCES = {
+/** Where a person's account (and password) lives. */
+export const SIGN_IN_SOURCES: Record<ShieldPerson['source'], string> = {
   local: 'Local account',
   ad: 'Active Directory',
   entra: 'Microsoft Entra ID',
   discovered: 'Discovered on endpoint',
 };
-export const RISKS = [
+export const RISKS: { id: Risk; label: string; hint: string; tone: Tone }[] = [
   {
     id: 'low',
     label: 'Low',
@@ -59,7 +65,8 @@ export const RISKS = [
     tone: 'bad',
   },
 ];
-export const ACTIONS = [
+/** What a protection policy does when it finds a match. */
+export const ACTIONS: { id: PolicyAction; label: string; hint: string }[] = [
   {
     id: 'allow',
     label: 'Allow',
@@ -81,10 +88,11 @@ export const ACTIONS = [
     hint: 'Stop it, and flag it for your admins to review.',
   },
 ];
-export const riskOf = (t) => RISKS.find((n) => n.id === t);
-export const actionOf = (t) => ACTIONS.find((n) => n.id === t);
-export const UNITS = ['Engineering', 'Finance', 'Legal', 'Marketing', 'Contractors'];
-export const SEED_POLICIES = [
+export const riskOf = (risk: Risk) => RISKS.find((r) => r.id === risk)!;
+export const actionOf = (action: PolicyAction) => ACTIONS.find((a) => a.id === action)!;
+export const UNITS: Unit[] = ['Engineering', 'Finance', 'Legal', 'Marketing', 'Contractors'];
+/** The nine protection policies of policy version 3. */
+export const SEED_POLICIES: ProtectionPolicy[] = [
   {
     id: 'phi',
     short: 'Health',
@@ -285,30 +293,32 @@ export const SEED_POLICIES = [
     ],
   },
 ];
-export const OUTCOMES = {
+/** What happened to a session: full label, short label (filters, tags), status tone, and the detail-panel headline
+    built from the policy's short name. */
+export const OUTCOMES: Record<Outcome, { label: string; short: string; tone: StatusTone; headline: (policy: string) => string }> = {
   blocked: {
     label: 'Blocked before it was sent',
     short: 'Blocked',
     tone: 'bad',
-    headline: (t) => `${t} blocked before sending`,
+    headline: (policy) => `${policy} blocked before sending`,
   },
   paused: {
     label: 'Upload paused before it was sent',
     short: 'Paused',
     tone: 'warn',
-    headline: (t) => `${t} upload paused`,
+    headline: (policy) => `${policy} upload paused`,
   },
   warned: {
     label: 'Warning shown before continuing',
     short: 'Warned',
     tone: 'warn',
-    headline: (t) => `${t} warning shown`,
+    headline: (policy) => `${policy} warning shown`,
   },
   review: {
     label: 'Sensitive data needs review',
     short: 'Needs review',
     tone: 'info',
-    headline: (t) => `${t} detected`,
+    headline: (policy) => `${policy} detected`,
   },
   clean: {
     label: 'No action needed',
@@ -317,7 +327,8 @@ export const OUTCOMES = {
     headline: () => 'No sensitive data found',
   },
 };
-export const ACTIVITY_KINDS = [
+/** Admin activity types (filters, chips, the 30-day band). */
+export const ACTIVITY_KINDS: { id: ActivityKind; label: string; hint: string; tone: Tone }[] = [
   {
     id: 'roles',
     label: 'Appointed approvers',
@@ -355,14 +366,18 @@ export const ACTIVITY_KINDS = [
     tone: 'flat',
   },
 ];
+/* Seed dates are relative to the moment the page loads, so the demo always looks recent. */
 export const NOW = Date.now();
-export const HOUR = 36e5;
-export const DAY = 864e5;
-export const daysAgo = (t, n = 0) => new Date(NOW - t * DAY - n * HOUR).toISOString();
-export const hoursAgo = (t) => new Date(NOW - t * HOUR).toISOString();
-export const minutesAgo = (t) => new Date(NOW - t * 6e4).toISOString();
+export const MINUTE = 60_000;
+export const HOUR = 60 * MINUTE;
+export const DAY = 24 * HOUR;
+export const daysAgo = (days: number, hours = 0) => new Date(NOW - days * DAY - hours * HOUR).toISOString();
+export const hoursAgo = (hours: number) => new Date(NOW - hours * HOUR).toISOString();
+export const minutesAgo = (minutes: number) => new Date(NOW - minutes * MINUTE).toISOString();
+/** The signed-in admin (shown as You in People). */
 export const YOU_EMAIL = 'console.admin@lepide.com';
-export const DIRECTORY = [
+/** People found on endpoints: [name, email, unit]. Each also has a laptop in SEED_ENDPOINTS. */
+export const DIRECTORY: [name: string, email: string, unit: Unit][] = [
   ['Alex Morgan', 'alex.morgan@corp.local', 'Engineering'],
   ['Rebecca Stone', 'rebecca.stone@corp.local', 'Engineering'],
   ['Emily Collins', 'emily.collins@corp.local', 'Legal'],
@@ -382,7 +397,7 @@ export const DIRECTORY = [
   ['Nina Petrova', 'nina.petrova@corp.local', 'Legal'],
   ['Tom Whitfield', 'tom.whitfield@corp.local', 'Finance'],
 ];
-export const SEED_PEOPLE = [
+export const SEED_PEOPLE: ShieldPerson[] = [
   {
     id: 'own_1',
     name: 'Michael Reed',
@@ -412,7 +427,7 @@ export const SEED_PEOPLE = [
     status: 'active',
     addedAt: daysAgo(33),
     lastActive: minutesAgo(2),
-    you: !0,
+    you: true,
   },
   {
     id: 'adm_2',
@@ -434,16 +449,16 @@ export const SEED_PEOPLE = [
     addedAt: daysAgo(33),
     lastActive: hoursAgo(1),
   },
-  ...DIRECTORY.map(([t, n, o], c) => ({
-    id: `usr_${c + 1}`,
-    name: t,
-    email: n,
-    unit: o,
+  ...DIRECTORY.map(([name, email, unit], i): ShieldPerson => ({
+    id: `usr_${i + 1}`,
+    name,
+    email,
+    unit,
     role: 'user',
     source: 'discovered',
     status: 'active',
     addedAt: daysAgo(29),
-    lastActive: hoursAgo(1 + ((c * 7) % 60)),
+    lastActive: hoursAgo(1 + ((i * 7) % 60)),
   })),
 ];
 export const LAPTOPS = [
@@ -466,44 +481,37 @@ export const LAPTOPS = [
   'LT-LGL-011',
   'LT-FIN-022',
 ];
-export const SEED_ENDPOINTS = [
-  ...DIRECTORY.map(([, t], n) => ({
-    id: `ep_${n + 1}`,
-    name: LAPTOPS[n],
-    user: t,
-    address: `10.20.${4 + (n % 3)}.${21 + n}`,
-    agent: n === 3 || n === 11 ? 'stale' : 'active',
-    extension: n !== 6,
-    lastActive: n === 3 ? daysAgo(2, 5) : n === 11 ? hoursAgo(9) : minutesAgo(1 + n * 2),
+/** 18 laptops (one per directory person; two stale, one without the browser extension) and 18 shared workstations
+    (two with no agent, one stale). */
+export const SEED_ENDPOINTS: Endpoint[] = [
+  ...DIRECTORY.map(([, email], i): Endpoint => ({
+    id: `ep_${i + 1}`,
+    name: LAPTOPS[i],
+    user: email,
+    address: `10.20.${4 + (i % 3)}.${21 + i}`,
+    agent: i === 3 || i === 11 ? 'stale' : 'active',
+    extension: i !== 6,
+    lastActive: i === 3 ? daysAgo(2, 5) : i === 11 ? hoursAgo(9) : minutesAgo(1 + i * 2),
   })),
-  ...Array.from(
-    {
-      length: 18,
-    },
-    (t, n) => ({
-      id: `ep_${19 + n}`,
-      name: `WS-${['ENG', 'FIN', 'MKT', 'LGL'][n % 4]}-${String(101 + n).padStart(3, '0')}`,
-      user: null,
-      address: `10.20.9.${40 + n}`,
-      agent: n === 2 || n === 9 ? 'none' : n === 14 ? 'stale' : 'active',
-      extension: !0,
-      lastActive: n === 2 || n === 9 ? null : n === 14 ? daysAgo(1, 2) : minutesAgo(3 + n),
-    }),
-  ),
+  ...Array.from({ length: 18 }, (_, i): Endpoint => ({
+    id: `ep_${19 + i}`,
+    name: `WS-${['ENG', 'FIN', 'MKT', 'LGL'][i % 4]}-${String(101 + i).padStart(3, '0')}`,
+    user: null,
+    address: `10.20.9.${40 + i}`,
+    agent: i === 2 || i === 9 ? 'none' : i === 14 ? 'stale' : 'active',
+    extension: true,
+    lastActive: i === 2 || i === 9 ? null : i === 14 ? daysAgo(1, 2) : minutesAgo(3 + i),
+  })),
 ];
-export const session = (t, n, o, c, d, u, f, x, j, r) => ({
-  id: `ses_${t}`,
-  person: n,
-  tool: o,
-  outcome: c,
-  category: d,
-  keywords: u,
-  preview: f,
-  endpoint: x,
-  at: j,
-  file: r,
-});
-export const SEED_SESSIONS = [
+/** Builds a seed session: number, person email, AI tool, outcome, policy id (null = nothing matched), keywords found,
+    masked preview, endpoint, when, and the file name for uploads. */
+const session = (
+  n: number, person: string, tool: string, outcome: Outcome, category: string | null, keywords: string[],
+  preview: string, endpoint: string, at: string, file?: string,
+): Session => ({ id: `ses_${n}`, person, tool, outcome, category, keywords, preview, endpoint, at, file });
+
+/** 26 sessions over the last 7 days (3 need review). */
+export const SEED_SESSIONS: Session[] = [
   session(
     1,
     'alex.morgan@corp.local',
@@ -797,16 +805,12 @@ export const SEED_SESSIONS = [
     daysAgo(6, 6),
   ),
 ];
-export const entry = (t, n, o, c, d, u, f) => ({
-  id: `act_${t}`,
-  at: n,
-  actor: o,
-  actorRole: c,
-  action: d,
-  detail: u,
-  kind: f,
-});
-export const SEED_ACTIVITY = [
+/** Builds a seed Admin activity entry: number, when, who, their role, action, details, type. */
+const entry = (
+  n: number, at: string, actor: string, actorRole: ActivityEntry['actorRole'], action: string, detail: string, kind: ActivityKind,
+): ActivityEntry => ({ id: `act_${n}`, at, actor, actorRole, action, detail, kind });
+
+export const SEED_ACTIVITY: ActivityEntry[] = [
   entry(1, minutesAgo(2), 'Console Admin', 'admin', 'Signed in', 'Admin', 'signin'),
   entry(2, hoursAgo(1), 'Karen Hughes', 'approver', 'Signed in', 'Approver', 'signin'),
   entry(3, hoursAgo(5), 'Helen Ward', 'admin', 'Signed in', 'Admin', 'signin'),
@@ -902,6 +906,7 @@ export const SEED_ACTIVITY = [
     'system',
   ),
 ];
+/** Facts shown on the Server tab (read only in the prototype). */
 export const SERVER = {
   consoleUrl: 'https://shield.corp.local:8443',
   certificate: 'Self-signed (built in) · bound to port 8443',

@@ -1,160 +1,86 @@
-// @ts-nocheck — ported from the live prototype (https://lepide-new-ui.vercel.app/shield); shapes are in ./types.ts.
 /* AI Shield › Admin activity (/shield/activity): 30-day breakdown, type filter and the activity table. */
-import * as React from 'react';
-import { Person, Segmented, SearchField, DataTable } from '../../ui';
-import { ROLES, ACTIVITY_KINDS } from './data';
+import { useState } from 'react';
+import { DataTable, Person, SearchField, Segmented, type Column } from '../../ui';
+import { ACTIVITY_KINDS, DAY, ROLES } from './data';
 import { shieldStore } from './store';
-import { ShieldPage, KindChip, ago, fullDate } from './parts';
+import { ago, fullDate, KindChip, ShieldPage } from './parts';
+import type { ActivityEntry, ActivityKind } from './types';
 
-export const DAY_LENGTH = 864e5;
+type Filter = ActivityKind | 'all';
+
 export function Activity() {
-  const t = shieldStore.use((r) => r.activity),
-    [n, o] = React.useState('all'),
-    [c, d] = React.useState(''),
-    u = React.useMemo(() => t.filter((r) => n === 'all' || r.kind === n), [t, n]),
-    f = React.useMemo(() => {
-      const r = t.filter((m) => m.actorRole === 'admin' && Date.now() - new Date(m.at).getTime() < 30 * DAY_LENGTH),
-        v = new Set(r.map((m) => m.actor));
-      return {
-        total: r.length,
-        admins: v.size,
-        parts: ACTIVITY_KINDS.filter((m) => m.id !== 'system').map((m) => ({
-          ...m,
-          n: r.filter((p) => p.kind === m.id).length,
-        })),
-      };
-    }, [t]),
-    x = (r) => (r === 'all' ? t.length : t.filter((v) => v.kind === r).length),
-    j = [
-      {
-        key: 'at',
-        header: 'When',
-        value: (r) => new Date(r.at).getTime(),
-        sortable: !0,
-        width: 170,
-        render: (r) => <span title={fullDate(r.at)}>{ago(r.at)}</span>,
-      },
-      {
-        key: 'actor',
-        header: 'Who',
-        sortable: !0,
-        filterable: !0,
-        width: 220,
-        render: (r) => <Person name={r.actor} sub={r.actorRole === 'system' ? 'System' : ROLES[r.actorRole].label} />,
-      },
-      {
-        key: 'action',
-        header: 'Action',
-        sortable: !0,
-        filterable: !0,
-        width: 230,
-        render: (r) => (
-          <b
-            style={{
-              fontWeight: 600,
-            }}
-          >
-            {r.action}
-          </b>
-        ),
-      },
-      {
-        key: 'detail',
-        header: 'Details',
-        filterable: !0,
-        wrap: !0,
-        minWidth: 320,
-      },
-      {
-        key: 'kind',
-        header: 'Type',
-        value: (r) => {
-          var v;
-          return ((v = ACTIVITY_KINDS.find((m) => m.id === r.kind)) == null ? void 0 : v.label) ?? '';
-        },
-        sortable: !0,
-        width: 190,
-        render: (r) => <KindChip kind={r.kind} />,
-      },
-    ];
+  const activity = shieldStore.use((s) => s.activity);
+  const [filter, setFilter] = useState<Filter>('all');
+  const [search, setSearch] = useState('');
+
+  const rows = activity.filter((a) => filter === 'all' || a.kind === filter);
+  const countOf = (f: Filter) => (f === 'all' ? activity.length : activity.filter((a) => a.kind === f).length);
+
+  // Changes by admins in the last 30 days, split by type (System is not an admin change).
+  const adminChanges = activity.filter((a) => a.actorRole === 'admin' && Date.now() - new Date(a.at).getTime() < 30 * DAY);
+  const adminCount = new Set(adminChanges.map((a) => a.actor)).size;
+  const parts = ACTIVITY_KINDS.filter((k) => k.id !== 'system').map((k) => ({ ...k, count: adminChanges.filter((a) => a.kind === k.id).length }));
+
+  const columns: Column<ActivityEntry>[] = [
+    {
+      key: 'at', header: 'When', value: (a) => new Date(a.at).getTime(), sortable: true, width: 170,
+      render: (a) => <span title={fullDate(a.at)}>{ago(a.at)}</span>,
+    },
+    {
+      key: 'actor', header: 'Who', sortable: true, filterable: true, width: 220,
+      render: (a) => <Person name={a.actor} sub={a.actorRole === 'system' ? 'System' : ROLES[a.actorRole].label} />,
+    },
+    { key: 'action', header: 'Action', sortable: true, filterable: true, width: 230, render: (a) => <b style={{ fontWeight: 600 }}>{a.action}</b> },
+    { key: 'detail', header: 'Details', filterable: true, wrap: true, minWidth: 320 },
+    {
+      key: 'kind', header: 'Type', value: (a) => ACTIVITY_KINDS.find((k) => k.id === a.kind)?.label ?? '', sortable: true, width: 190,
+      render: (a) => <KindChip kind={a.kind} />,
+    },
+  ];
+
   return (
     <ShieldPage
       tab="activity"
       title="Admin activity"
-      fill={!0}
+      fill
       description="Every change an admin made on this server, and what the server did by itself. Decisions on requests live with the approvers, not here."
     >
       <div className="stack">
         <section className="lf-card" aria-label="Last 30 days">
           <h3 className="lf-card__title">
-            Last 30 days
-            <small>
-              {f.total}
-              {' changes by '}
-              {f.admins}
-              {' admin'}
-              {f.admins === 1 ? '' : 's'}
-            </small>
+            Last 30 days<small>{adminChanges.length} changes by {adminCount} admin{adminCount === 1 ? '' : 's'}</small>
           </h3>
           <div className="shield-band" aria-hidden="true">
-            {f.parts
-              .filter((r) => r.n)
-              .map((r) => (
-                <span
-                  className={'shield-band--' + r.tone}
-                  style={{
-                    width: `${(r.n / Math.max(1, f.total)) * 100}%`,
-                  }}
-                  key={r.id}
-                />
-              ))}
+            {parts.filter((k) => k.count).map((k) => (
+              <span key={k.id} className={'shield-band--' + k.tone} style={{ width: `${(k.count / Math.max(1, adminChanges.length)) * 100}%` }} />
+            ))}
           </div>
-          <ul
-            className="shield-band__legend"
-            style={{
-              gridTemplateColumns: 'repeat(5,minmax(0,1fr))',
-            }}
-          >
-            {f.parts.map((r) => (
-              <li key={r.id}>
-                <i className={'shield-band--' + r.tone} />
-                {r.label}
-                <b>{r.n}</b>
-              </li>
+          <ul className="shield-band__legend" style={{ gridTemplateColumns: 'repeat(5,minmax(0,1fr))' }}>
+            {parts.map((k) => (
+              <li key={k.id}><i className={'shield-band--' + k.tone} />{k.label}<b>{k.count}</b></li>
             ))}
           </ul>
         </section>
         <Segmented
           ariaLabel="Type"
-          hug={!0}
-          value={n}
-          onChange={(r) => o(r)}
+          hug
+          value={filter}
+          onChange={(v) => setFilter(v as Filter)}
           items={[
-            {
-              value: 'all',
-              label: 'Everything',
-              count: x('all'),
-            },
-            ...ACTIVITY_KINDS.map((r) => ({
-              value: r.id,
-              label: r.label,
-              count: x(r.id),
-            })),
+            { value: 'all', label: 'Everything', count: countOf('all') },
+            ...ACTIVITY_KINDS.map((k) => ({ value: k.id, label: k.label, count: countOf(k.id) })),
           ]}
         />
         <DataTable
-          columns={j}
-          rows={u}
-          rowKey={(r) => r.id}
+          columns={columns}
+          rows={rows}
+          rowKey={(a) => a.id}
           title="Activity"
           noun={['entry', 'entries']}
-          search={c}
+          search={search}
           defaultPageSize={25}
-          initialSort={{
-            key: 'at',
-            dir: 'desc',
-          }}
-          toolbar={<SearchField value={c} onChange={d} placeholder="Search actions and details…" />}
+          initialSort={{ key: 'at', dir: 'desc' }}
+          toolbar={<SearchField value={search} onChange={setSearch} placeholder="Search actions and details…" />}
         />
       </div>
     </ShieldPage>

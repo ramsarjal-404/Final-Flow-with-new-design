@@ -1,5 +1,4 @@
-/* AI Shield data shapes. The module's files are ported from the live prototype and skip type checking (`// @ts-nocheck`);
-   these types document what they hold. Values: see ./data.ts. */
+/* AI Shield data shapes, used by every file of the module. Values: see ./data.ts. */
 
 export type Role = 'owner' | 'admin' | 'approver' | 'user';
 export type SignInSource = 'local' | 'ad' | 'entra' | 'discovered';
