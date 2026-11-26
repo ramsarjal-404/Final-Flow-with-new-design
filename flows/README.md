@@ -6,6 +6,7 @@ without guessing. Every flow is built with the Lepide Design System (see [AGENTS
 | Flow | Route | Docs |
 |---|---|---|
 | Add and manage an Active Directory data source | `/settings/add-data-source/active-directory` | [FLOW.md](active-directory/FLOW.md) · [flow.json](active-directory/flow.json) · [screens](active-directory/screens/) |
+| AI Shield (Overview, Sessions, People, Protection policy, Admin activity, Server) | `/shield` | [FLOW.md](ai-shield/FLOW.md) · [flow.json](ai-shield/flow.json) · [screens](ai-shield/screens/) |
 
 All other screens are in [SCREENS.md](../SCREENS.md) with their route, code and a screenshot.
 

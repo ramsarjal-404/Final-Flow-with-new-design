@@ -1,0 +1,215 @@
+{
+  "$schema": "../flow.schema.json",
+  "id": "ai-shield",
+  "title": "AI Shield",
+  "version": "1.0",
+  "source": {
+    "prototype": "https://lepide-new-ui.vercel.app",
+    "note": "Ported page for page from the live prototype's AI Shield module (its /shield routes). Same screens, words, data and behaviour; built from the Lepide Design System kit."
+  },
+  "designSystem": {
+    "name": "Lepide Design System",
+    "mcp": "https://lepide-new-ds.vercel.app/mcp",
+    "spec": "https://lepide-new-ds.vercel.app/DESIGN.md",
+    "specInRepo": ".claude/skills/lepide-design-system/DESIGN.md",
+    "componentDocsInRepo": ".claude/skills/lepide-design-system/docs/components/",
+    "componentDocsLive": "https://lepide-new-ds.vercel.app/components/",
+    "react": ["@lepide/ds-react", "@lepide/ds-css"],
+    "install": "npm install https://lepide-new-ds.vercel.app/ds/lepide-ds-css.tgz https://lepide-new-ds.vercel.app/ds/lepide-ds-react.tgz"
+  },
+  "code": {
+    "routes": "src/modules/shield/index.tsx",
+    "frame": "src/modules/shield/parts.tsx",
+    "overview": "src/modules/shield/Overview.tsx",
+    "sessions": "src/modules/shield/Sessions.tsx",
+    "people": "src/modules/shield/People.tsx",
+    "policy": "src/modules/shield/Policy.tsx",
+    "activity": "src/modules/shield/Activity.tsx",
+    "server": "src/modules/shield/Server.tsx",
+    "rowMenu": "src/modules/shield/RowMenu.tsx",
+    "store": "src/modules/shield/store.ts",
+    "data": "src/modules/shield/data.ts",
+    "types": "src/modules/shield/types.ts",
+    "styles": "src/modules/shield/shield.css",
+    "registry": "src/modules/registry.ts",
+    "nav": "src/app/nav.ts",
+    "home": "src/pages/Home.tsx"
+  },
+  "entry": {
+    "screen": "home",
+    "action": "Click the featured \"AI Shield\" card (tag New) on Home, or \"AI Shield\" in the sidebar (Modules)",
+    "goesTo": "overview"
+  },
+  "routes": [
+    { "path": "/shield", "screen": "overview" },
+    { "path": "/shield/sessions", "screen": "sessions", "note": "Navigation state { filter: 'review' } opens it on the Needs review filter." },
+    { "path": "/shield/people", "screen": "people" },
+    { "path": "/shield/policy", "screen": "policy" },
+    { "path": "/shield/activity", "screen": "activity" },
+    { "path": "/shield/server", "screen": "server" },
+    { "path": "/shield/*", "note": "Anything else redirects to /shield." }
+  ],
+  "frame": {
+    "eyebrow": "AI Shield · Admin",
+    "breadcrumb": "Home › AI Shield › <tab> (Overview: Home › AI Shield)",
+    "tabs": ["Overview", "Sessions", "People", "Protection policy", "Admin activity", "Server"],
+    "tabsNote": "A tab bar under the page header (role=tablist, arrow keys move). Sessions shows a count badge of sessions that still need review.",
+    "sidebar": "AI Shield sits first under Modules, with a sub-menu: Sessions, People, Protection policy."
+  },
+  "screens": [
+    {
+      "id": "overview",
+      "title": "AI Shield",
+      "kind": "page",
+      "screenshot": "screens/01-overview.webp",
+      "components": ["page-header", "chip", "kpi-card", "chart", "button", "avatar", "icon"],
+      "layout": [
+        "Header chip: Server live (good)",
+        "Status strip: N approvers in place (Manage people) · X of Y endpoints protected (Server) · Policy version N (Review policy)",
+        "KPI cards: Endpoints protected · Sessions this week (N need review) · High-risk activity blocked (7 days) · AI tools in use",
+        "Panels: Sessions this week (columns by day) · What happened (donut of outcomes, last 7 days) · Needs your review (open sessions) · Agents needing attention (Endpoints) · Admin activity (30-day band + latest two, All activity)"
+      ]
+    },
+    {
+      "id": "sessions",
+      "title": "Sessions",
+      "kind": "page",
+      "screenshot": "screens/02-sessions.webp",
+      "components": ["segmented", "data-table", "text-field", "chip", "avatar"],
+      "filter": ["All", "Blocked", "Paused", "Warned", "Needs review", "Clean"],
+      "columns": ["Person", "AI tool", "What happened", "Sensitive data", "Risk", "Endpoint", "When"],
+      "rowOpen": "Opens the session detail panel beside the table"
+    },
+    {
+      "id": "session-detail",
+      "title": "<outcome headline>, e.g. \"Network detected\"",
+      "kind": "detail panel",
+      "screenshot": "screens/03-session-detail.webp",
+      "components": ["card", "chip", "button", "toast"],
+      "sections": ["Headline (outcome + policy action)", "Prompt or Upload, as recorded (masked)", "What was found (keywords)", "Details", "Timeline"],
+      "primary": { "label": "Mark as reviewed", "when": "outcome is Needs review and not yet reviewed", "does": "Marks it reviewed, logs Admin activity, toast \"Session reviewed\"" }
+    },
+    {
+      "id": "people",
+      "title": "People",
+      "kind": "page",
+      "screenshot": "screens/04-people.webp",
+      "components": ["segmented", "data-table", "text-field", "menu", "chip", "avatar", "button"],
+      "header": { "primary": { "label": "Add person", "icon": "user_plus", "opens": "drawer add-person" } },
+      "filter": ["Everyone", "Admins", "Approvers", "People"],
+      "columns": ["Person", "Role", "Unit", "Signs in with", "Status", "Last active"],
+      "rowMenu": [
+        { "label": "Edit", "disabledWhen": "Owner (\"Owners are managed by an Owner\")", "opens": "drawer edit-person" },
+        { "label": "Remove", "disabledWhen": "Owner, or yourself (\"You can't remove yourself\")", "opens": "dialog remove-person" }
+      ],
+      "rows": "People who left the directory are shown disabled."
+    },
+    {
+      "id": "policy",
+      "title": "Protection policy",
+      "kind": "page",
+      "screenshot": "screens/08-policy.webp",
+      "components": ["card", "chip", "dropdown", "button", "icon"],
+      "layout": [
+        "Header chip: Version N; description: N policies watching N keywords · published <when>",
+        "Legend card: Risk level (Low, Medium, High, Critical) and When it's found (Allow, Warn user, Block, Block & report)",
+        "One card per policy (9): title, blurb, risk chip, units chip, first 5 keywords (+N more), When found dropdown, N keywords, Edit"
+      ]
+    },
+    {
+      "id": "activity",
+      "title": "Admin activity",
+      "kind": "page",
+      "screenshot": "screens/11-activity.webp",
+      "components": ["card", "segmented", "data-table", "text-field", "chip", "avatar"],
+      "filter": ["Everything", "Appointed approvers", "People changes", "Protection policy changes", "Sign-ins", "System", "Other changes"],
+      "columns": ["When", "Who", "Action", "Details", "Type"]
+    },
+    {
+      "id": "server",
+      "title": "Server",
+      "kind": "page",
+      "screenshot": "screens/12-server.webp",
+      "components": ["card", "button", "chip", "dropdown", "radio-group", "toast"],
+      "cards": [
+        "Console (Running): Console URL + Copy, Certificate, Service, Version, Install path",
+        "Where data is stored: Database, Server, Port, Database name; Test connection → Connected · 12 ms",
+        "Where old data goes: Retention (1/3/6/9 months), After retention (archive / delete permanently); Discard + Save changes",
+        "Where admins and endpoints come from: Identity source (Connected), Domain, Service account, Last sync; Sync now",
+        "Licence: Licence id, Registered by, Activated, Expires, Endpoint seats meter; Activate another licence (toast: not part of this prototype yet)"
+      ]
+    }
+  ],
+  "dialogs": [
+    {
+      "id": "add-person",
+      "title": "Add person",
+      "kind": "drawer",
+      "screenshot": "screens/05-add-person.webp",
+      "components": ["drawer", "text-field", "dropdown", "radio-group", "button"],
+      "fields": [
+        { "id": "name", "label": "Full name", "required": true },
+        { "id": "email", "label": "Email", "required": true, "placeholder": "name@company.com" },
+        { "id": "role", "label": "Role", "options": ["User", "Approver", "Admin"], "help": "The role's one-line description" },
+        { "id": "source", "label": "Signs in with", "options": ["Active Directory", "Microsoft Entra ID", "Local account"] },
+        { "id": "unit", "label": "Unit", "optional": true, "options": ["Engineering", "Finance", "Legal", "Marketing", "Contractors"] }
+      ],
+      "errors": { "name": "Enter their full name.", "email": "Enter a valid work email." },
+      "primary": "Add person → toast \"<name> added\" (directory accounts are Invited until their first sign-in)"
+    },
+    {
+      "id": "edit-person",
+      "title": "<person name>",
+      "kind": "drawer",
+      "screenshot": "screens/06-edit-person.webp",
+      "components": ["drawer", "text-field", "dropdown", "button", "toast"],
+      "fields": [
+        { "id": "name", "label": "Full name" }, { "id": "email", "label": "Email" },
+        { "id": "role", "label": "Role", "disabledWhen": "it is you" }, { "id": "unit", "label": "Unit", "optional": true }
+      ],
+      "gettingBackIn": {
+        "local": "Reset password → a one-time password shown once, with Copy",
+        "directory": "Password lives in the directory; \"Simulate: they leave the organisation\" → Left the directory"
+      },
+      "primary": "Save changes → toast \"Saved\""
+    },
+    {
+      "id": "remove-person",
+      "title": "Remove <name>?",
+      "kind": "confirm dialog",
+      "screenshot": "screens/07-remove-person.webp",
+      "components": ["modal", "button", "toast"],
+      "primary": "Remove <first name> → toast \"Person removed\"; approvers get a different warning"
+    },
+    {
+      "id": "policy-editor",
+      "title": "<policy title>",
+      "kind": "drawer",
+      "screenshot": "screens/09-policy-editor.webp",
+      "components": ["drawer", "radio-group", "dropdown", "pill-input", "checkbox", "button"],
+      "fields": [
+        { "id": "risk", "label": "Risk level", "options": ["Low", "Medium", "High", "Critical"] },
+        { "id": "action", "label": "When it's found", "options": ["Allow", "Warn user", "Block", "Block & report"] },
+        { "id": "keywords", "label": "Keywords", "note": "Enter or comma adds; Backspace on empty removes the last" },
+        { "id": "units", "label": "Applies to", "options": ["Engineering", "Finance", "Legal", "Marketing", "Contractors"] }
+      ],
+      "primary": "Apply to draft (the change is published from the page)"
+    },
+    {
+      "id": "policy-publish",
+      "title": "Version N is ready to publish",
+      "kind": "save bar",
+      "screenshot": "screens/10-policy-publish.webp",
+      "components": ["button", "toast"],
+      "primary": "Publish version N → toast \"Version N published\"; Discard resets the draft"
+    }
+  ],
+  "data": {
+    "store": "src/modules/shield/store.ts — in memory; a page reload restores the seed data",
+    "every change": "is written to Admin activity (who, action, details, type)"
+  },
+  "notBuilt": [
+    "Activate another licence (shows a toast: not part of this prototype yet)",
+    "Owner-only server settings (console URL, certificate, database) are read-only here"
+  ]
+}

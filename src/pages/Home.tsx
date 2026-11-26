@@ -6,14 +6,14 @@ import home from '../data/home.json';
 import { mountThemedOrb } from '../vendor/themedOrb';
 
 /* SCR-PLAT-02 Home launcher, drawn as ui-design-system/04 § 2 (decisions D-01, D-04, D-05). */
-type HomeModule = { group: 'Security modules' | 'Workspace'; name: string; description: string; ai?: boolean; tag?: string };
+type HomeModule = { group: 'Security modules' | 'Workspace'; name: string; description: string; ai?: boolean; tag?: string; featured?: boolean };
 const MODULES = home.exports.HOME_MODULES as HomeModule[];
 const ROUTES: Record<string, string> = {
   Auditor: '/auditor', Identify: '/identify', Protect: '/protect', Trust: '/trust', Detect: '/detect/alert-status',
-  'My Lepide': '/my-lepide', Dashboards: '/dashboards', 'Lepide AI': '/lepide-ai',
+  'My Lepide': '/my-lepide', Dashboards: '/dashboards', 'Lepide AI': '/lepide-ai', 'AI Shield': '/shield',
 };
-const ICON: Record<string, ModuleIconName> = { Auditor: 'auditor', Identify: 'identify', Protect: 'protect', Trust: 'trust', Detect: 'detect', 'My Lepide': 'mylepide', Dashboards: 'dashboards', 'Lepide AI': 'ai' };
-const CLS: Record<string, string> = { Auditor: 'auditor', Identify: 'identify', Protect: 'protect', Trust: 'trust', Detect: 'detect', 'My Lepide': 'mylepide', Dashboards: 'dashboards' };
+const ICON: Record<string, ModuleIconName> = { Auditor: 'auditor', Identify: 'identify', Protect: 'protect', Trust: 'trust', Detect: 'detect', 'My Lepide': 'mylepide', Dashboards: 'dashboards', 'Lepide AI': 'ai', 'AI Shield': 'shield' };
+const CLS: Record<string, string> = { Auditor: 'auditor', Identify: 'identify', Protect: 'protect', Trust: 'trust', Detect: 'detect', 'My Lepide': 'mylepide', Dashboards: 'dashboards', 'AI Shield': 'shield' };
 const PERM: Record<string, Permission> = {
   Auditor: 'Auditor.Reports.Predefined.View', Trust: 'Trust.Reports.View', Detect: 'Detect.Alerts.Predefined.Access', Protect: 'Protect.Access',
   Identify: 'EDiscovery.Cases.View', 'My Lepide': 'MyLepide.Access', Dashboards: 'Dashboard.Predefined.Access',
@@ -91,12 +91,12 @@ export default function Home() {
               {items.map((m) => {
                 const perm = PERM[m.name]; const dis = !!perm && !hasPermission(perm); const ws = g === 'Workspace';
                 return (
-                  <a key={m.name} href={ROUTES[m.name]} className={'lf-card mod mod--' + CLS[m.name] + (ws ? ' mod--ws' : '')}
+                  <a key={m.name} href={ROUTES[m.name]} className={'lf-card mod mod--' + CLS[m.name] + (ws ? ' mod--ws' : '') + (m.featured ? ' mod--featured' : '')}
                     style={{ animationDelay: 80 + (k++) * 50 + 'ms', ...(dis ? { opacity: .5, cursor: 'not-allowed', transform: 'none' } : {}) }}
                     aria-label={`${m.name} — ${m.description}`} aria-disabled={dis || undefined} data-tip={dis ? 'Not granted by your administrator' : undefined}
                     onClick={(e) => { e.preventDefault(); open(m); }}>
                     <div className="mod__top"><span className="mod__ic"><ModuleIcon name={ICON[m.name]} size={20} /></span></div>
-                    <div className="mod__text"><h4>{m.name}</h4><p>{m.description}</p></div>
+                    <div className="mod__text"><h4>{m.name}{m.tag && <span className="lf-chip lf-chip--brand">{m.tag === 'NEW' ? 'New' : m.tag}</span>}</h4><p>{m.description}</p></div>
                     <div className="mod__foot"><span /><span className="mod__arrow"><Icon name="arrow" size={14} /></span></div>
                   </a>
                 );

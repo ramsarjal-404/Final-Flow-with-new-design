@@ -4,6 +4,13 @@
     "HOME_MODULES": [
       {
         "group": "Security modules",
+        "name": "AI Shield",
+        "description": "Scan every AI prompt and response in real time, and stop sensitive data leaving through chat assistants and copilots.",
+        "tag": "NEW",
+        "featured": true
+      },
+      {
+        "group": "Security modules",
         "name": "Auditor",
         "description": "Track user interactions to sensitive data and key infrastructure."
       },

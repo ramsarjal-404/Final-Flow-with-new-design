@@ -15,6 +15,7 @@ the screen like the screenshot with the Lepide Design System ([AGENTS.md](AGENTS
 | Flow | Steps and dialogs | Docs |
 |---|---|---|
 | **Add and manage an Active Directory data source** | Domain credentials → Domain configuration → IP configuration → Database settings → Organizational units → Object classes → Status → dialog “Configure auditing” → dialog “Select a Group Policy Object” → dialog “Create logon/logoff script” | [FLOW.md](flows/active-directory/FLOW.md) · [flow.json](flows/active-directory/flow.json) |
+| **AI Shield** | dialog “Add person” → dialog “<person name>” → dialog “Remove <name>?” → dialog “<policy title>” → dialog “Version N is ready to publish” | [FLOW.md](flows/ai-shield/FLOW.md) · [flow.json](flows/ai-shield/flow.json) |
 
 ## How the code is organised
 
@@ -43,6 +44,7 @@ the screen like the screenshot with the Lepide Design System ([AGENTS.md](AGENTS
 ![Home › AI Shield](.claude/skills/lepide-design-system/prototype/screens/shield.webp)
 
 - **Route** `/shield` · **Code** [`src/pages/Home.tsx`](src/pages/Home.tsx)
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md)
 - **Description** AI Shield · Admin
 - **Patterns** KPI row, chart panels, tabs, charts
 - **Tabs** `Overview` · `Sessions3` · `People` · `Protection policy` · `Admin activity` · `Server`
@@ -53,6 +55,7 @@ the screen like the screenshot with the Lepide Design System ([AGENTS.md](AGENTS
 ![Home › AI Shield › People](.claude/skills/lepide-design-system/prototype/screens/shield-people.webp)
 
 - **Route** `/shield/people` · **Code** [`src/pages/Home.tsx`](src/pages/Home.tsx)
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md)
 - **Description** AI Shield · Admin
 - **Patterns** data table, tabs
 - **Header actions** **Add person** (primary)
@@ -66,6 +69,7 @@ the screen like the screenshot with the Lepide Design System ([AGENTS.md](AGENTS
 ![Home › AI Shield › Server](.claude/skills/lepide-design-system/prototype/screens/shield-server.webp)
 
 - **Route** `/shield/server` · **Code** [`src/pages/Home.tsx`](src/pages/Home.tsx)
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md)
 - **Description** AI Shield · Admin
 - **Patterns** settings cards, tabs, key/value grid
 - **Tabs** `Overview` · `Sessions3` · `People` · `Protection policy` · `Admin activity` · `Server`
@@ -76,6 +80,7 @@ the screen like the screenshot with the Lepide Design System ([AGENTS.md](AGENTS
 ![Home › AI Shield › Protection policy](.claude/skills/lepide-design-system/prototype/screens/shield-policy.webp)
 
 - **Route** `/shield/policy` · **Code** [`src/pages/Home.tsx`](src/pages/Home.tsx)
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md)
 - **Description** AI Shield · Admin
 - **Patterns** tabs
 - **Tabs** `Overview` · `Sessions3` · `People` · `Protection policy` · `Admin activity` · `Server`
@@ -628,7 +633,7 @@ the screen like the screenshot with the Lepide Design System ([AGENTS.md](AGENTS
 
 ![Added data source for Active Directory](flows/active-directory/screens/01-overview.webp)
 
-- **Flow** [Add and manage an Active Directory data source](flows/active-directory/FLOW.md) · **Code** [`src/settings/categories/add-data-source/AdWizard.tsx`](src/settings/categories/add-data-source/AdWizard.tsx)
+- **Flow** [Add and manage an Active Directory data source](flows/active-directory/FLOW.md) · **Code** [`src/settings/categories/add-data-source/ActiveDirectory.tsx`](src/settings/categories/add-data-source/ActiveDirectory.tsx)
 
 #### Domain credentials
 
@@ -689,3 +694,77 @@ the screen like the screenshot with the Lepide Design System ([AGENTS.md](AGENTS
 ![Create logon/logoff script](flows/active-directory/screens/10-logon-script.webp)
 
 - **Flow** [Add and manage an Active Directory data source](flows/active-directory/FLOW.md) · **Code** [`src/settings/categories/add-data-source/AdWizard.tsx`](src/settings/categories/add-data-source/AdWizard.tsx)
+
+### AI Shield (flow)
+
+#### AI Shield
+
+![AI Shield](flows/ai-shield/screens/01-overview.webp)
+
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md) · **Code** [`src/modules/shield/Overview.tsx`](src/modules/shield/Overview.tsx)
+
+#### Sessions
+
+![Sessions](flows/ai-shield/screens/02-sessions.webp)
+
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md) · **Code** [`src/modules/shield/Sessions.tsx`](src/modules/shield/Sessions.tsx)
+
+#### <outcome headline>, e.g. "Network detected"
+
+![<outcome headline>, e.g. "Network detected"](flows/ai-shield/screens/03-session-detail.webp)
+
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md) · **Code** [`src/modules/shield/index.tsx`](src/modules/shield/index.tsx)
+
+#### People
+
+![People](flows/ai-shield/screens/04-people.webp)
+
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md) · **Code** [`src/modules/shield/People.tsx`](src/modules/shield/People.tsx)
+
+#### Protection policy
+
+![Protection policy](flows/ai-shield/screens/08-policy.webp)
+
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md) · **Code** [`src/modules/shield/Policy.tsx`](src/modules/shield/Policy.tsx)
+
+#### Admin activity
+
+![Admin activity](flows/ai-shield/screens/11-activity.webp)
+
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md) · **Code** [`src/modules/shield/Activity.tsx`](src/modules/shield/Activity.tsx)
+
+#### Server
+
+![Server](flows/ai-shield/screens/12-server.webp)
+
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md) · **Code** [`src/modules/shield/Server.tsx`](src/modules/shield/Server.tsx)
+
+#### Add person
+
+![Add person](flows/ai-shield/screens/05-add-person.webp)
+
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md) · **Code** [`src/modules/shield/index.tsx`](src/modules/shield/index.tsx)
+
+#### <person name>
+
+![<person name>](flows/ai-shield/screens/06-edit-person.webp)
+
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md) · **Code** [`src/modules/shield/index.tsx`](src/modules/shield/index.tsx)
+
+#### Remove <name>?
+
+![Remove <name>?](flows/ai-shield/screens/07-remove-person.webp)
+
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md) · **Code** [`src/modules/shield/index.tsx`](src/modules/shield/index.tsx)
+
+#### <policy title>
+
+![<policy title>](flows/ai-shield/screens/09-policy-editor.webp)
+
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md) · **Code** [`src/modules/shield/index.tsx`](src/modules/shield/index.tsx)
+
+#### Version N is ready to publish
+
+![Version N is ready to publish](flows/ai-shield/screens/10-policy-publish.webp)
+
+- **Flow** [AI Shield](flows/ai-shield/FLOW.md) · **Code** [`src/modules/shield/index.tsx`](src/modules/shield/index.tsx)

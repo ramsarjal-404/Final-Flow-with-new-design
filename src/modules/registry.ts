@@ -4,6 +4,7 @@ import { lazy } from 'react';
    its base path (nested <Routes> with relative paths). Routes: information-architecture.md § 2. */
 export const MODULE_ROUTES = [
   { path: '/lepide-ai/*', Page: lazy(() => import('./lepide-ai')) },
+  { path: '/shield/*', Page: lazy(() => import('./shield')) },
   { path: '/auditor/*', Page: lazy(() => import('./auditor')) },
   { path: '/trust/*', Page: lazy(() => import('./trust')) },
   { path: '/identify/*', Page: lazy(() => import('./identify')) },

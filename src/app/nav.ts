@@ -2,7 +2,7 @@ import type { IconName, ModuleIconName } from '../ui';
 import type { Permission } from './auth';
 
 /* ENT-PLAT-NavigationItem + Lepide Design System grouping (ui-design-system/02 § 2.3). */
-export type NavKey = 'home' | 'lepide-ai' | 'auditor' | 'trust' | 'detect' | 'protect' | 'identify' | 'mylepide' | 'dashboards' | 'settings';
+export type NavKey = 'home' | 'lepide-ai' | 'shield' | 'auditor' | 'trust' | 'detect' | 'protect' | 'identify' | 'mylepide' | 'dashboards' | 'settings';
 export type NavItem = {
   key: NavKey; label: string; path: string; icon: ModuleIconName | null; group?: 'Assistant' | 'Modules' | 'Workspace';
   permission?: Permission; menu?: { label: string; path: string; icon: IconName }[];
@@ -10,6 +10,8 @@ export type NavItem = {
 
 export const NAV: NavItem[] = [
   { key: 'lepide-ai', label: 'Lepide AI', path: '/lepide-ai', icon: 'ai', group: 'Assistant' },
+  { key: 'shield', label: 'AI Shield', path: '/shield', icon: 'shield', group: 'Modules',
+    menu: [{ label: 'Sessions', path: '/shield/sessions', icon: 'sparkles' }, { label: 'People', path: '/shield/people', icon: 'users' }, { label: 'Protection policy', path: '/shield/policy', icon: 'shield' }] },
   { key: 'auditor', label: 'Auditor', path: '/auditor', icon: 'auditor', group: 'Modules', permission: 'Auditor.Reports.Predefined.View' },
   { key: 'trust', label: 'Trust', path: '/trust', icon: 'trust', group: 'Modules', permission: 'Trust.Reports.View' },
   { key: 'detect', label: 'Detect', path: '/detect', icon: 'detect', group: 'Modules', permission: 'Detect.Alerts.Predefined.Access',
@@ -26,7 +28,7 @@ export const NAV: NavItem[] = [
 export function currentKey(path: string): NavKey | null {
   if (path === '/') return 'home';
   if (path.startsWith('/settings')) return 'settings';
-  const hit: Record<string, NavKey> = { '/lepide-ai': 'lepide-ai', '/auditor': 'auditor', '/trust': 'trust', '/detect': 'detect', '/protect': 'protect', '/identify': 'identify', '/my-lepide': 'mylepide', '/dashboards': 'dashboards' };
+  const hit: Record<string, NavKey> = { '/lepide-ai': 'lepide-ai', '/shield': 'shield', '/auditor': 'auditor', '/trust': 'trust', '/detect': 'detect', '/protect': 'protect', '/identify': 'identify', '/my-lepide': 'mylepide', '/dashboards': 'dashboards' };
   const k = Object.keys(hit).find((p) => path === p || path.startsWith(p + '/'));
   return k ? hit[k] : null;
 }

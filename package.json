@@ -10,6 +10,7 @@
     "preview": "vite preview --port 5175",
     "catalog": "node scripts/screens-catalog.mjs",
     "screens:ad": "node scripts/screens-ad.mjs",
+    "screens:shield": "node scripts/screens-shield.mjs",
     "check:ai": "node scripts/check-ai.mjs",
     "check:ai:online": "node scripts/check-ai.mjs --online"
   },

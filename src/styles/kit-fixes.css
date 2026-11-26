@@ -1,0 +1,7 @@
+/* Fixes for @lepide/ds-css until they land in the Lepide Design System. Delete a rule once the kit has it. */
+
+/* Solid danger button (ConfirmDialog's destructive primary, e.g. "Remove Karen", "Delete"): the kit's later
+   `.lf-btn--danger { color: var(--danger-text) }` overrides the solid variant's white label, leaving red text on a
+   red fill. Keep the label white (same token the kit's solid variant intends). */
+.lf-btn.lf-btn--danger-solid,
+.lf-btn.lf-btn--danger-solid:hover:not(:disabled) { color: var(--on-brand); }

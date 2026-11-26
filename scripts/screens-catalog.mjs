@@ -78,7 +78,7 @@ for (const f of flows) {
   for (const sc of [...(f.screens ?? []), ...(f.wizard?.steps ?? []), ...(f.dialogs ?? [])]) {
     const name = sc.title || sc.label;
     if (!sc.screenshot) continue;
-    out.push(`#### ${name}`, '', `![${name}](${f.dir}/${sc.screenshot})`, '', `- **Flow** [${f.title}](${f.dir}/FLOW.md) · **Code** ${src(f.code.wizard)}`, '');
+    out.push(`#### ${name}`, '', `![${name}](${f.dir}/${sc.screenshot})`, '', `- **Flow** [${f.title}](${f.dir}/FLOW.md) · **Code** ${src(f.code[sc.id] ?? f.code.wizard ?? Object.values(f.code)[0])}`, '');
   }
 }
 const text = out.join('\n').replace(/\n{3,}/g, '\n\n');

@@ -3,6 +3,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Link } from 'react-router-dom';
 import '@lepide/ds-css';
+import './styles/kit-fixes.css';
 import { ThemeProvider } from './app/theme';
 import { AuthProvider } from './app/auth';
 import { LepideProvider, ToastProvider, TooltipHost } from './ui';
