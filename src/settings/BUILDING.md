@@ -39,7 +39,7 @@ this prototype yet." Simulated server work (timers, fixed results) is fine — i
 Read the source files for props; they are short. Summary:
 
 - **Buttons**: `Button` (variant `secondary|primary|danger|danger-solid|ghost`, size `sm|md|lg`, `icon`, `iconEnd`, `loading`, `dot`, `block`), `IconButton` (`icon`, `label` required, `bordered`, `danger`).
-- **Icons**: `Icon name=…` (line set: see `lepide-design-system/packages/react/src/assets/icons.json` "line" keys), `ModuleIcon`.
+- **Icons**: `Icon name=…` (line set: see `.claude/skills/lepide-design-system/packages/react/src/assets/icons.json` "line" keys), `ModuleIcon`.
 - **Fields** (dialog style; inside a `Modal` body or any element with class `page-form`): `TextField`, `PasswordField`, `NumberField`, `TextAreaField`, `SelectField`, `SearchSelect`, `MultiSelect`, `Field` (wrapper for custom controls). Each takes `label`, `note`, `error`, `help`.
   For an unlabelled inline choice (time pickers, table cells) use `Dropdown` (`size="sm"`). Never a native `<select>` (D-24).
 - **Inline controls**: `PillInput`, `SearchField` (soft pill search), `Toggle` (`label` required), `Checkbox`, `RadioGroup`, `SettingRow` (title + help left, control right).

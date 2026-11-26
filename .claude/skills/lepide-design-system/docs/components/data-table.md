@@ -59,7 +59,8 @@ related: [drawer, empty-state, loading, menu, button]
 | Sorting | Click a sortable header: ascending; click again: descending; again: ascending. Sorting never clears. Numbers compare numerically; everything else with a case-insensitive, numeric-aware string compare. `initialSort` sets the starting sort |
 | Search | `search` (e.g. the value of a `SearchField`) keeps rows where any column's `value` contains the text, case-insensitive. Applied before column filters |
 | Column filters | Each filter keeps rows whose column `value` contains the typed text (case-insensitive, max 200 characters). Filters combine with AND |
-| Paging | `pageSizes` default `[10, 25, 50, 100]`; `defaultPageSize` default is the first size. Changing search, a filter or the page size goes back to page 1. The page input accepts a number on Enter or blur and reverts if out of range |
+| Toolbar | Optional: leave out `title` and `toolbar` and the table card starts with its header row (the count is then in the pager) |
+| Paging | `pager={false}` hides the pager and shows every row: for short lists inside a dialog or card (the locations a new case searches). Otherwise `pageSizes` default `[10, 25, 50, 100]`; `defaultPageSize` default is the first size. Changing search, a filter or the page size goes back to page 1. The page input accepts a number on Enter or blur and reverts if out of range |
 | Row hover | Cells turn `--surface-2`; row actions and the open arrow appear |
 | Keyboard focus on a row | Cells turn `--brand-50` |
 | Selected / active | Keys in `selected`, or the row matching `activeKey`, get `.is-sel`: `--brand-50` cells and a 3 px brand bar on the left of the first cell |
@@ -181,8 +182,9 @@ that takes the remaining space. Put a fixed class on the `<th>` and on that colu
 | `title` | `ReactNode` | — | Card toolbar: title (left), count noun, extra controls (right). Omit title to hide the toolbar. |
 | `noun` | `[string, string]` | `['record', 'records']` |  |
 | `toolbar` | `ReactNode` | — |  |
-| `search` | `string` | `''` | Global text filter applied before column filters (pass the value of a SearchField). |
+| `search` | `string` | `''` | Search text: the table filters `rows` by it across all columns (pass a SearchField's value; don't pre-filter for search). |
 | `pageSizes` | `number[]` | `[10, 25, 50, 100]` |  |
+| `pager` | `boolean` | `true` | false = no pager and every row shown: for short lists inside a dialog or card (a few chosen items). |
 | `defaultPageSize` | `number` | — |  |
 | `selectable` | `"multi" \| "single"` | — | Selection: 'multi' shows checkboxes; selected keys are controlled. |
 | `selected` | `string[]` | `[]` |  |
@@ -192,8 +194,9 @@ that takes the remaining space. Put a fixed class on the `<th>` and on that colu
 | `rowActions` | `((row: T) => ReactNode)` | — |  |
 | `isRowDisabled` | `((row: T) => boolean)` | — |  |
 | `loading` | `boolean` | — |  |
-| `empty` | `ReactNode` | — | Shown when there are no rows at all. |
-| `noResults` | `string` | `'No results match your search or filters.'` | Shown when filters/search exclude everything. |
+| `empty` | `ReactNode` | — | First use: shown when `rows` is empty and nothing filters them (an `EmptyState` that says how to add the first one). |
+| `noResults` | `string` | `'No results match your search or filters.'` | Shown when `search`, a column filter or `filtered` leaves no rows. Name what is missing: `No events match "finance".` |
+| `filtered` | `boolean` | — | Set when you filter `rows` yourself (e.g. a Segmented above the table), so an empty list shows `noResults`, not `empty`. |
 | `flat` | `boolean` | — |  |
 | `maxHeight` | `number` | — |  |
 | `initialSort` | `{ key: string; dir: "asc" \| "desc"; }` | — |  |

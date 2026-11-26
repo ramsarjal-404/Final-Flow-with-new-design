@@ -75,7 +75,12 @@ Plain HTML (with `@lepide/ds-css`):
     <p class="snav__title">Settings</p>
     <a class="snav__item" href="/settings/general"><svg class="lf-i" viewBox="0 0 24 24">…</svg><span>General</span></a>
     <a class="snav__item" href="/settings/mail" aria-current="page"><svg class="lf-i" viewBox="0 0 24 24">…</svg><span>Mail server and delivery</span></a>
+    <p class="snav__group">Data</p>
+    <a class="snav__item" href="/settings/exported-files"><svg class="lf-i" viewBox="0 0 24 24">…</svg><span>Exported files</span><span class="snav__badge">2</span></a>
   </nav>
+  <!-- under 860 px the nav hides and this shows instead; in static HTML a native select is the fallback -->
+  <div class="lf-field snav-select page-form"><div class="fld"><label class="fld__lbl" for="sec">Section</label>
+    <select id="sec"><option>General</option><option selected>Mail server and delivery</option></select></div></div>
   <section class="settings__body">…</section>
 </div>
 ```

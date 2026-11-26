@@ -3,7 +3,7 @@ title: Search select
 exports: [SearchSelect, MultiSelect]
 category: forms
 status: stable
-summary: Labelled select fields for long lists — SearchSelect picks one value with a search box past 8 options; MultiSelect picks several with checkboxes and an optional Select All.
+summary: Labelled select fields for long lists — SearchSelect picks one value with a search box past 8 options; MultiSelect picks several with checkboxes and an optional Select all row.
 classes: [dd, dd--pill, dd__trigger, dd__value, is-ph, dd__chev, dd__pop, dd__pop--multi, dd__search, dd__list, dd__opt, dd__empty, lf-check, lf-check__box, fld, fld__lbl, fld__err, is-bad, help]
 tokens: [--field-h, --field-radius, --option-h, --check-size, --surface, --surface-2, --border, --border-2, --brand, --brand-50, --brand-300, --brand-ink, --ring, --danger, --ink-2, --ink-3, --ink-4]
 related: [dropdown, checkbox, text-field, pill-input]
@@ -30,7 +30,7 @@ Both render inside `Field` (label, note, help, error) and use the `Dropdown` tri
 `MultiSelect` specifics:
 - Trigger text: the placeholder when empty; the labels joined with ", " for one or two values; "N selected" for three or more.
 - Panel `.dd__pop--multi`; each row is a `.lf-check` checkbox (16 px box, `--check-size`) with min-height 38 (`--option-h`), padding 0 10, radius 10.
-- Optional first row "Select All" (hidden while a search query is typed): checked when every option is selected, indeterminate when some are; it selects all non-disabled options or clears all.
+- Optional first row "Select all" (hidden while a search query is typed): checked when every option is selected, indeterminate when some are; it selects all non-disabled options or clears all.
 - The panel stays open while you tick rows; it closes on an outside click or Esc.
 
 ## Variants and sizes

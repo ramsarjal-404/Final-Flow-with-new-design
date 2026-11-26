@@ -1,6 +1,6 @@
 ---
 title: Avatar
-exports: [Avatar, Person]
+exports: [Avatar, Person, initialsOf]
 category: display
 status: stable
 summary: Round initials avatar with a tint picked from the name, and Person, an avatar plus name and optional detail on one line.
@@ -88,6 +88,12 @@ Plain HTML (with `@lepide/ds-css`):
 |---|---|---|---|
 | `name` * | `string` | — |  |
 | `sub` | `string` | — |  |
+
+### `initialsOf` (function)
+
+```ts
+function initialsOf(name: string): string
+```
 
 `*` required.
 <!-- props:end -->

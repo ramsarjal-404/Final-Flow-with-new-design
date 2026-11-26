@@ -8,7 +8,8 @@
     "ink": { "$value": "#000000" }, "ink-2": { "$value": "#1f2328" }, "ink-3": { "$value": "#3d434c" }, "ink-4": { "$value": "#5b616b" },
     "border": { "$value": "#5b616b" }, "border-2": { "$value": "#3d434c" }, "border-soft": { "$value": "#5b616b" },
     "brand": { "$value": "#0f3480" }, "brand-ink": { "$value": "#0f3480" },
-    "success-dot": { "$value": "#0f7353" }, "warning-dot": { "$value": "#985107" }
+    "success-dot": { "$value": "#0f7353" }, "warning-dot": { "$value": "#985107" },
+    "chart-text": { "$value": "#3d434c" }, "chart-grid": { "$value": "#c3c8cf" }, "chart-track": { "$value": "#dfe2e6" }
   },
   "component": {
     "$type": "color",

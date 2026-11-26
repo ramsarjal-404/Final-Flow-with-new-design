@@ -17,7 +17,8 @@
     "brand-200": { "$value": "#2e4378" }, "brand-100": { "$value": "#22305a" }, "brand-50": { "$value": "#1a2540" },
     "success": { "$value": "#4cc79a" }, "success-bg": { "$value": "#10261e" }, "success-text": { "$value": "#4cc79a" },
     "warning": { "$value": "#f2b25c" }, "warning-bg": { "$value": "#2a1f0e" }, "warning-text": { "$value": "#f2b25c" },
-    "danger":  { "$value": "#f07a7e" }, "danger-bg":  { "$value": "#2c1416" }, "danger-text":  { "$value": "#f07a7e" }
+    "danger":  { "$value": "#f07a7e" }, "danger-bg":  { "$value": "#2c1416" }, "danger-text":  { "$value": "#f07a7e" },
+    "chart-text": { "$value": "#9aa1ad" }, "chart-grid": { "$value": "#2b313b" }, "chart-track": { "$value": "#252b34" }
   },
   "gradient": {
     "sel-fill": {

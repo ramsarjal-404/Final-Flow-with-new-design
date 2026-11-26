@@ -106,8 +106,8 @@ Plain HTML (with `@lepide/ds-css`):
 
 | Prop | Type | Default | Notes |
 |---|---|---|---|
-| `trigger` * | `(p: { onClick: () => void; 'aria-expanded': boolean; 'aria-haspopup': "menu"; }) => ReactNode` | — |  |
-| `items` | `MenuItem[]` | — |  |
+| `trigger` * | `(p: { onClick: () => void; 'aria-expanded': boolean; 'aria-haspopup': "menu"; }) => ReactNode` | — | Render the button that opens the menu and spread `p` onto it: `trigger={(p) => <IconButton icon="more" label="Actions" {...p} />}`. |
+| `items` | `MenuItem[]` | — | The entries; `{ separator: true }` draws a divider. Or pass `children` for custom content. |
 | `align` | `"up" \| "right" \| "left"` | `'right'` |  |
 | `label` | `string` | — |  |
 | `width` | `number` | — |  |
@@ -119,7 +119,7 @@ Plain HTML (with `@lepide/ds-css`):
 // import type { IconName } from '@lepide/ds-react'
 type IconName = keyof typeof icons.line;
 // import type { MenuItem } from '@lepide/ds-react'
-type MenuItem = { label: string; icon?: IconName; onSelect?: () => void; disabled?: boolean; /** Tooltip with the reason a disabled item can't be used. */ reason?: string; danger?: boolean; selected?: boolean; separator?: boolean; };
+type MenuItem = { /** The entry's text (every entry except a separator has one). */ label?: string; icon?: IconName; onSelect?: () => void; disabled?: boolean; /** Tooltip with the reason a disabled item can't be used. */ reason?: string; danger?: boolean; selected?: boolean; /** Draws a divider instead of an entry; the other fields are ignored. */ separator?: boolean; };
 ```
 
 `*` required.

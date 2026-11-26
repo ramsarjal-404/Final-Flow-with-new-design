@@ -1,10 +1,7 @@
 {
   "mcpServers": {
     "lepide-design-system": {
-      "command": "node",
-      "args": [
-        "${workspaceFolder}/../lepide-design-system/packages/mcp/server.mjs"
-      ]
+      "url": "https://lepide-new-ds.vercel.app/mcp"
     }
   }
 }

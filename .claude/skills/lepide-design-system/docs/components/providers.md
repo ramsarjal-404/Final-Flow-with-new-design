@@ -1,6 +1,6 @@
 ---
 title: Providers
-exports: [LepideProvider, ThemeProvider]
+exports: [LepideProvider, ThemeProvider, useTheme, useLepideLink]
 category: foundation
 status: stable
 summary: App-root setup. LepideProvider plugs in your router's link; ThemeProvider stores the light, dark or hc theme and applies it as <html data-theme>. Mount ToastProvider and TooltipHost once beside them.
@@ -14,7 +14,7 @@ related: [page-header, toast, tooltip, button]
 ## When to use
 Once, at the root of every app built with the Lepide Design System:
 
-- `ThemeProvider`: always. It reads the saved theme, sets `data-theme` on `<html>` and gives you `useTheme()` for a theme switcher.
+- `ThemeProvider`: always. It reads the saved theme (light when none is saved, never the OS dark-mode setting), sets `data-theme` on `<html>` and gives you `useTheme()` for a theme switcher.
 - `LepideProvider`: when the app has a client-side router, so kit links (breadcrumbs in `PageHeader`) navigate without a full page load. Optional: without it, links are plain `<a href>`.
 - `ToastProvider` (from the toast docs): always, so `useToast()` works anywhere below it.
 - `TooltipHost` (from the tooltip docs): always, once, so `data-tip` attributes, `IconButton` labels and disabled `Menu` item reasons show as tooltips.
@@ -61,7 +61,7 @@ None.
 ## States
 | Theme | `data-theme` | Status |
 |---|---|---|
-| Light | `light` | Stable (default) |
+| Light | `light` | Stable — the default and primary theme: used when nothing is saved |
 | Dark | `dark` | Stable |
 | High contrast | `hc` | Stable |
 
@@ -134,6 +134,20 @@ function ThemeSwitch() {
 | `children` * | `ReactNode` | — |  |
 | `storageKey` | `string` | `'lepide.theme'` |  |
 
+### `useTheme` (hook)
+
+```ts
+function useTheme(): { theme: Theme; setTheme: (t: Theme) => void; }
+```
+
+### `useLepideLink` (hook)
+
+```ts
+function useLepideLink(): LinkComponent
+```
+
+The link component internal navigation uses (breadcrumbs). Defaults to a plain <a href>.
+
 ### Types
 
 ```ts
@@ -141,6 +155,8 @@ function ThemeSwitch() {
 type LinkComponent = ComponentType<LinkProps>;
 // import type { LinkProps } from '@lepide/ds-react'
 type LinkProps = { to: string; className?: string; children?: ReactNode; /** Set on the link to the page being viewed (section navigation). Pass it through to the <a>. */ 'aria-current'?: 'page' | 'step' | 'location' | 'true'; onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void; };
+// import type { Theme } from '@lepide/ds-react'
+type Theme = 'light' | 'dark' | 'hc';
 ```
 
 `*` required.

@@ -44,7 +44,7 @@ None.
 ## Accessibility
 - The indicator is an `<ol aria-label="Progress">`; the current step has `aria-current="step"`. Step labels are React keys, so they must be unique.
 - All footer controls are real `<button>`s in reading order: Back, extra, Cancel, Next/Finish.
-- When the step changes, move focus to the step's first field or heading (the card does not do this for you), so keyboard and screen-reader users start at the new content.
+- When the step changes, the card moves focus to the new step's body (named "Step 2 of 4: Conditions"), so keyboard and screen-reader users start at the new content.
 - Show validation errors on the fields (`Field` `error`, which renders `role="alert"`) rather than only disabling Next.
 
 ## Do and don't

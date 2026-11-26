@@ -1,6 +1,6 @@
 ---
 title: Chip
-exports: [Chip, ToneTag, Counter]
+exports: [Chip, ToneTag, Counter, toneFor, STATUS_TONES]
 category: display
 status: stable
 summary: Small read-only pills. Chip labels a thing, ToneTag shows a status with a dot and text, Counter shows a number.
@@ -14,6 +14,7 @@ related: [avatar, icon, segmented]
 ## When to use
 - `Chip`: a short, read-only label on an object — a type, a category, a role, "Beta", "AI", a licence state next to a title.
 - `ToneTag`: the status of a record in a table or detail panel ("Enabled", "Failed", "Pending"). Use `toneFor(status)` to pick the tone from the status word.
+- `ToneTag` for actions in an activity log, treated like a status: Deleted `bad`, Permission changed `warn`, Created `good`, Modified `info`, Renamed and anything else `none` (grey).
 - `Counter`: a number beside a toolbar or section title ("Showing 1,204 events").
 
 ## When not to use
@@ -56,13 +57,13 @@ the table is `warn`. Unknown labels are `none`. Off states are neutral, not erro
 
 | Tone | Statuses |
 |---|---|
-| `bad` | Failed, Error, Stopped, Expired, Denied, Invalid, Offline, Critical, Down, Disconnected, Unhealthy, Broken, Revoked, Blocked, Unreachable, Not running, Not connected |
-| `warn` | Warning, Pending, Queued, In queue, Paused, Partial, Expiring, Degraded, Waiting, Unlicensed, Incomplete, On hold, Not configured, Not licensed, Not started |
+| `bad` | Failed, Error, Stopped, Expired, Denied, Invalid, Offline, Critical, Down, Disconnected, Unhealthy, Broken, Revoked, Blocked, Unreachable, Not running, Not connected, Firewall blocked, Permission denied |
+| `warn` | Warning, Pending, Queued, In queue, Paused, Partial, Expiring, Degraded, Waiting, Unlicensed, Incomplete, On hold, Not configured, Not licensed, Not started, Timed out, Connection timed out |
 | `info` | In progress, Indexing, Scanning, Installing, Updating, Starting, Syncing, Processing |
-| `none` | Disabled, Inactive, Uninstalled, Not installed, Cancelled, Scheduled, Draft, Downloaded, Never started, Ready to install |
-| `good` | Enabled, Active, Running, Success, Successful, Completed, Installed, Indexed, Online, Connected, Healthy, Valid, Licensed, Ready, Up to date |
+| `none` | Disabled, Inactive, Uninstalled, Agent uninstalled, Not installed, Cancelled, Scheduled, Draft, Downloaded, Never started, Ready to install, User logged out |
+| `good` | Enabled, Active, Running, Success, Successful, Completed, Update completed, Installed, Indexed, Online, Connected, Healthy, Valid, Licensed, Ready, Up to date, Saved, Settings saved, Synced, Data synced, Updated |
 
-When a screen has its own vocabulary, pass the tone explicitly or spread `STATUS_TONES` into your own map.
+Status words are sentence case ("Update completed", not "Update Completed"). When a screen has its own vocabulary, pass the tone explicitly or spread `STATUS_TONES` into your own map.
 
 One size each. Inside tables a chip truncates with an ellipsis; inside KPI cards it is 24 px tall.
 
@@ -115,7 +116,7 @@ Plain HTML (with `@lepide/ds-css`):
 |---|---|---|---|
 | `children` * | `ReactNode` | — |  |
 | `tone` | `Tone` | `'neutral'` |  |
-| `icon` | `"settings" \| "chevron" \| "arrow" \| "plus" \| "search" \| "calendar" \| "refresh" \| "external" \| "share" \| "up" \| "down" \| "eye" \| "folder" \| "file" \| "filter" \| "download" \| "user" \| "logout" \| "collapse" \| "chevron-right" \| "chevrons-left" \| "chevrons-right" \| "check" \| "x" \| "minus" \| "sort" \| "trash" \| "chevron-left" \| "lock" \| "sparkles" \| "star" \| "bell" \| "users" \| "clipboard" \| "home" \| "mail" \| "file-search" \| "edit" \| "more" \| "info" \| "alert" \| "upload" \| "server" \| "database" \| "globe" \| "key" \| "shield" \| "clock" \| "play" \| "pause" \| "link" \| "copy" \| "layers" \| "archive" \| "list" \| "sliders" \| "plug" \| "card" \| "history" \| "restore" \| "send" \| "terminal" \| "cpu" \| "tag" \| "cloud" \| "building" \| "user_plus" \| "save" \| "grid"` | — |  |
+| `icon` | `IconName` | — |  |
 | `title` | `string` | — |  |
 
 ### `ToneTag`
@@ -131,9 +132,28 @@ Plain HTML (with `@lepide/ds-css`):
 |---|---|---|---|
 | `children` * | `ReactNode` | — |  |
 
+### `toneFor` (function)
+
+```ts
+function toneFor(status: string): StatusTone
+```
+
+Tone for a status label: STATUS_TONES first, then whole words in the order bad → warn → info → none → good,
+so "Completed with errors" is bad and "Unhealthy" never matches "healthy". Unknown words are neutral.
+
+### `STATUS_TONES` (constant)
+
+```ts
+const STATUS_TONES: Record<string, StatusTone>
+```
+
+Lepide status words and their tone. Off states (Disabled, Uninstalled, Cancelled…) are neutral, not errors.
+
 ### Types
 
 ```ts
+// import type { IconName } from '@lepide/ds-react'
+type IconName = keyof typeof icons.line;
 // import type { Tone } from '@lepide/ds-react'
 type Tone = 'neutral' | 'brand' | 'good' | 'warn' | 'bad' | 'flat';
 // import type { StatusTone } from '@lepide/ds-react'

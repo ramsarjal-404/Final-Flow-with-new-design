@@ -30,7 +30,7 @@ Container CSS often overrides the size: chips 12 px (stroke 2), menu items 15 px
 
 **ModuleIcon**: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">`, default 20 px (`size`). The glyphs draw with `currentColor`; there is no `lf-i` class.
 
-**BrandMark**: `<span class="lf-dock__mark">` — a 36 × 36 white tile (`--surface`), radius 11, `--sh-xs` plus a 1 px inset `--border-soft` ring — holding the mark as a 24 × 24 `<img alt="">` (the mark is sky blue `#2996D3`). `size` changes the tile only; the image stays 24 px.
+**BrandMark**: `<span class="lf-dock__mark">` — a 36 × 36 white tile (`--surface`), radius 11, `--sh-xs` plus a 1 px inset `--border-soft` ring — holding the mark as a 24 × 24 `<img alt="">` (the mark is `brand/lepide-mark.svg`, sky blue `#2498D4`). `size` changes the tile only; the image stays 24 px.
 
 ## Variants and sizes
 Size tokens (pass the number to `size`):
@@ -97,7 +97,7 @@ Plain HTML (with `@lepide/ds-css`):
 
 | Prop | Type | Default | Notes |
 |---|---|---|---|
-| `name` * | `"settings" \| "chevron" \| "arrow" \| "plus" \| "search" \| "calendar" \| "refresh" \| "external" \| "share" \| "up" \| "down" \| "eye" \| "folder" \| "file" \| "filter" \| "download" \| "user" \| "logout" \| "collapse" \| "chevron-right" \| "chevrons-left" \| "chevrons-right" \| "check" \| "x" \| "minus" \| "sort" \| "trash" \| "chevron-left" \| "lock" \| "sparkles" \| "star" \| "bell" \| "users" \| "clipboard" \| "home" \| "mail" \| "file-search" \| "edit" \| "more" \| "info" \| "alert" \| "upload" \| "server" \| "database" \| "globe" \| "key" \| "shield" \| "clock" \| "play" \| "pause" \| "link" \| "copy" \| "layers" \| "archive" \| "list" \| "sliders" \| "plug" \| "card" \| "history" \| "restore" \| "send" \| "terminal" \| "cpu" \| "tag" \| "cloud" \| "building" \| "user_plus" \| "save" \| "grid"` | — |  |
+| `name` * | `IconName` | — |  |
 | `size` | `number` | `16` |  |
 | `className` | `string` | — |  |
 
@@ -105,7 +105,7 @@ Plain HTML (with `@lepide/ds-css`):
 
 | Prop | Type | Default | Notes |
 |---|---|---|---|
-| `name` * | `"settings" \| "ai" \| "auditor" \| "trust" \| "detect" \| "protect" \| "identify" \| "mylepide" \| "dashboards"` | — |  |
+| `name` * | `ModuleIconName` | — |  |
 | `size` | `number` | `20` |  |
 
 ### `BrandMark`
@@ -113,6 +113,23 @@ Plain HTML (with `@lepide/ds-css`):
 | Prop | Type | Default | Notes |
 |---|---|---|---|
 | `size` | `number` | `36` |  |
+
+### `MARK_URL` (constant)
+
+```ts
+const MARK_URL: string
+```
+
+URL of the Lepide mark SVG (a data URL), for <img>, favicons or a plain-HTML page.
+
+### Types
+
+```ts
+// import type { IconName } from '@lepide/ds-react'
+type IconName = keyof typeof icons.line;
+// import type { ModuleIconName } from '@lepide/ds-react'
+type ModuleIconName = keyof typeof icons.module;
+```
 
 `*` required.
 <!-- props:end -->

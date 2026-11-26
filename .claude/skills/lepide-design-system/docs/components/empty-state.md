@@ -1,5 +1,5 @@
 ---
-title: EmptyState
+title: Empty state
 exports: [EmptyState]
 category: feedback
 status: stable
@@ -9,7 +9,7 @@ tokens: [--surface, --surface-2, --brand, --danger-bg, --danger-text, --ink, --i
 related: [loading, banner, card, button]
 ---
 
-# EmptyState
+# Empty state
 
 ## When to use
 - A list, table or panel has nothing to show yet ("No reports yet").
@@ -19,7 +19,7 @@ related: [loading, banner, card, button]
 
 ## When not to use
 - While data is loading: use `SkeletonRows` or `PageLoader`.
-- Inside `DataTable`, don't render it beside the table: pass it to the table's `empty` prop (shown when the table has no rows). When filters leave no rows, the table shows its own `.empty-cell` message.
+- Inside `DataTable`, don't render it beside the table: pass it to the table's `empty` prop, for first use (no rows at all). When search or filters leave no rows, the table shows its own `noResults` line instead (`.empty-cell`); if you filter `rows` yourself, also pass `filtered`. Outside a table (a filtered card grid, a chart with no data), an `EmptyState` with "Clear filters" is the no-results state.
 - A page-level notice that sits above content that is still shown: use `Banner`.
 - Transient confirmation of an action: use a toast.
 
@@ -54,6 +54,7 @@ None. The `ring-out` pulse stops after one cycle under `prefers-reduced-motion`.
 | Say what is empty and what to do next | "No data" with no explanation |
 | Name what didn't match: `No reports match "finance".` (generic: `No results match your search or filters.`) | "Sorry, …", Title Case or exclamation marks |
 | One action that fixes the state ("Clear filters", "Add server") | Several competing buttons |
+| The action is secondary when the page header already has the primary (the same "Add server"); primary only when the view has no other | A second primary in the empty table under the header's primary |
 | `tone="error"` with a "Try again" action for load failures | A red banner and an empty state for the same error |
 | `compact` inside cards | A 300 px tall block in a small panel |
 
@@ -100,11 +101,18 @@ Plain HTML (with `@lepide/ds-css`):
 | Prop | Type | Default | Notes |
 |---|---|---|---|
 | `title` * | `ReactNode` | — |  |
-| `icon` | `"settings" \| "chevron" \| "arrow" \| "plus" \| "search" \| "calendar" \| "refresh" \| "external" \| "share" \| "up" \| "down" \| "eye" \| "folder" \| "file" \| "filter" \| "download" \| "user" \| "logout" \| "collapse" \| "chevron-right" \| "chevrons-left" \| "chevrons-right" \| "check" \| "x" \| "minus" \| "sort" \| "trash" \| "chevron-left" \| "lock" \| "sparkles" \| "star" \| "bell" \| "users" \| "clipboard" \| "home" \| "mail" \| "file-search" \| "edit" \| "more" \| "info" \| "alert" \| "upload" \| "server" \| "database" \| "globe" \| "key" \| "shield" \| "clock" \| "play" \| "pause" \| "link" \| "copy" \| "layers" \| "archive" \| "list" \| "sliders" \| "plug" \| "card" \| "history" \| "restore" \| "send" \| "terminal" \| "cpu" \| "tag" \| "cloud" \| "building" \| "user_plus" \| "save" \| "grid"` | — |  |
+| `icon` | `IconName` | — |  |
 | `message` | `ReactNode` | — |  |
 | `action` | `ReactNode` | — |  |
 | `compact` | `boolean` | — |  |
 | `tone` | `"error"` | — |  |
+
+### Types
+
+```ts
+// import type { IconName } from '@lepide/ds-react'
+type IconName = keyof typeof icons.line;
+```
 
 `*` required.
 <!-- props:end -->

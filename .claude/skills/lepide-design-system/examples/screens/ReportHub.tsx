@@ -111,7 +111,7 @@ export default function ReportHub() {
               items={[
                 { label: 'Open', icon: 'external', onSelect: () => open(r) },
                 { label: 'Add to My Lepide', icon: 'star', onSelect: () => pin(r) },
-                { separator: true, label: '' },
+                { separator: true },
                 { label: 'Delete', icon: 'trash', danger: true, onSelect: () => setToDelete(r) },
               ]}
             />

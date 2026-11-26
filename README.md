@@ -1,7 +1,10 @@
 # Lepide console — new design (Lepide Design System)
 
 A clickable React prototype of the whole Lepide (LDSP) console, built from the product architecture
-(`product-blueprint/modules/**`) and drawn in the **Lepide Design System** (`product-blueprint/ui-design-system/`).
+(`product-blueprint/modules/**`) and drawn in the **Lepide Design System** (https://lepide-new-ds.vercel.app).
+
+**Building with an AI tool?** Read [AGENTS.md](AGENTS.md) for the design rules and [flows/](flows/README.md) for documented flows such as
+[Active Directory](flows/active-directory/FLOW.md).
 
 ## Run it
 
@@ -39,7 +42,8 @@ except the session, theme and a few stores the specs persist.
 | Path | What |
 |---|---|
 | `src/ui/` | Re-exports the Lepide Design System UI kit (`@lepide/ds-react` and its charts) — every screen uses only these components |
-| `../lepide-design-system/` | The design system: tokens, `@lepide/ds-css` (stylesheet + themes) and `@lepide/ds-react` (UI kit), linked as `file:` dependencies. After changing it, run `npm run build` there, then restart `npm run dev` here |
+| `.claude/skills/lepide-design-system/` | A copy of the Lepide Design System spec, component docs, tokens and golden screens, for people and AI tools. The kit itself (`@lepide/ds-css`, `@lepide/ds-react`) installs from https://lepide-new-ds.vercel.app/ds/lepide-ds-react.tgz and `…/ds/lepide-ds-css.tgz` |
+| `flows/` | Flows written for AI tools: each one's steps, fields, rules and screenshots ([flows/README.md](flows/README.md)) |
 | `src/app/` | Session, theme, console shell, navigation |
 | `src/reports/` | Shared Report Library used by Auditor, Trust, Identify and My Lepide (API: `src/reports/README.md`) |
 | `src/modules/<module>/` | One folder per module, registered in `src/modules/registry.ts` |
@@ -55,3 +59,16 @@ To add or change a module, read `src/modules/BUILDING.md` (and `src/settings/BUI
 - Selected and active states use the primary brand blue (`--brand`), not black (product decision D-06).
 - One primary button per screen; destructive actions confirm first; empty states use the Lepide Design System empty field.
 - Stack: React 18, TypeScript, react-router 6, Vite 5, Highcharts 13 (needs a commercial licence to ship). Fonts: Manrope and Geist Mono.
+
+## Keeping it readable by AI tools
+
+| Command | What |
+|---|---|
+| `npm run check:ai` | Fails on any broken link, missing screenshot or file, or a reference outside this repository (`--online`: `npm run check:ai:online` also checks every live design-system address) |
+| `npm run catalog` | Regenerates [SCREENS.md](SCREENS.md) from the captured screens and the flows in [flows/](flows/README.md) |
+| `npm run screens:ad` | Retakes the Active Directory flow screenshots (needs `npm run dev` and Chrome or Edge) |
+
+The design-system copy in `.claude/skills/lepide-design-system/` comes from the design system's `ai/install.mjs --remote`.
+Two edits keep it free of dead links: the catalog's per-screen "open live" links (deep links 404 on the live
+prototype) and DESIGN.md's "Online" examples line (not deployed yet) are removed. After reinstalling, run
+`npm run check:ai`; it names anything that needs the same edit.

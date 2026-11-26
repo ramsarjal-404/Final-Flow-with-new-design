@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Card, Dropdown, IconButton, Menu, PageHeader, useToast } from '@lepide/ds-react';
+import { Button, Card, Dropdown, IconButton, Menu, PageHeader, fmtDateTime, useToast } from '@lepide/ds-react';
 import { Chart, KpiCard } from '@lepide/ds-react/charts';
 
 /* Dashboard (DESIGN.md §4.2): page header with a dashboard switcher and Refresh, a KPI row, then chart panels
@@ -12,8 +12,7 @@ const DASHBOARDS = [
   { value: 'ad', label: 'Active Directory changes' },
 ];
 
-const stamp = (d: Date) =>
-  'Last updated on ' + d.toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+const stamp = (d: Date) => 'Last updated on ' + fmtDateTime(d);
 
 /* Chart colours use the product colour names, which Chart resolves to Lepide Design System values (DESIGN.md §2.3). */
 const RISK_BANDS = [

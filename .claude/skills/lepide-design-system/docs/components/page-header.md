@@ -1,5 +1,5 @@
 ---
-title: PageHeader
+title: Page header
 exports: [PageHeader]
 category: navigation
 status: stable
@@ -9,7 +9,7 @@ tokens: [--type-page-title, --type-eyebrow, --brand, --ink, --ink-2, --ink-3, --
 related: [providers, button, chip, card]
 ---
 
-# PageHeader
+# Page header
 
 ## When to use
 - Once at the top of every console page (dashboards, reports, settings, detail pages), directly above the page content.
@@ -57,6 +57,9 @@ Responsive: at 860 px and below the title is 26/32; at 620 px and below the acti
 | One primary button, last in `actions` | Several primaries or a primary on the left |
 | A one-sentence `description` of what the page shows | Long help text; link to docs instead |
 | Set `LepideProvider link` so crumbs use your router | Full page reloads from breadcrumb clicks in a single-page app |
+
+`chip` sits inside the title, for a status of the page ("Live"). Anything that sits under the title — a meta chip such
+as the dashboard name, page tabs, a filter row — goes in `children`.
 
 ## Example
 ```tsx

@@ -1,0 +1,783 @@
+{
+  "$schema": "../flow.schema.json",
+  "id": "active-directory",
+  "title": "Add and manage an Active Directory data source",
+  "version": "1.0.0",
+  "source": {
+    "figma": "https://www.figma.com/design/sPRioBwcfFrdLOXUFRvSV9/Active-Directory-config?node-id=13-1659",
+    "note": "The Figma file gives the flow and content only. The look is the Lepide Design System; never copy Figma's styling."
+  },
+  "designSystem": {
+    "name": "Lepide Design System",
+    "mcp": "https://lepide-new-ds.vercel.app/mcp",
+    "spec": "https://lepide-new-ds.vercel.app/DESIGN.md",
+    "specInRepo": ".claude/skills/lepide-design-system/DESIGN.md",
+    "componentDocsInRepo": ".claude/skills/lepide-design-system/docs/components/",
+    "componentDocsLive": "https://lepide-new-ds.vercel.app/components/",
+    "react": [
+      "@lepide/ds-react",
+      "@lepide/ds-css"
+    ],
+    "install": "npm install https://lepide-new-ds.vercel.app/ds/lepide-ds-css.tgz https://lepide-new-ds.vercel.app/ds/lepide-ds-react.tgz"
+  },
+  "code": {
+    "wizard": "src/settings/categories/add-data-source/AdWizard.tsx",
+    "overview": "src/settings/categories/add-data-source/ActiveDirectory.tsx",
+    "data": "src/settings/categories/add-data-source/adData.ts",
+    "store": "src/settings/categories/add-data-source/store.ts",
+    "styles": "src/settings/categories/add-data-source/styles.css",
+    "routes": "src/settings/categories/add-data-source/index.tsx",
+    "entry": "src/settings/categories/add-data-source/Picker.tsx"
+  },
+  "routes": [
+    {
+      "path": "/settings/add-data-source",
+      "screen": "picker",
+      "note": "The Active Directory tile shows \"N configured\" and opens the overview."
+    },
+    {
+      "path": "/settings/add-data-source/active-directory",
+      "screen": "overview",
+      "note": "With no domain added yet, the wizard opens at once (navigation state { add: true })."
+    }
+  ],
+  "entry": {
+    "screen": "picker",
+    "action": "Click the Active Directory tile",
+    "goesTo": "overview, or the wizard when no domain is added"
+  },
+  "screens": [
+    {
+      "id": "overview",
+      "title": "Added data source for Active Directory",
+      "kind": "page",
+      "screenshot": "screens/01-overview.webp",
+      "components": [
+        "button",
+        "segmented",
+        "card",
+        "data-table",
+        "chip",
+        "modal",
+        "toast"
+      ],
+      "header": {
+        "primary": {
+          "label": "Add domain",
+          "icon": "plus",
+          "opens": "wizard (add)"
+        }
+      },
+      "layout": [
+        "Breadcrumb: Add Data Source / Active Directory",
+        "Title with building icon and the count of audited domains",
+        "Segmented: one item per domain (picks the domain shown below)",
+        "Left: 'Domain actions' pane",
+        "Right: card 'Credentials for <domain>' with the server table, then card 'Profile information' (key/values)"
+      ],
+      "serverTable": {
+        "columns": [
+          "Server",
+          "Change auditing status",
+          "Health monitoring status",
+          "Non-owner mailbox agent status",
+          "Details (IP address)"
+        ],
+        "groups": [
+          "Active Directory & Exchange Server",
+          "Group Policy"
+        ],
+        "status": {
+          "change": {
+            "off": "Not audited (neutral)",
+            "agentInstalled": "Auditing started (good)",
+            "agentMissing": "Agent not installed (bad)"
+          },
+          "health": {
+            "componentOffOrServerOff": "N/A",
+            "on": "Healthy (good)"
+          },
+          "mailbox": {
+            "componentOffOrServerOff": "N/A",
+            "agentInstalled": "Installed (good)",
+            "agentMissing": "Not installed (bad)"
+          }
+        }
+      },
+      "profile": [
+        "Domain",
+        "User name",
+        "Preferred DC",
+        "Auditing method",
+        "Audit policies",
+        "SQL Server",
+        "Components",
+        "Organizational units",
+        "Object classes",
+        "More audit settings"
+      ],
+      "actions": [
+        {
+          "id": "edit",
+          "label": "Edit",
+          "icon": "edit",
+          "does": "Opens the wizard in edit mode for the domain"
+        },
+        {
+          "id": "delete",
+          "label": "Delete",
+          "icon": "trash",
+          "does": "ConfirmDialog 'Delete domain', then removes it; toast 'Domain deleted'. Deleting the last domain returns to the picker."
+        },
+        {
+          "id": "uninstall",
+          "label": "Uninstall agent",
+          "icon": "x",
+          "disabledWhen": "no server has the agent installed",
+          "does": "ConfirmDialog 'Uninstall agent', then every server's agent becomes Not Installed"
+        },
+        {
+          "id": "upgrade",
+          "label": "Upgrade agent",
+          "icon": "upload",
+          "disabledWhen": "no server has the agent installed",
+          "does": "Toast 'Agent upgraded'"
+        },
+        {
+          "id": "remote",
+          "label": "Audit changes from remote system",
+          "icon": "download",
+          "does": "Info toast: not part of the prototype yet"
+        },
+        {
+          "id": "removeRemote",
+          "label": "Remove remote domain auditing",
+          "icon": "minus",
+          "does": "Info toast: not part of the prototype yet"
+        },
+        {
+          "id": "adBackup",
+          "label": "Create Active Directory backup",
+          "icon": "archive",
+          "does": "Toast 'Active Directory backup started' with the backup path"
+        },
+        {
+          "id": "gpBackup",
+          "label": "Create Group Policy backup",
+          "icon": "file",
+          "does": "Toast 'Group Policy backup started'"
+        },
+        {
+          "id": "disk",
+          "label": "Manage disk",
+          "icon": "database",
+          "does": "Info toast: not part of the prototype yet"
+        }
+      ]
+    }
+  ],
+  "wizard": {
+    "id": "wizard",
+    "title": {
+      "add": "Data Source for Active Directory",
+      "edit": "Edit <domain>"
+    },
+    "frame": "Full-page wizard: 'Back to the list' + breadcrumb 'Active Directory / <title>', eyebrow 'Step N of M · <step>', Steps bar, one white card with the step and a footer.",
+    "footer": "Back (left, from step 2) · Cancel · primary Next (→). The last data step's primary is 'Finish' (add) or 'Save' (edit). The Status step shows only 'Done', enabled when the run ends.",
+    "modes": {
+      "express": {
+        "label": "Express configuration",
+        "description": "Configure the domain with default settings.",
+        "steps": [
+          "credentials",
+          "components",
+          "ip",
+          "database",
+          "status"
+        ]
+      },
+      "advanced": {
+        "label": "Advanced configuration",
+        "description": "Configure the domain with each setting individually.",
+        "steps": [
+          "credentials",
+          "components",
+          "ip",
+          "database",
+          "ous",
+          "classes",
+          "status"
+        ]
+      },
+      "edit": "Same steps as the domain's mode without 'status'; the mode and the domain name can't change; no Configure auditing dialog; Save writes the changes and returns to the overview with toast 'Active Directory updated'."
+    },
+    "validation": "On Next: invalid fields get aria-invalid (red outline) and an error toast 'Check the highlighted fields' with the message below. Fields clear their error as soon as they change.",
+    "steps": [
+      {
+        "id": "credentials",
+        "label": "Domain credentials",
+        "screenshot": "screens/02-credentials.webp",
+        "components": [
+          "tile-picker",
+          "text-field",
+          "button",
+          "menu",
+          "radio-group"
+        ],
+        "fields": [
+          {
+            "id": "mode",
+            "label": "Configuration type",
+            "control": "TilePicker",
+            "options": [
+              "express",
+              "advanced"
+            ],
+            "default": "advanced"
+          },
+          {
+            "id": "domain",
+            "label": "Domain name / IP address",
+            "control": "TextField + 'Browse' button (menu of domains found)",
+            "required": true,
+            "placeholder": "e.g. ldsp2.com",
+            "rules": [
+              "required",
+              "not already added"
+            ],
+            "browse": [
+              "192.168.30.151",
+              "chily.local",
+              "ldsp2.com"
+            ]
+          },
+          {
+            "id": "user",
+            "label": "User name",
+            "control": "TextField",
+            "required": true,
+            "placeholder": "Domain\\UserName",
+            "rules": [
+              "required",
+              "contains \\ or @"
+            ]
+          },
+          {
+            "id": "password",
+            "label": "Password",
+            "control": "PasswordField",
+            "required": true
+          },
+          {
+            "id": "test",
+            "label": "Test connection",
+            "control": "link button",
+            "does": "Needs domain, user and password; success toast 'Connection successful' and the link turns into 'Connection verified'"
+          },
+          {
+            "id": "agent",
+            "label": "Apply auditing method",
+            "control": "RadioGroup",
+            "options": [
+              {
+                "value": "none",
+                "label": "Without agent",
+                "note": "An agent for monitoring non-owner mailbox access will still be deployed."
+              },
+              {
+                "value": "agent",
+                "label": "With agent",
+                "children": [
+                  {
+                    "value": "default",
+                    "label": "Default location",
+                    "field": "Admin$ (read-only)"
+                  },
+                  {
+                    "value": "share",
+                    "label": "Use this shared folder",
+                    "field": "\\\\server\\share (required when chosen)"
+                  }
+                ],
+                "note": "This shared folder should be present on all audited domain controllers and Exchange servers."
+              }
+            ],
+            "default": "default"
+          }
+        ],
+        "errors": {
+          "missing": "Enter the domain name or IP address, user name and password.",
+          "duplicate": "<domain> is already added.",
+          "user": "Enter the user name as \"Domain\\UserName\" or \"user@domain\".",
+          "share": "Enter the shared folder, or use the default location."
+        },
+        "onNext": "Scans the domain's servers, then opens the 'configureAuditing' dialog (add mode only)."
+      },
+      {
+        "id": "components",
+        "label": "Domain configuration",
+        "screenshot": "screens/05-components.webp",
+        "components": [
+          "checkbox",
+          "button",
+          "toggle"
+        ],
+        "lead": "Select the component(s) and server(s) to be audited.",
+        "tools": [
+          "Restore to default (components and servers back to default)",
+          "Re-scan server list (keeps settings of servers already listed)"
+        ],
+        "componentList": [
+          {
+            "id": "auditAd",
+            "label": "Audit Active Directory",
+            "default": true
+          },
+          {
+            "id": "auditGp",
+            "label": "Audit Group Policy",
+            "default": true
+          },
+          {
+            "id": "auditExchange",
+            "label": "Audit Exchange Server",
+            "default": true
+          },
+          {
+            "id": "adBackup",
+            "label": "Active Directory Backup",
+            "settings": true
+          },
+          {
+            "id": "gpBackup",
+            "label": "Group Policy Backup",
+            "settings": true
+          },
+          {
+            "id": "health",
+            "label": "Health Monitoring"
+          },
+          {
+            "id": "mailbox",
+            "label": "Non-Owner Mailbox Auditing",
+            "settings": true
+          },
+          {
+            "id": "cleaner",
+            "label": "Active Directory Cleaner",
+            "settings": true
+          },
+          {
+            "id": "passwordReminder",
+            "label": "User Password Expiration Reminder",
+            "settings": true
+          }
+        ],
+        "settingsButton": "Gear IconButton, enabled while the component is ticked. In this prototype it shows an info toast; the Figma file has a sub-flow for each (not built yet).",
+        "serverTable": {
+          "columns": [
+            "Component",
+            "Change auditing",
+            "Health monitoring",
+            "Non-owner mailboxes"
+          ],
+          "groups": {
+            "ad": "Active Directory & Exchange Server (DC01–DC03, EXCH01–EXCH02)",
+            "gp": "Group Policy (DC01–DC02)"
+          },
+          "rules": [
+            "Change auditing toggles are disabled when their group's component is off (AD group: Audit Active Directory or Audit Exchange Server; GP group: Audit Group Policy).",
+            "Health monitoring toggles need the Health Monitoring component; ticking it turns health on for the AD group.",
+            "Non-owner mailbox toggles need Non-Owner Mailbox Auditing and exist only for the AD group.",
+            "Unticking a component turns its column off on every server."
+          ]
+        },
+        "errors": {
+          "noComponent": "Select at least one component to audit.",
+          "noServer": "Turn on auditing for at least one server."
+        }
+      },
+      {
+        "id": "ip",
+        "label": "IP configuration",
+        "screenshot": "screens/06-ip.webp",
+        "components": [
+          "text-field",
+          "dropdown",
+          "button"
+        ],
+        "lead": "Review the IP address each server is mapped to. Edit any that are wrong.",
+        "tools": [
+          "Restore to default (scanned IP addresses)"
+        ],
+        "fields": [
+          {
+            "id": "servers[].ip",
+            "label": "IP address",
+            "control": "inline cell input per server",
+            "rules": [
+              "valid IPv4, each part 0–255"
+            ]
+          },
+          {
+            "id": "preferredDc",
+            "label": "Preferred DC for general calls and backup",
+            "control": "SelectField",
+            "options": "the domain controllers of the AD group",
+            "default": "first domain controller"
+          }
+        ],
+        "note": "The IP address is editable. Lepide will not monitor a computer until it is mapped to its correct IP address.",
+        "link": {
+          "label": "Configure LDAPS",
+          "does": "Info toast (LDAPS is configured from the domain's settings; Figma has an Edit AD › LDAPS sub-flow)"
+        },
+        "errors": {
+          "ip": "Enter a valid IPv4 address (for example 192.168.30.21) for each server."
+        }
+      },
+      {
+        "id": "database",
+        "label": "Database settings",
+        "screenshot": "screens/07-database.webp",
+        "components": [
+          "text-field",
+          "menu",
+          "radio-group",
+          "button",
+          "dropdown"
+        ],
+        "lead": "Enter the SQL Server details used to store the audit data.",
+        "fields": [
+          {
+            "id": "sqlServer",
+            "label": "Server name",
+            "control": "TextField + 'Browse' menu",
+            "required": true,
+            "default": "192.168.30.32",
+            "browse": [
+              "192.168.30.32",
+              "NDR27\\SQL19",
+              "LDSP-SQL01\\LEPIDE"
+            ]
+          },
+          {
+            "id": "sqlAuth",
+            "label": "Authentication",
+            "control": "RadioGroup (row)",
+            "options": [
+              "Windows authentication",
+              "SQL authentication"
+            ],
+            "default": "Windows authentication"
+          },
+          {
+            "id": "sqlUser",
+            "label": "User name",
+            "control": "TextField",
+            "enabledWhen": "SQL authentication",
+            "requiredWhen": "SQL authentication"
+          },
+          {
+            "id": "sqlPassword",
+            "label": "Password",
+            "control": "PasswordField",
+            "enabledWhen": "SQL authentication"
+          },
+          {
+            "id": "test",
+            "label": "Test connection",
+            "control": "Button (plug icon)",
+            "does": "Needs the server name; success toast and 'Connection verified'"
+          },
+          {
+            "id": "database",
+            "label": "Database",
+            "control": "Radio 'Create database' + TextField, or radio 'Select database' + SelectField",
+            "required": true,
+            "options": [
+              "Lepide_AD",
+              "LEPIDE200",
+              "Richard_Data1"
+            ],
+            "default": "Select database · Lepide_AD"
+          },
+          {
+            "id": "dataPath",
+            "label": "Data path",
+            "control": "TextField",
+            "required": true,
+            "default": "C:\\Program Files (x86)\\Lepide Data Security Platform\\"
+          },
+          {
+            "id": "backupPath",
+            "label": "Backup path",
+            "control": "TextField + 'Same as data path' button",
+            "default": "same as data path"
+          }
+        ],
+        "expressNote": "Express configuration: all organizational units and object classes are audited. Change this later by editing the domain.",
+        "errors": {
+          "sqlServer": "Enter the SQL Server name or click Browse.",
+          "sqlUser": "Enter the SQL Server user name and password.",
+          "database": "Enter a name for the database.",
+          "dataPath": "Enter the data path."
+        }
+      },
+      {
+        "id": "ous",
+        "label": "Organizational units",
+        "advancedOnly": true,
+        "screenshot": "screens/08-ous.webp",
+        "components": [
+          "dropdown",
+          "text-field",
+          "button",
+          "checkbox",
+          "empty-state",
+          "banner"
+        ],
+        "lead": "Specify the organizational units to be audited.",
+        "fields": [
+          {
+            "id": "ouScope",
+            "label": "Audit",
+            "control": "SelectField",
+            "options": [
+              "All organizational units",
+              "Only selected organizational unit(s)",
+              "All except selected organizational unit(s)"
+            ],
+            "default": "All organizational units"
+          },
+          {
+            "id": "typed",
+            "label": "Enter OU",
+            "control": "TextField + 'Add' button",
+            "placeholder": "e.g. <DOMAIN>/Finance",
+            "rules": [
+              "not empty",
+              "not already selected"
+            ]
+          }
+        ],
+        "whenAll": "Info banner: every organizational unit in <DOMAIN> is audited; the OU controls are disabled.",
+        "dualList": {
+          "left": "OU path list: header checkbox (select all shown), search, a checkbox per path, footer 'N of M record(s)'",
+          "right": "Selected OU path (N): 'Clear all' button, each path with a remove (×) IconButton; empty state 'No OU paths selected yet.'"
+        },
+        "errors": {
+          "empty": "Add at least one organizational unit, or audit all of them."
+        }
+      },
+      {
+        "id": "classes",
+        "label": "Object classes",
+        "advancedOnly": true,
+        "screenshot": "screens/09-object-classes.webp",
+        "components": [
+          "dropdown",
+          "checkbox",
+          "button",
+          "banner"
+        ],
+        "lead": "Select the object classes and other settings to be audited.",
+        "fields": [
+          {
+            "id": "classScope",
+            "label": "Audit",
+            "control": "SelectField",
+            "options": [
+              "All object classes",
+              "Only selected classes",
+              "All but excluding selected classes"
+            ],
+            "default": "All but excluding selected classes"
+          },
+          {
+            "id": "adClasses",
+            "label": "Active Directory object classes",
+            "control": "checkbox list with search and select-all",
+            "default": [
+              "Secret",
+              "RID Manager",
+              "Print Queue"
+            ]
+          },
+          {
+            "id": "exClasses",
+            "label": "Exchange Server object classes",
+            "control": "checkbox list with search and select-all",
+            "default": []
+          },
+          {
+            "id": "failedLogon",
+            "label": "Audit failed logon",
+            "control": "Checkbox",
+            "default": true
+          },
+          {
+            "id": "logonLogoff",
+            "label": "Audit successful user logon/logoff",
+            "control": "Checkbox + gear IconButton (opens 'logonScript', enabled while ticked)",
+            "default": false
+          }
+        ],
+        "summary": "'Only the selected N class(es)' / 'All except the selected N class(es)' will be audited.",
+        "errors": {
+          "empty": "Select at least one object class, or audit all of them."
+        }
+      },
+      {
+        "id": "status",
+        "label": "Status",
+        "addOnly": true,
+        "screenshot": "screens/11-status.webp",
+        "components": [
+          "data-table",
+          "banner",
+          "button"
+        ],
+        "does": "The domain is saved when Finish is clicked; this step runs the tasks with a progress bar, then 'Done' opens the overview on the new domain with toast 'Active Directory added'.",
+        "tasks": [
+          "Validating credentials for <domain>",
+          "Enabling audit policies through \"<GPO>\" — or 'Skipping audit policies (set up manually)'",
+          "Installing agent on <preferred DC> (only with an agent)",
+          "Creating database <database> on <SQL Server>",
+          "Starting auditing for <DOMAIN>"
+        ],
+        "manualWarning": "When auditing is set up manually: warning banner 'Auditing isn't enabled on this domain yet. Apply the audit policies manually, then check the change auditing status.'"
+      }
+    ]
+  },
+  "dialogs": [
+    {
+      "id": "configureAuditing",
+      "title": "Configure auditing",
+      "icon": "shield",
+      "after": "credentials · Next (add mode)",
+      "screenshot": "screens/03-configure-auditing.webp",
+      "components": [
+        "modal",
+        "radio-group"
+      ],
+      "body": [
+        "To enable auditing automatically, the software deploys an agent on the primary domain controller of <domain>. The agent is removed once the changes for auditing are made. You can also make these changes manually.",
+        "Block: 'Auditing isn't enabled for this domain. Lepide Auditor for Active Directory will:' · Enable these system audit policies: System, Logon/Logoff, Object Access, Privilege Use, Detailed Tracking, Policy Change, Account Management, DS Access, Account Logon. · Set up the audit entries as follows: table (Auditing entries for, Naming context, Principal, Access)"
+      ],
+      "fields": [
+        {
+          "id": "autoAudit",
+          "control": "RadioGroup",
+          "options": [
+            "Yes, the software can make the required changes.",
+            "No, I will adjust these settings manually later."
+          ],
+          "default": "Yes"
+        }
+      ],
+      "footer": "Cancel · primary Next",
+      "next": {
+        "yes": "selectGpo",
+        "no": "wizard step 2 (components)"
+      }
+    },
+    {
+      "id": "selectGpo",
+      "title": "Group Policy Object selection",
+      "icon": "file",
+      "screenshot": "screens/04-gpo.webp",
+      "components": [
+        "modal",
+        "text-field",
+        "radio-group",
+        "dropdown",
+        "checkbox"
+      ],
+      "fields": [
+        {
+          "id": "server",
+          "label": "Server name or IP",
+          "default": "the preferred DC"
+        },
+        {
+          "id": "gpoMode",
+          "control": "RadioGroup",
+          "options": [
+            "Create new GPO (recommended)",
+            "Select an existing GPO"
+          ],
+          "default": "Create new GPO"
+        },
+        {
+          "id": "gpoName",
+          "label": "New GPO name",
+          "default": "Audit AD",
+          "requiredWhen": "Create new GPO"
+        },
+        {
+          "id": "gpo",
+          "label": "Existing GPO",
+          "options": [
+            "Default Domain Controllers Policy",
+            "Default Domain Policy",
+            "Standard Domain Guidelines",
+            "Standard Domain Policy"
+          ]
+        },
+        {
+          "id": "gpoBackup",
+          "label": "Create a backup of the selected GPO before enabling auditing",
+          "control": "Checkbox",
+          "enabledWhen": "Select an existing GPO",
+          "default": true
+        }
+      ],
+      "footer": "Back (to Configure auditing) · Cancel · primary Done",
+      "next": "wizard step 2 (components)"
+    },
+    {
+      "id": "logonScript",
+      "title": "Create logon/logoff script",
+      "icon": "terminal",
+      "screenshot": "screens/10-logon-script.webp",
+      "components": [
+        "modal",
+        "text-field"
+      ],
+      "fields": [
+        {
+          "id": "ip",
+          "label": "IP address of the machine running the Logon/Logoff service",
+          "rules": [
+            "valid IPv4"
+          ]
+        },
+        {
+          "id": "path",
+          "label": "Path to save the file",
+          "default": "\\\\DC01\\NETLOGON\\",
+          "rules": [
+            "required"
+          ]
+        }
+      ],
+      "note": "Logon.exe is linked to this IP address and runs only on it.",
+      "footer": "Cancel · primary Create script",
+      "done": "Toast 'Logon/logoff script created'"
+    }
+  ],
+  "data": {
+    "AdDomain": "{ id, domain, controller (preferred DC), logon (user name), config: AdConfig }",
+    "AdConfig": "{ mode, agent ('none'|'default'|'share'), sharePath, autoAudit, gpo, gpoBackup, components[], servers: AdServer[], preferredDc, sqlServer, sqlAuth, sqlUser, database, dataPath, backupPath, ouScope, ous[], classScope, adClasses[], exClasses[], failedLogon, logonLogoff, added }",
+    "AdServer": "{ name, group ('ad'|'gp'), ip, change, health, mailbox, agent ('Installed'|'Not Installed') }",
+    "sampleDirectory": "Servers, OU paths and IPs are generated from the domain name in adData.ts (an IP address resolves to LDSP2.COM). Nothing is sent to a server.",
+    "seed": "chily.local, added Nov 03 2026, all agents installed, Health Monitoring on."
+  },
+  "notBuilt": [
+    "The sub-flows behind the component gear icons: AD Backup, Group Policy Backup, Non-Owner Mailbox Auditing, AD Cleaner, Password Expiration Reminder (Figma rows 'Advanced / AD Backup …' etc.)",
+    "Configure LDAPS (Figma 'Edit AD / LDAPS …')",
+    "Agent install / upgrade / uninstall progress screens (Figma 'Advanced / Add Agent …', 'Uninstall Agent …')",
+    "Manage disk, Audit changes from remote system, Remove remote domain auditing"
+  ]
+}

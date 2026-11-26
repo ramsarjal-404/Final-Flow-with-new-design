@@ -91,7 +91,7 @@ Plain HTML (with `@lepide/ds-css`):
 |---|---|---|---|
 | `value` * | `string` | — |  |
 | `onChange` * | `(v: string) => void` | — |  |
-| `icon` | `"settings" \| "chevron" \| "arrow" \| "plus" \| "search" \| "calendar" \| "refresh" \| "external" \| "share" \| "up" \| "down" \| "eye" \| "folder" \| "file" \| "filter" \| "download" \| "user" \| "logout" \| "collapse" \| "chevron-right" \| "chevrons-left" \| "chevrons-right" \| "check" \| "x" \| "minus" \| "sort" \| "trash" \| "chevron-left" \| "lock" \| "sparkles" \| "star" \| "bell" \| "users" \| "clipboard" \| "home" \| "mail" \| "file-search" \| "edit" \| "more" \| "info" \| "alert" \| "upload" \| "server" \| "database" \| "globe" \| "key" \| "shield" \| "clock" \| "play" \| "pause" \| "link" \| "copy" \| "layers" \| "archive" \| "list" \| "sliders" \| "plug" \| "card" \| "history" \| "restore" \| "send" \| "terminal" \| "cpu" \| "tag" \| "cloud" \| "building" \| "user_plus" \| "save" \| "grid"` | — |  |
+| `icon` | `IconName` | — |  |
 | `soft` | `boolean` | — |  |
 | `placeholder` | `string` | — |  |
 | `label` | `string` | — |  |
@@ -114,6 +114,13 @@ Plain HTML (with `@lepide/ds-css`):
 | `style` | `CSSProperties` | — |  |
 | `maxLength` | `number` | — |  |
 | `soft` | `boolean` | — |  |
+
+### Types
+
+```ts
+// import type { IconName } from '@lepide/ds-react'
+type IconName = keyof typeof icons.line;
+```
 
 `*` required.
 <!-- props:end -->

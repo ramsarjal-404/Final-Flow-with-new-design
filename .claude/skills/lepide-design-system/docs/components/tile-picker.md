@@ -41,6 +41,9 @@ Single (radio) or `multiple` (pressed buttons). One size; the grid reflows.
 - `ariaLabel` is required — it names the group ("Source type").
 - The check mark adds a non-colour cue to the chosen tile.
 
+The kit ships no vendor logos: use a line icon (`server`, `cloud`, `database`), or pass `image` with the product's logo
+file when you have it. Don't mix icons and logos in one picker.
+
 ## Do and don't
 | Do | Don't |
 |---|---|
@@ -52,7 +55,7 @@ Single (radio) or `multiple` (pressed buttons). One size; the grid reflows.
 ```tsx
 import { TilePicker } from '@lepide/ds-react';
 
-<TilePicker ariaLabel="Source type" value={source} onChange={(v) => setSource(v as string)} options={[
+<TilePicker ariaLabel="Source type" value={source} onChange={setSource} options={[
   { value: 'windows', label: 'Windows file server', description: 'NTFS shares on Windows Server', icon: 'server' },
   { value: 'netapp', label: 'NetApp filer', description: 'CIFS shares on ONTAP', icon: 'database' },
   { value: 'spo', label: 'SharePoint Online', description: 'Sites and document libraries', icon: 'cloud' },
@@ -80,10 +83,10 @@ Plain HTML (with `@lepide/ds-css`):
 | Prop | Type | Default | Notes |
 |---|---|---|---|
 | `options` * | `TileOption[]` | — |  |
+| `ariaLabel` * | `string` | — | Accessible name of the group, e.g. "Data source type". |
 | `value` * | `string \| string[]` | — |  |
-| `onChange` * | `(value: string \| string[]) => void` | — |  |
-| `ariaLabel` * | `string` | — |  |
-| `multiple` | `boolean` | — |  |
+| `onChange` * | `((value: string) => void) \| ((value: string[]) => void)` | — |  |
+| `multiple` | `boolean` | — | Leave out for a single choice: `value` is a string ('' until one is chosen) and `onChange` gets a string. `true` for several: `value` and `onChange` use `string[]`. |
 
 ### Types
 

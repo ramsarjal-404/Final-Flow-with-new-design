@@ -137,6 +137,7 @@ Plain HTML (with `@lepide/ds-css`):
 | `actions` | `ReactNode` | — |  |
 | `children` | `ReactNode` | — |  |
 | `footer` | `ReactNode` | — |  |
+| `form` | `boolean` | — | The body holds form fields: makes it a `.page-form`, so TextField, SelectField … get their field styles. |
 | `bodyStyle` | `CSSProperties` | — |  |
 
 ### `KeyValues`

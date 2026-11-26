@@ -16,7 +16,7 @@ related: [setting-row, checkbox, radio-group]
 - Rows in a settings list — put it in a `SettingRow`, which supplies the visible title and help text.
 
 ## When not to use
-- A choice that is only applied after "Save" or "Apply" in a form: use `Checkbox`.
+- A choice that is only applied after "Save" or "Apply" in a form, or by a dialog's verb (e.g. "Start auditing now" in an "Add data source" dialog): use `Checkbox`.
 - Choosing between named options ("Daily / Weekly"): use `RadioGroup` or `Segmented`.
 - Agreeing to terms or selecting rows: use `Checkbox`.
 

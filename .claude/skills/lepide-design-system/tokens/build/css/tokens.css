@@ -259,6 +259,9 @@
   --danger:#f07a7e;
   --danger-bg:#2c1416;
   --danger-text:#f07a7e;
+  --chart-text:#9aa1ad;
+  --chart-grid:#2b313b;
+  --chart-track:#252b34;
   --sel-fill:linear-gradient(180deg,#4a6fc8 0%,var(--brand) 100%);
   --sh-xs:0 1px 2px rgba(0,0,0,.3);
   --sh-sm:0 1px 2px rgba(0,0,0,.28),0 4px 14px -6px rgba(0,0,0,.4);
@@ -288,6 +291,9 @@
   --brand-ink:#0f3480;
   --success-dot:#0f7353;
   --warning-dot:#985107;
+  --chart-text:#3d434c;
+  --chart-grid:#c3c8cf;
+  --chart-track:#dfe2e6;
   --toggle-off:#5b616b;
   --toggle-off-hover:#3d434c;
   --sel-fill:var(--brand);

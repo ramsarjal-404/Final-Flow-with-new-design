@@ -94,8 +94,8 @@ Plain HTML (with `@lepide/ds-css`):
 |---|---|---|---|
 | `variant` | `ButtonVariant` | `'secondary'` |  |
 | `size` | `"sm" \| "md" \| "lg"` | `'md'` |  |
-| `icon` | `"settings" \| "chevron" \| "arrow" \| "plus" \| "search" \| "calendar" \| "refresh" \| "external" \| "share" \| "up" \| "down" \| "eye" \| "folder" \| "file" \| "filter" \| "download" \| "user" \| "logout" \| "collapse" \| "chevron-right" \| "chevrons-left" \| "chevrons-right" \| "check" \| "x" \| "minus" \| "sort" \| "trash" \| "chevron-left" \| "lock" \| "sparkles" \| "star" \| "bell" \| "users" \| "clipboard" \| "home" \| "mail" \| "file-search" \| "edit" \| "more" \| "info" \| "alert" \| "upload" \| "server" \| "database" \| "globe" \| "key" \| "shield" \| "clock" \| "play" \| "pause" \| "link" \| "copy" \| "layers" \| "archive" \| "list" \| "sliders" \| "plug" \| "card" \| "history" \| "restore" \| "send" \| "terminal" \| "cpu" \| "tag" \| "cloud" \| "building" \| "user_plus" \| "save" \| "grid"` | — |  |
-| `iconEnd` | `"settings" \| "chevron" \| "arrow" \| "plus" \| "search" \| "calendar" \| "refresh" \| "external" \| "share" \| "up" \| "down" \| "eye" \| "folder" \| "file" \| "filter" \| "download" \| "user" \| "logout" \| "collapse" \| "chevron-right" \| "chevrons-left" \| "chevrons-right" \| "check" \| "x" \| "minus" \| "sort" \| "trash" \| "chevron-left" \| "lock" \| "sparkles" \| "star" \| "bell" \| "users" \| "clipboard" \| "home" \| "mail" \| "file-search" \| "edit" \| "more" \| "info" \| "alert" \| "upload" \| "server" \| "database" \| "globe" \| "key" \| "shield" \| "clock" \| "play" \| "pause" \| "link" \| "copy" \| "layers" \| "archive" \| "list" \| "sliders" \| "plug" \| "card" \| "history" \| "restore" \| "send" \| "terminal" \| "cpu" \| "tag" \| "cloud" \| "building" \| "user_plus" \| "save" \| "grid"` | — |  |
+| `icon` | `IconName` | — |  |
+| `iconEnd` | `IconName` | — |  |
 | `loading` | `boolean` | — |  |
 | `dot` | `boolean` | — | Brand dot at the top right (e.g. "Modify filters" while filters are applied). |
 | `block` | `boolean` | — |  |
@@ -106,7 +106,7 @@ Also accepts the native attributes of `ButtonHTMLAttributes` and forwards `ref`.
 
 | Prop | Type | Default | Notes |
 |---|---|---|---|
-| `icon` * | `"settings" \| "chevron" \| "arrow" \| "plus" \| "search" \| "calendar" \| "refresh" \| "external" \| "share" \| "up" \| "down" \| "eye" \| "folder" \| "file" \| "filter" \| "download" \| "user" \| "logout" \| "collapse" \| "chevron-right" \| "chevrons-left" \| "chevrons-right" \| "check" \| "x" \| "minus" \| "sort" \| "trash" \| "chevron-left" \| "lock" \| "sparkles" \| "star" \| "bell" \| "users" \| "clipboard" \| "home" \| "mail" \| "file-search" \| "edit" \| "more" \| "info" \| "alert" \| "upload" \| "server" \| "database" \| "globe" \| "key" \| "shield" \| "clock" \| "play" \| "pause" \| "link" \| "copy" \| "layers" \| "archive" \| "list" \| "sliders" \| "plug" \| "card" \| "history" \| "restore" \| "send" \| "terminal" \| "cpu" \| "tag" \| "cloud" \| "building" \| "user_plus" \| "save" \| "grid"` | — |  |
+| `icon` * | `IconName` | — |  |
 | `label` * | `string` | — | Required accessible name; the floating tooltip shows it. |
 | `bordered` | `boolean` | — |  |
 | `danger` | `boolean` | — |  |
@@ -117,6 +117,8 @@ Also accepts the native attributes of `ButtonHTMLAttributes` and forwards `ref`.
 ### Types
 
 ```ts
+// import type { IconName } from '@lepide/ds-react'
+type IconName = keyof typeof icons.line;
 // import type { ButtonVariant } from '@lepide/ds-react'
 type ButtonVariant = 'secondary' | 'primary' | 'danger' | 'danger-solid' | 'ghost';
 ```

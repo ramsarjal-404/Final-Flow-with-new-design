@@ -1,0 +1,3053 @@
+{
+  "name": "Lepide console prototype — screen catalog",
+  "live": "https://lepide-new-ui.vercel.app",
+  "login": "https://lepide-with-new-design.vercel.app",
+  "capturedAt": "2026-11-04T07:39:21.876Z",
+  "viewport": "1440x900",
+  "note": "Screenshots and facts are copies in this repository; the live URLs are optional. Deep links on the live site need its vercel.json rewrite (open the root and navigate otherwise).",
+  "screens": [
+    {
+      "id": "home",
+      "module": "Home",
+      "path": "/",
+      "family": "/",
+      "url": "https://lepide-new-ui.vercel.app/",
+      "title": "Good afternoon, Console",
+      "crumbs": [],
+      "description": "",
+      "patterns": [
+        "Lepide AI",
+        "module tiles"
+      ],
+      "actions": [],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/pages/Home.tsx",
+      "screenshot": "screens/home.webp"
+    },
+    {
+      "id": "lepide-ai",
+      "module": "Lepide AI",
+      "path": "/lepide-ai",
+      "family": "/lepide-ai",
+      "url": "https://lepide-new-ui.vercel.app/lepide-ai",
+      "title": "Lepide AINew",
+      "crumbs": [
+        "Home",
+        "Lepide AI"
+      ],
+      "description": "Find critical files fast and stay secure — the Lepide AI way.",
+      "patterns": [
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [
+        {
+          "label": "History",
+          "primary": false
+        },
+        {
+          "label": "New chat",
+          "primary": true
+        }
+      ],
+      "tabs": [
+        "Alerts",
+        "Chats",
+        "Alert log"
+      ],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [
+        "Inbox"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/lepide-ai/",
+      "screenshot": "screens/lepide-ai.webp"
+    },
+    {
+      "id": "auditor",
+      "module": "Auditor",
+      "path": "/auditor",
+      "family": "/auditor",
+      "url": "https://lepide-new-ui.vercel.app/auditor",
+      "title": "Auditor - Report",
+      "crumbs": [
+        "Home",
+        "Lepide Auditor",
+        "Reports"
+      ],
+      "description": "Change and activity reports across every data source your account audits. Pick a folder, open a report, or build your own from a predefined one.",
+      "patterns": [
+        "data table",
+        "folder tree"
+      ],
+      "actions": [
+        {
+          "label": "Remove Folder",
+          "primary": false
+        },
+        {
+          "label": "Create Folder",
+          "primary": false
+        },
+        {
+          "label": "Create Report",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [
+        "Report Name",
+        "Description",
+        "Shared with",
+        "Shared By",
+        "My Lepide",
+        "Report Type",
+        "Added By",
+        "Added On",
+        "Action"
+      ],
+      "cards": [
+        "All Reports295 reports"
+      ],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "Create Report",
+        "subtitle": "",
+        "steps": [
+          "Details",
+          "Columns & filters"
+        ],
+        "fields": [
+          "Report Name :",
+          "Folder List :",
+          "Predefined Reports:",
+          "Description :"
+        ],
+        "buttons": [
+          "Cancel",
+          "Next"
+        ],
+        "screenshot": "screens/auditor--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/reports/HubPage.tsx",
+      "screenshot": "screens/auditor.webp"
+    },
+    {
+      "id": "trust",
+      "module": "Trust",
+      "path": "/trust",
+      "family": "/trust",
+      "url": "https://lepide-new-ui.vercel.app/trust",
+      "title": "Trust - Report",
+      "crumbs": [
+        "Home",
+        "Lepide Trust",
+        "Reports"
+      ],
+      "description": "Permission and privileged-access reports across the data sources your account can see. Pick a folder, then open a report or pin it to My Lepide.",
+      "patterns": [
+        "data table",
+        "folder tree"
+      ],
+      "actions": [
+        {
+          "label": "Remove Folder",
+          "primary": false
+        },
+        {
+          "label": "Create Folder",
+          "primary": false
+        },
+        {
+          "label": "Create Report",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [
+        "Report Name",
+        "Description",
+        "Shared with",
+        "Shared By",
+        "My Lepide",
+        "Report Type",
+        "Added By",
+        "Added On",
+        "Action"
+      ],
+      "cards": [
+        "All Reports63 reports"
+      ],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "Create Report",
+        "subtitle": "",
+        "steps": [
+          "Details",
+          "Columns & filters"
+        ],
+        "fields": [
+          "Report Name :",
+          "Folder List :",
+          "Predefined Reports:",
+          "Description :"
+        ],
+        "buttons": [
+          "Cancel",
+          "Next"
+        ],
+        "screenshot": "screens/trust--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/reports/HubPage.tsx",
+      "screenshot": "screens/trust.webp"
+    },
+    {
+      "id": "identify",
+      "module": "Identify",
+      "path": "/identify",
+      "family": "/identify",
+      "url": "https://lepide-new-ui.vercel.app/identify",
+      "title": "Identify - Reports",
+      "crumbs": [
+        "Home",
+        "Lepide Identify",
+        "Reports"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "folder tree"
+      ],
+      "actions": [
+        {
+          "label": "Remove Folder",
+          "primary": false
+        },
+        {
+          "label": "Create Folder",
+          "primary": false
+        },
+        {
+          "label": "Create Report",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [
+        "Report Name",
+        "Description",
+        "Shared with",
+        "Shared By",
+        "My Lepide",
+        "Report Type",
+        "Added By",
+        "Added On",
+        "Action"
+      ],
+      "cards": [
+        "All Reports8 reports"
+      ],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "Create Report",
+        "subtitle": "",
+        "steps": [
+          "Details",
+          "Columns & filters"
+        ],
+        "fields": [
+          "Report Name :",
+          "Folder List :",
+          "Predefined Reports:",
+          "Description :"
+        ],
+        "buttons": [
+          "Cancel",
+          "Next"
+        ],
+        "screenshot": "screens/identify--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/reports/HubPage.tsx",
+      "screenshot": "screens/identify.webp"
+    },
+    {
+      "id": "identify-e-discovery",
+      "module": "Identify",
+      "path": "/identify/e-discovery",
+      "family": "/identify/e-discovery",
+      "url": "https://lepide-new-ui.vercel.app/identify/e-discovery",
+      "title": "e-Discovery",
+      "crumbs": [
+        "Home",
+        "Identify",
+        "e-Discovery"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [
+        {
+          "label": "Create Case",
+          "primary": true
+        }
+      ],
+      "tabs": [
+        "Cases",
+        "Settings"
+      ],
+      "sectionNav": [],
+      "tableColumns": [
+        "Case Name",
+        "Description",
+        "Agent",
+        "Agent Status",
+        "Status",
+        "Last Search Start Time",
+        "Last Search End Time",
+        "Type",
+        "Actions",
+        "Open"
+      ],
+      "cards": [
+        "Cases"
+      ],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "e-Discovery / Create New Case",
+        "subtitle": "",
+        "steps": [],
+        "fields": [
+          "Case Name",
+          "Description",
+          "Component",
+          "Search Type",
+          "Location"
+        ],
+        "buttons": [
+          "Cancel",
+          "Done"
+        ],
+        "screenshot": "screens/identify-e-discovery--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/identify/ediscovery/",
+      "screenshot": "screens/identify-e-discovery.webp"
+    },
+    {
+      "id": "identify-e-discovery-settings-agents",
+      "module": "Identify",
+      "path": "/identify/e-discovery/settings/agents",
+      "family": "/identify/e-discovery/settings/agents",
+      "url": "https://lepide-new-ui.vercel.app/identify/e-discovery/settings/agents",
+      "title": "e-Discovery",
+      "crumbs": [
+        "Home",
+        "Identify",
+        "e-Discovery"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [
+        {
+          "label": "Uninstall Agent",
+          "primary": false
+        },
+        {
+          "label": "Install Agent",
+          "primary": true
+        }
+      ],
+      "tabs": [
+        "Cases",
+        "Settings"
+      ],
+      "sectionNav": [],
+      "tableColumns": [
+        "Agent Server",
+        "Agent Path",
+        "Scanned Case(s)/Location(s)",
+        "Actions"
+      ],
+      "cards": [
+        "Agents"
+      ],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "Install Agent",
+        "subtitle": "",
+        "steps": [],
+        "fields": [
+          "Select All"
+        ],
+        "buttons": [
+          "Cancel",
+          "Install"
+        ],
+        "screenshot": "screens/identify-e-discovery-settings-agents--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/identify/ediscovery/",
+      "screenshot": "screens/identify-e-discovery-settings-agents.webp"
+    },
+    {
+      "id": "identify-e-discovery-settings-locations",
+      "module": "Identify",
+      "path": "/identify/e-discovery/settings/locations",
+      "family": "/identify/e-discovery/settings/locations",
+      "url": "https://lepide-new-ui.vercel.app/identify/e-discovery/settings/locations",
+      "title": "e-Discovery",
+      "crumbs": [
+        "Home",
+        "Identify",
+        "e-Discovery"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [
+        {
+          "label": "Create Location",
+          "primary": true
+        }
+      ],
+      "tabs": [
+        "Cases",
+        "Settings"
+      ],
+      "sectionNav": [],
+      "tableColumns": [
+        "Location Name",
+        "Share Path",
+        "Last Index",
+        "Status",
+        "Agent",
+        "Actions"
+      ],
+      "cards": [
+        "Indexed Locations"
+      ],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "e-Discovery / Create New Location",
+        "subtitle": "",
+        "steps": [
+          "Object Selection",
+          "File Type",
+          "Index Server"
+        ],
+        "fields": [
+          "Location Name",
+          "Description",
+          "Component",
+          "Search Type",
+          "User Name",
+          "Password"
+        ],
+        "buttons": [
+          "Back",
+          "Cancel",
+          "Next"
+        ],
+        "screenshot": "screens/identify-e-discovery-settings-locations--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/identify/ediscovery/",
+      "screenshot": "screens/identify-e-discovery-settings-locations.webp"
+    },
+    {
+      "id": "detect",
+      "module": "Detect",
+      "path": "/detect",
+      "family": "/detect",
+      "url": "https://lepide-new-ui.vercel.app/detect",
+      "title": "Alert Configuration",
+      "crumbs": [],
+      "description": "",
+      "patterns": [
+        "data table",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [
+        {
+          "label": "Add Alert",
+          "primary": true
+        }
+      ],
+      "tabs": [
+        "Threat Models",
+        "Email Settings"
+      ],
+      "sectionNav": [],
+      "tableColumns": [
+        "Alert Name",
+        "Description",
+        "Agent Status",
+        "Status",
+        "Actions",
+        "Open"
+      ],
+      "cards": [
+        "Threat Models"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/detect/",
+      "screenshot": "screens/detect.webp"
+    },
+    {
+      "id": "detect-alert-status",
+      "module": "Detect",
+      "path": "/detect/alert-status",
+      "family": "/detect/alert-status",
+      "url": "https://lepide-new-ui.vercel.app/detect/alert-status",
+      "title": "Alert Status",
+      "crumbs": [],
+      "description": "",
+      "patterns": [
+        "data table",
+        "folder tree",
+        "empty state"
+      ],
+      "actions": [],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [
+        "From",
+        "To",
+        "Subject",
+        "Sent On",
+        "Action"
+      ],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/detect/",
+      "screenshot": "screens/detect-alert-status.webp"
+    },
+    {
+      "id": "protect",
+      "module": "Protect",
+      "path": "/protect",
+      "family": "/protect",
+      "url": "https://lepide-new-ui.vercel.app/protect",
+      "title": "Overview",
+      "crumbs": [
+        "Lepide Protect",
+        "Overview"
+      ],
+      "description": "",
+      "patterns": [
+        "chart panels",
+        "charts"
+      ],
+      "actions": [
+        {
+          "label": "Refresh data",
+          "primary": false
+        },
+        {
+          "label": "7",
+          "primary": false
+        },
+        {
+          "label": "Sync data from CPA",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [
+        "Least Privileges by Shared Folder",
+        "Top Users with Least Privilege",
+        "Comprehensive Policy Overview",
+        "Folder Risk Reduction by Policy Actions",
+        "Stale Users Across File Servers",
+        "Team Management Insights"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/protect/",
+      "screenshot": "screens/protect.webp"
+    },
+    {
+      "id": "protect-policies",
+      "module": "Protect",
+      "path": "/protect/policies",
+      "family": "/protect/policies",
+      "url": "https://lepide-new-ui.vercel.app/protect/policies",
+      "title": "Policy Management",
+      "crumbs": [
+        "Dashboard",
+        "Policy Management"
+      ],
+      "description": "AD Cleaner identity-hygiene policies and Permission policies: activate, edit and run them from one list.",
+      "patterns": [
+        "data table",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [
+        {
+          "label": "Create Policy",
+          "primary": true
+        }
+      ],
+      "tabs": [
+        "AD Cleaner6",
+        "Permission11"
+      ],
+      "sectionNav": [],
+      "tableColumns": [
+        "Policy Name",
+        "Description",
+        "Status",
+        "Last Update",
+        "Type",
+        "Scheduled Date",
+        "Active/Inactive",
+        "Action"
+      ],
+      "cards": [
+        "AD Cleaner policies"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/protect/",
+      "screenshot": "screens/protect-policies.webp"
+    },
+    {
+      "id": "protect-policies-new",
+      "module": "Protect",
+      "path": "/protect/policies/new",
+      "family": "/protect/policies/new",
+      "url": "https://lepide-new-ui.vercel.app/protect/policies/new",
+      "title": "Create Policy — AD Cleaner",
+      "crumbs": [
+        "Dashboard",
+        "Policy Management",
+        "New Policy"
+      ],
+      "description": "Step 1 of 5 · Scope",
+      "patterns": [
+        "wizard steps",
+        "form"
+      ],
+      "actions": [],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/protect/",
+      "screenshot": "screens/protect-policies-new.webp"
+    },
+    {
+      "id": "protect-policies-new-permission",
+      "module": "Protect",
+      "path": "/protect/policies/new-permission",
+      "family": "/protect/policies/new-permission",
+      "url": "https://lepide-new-ui.vercel.app/protect/policies/new-permission",
+      "title": "Create Policy",
+      "crumbs": [
+        "Dashboard",
+        "Policy Management",
+        "Create Policy"
+      ],
+      "description": "Step 1 of 3 · Create Policy",
+      "patterns": [
+        "data table",
+        "wizard steps",
+        "form"
+      ],
+      "actions": [],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [
+        "Members Name",
+        "Job Title",
+        "Email ID"
+      ],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/protect/",
+      "screenshot": "screens/protect-policies-new-permission.webp"
+    },
+    {
+      "id": "protect-ad-cleaner",
+      "module": "Protect",
+      "path": "/protect/ad-cleaner",
+      "family": "/protect/ad-cleaner",
+      "url": "https://lepide-new-ui.vercel.app/protect/ad-cleaner",
+      "title": "Active Directory Cleaner",
+      "crumbs": [
+        "Dashboard",
+        "Policy Management",
+        "Active Directory Cleaner"
+      ],
+      "description": "Find inactive user and computer accounts, send scheduled reports, and apply controlled cleanup actions.",
+      "patterns": [
+        "settings cards"
+      ],
+      "actions": [
+        {
+          "label": "Enable Active Directory Cleaner",
+          "primary": false
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [
+        "Scope",
+        "Schedule & notifications",
+        "Automated actions",
+        "Daily inactive-account report"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/protect/",
+      "screenshot": "screens/protect-ad-cleaner.webp"
+    },
+    {
+      "id": "protect-team-management",
+      "module": "Protect",
+      "path": "/protect/team-management",
+      "family": "/protect/team-management",
+      "url": "https://lepide-new-ui.vercel.app/protect/team-management",
+      "title": "Team Management",
+      "crumbs": [
+        "Dashboard",
+        "Team Management"
+      ],
+      "description": "To get started, please select the managers you would like to enroll into your Data Security Protect.",
+      "patterns": [
+        "data table"
+      ],
+      "actions": [
+        {
+          "label": "Apply",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [
+        "Name",
+        "Department",
+        "Job Title",
+        "Email",
+        "Exclude",
+        "Action",
+        "Enroll"
+      ],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/protect/",
+      "screenshot": "screens/protect-team-management.webp"
+    },
+    {
+      "id": "my-lepide",
+      "module": "My Lepide",
+      "path": "/my-lepide",
+      "family": "/my-lepide",
+      "url": "https://lepide-new-ui.vercel.app/my-lepide",
+      "title": "My Lepide",
+      "crumbs": [
+        "Home",
+        "My Lepide"
+      ],
+      "description": "A collection of all of your favourite reports.",
+      "patterns": [
+        "data table",
+        "folder tree"
+      ],
+      "actions": [
+        {
+          "label": "Add Reports",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [
+        "Report Name",
+        "Section",
+        "Description",
+        "Shared By",
+        "Added On",
+        "Actions"
+      ],
+      "cards": [
+        "All Reports4 reports"
+      ],
+      "primaryFlow": {
+        "opens": "page",
+        "path": "/auditor"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/my-lepide/",
+      "screenshot": "screens/my-lepide.webp"
+    },
+    {
+      "id": "dashboards",
+      "module": "Dashboards",
+      "path": "/dashboards",
+      "family": "/dashboards",
+      "url": "https://lepide-new-ui.vercel.app/dashboards",
+      "title": "Dashboards",
+      "crumbs": [],
+      "description": "",
+      "patterns": [
+        "data table"
+      ],
+      "actions": [
+        {
+          "label": "Create Dashboard",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [
+        "Dashboard Name",
+        "Description",
+        "Shared With",
+        "Shared By",
+        "Added By",
+        "Added On",
+        "Actions"
+      ],
+      "cards": [],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "Create Dashboard",
+        "subtitle": "",
+        "steps": [],
+        "fields": [
+          "Dashboard Name:",
+          "Description:"
+        ],
+        "buttons": [
+          "Cancel",
+          "Next"
+        ],
+        "screenshot": "screens/dashboards--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/dashboards/",
+      "screenshot": "screens/dashboards.webp"
+    },
+    {
+      "id": "shield",
+      "module": "Home",
+      "path": "/shield",
+      "family": "/shield",
+      "url": "https://lepide-new-ui.vercel.app/shield",
+      "title": "AI ShieldServer live",
+      "crumbs": [
+        "Home",
+        "AI Shield"
+      ],
+      "description": "AI Shield · Admin",
+      "patterns": [
+        "KPI row",
+        "chart panels",
+        "tabs",
+        "charts"
+      ],
+      "actions": [],
+      "tabs": [
+        "Overview",
+        "Sessions3",
+        "People",
+        "Protection policy",
+        "Admin activity",
+        "Server"
+      ],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [
+        "Sessions this week",
+        "What happened",
+        "Needs your review",
+        "Agents needing attention",
+        "Admin activity"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/pages/Home.tsx",
+      "screenshot": "screens/shield.webp"
+    },
+    {
+      "id": "shield-people",
+      "module": "Home",
+      "path": "/shield/people",
+      "family": "/shield/people",
+      "url": "https://lepide-new-ui.vercel.app/shield/people",
+      "title": "People",
+      "crumbs": [
+        "Home",
+        "AI Shield",
+        "People"
+      ],
+      "description": "AI Shield · Admin",
+      "patterns": [
+        "data table",
+        "tabs"
+      ],
+      "actions": [
+        {
+          "label": "Add person",
+          "primary": true
+        }
+      ],
+      "tabs": [
+        "Overview",
+        "Sessions3",
+        "People",
+        "Protection policy",
+        "Admin activity",
+        "Server",
+        "Everyone23",
+        "Admins2",
+        "Approvers1",
+        "People18"
+      ],
+      "sectionNav": [],
+      "tableColumns": [
+        "Person",
+        "Role",
+        "Unit",
+        "Signs in with",
+        "Status",
+        "Last active",
+        "Actions"
+      ],
+      "cards": [
+        "People"
+      ],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "Add person",
+        "subtitle": "",
+        "steps": [],
+        "fields": [
+          "Full name",
+          "Email",
+          "Role",
+          "Signs in with",
+          "Unitoptional"
+        ],
+        "buttons": [
+          "Cancel",
+          "Add person"
+        ],
+        "screenshot": "screens/shield-people--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/pages/Home.tsx",
+      "screenshot": "screens/shield-people.webp"
+    },
+    {
+      "id": "shield-server",
+      "module": "Home",
+      "path": "/shield/server",
+      "family": "/shield/server",
+      "url": "https://lepide-new-ui.vercel.app/shield/server",
+      "title": "Server",
+      "crumbs": [
+        "Home",
+        "AI Shield",
+        "Server"
+      ],
+      "description": "AI Shield · Admin",
+      "patterns": [
+        "settings cards",
+        "tabs",
+        "key/value grid"
+      ],
+      "actions": [],
+      "tabs": [
+        "Overview",
+        "Sessions3",
+        "People",
+        "Protection policy",
+        "Admin activity",
+        "Server"
+      ],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [
+        "Console",
+        "Where data is stored",
+        "Where old data goes",
+        "Where admins and endpoints come from",
+        "Licence"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/pages/Home.tsx",
+      "screenshot": "screens/shield-server.webp"
+    },
+    {
+      "id": "shield-policy",
+      "module": "Home",
+      "path": "/shield/policy",
+      "family": "/shield/policy",
+      "url": "https://lepide-new-ui.vercel.app/shield/policy",
+      "title": "Protection policyVersion 3",
+      "crumbs": [
+        "Home",
+        "AI Shield",
+        "Protection policy"
+      ],
+      "description": "AI Shield · Admin",
+      "patterns": [
+        "tabs"
+      ],
+      "actions": [],
+      "tabs": [
+        "Overview",
+        "Sessions3",
+        "People",
+        "Protection policy",
+        "Admin activity",
+        "Server"
+      ],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/pages/Home.tsx",
+      "screenshot": "screens/shield-policy.webp"
+    },
+    {
+      "id": "settings-add-data-source",
+      "module": "Settings",
+      "path": "/settings/add-data-source",
+      "family": "/settings/add-data-source",
+      "url": "https://lepide-new-ui.vercel.app/settings/add-data-source",
+      "title": "Add Data Source",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Add Data Source"
+      ],
+      "description": "",
+      "patterns": [
+        "settings (section nav + cards)",
+        "settings cards",
+        "tile picker"
+      ],
+      "actions": [],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [],
+      "cards": [
+        "Data Source",
+        "Components",
+        "Added Components"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/add-data-source/",
+      "screenshot": "screens/settings-add-data-source.webp"
+    },
+    {
+      "id": "settings-add-data-source-file-server",
+      "module": "Settings",
+      "path": "/settings/add-data-source/file-server",
+      "family": "/settings/add-data-source/file-server",
+      "url": "https://lepide-new-ui.vercel.app/settings/add-data-source/file-server",
+      "title": "Add Data Source",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Add Data Source",
+        "All File Servers"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [
+        {
+          "label": "Refresh",
+          "primary": false
+        },
+        {
+          "label": "Add New File Server",
+          "primary": true
+        }
+      ],
+      "tabs": [
+        "File Servers List",
+        "Audit Rules & Policies",
+        "User Group",
+        "General Settings"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings",
+        "Add Data Source"
+      ],
+      "tableColumns": [
+        "File Server Name/IP",
+        "Server Type",
+        "Domain/Workgroup",
+        "Agent Status",
+        "Auditing Status",
+        "Last Update",
+        "Actions",
+        "Open"
+      ],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/add-data-source/",
+      "screenshot": "screens/settings-add-data-source-file-server.webp"
+    },
+    {
+      "id": "settings-add-data-source-file-server-general",
+      "module": "Settings",
+      "path": "/settings/add-data-source/file-server/general",
+      "family": "/settings/add-data-source/file-server/general",
+      "url": "https://lepide-new-ui.vercel.app/settings/add-data-source/file-server/general",
+      "title": "Add Data Source",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Add Data Source",
+        "General Settings"
+      ],
+      "description": "",
+      "patterns": [
+        "settings (section nav + cards)",
+        "settings cards",
+        "segmented control",
+        "tabs",
+        "form"
+      ],
+      "actions": [],
+      "tabs": [
+        "File Servers List",
+        "Audit Rules & Policies",
+        "User Group",
+        "General Settings"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings",
+        "Add Data Source"
+      ],
+      "tableColumns": [],
+      "cards": [
+        "Port Settings"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/add-data-source/",
+      "screenshot": "screens/settings-add-data-source-file-server-general.webp"
+    },
+    {
+      "id": "settings-add-data-source-file-server-rules",
+      "module": "Settings",
+      "path": "/settings/add-data-source/file-server/rules",
+      "family": "/settings/add-data-source/file-server/rules",
+      "url": "https://lepide-new-ui.vercel.app/settings/add-data-source/file-server/rules",
+      "title": "Add Data Source",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Add Data Source",
+        "Audit Rule & Policy"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [],
+      "tabs": [
+        "File Servers List",
+        "Audit Rules & Policies",
+        "User Group",
+        "General Settings",
+        "Rules",
+        "Policies"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings",
+        "Add Data Source"
+      ],
+      "tableColumns": [
+        "Rule Name",
+        "Rule Summary",
+        "Policy Name",
+        "Rule Status",
+        "Rule Users",
+        "Actions"
+      ],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/add-data-source/",
+      "screenshot": "screens/settings-add-data-source-file-server-rules.webp"
+    },
+    {
+      "id": "settings-add-data-source-file-server-users",
+      "module": "Settings",
+      "path": "/settings/add-data-source/file-server/users",
+      "family": "/settings/add-data-source/file-server/users",
+      "url": "https://lepide-new-ui.vercel.app/settings/add-data-source/file-server/users",
+      "title": "Add Data Source",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Add Data Source",
+        "User Group"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [
+        {
+          "label": "Add New User Group",
+          "primary": true
+        }
+      ],
+      "tabs": [
+        "File Servers List",
+        "Audit Rules & Policies",
+        "User Group",
+        "General Settings"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings",
+        "Add Data Source"
+      ],
+      "tableColumns": [
+        "User Name",
+        "Domain/File Server",
+        "User Type",
+        "User Policy",
+        "Description",
+        "Actions"
+      ],
+      "cards": [],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "Enter group name and add users to the group.",
+        "subtitle": "",
+        "steps": [],
+        "fields": [
+          "Group Name",
+          "Description",
+          "Apply Policy"
+        ],
+        "buttons": [
+          "Cancel",
+          "Done"
+        ],
+        "screenshot": "screens/settings-add-data-source-file-server-users--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/add-data-source/",
+      "screenshot": "screens/settings-add-data-source-file-server-users.webp"
+    },
+    {
+      "id": "settings-trust",
+      "module": "Settings",
+      "path": "/settings/trust",
+      "family": "/settings/trust",
+      "url": "https://lepide-new-ui.vercel.app/settings/trust",
+      "title": "Trust Settings",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Trust Settings"
+      ],
+      "description": "",
+      "patterns": [
+        "settings (section nav + cards)",
+        "settings cards",
+        "tile picker"
+      ],
+      "actions": [],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [],
+      "cards": [
+        "Configure Scan Settings"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/trust/",
+      "screenshot": "screens/settings-trust.webp"
+    },
+    {
+      "id": "settings-identify",
+      "module": "Settings",
+      "path": "/settings/identify",
+      "family": "/settings/identify",
+      "url": "https://lepide-new-ui.vercel.app/settings/identify",
+      "title": "Identify Settings",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Identify Settings"
+      ],
+      "description": "",
+      "patterns": [
+        "settings (section nav + cards)",
+        "settings cards",
+        "tile picker"
+      ],
+      "actions": [],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [],
+      "cards": [
+        "Configure Data Discovery Settings"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/identify/",
+      "screenshot": "screens/settings-identify.webp"
+    },
+    {
+      "id": "settings-protect",
+      "module": "Settings",
+      "path": "/settings/protect",
+      "family": "/settings/protect",
+      "url": "https://lepide-new-ui.vercel.app/settings/protect",
+      "title": "Configure Team Members",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Configure Team Members"
+      ],
+      "description": "",
+      "patterns": [
+        "settings (section nav + cards)",
+        "settings cards",
+        "tile picker",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [],
+      "tabs": [
+        "HRMS",
+        "Active Directory",
+        "CSV",
+        "Email Configuration",
+        "Super Admin Privileges",
+        "Settings"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [],
+      "cards": [
+        "HRMS"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/protect/",
+      "screenshot": "screens/settings-protect.webp"
+    },
+    {
+      "id": "settings-general",
+      "module": "Settings",
+      "path": "/settings/general",
+      "family": "/settings/general",
+      "url": "https://lepide-new-ui.vercel.app/settings/general",
+      "title": "General Settings",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "General Settings"
+      ],
+      "description": "",
+      "patterns": [
+        "settings (section nav + cards)",
+        "settings cards",
+        "form"
+      ],
+      "actions": [],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [],
+      "cards": [
+        "Display Settings",
+        "Retention Settings",
+        "Logging System Configuration",
+        "Retention Log Configuration",
+        "Other Settings",
+        "Change Summary"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/general/",
+      "screenshot": "screens/settings-general.webp"
+    },
+    {
+      "id": "settings-role-management",
+      "module": "Settings",
+      "path": "/settings/role-management",
+      "family": "/settings/role-management",
+      "url": "https://lepide-new-ui.vercel.app/settings/role-management",
+      "title": "Role Management",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Role Management"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)"
+      ],
+      "actions": [
+        {
+          "label": "Remove Members",
+          "primary": false
+        },
+        {
+          "label": "Add Member(s)",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [
+        "Members",
+        "Logon id",
+        "Domain",
+        "Added On",
+        "Type",
+        "Role",
+        "Action"
+      ],
+      "cards": [],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "Select User(s) or Group(s)",
+        "subtitle": "",
+        "steps": [],
+        "fields": [],
+        "buttons": [
+          "Add"
+        ],
+        "screenshot": "screens/settings-role-management--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/role-management/",
+      "screenshot": "screens/settings-role-management.webp"
+    },
+    {
+      "id": "settings-lepide-iq",
+      "module": "Settings",
+      "path": "/settings/lepide-iq",
+      "family": "/settings/lepide-iq",
+      "url": "https://lepide-new-ui.vercel.app/settings/lepide-iq",
+      "title": "Lepide IQ",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Lepide IQ"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)",
+        "empty state"
+      ],
+      "actions": [
+        {
+          "label": "Add Credential(s)",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [
+        "Lepide IQ Name",
+        "API End Point URL",
+        "API Key",
+        "Deployed Model Name",
+        "Action"
+      ],
+      "cards": [],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "Add Credentials for Lepide IQ",
+        "subtitle": "",
+        "steps": [],
+        "fields": [
+          "Lepide IQ Name",
+          "API End Point URL",
+          "API Key",
+          "Deployed Model Name"
+        ],
+        "buttons": [
+          "Cancel",
+          "Apply"
+        ],
+        "screenshot": "screens/settings-lepide-iq--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/lepide-iq/",
+      "screenshot": "screens/settings-lepide-iq.webp"
+    },
+    {
+      "id": "settings-logs",
+      "module": "Settings",
+      "path": "/settings/logs",
+      "family": "/settings/logs",
+      "url": "https://lepide-new-ui.vercel.app/settings/logs",
+      "title": "Logs",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Logs"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)"
+      ],
+      "actions": [
+        {
+          "label": "Delete Logon Activity",
+          "primary": false
+        },
+        {
+          "label": "Export",
+          "primary": false
+        },
+        {
+          "label": "October 29, 2026–November 4, 2026",
+          "primary": false
+        },
+        {
+          "label": "Generate Logs",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [
+        "Action",
+        "By Whom",
+        "Performed On"
+      ],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/logs/",
+      "screenshot": "screens/settings-logs.webp"
+    },
+    {
+      "id": "settings-backup-restore",
+      "module": "Settings",
+      "path": "/settings/backup-restore",
+      "family": "/settings/backup-restore",
+      "url": "https://lepide-new-ui.vercel.app/settings/backup-restore",
+      "title": "Backup & Restore",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Backup & Restore"
+      ],
+      "description": "",
+      "patterns": [
+        "settings (section nav + cards)",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [],
+      "tabs": [
+        "Import Database",
+        "Export Database",
+        "AD Restore",
+        "Archives & Imports"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/backup-restore/",
+      "screenshot": "screens/settings-backup-restore.webp"
+    },
+    {
+      "id": "settings-exported-files",
+      "module": "Settings",
+      "path": "/settings/exported-files",
+      "family": "/settings/exported-files",
+      "url": "https://lepide-new-ui.vercel.app/settings/exported-files",
+      "title": "Exported Files",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Exported Files"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)"
+      ],
+      "actions": [],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [
+        "File Name",
+        "Format",
+        "Status",
+        "Actions",
+        "File Name",
+        "Format",
+        "Status",
+        "Actions"
+      ],
+      "cards": [
+        "In Progress",
+        "Completed"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/exported-files/",
+      "screenshot": "screens/settings-exported-files.webp"
+    },
+    {
+      "id": "settings-application-url",
+      "module": "Settings",
+      "path": "/settings/application-url",
+      "family": "/settings/application-url",
+      "url": "https://lepide-new-ui.vercel.app/settings/application-url",
+      "title": "Application URL",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Application URL"
+      ],
+      "description": "",
+      "patterns": [
+        "settings (section nav + cards)",
+        "settings cards",
+        "form"
+      ],
+      "actions": [],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/application-url/",
+      "screenshot": "screens/settings-application-url.webp"
+    },
+    {
+      "id": "settings-manage-domains",
+      "module": "Settings",
+      "path": "/settings/manage-domains",
+      "family": "/settings/manage-domains",
+      "url": "https://lepide-new-ui.vercel.app/settings/manage-domains",
+      "title": "Manage Domains",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Manage Domains"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)"
+      ],
+      "actions": [
+        {
+          "label": "Add Domain",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [
+        "Domain",
+        "Domain controller Name/IP",
+        "Logon Name",
+        "Actions"
+      ],
+      "cards": [],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "Add Domain",
+        "subtitle": "",
+        "steps": [],
+        "fields": [
+          "Domain Name",
+          "Domain controller Name / IP :",
+          "User Name:",
+          "Password:"
+        ],
+        "buttons": [
+          "Cancel",
+          "Apply"
+        ],
+        "screenshot": "screens/settings-manage-domains--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/manage-domains/",
+      "screenshot": "screens/settings-manage-domains.webp"
+    },
+    {
+      "id": "settings-subscription",
+      "module": "Settings",
+      "path": "/settings/subscription",
+      "family": "/settings/subscription",
+      "url": "https://lepide-new-ui.vercel.app/settings/subscription",
+      "title": "Subscription",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Subscription"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [
+        {
+          "label": "Subscribe",
+          "primary": true
+        }
+      ],
+      "tabs": [
+        "Manage Subscription",
+        "Subscription Status"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [
+        "Subscription Name",
+        "Description",
+        "Status",
+        "Action",
+        "Open"
+      ],
+      "cards": [
+        "Manage Subscription"
+      ],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "Add Subscription",
+        "subtitle": "",
+        "steps": [
+          "General",
+          "Filters",
+          "Delivery Settings",
+          "Subscription Schedule"
+        ],
+        "fields": [
+          "Subscription Name",
+          "Status",
+          "Description",
+          "All Environment Changes",
+          "Activity Outside of Business Hours",
+          "External Data Sharing O365",
+          "File Server Reports",
+          "All File Server Interactions",
+          "Site Collection Admin Removed",
+          "Site Collection Admin Added",
+          "Site Collection Changes",
+          "Alert Summary",
+          "Open Shares",
+          "SQL Server Reports",
+          "EMC Isilon Reports",
+          "Nutanix Reports",
+          "Nasuni Reports"
+        ],
+        "buttons": [
+          "Cancel",
+          "Next"
+        ],
+        "screenshot": "screens/settings-subscription--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/subscription/",
+      "screenshot": "screens/settings-subscription.webp"
+    },
+    {
+      "id": "settings-configure-notifications",
+      "module": "Settings",
+      "path": "/settings/configure-notifications",
+      "family": "/settings/configure-notifications",
+      "url": "https://lepide-new-ui.vercel.app/settings/configure-notifications",
+      "title": "Configure Notifications",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Configure Notifications"
+      ],
+      "description": "",
+      "patterns": [
+        "settings (section nav + cards)",
+        "settings cards",
+        "tile picker",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [],
+      "tabs": [
+        "Components",
+        "SIEM"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [],
+      "cards": [
+        "Components"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/configure-notifications/",
+      "screenshot": "screens/settings-configure-notifications.webp"
+    },
+    {
+      "id": "settings-license-management",
+      "module": "Settings",
+      "path": "/settings/license-management",
+      "family": "/settings/license-management",
+      "url": "https://lepide-new-ui.vercel.app/settings/license-management",
+      "title": "License Management",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "License Management"
+      ],
+      "description": "This software is licensed to : UNREGISTERED (UNREGISTERED )",
+      "patterns": [
+        "settings (section nav + cards)",
+        "settings cards",
+        "empty state"
+      ],
+      "actions": [
+        {
+          "label": "Contact us",
+          "primary": false
+        },
+        {
+          "label": "Refresh",
+          "primary": false
+        },
+        {
+          "label": "Add License",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [],
+      "cards": [
+        "License Overview"
+      ],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "License Activation",
+        "subtitle": "",
+        "steps": [],
+        "fields": [
+          "License ID",
+          "Password"
+        ],
+        "buttons": [
+          "Cancel",
+          "Activate"
+        ],
+        "screenshot": "screens/settings-license-management--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/license-management/",
+      "screenshot": "screens/settings-license-management.webp"
+    },
+    {
+      "id": "settings-sql-authentication",
+      "module": "Settings",
+      "path": "/settings/sql-authentication",
+      "family": "/settings/sql-authentication",
+      "url": "https://lepide-new-ui.vercel.app/settings/sql-authentication",
+      "title": "Default SQL Server Settings",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Default SQL Server Settings"
+      ],
+      "description": "",
+      "patterns": [
+        "settings (section nav + cards)",
+        "settings cards",
+        "segmented control",
+        "tabs",
+        "form"
+      ],
+      "actions": [],
+      "tabs": [
+        "Default SQL Server Settings",
+        "Group Policy SQL Settings",
+        "MySQL Credentials",
+        "Manage Delivery Settings"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [],
+      "cards": [
+        "Default SQL Server Settings"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/sql-authentication/",
+      "screenshot": "screens/settings-sql-authentication.webp"
+    },
+    {
+      "id": "settings-user-service-settings",
+      "module": "Settings",
+      "path": "/settings/user-service-settings",
+      "family": "/settings/user-service-settings",
+      "url": "https://lepide-new-ui.vercel.app/settings/user-service-settings",
+      "title": "User Service Settings",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "User Service Settings"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)",
+        "settings cards"
+      ],
+      "actions": [
+        {
+          "label": "Change Account for All Services",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [
+        "Service Name",
+        "Log On As",
+        "Startup Type",
+        "Status",
+        "Action"
+      ],
+      "cards": [],
+      "primaryFlow": {
+        "opens": "dialog",
+        "title": "Change Account for All Services",
+        "subtitle": "",
+        "steps": [],
+        "fields": [
+          "User Name",
+          "Password",
+          "Confirm Password"
+        ],
+        "buttons": [
+          "Cancel",
+          "Apply"
+        ],
+        "screenshot": "screens/settings-user-service-settings--dialog.webp"
+      },
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/user-service-settings/",
+      "screenshot": "screens/settings-user-service-settings.webp"
+    },
+    {
+      "id": "settings-manage-component",
+      "module": "Settings",
+      "path": "/settings/manage-component",
+      "family": "/settings/manage-component",
+      "url": "https://lepide-new-ui.vercel.app/settings/manage-component",
+      "title": "Manage Component",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Add Data Source",
+        "Manage Component"
+      ],
+      "description": "",
+      "patterns": [
+        "settings (section nav + cards)",
+        "settings cards",
+        "tile picker"
+      ],
+      "actions": [],
+      "tabs": [],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings"
+      ],
+      "tableColumns": [],
+      "cards": [
+        "Components",
+        "Added Components"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/settings/categories/manage-component/",
+      "screenshot": "screens/settings-manage-component.webp"
+    },
+    {
+      "id": "dashboards-auditor",
+      "module": "Dashboards",
+      "path": "/dashboards/auditor",
+      "family": "/dashboards/:id",
+      "url": "https://lepide-new-ui.vercel.app/dashboards/auditor",
+      "title": "Dashboard- Auditor",
+      "crumbs": [
+        "Dashboard",
+        "Auditor"
+      ],
+      "description": "",
+      "patterns": [
+        "chart panels",
+        "charts"
+      ],
+      "actions": [
+        {
+          "label": "Auditor",
+          "primary": false
+        },
+        {
+          "label": "Refresh",
+          "primary": false
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/dashboards/",
+      "screenshot": "screens/dashboards-auditor.webp"
+    },
+    {
+      "id": "dashboards-trust",
+      "module": "Dashboards",
+      "path": "/dashboards/trust",
+      "family": "/dashboards/:id",
+      "url": "https://lepide-new-ui.vercel.app/dashboards/trust",
+      "title": "Dashboard- Trust",
+      "crumbs": [
+        "Dashboard",
+        "Trust"
+      ],
+      "description": "",
+      "patterns": [
+        "chart panels",
+        "charts"
+      ],
+      "actions": [
+        {
+          "label": "Trust",
+          "primary": false
+        },
+        {
+          "label": "Refresh",
+          "primary": false
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/modules/dashboards/",
+      "screenshot": "screens/dashboards-trust.webp"
+    },
+    {
+      "id": "auditor-report-view",
+      "module": "Auditor",
+      "path": "/auditor/reports/all-object-changes",
+      "family": "/auditor/reports/:slug",
+      "url": "https://lepide-new-ui.vercel.app/auditor/reports/all-object-changes",
+      "title": "Report Name - All Object Changes (Active Directory)",
+      "crumbs": [
+        "Home",
+        "Lepide Auditor",
+        "Reports",
+        "Active Directory",
+        "All Object Changes (Active Dire…"
+      ],
+      "description": "Report Name",
+      "patterns": [
+        "data table",
+        "empty state",
+        "filter chips"
+      ],
+      "actions": [
+        {
+          "label": "Mar 10, 2024 - Apr 10, 2024",
+          "primary": false
+        },
+        {
+          "label": "Modify filters",
+          "primary": false
+        },
+        {
+          "label": "Export",
+          "primary": false
+        },
+        {
+          "label": "Generate Report",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": "/auditor",
+      "state": "Auditor report view",
+      "source": "src/reports/ViewPage.tsx",
+      "screenshot": "screens/auditor-report-view.webp"
+    },
+    {
+      "id": "auditor-report-results",
+      "module": "Auditor",
+      "path": "/auditor/reports/all-object-changes",
+      "family": "/auditor/reports/:slug",
+      "url": "https://lepide-new-ui.vercel.app/auditor/reports/all-object-changes",
+      "title": "Report Name - All Object Changes (Active Directory)",
+      "crumbs": [
+        "Home",
+        "Lepide Auditor",
+        "Reports",
+        "Active Directory",
+        "All Object Changes (Active Dire…"
+      ],
+      "description": "Report Name",
+      "patterns": [
+        "data table",
+        "filter chips"
+      ],
+      "actions": [
+        {
+          "label": "Mar 10, 2024 - Apr 10, 2024",
+          "primary": false
+        },
+        {
+          "label": "Modify filters",
+          "primary": false
+        },
+        {
+          "label": "Export",
+          "primary": false
+        },
+        {
+          "label": "Generate Report",
+          "primary": true
+        }
+      ],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [
+        "Server Name",
+        "Object Path",
+        "Object Class",
+        "Who Modified",
+        "When",
+        "Operation",
+        "What",
+        "Where",
+        "From",
+        "Open"
+      ],
+      "cards": [
+        "Results100 records"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": "/auditor",
+      "state": "Auditor report view with results",
+      "source": "src/reports/ViewPage.tsx",
+      "screenshot": "screens/auditor-report-results.webp"
+    },
+    {
+      "id": "auditor-report-builder",
+      "module": "Auditor",
+      "path": "/auditor/reports/new",
+      "family": "/auditor/reports/:slug",
+      "url": "https://lepide-new-ui.vercel.app/auditor/reports/new",
+      "title": "Report - All Object Changes (Active Directory)",
+      "crumbs": [
+        "Home",
+        "Lepide Auditor",
+        "Reports",
+        "Create Report"
+      ],
+      "description": "Step 2 of 2 · Report builder",
+      "patterns": [
+        "data table",
+        "empty state",
+        "segmented control",
+        "tabs",
+        "builder"
+      ],
+      "actions": [
+        {
+          "label": "Discard",
+          "primary": false
+        },
+        {
+          "label": "Run Report",
+          "primary": false
+        },
+        {
+          "label": "Save",
+          "primary": true
+        }
+      ],
+      "tabs": [
+        "Columns9",
+        "Filters1"
+      ],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": "/auditor",
+      "state": "Auditor report builder",
+      "source": "src/reports/BuilderPage.tsx",
+      "screenshot": "screens/auditor-report-builder.webp"
+    },
+    {
+      "id": "settings-identify-source",
+      "module": "Settings",
+      "path": "/settings/identify/file-server",
+      "family": "/settings/identify/file-server",
+      "url": "https://lepide-new-ui.vercel.app/settings/identify/file-server",
+      "title": "Identify Settings",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Identify Settings",
+        "Data Discovery & Classification",
+        "Profile List"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [],
+      "tabs": [
+        "Profile Name",
+        "Templates",
+        "Tags",
+        "Pattern",
+        "Agent",
+        "Centralized Server"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings",
+        "Data Discovery & Classification"
+      ],
+      "tableColumns": [
+        "Profile Name",
+        "Profile Progress",
+        "Agent Communication",
+        "On Demand Classification",
+        "On the fly Classification",
+        "Last Scan Start Time",
+        "Last Scan End Time",
+        "Actions",
+        "Open"
+      ],
+      "cards": [
+        "Profiles"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": "/settings/identify",
+      "state": "Identify settings: a source",
+      "source": "src/settings/categories/identify/",
+      "screenshot": "screens/settings-identify-source.webp"
+    },
+    {
+      "id": "settings-identify-source-templates",
+      "module": "Settings",
+      "path": "/settings/identify/file-server/templates",
+      "family": "/settings/identify/file-server/:id",
+      "url": "https://lepide-new-ui.vercel.app/settings/identify/file-server/templates",
+      "title": "Identify Settings",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Identify Settings",
+        "Data Discovery & Classification",
+        "Templates"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)",
+        "folder tree",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [],
+      "tabs": [
+        "Profile Name",
+        "Templates",
+        "Tags",
+        "Pattern",
+        "Agent",
+        "Centralized Server"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings",
+        "Data Discovery & Classification"
+      ],
+      "tableColumns": [
+        "Tag Name",
+        "Description",
+        "Patterns",
+        "Type",
+        "Open"
+      ],
+      "cards": [
+        "Custom"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": "/settings/identify",
+      "state": "Identify settings: source templates",
+      "source": "src/settings/categories/identify/",
+      "screenshot": "screens/settings-identify-source-templates.webp"
+    },
+    {
+      "id": "settings-identify-source-tags",
+      "module": "Settings",
+      "path": "/settings/identify/file-server/tags",
+      "family": "/settings/identify/file-server/:id",
+      "url": "https://lepide-new-ui.vercel.app/settings/identify/file-server/tags",
+      "title": "Identify Settings",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Identify Settings",
+        "Data Discovery & Classification",
+        "Tag List"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [],
+      "tabs": [
+        "Profile Name",
+        "Templates",
+        "Tags",
+        "Pattern",
+        "Agent",
+        "Centralized Server"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings",
+        "Data Discovery & Classification"
+      ],
+      "tableColumns": [
+        "Tag Name",
+        "Description",
+        "Patterns",
+        "Type",
+        "Actions",
+        "Open"
+      ],
+      "cards": [
+        "Tags"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": "/settings/identify",
+      "state": "Identify settings: source tags",
+      "source": "src/settings/categories/identify/",
+      "screenshot": "screens/settings-identify-source-tags.webp"
+    },
+    {
+      "id": "settings-identify-source-patterns",
+      "module": "Settings",
+      "path": "/settings/identify/file-server/patterns",
+      "family": "/settings/identify/file-server/:id",
+      "url": "https://lepide-new-ui.vercel.app/settings/identify/file-server/patterns",
+      "title": "Identify Settings",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Identify Settings",
+        "Data Discovery & Classification",
+        "Pattern List"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [],
+      "tabs": [
+        "Profile Name",
+        "Templates",
+        "Tags",
+        "Pattern",
+        "Agent",
+        "Centralized Server"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings",
+        "Data Discovery & Classification"
+      ],
+      "tableColumns": [
+        "Pattern Name",
+        "Type",
+        "Description",
+        "Expressions",
+        "Pattern Type",
+        "Actions",
+        "Open"
+      ],
+      "cards": [
+        "Patterns"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": "/settings/identify",
+      "state": "Identify settings: source patterns",
+      "source": "src/settings/categories/identify/",
+      "screenshot": "screens/settings-identify-source-patterns.webp"
+    },
+    {
+      "id": "settings-identify-source-agents",
+      "module": "Settings",
+      "path": "/settings/identify/file-server/agents",
+      "family": "/settings/identify/file-server/:id",
+      "url": "https://lepide-new-ui.vercel.app/settings/identify/file-server/agents",
+      "title": "Identify Settings",
+      "crumbs": [
+        "Home",
+        "Settings",
+        "Identify Settings",
+        "Data Discovery & Classification",
+        "Agent List"
+      ],
+      "description": "",
+      "patterns": [
+        "data table",
+        "settings (section nav + cards)",
+        "segmented control",
+        "tabs"
+      ],
+      "actions": [],
+      "tabs": [
+        "Profile Name",
+        "Templates",
+        "Tags",
+        "Pattern",
+        "Agent",
+        "Centralized Server"
+      ],
+      "sectionNav": [
+        "Add Data Source",
+        "Trust Settings",
+        "Identify Settings",
+        "Protect Settings",
+        "General Settings",
+        "Role management",
+        "Lepide IQ",
+        "Logs",
+        "Backup & Restore",
+        "Exported Files",
+        "Application URL",
+        "Manage Domains",
+        "Subscription",
+        "Configure Notifications",
+        "License Management",
+        "SQL Authentication",
+        "User Service Settings",
+        "Data Discovery & Classification"
+      ],
+      "tableColumns": [
+        "Agent Server",
+        "Agent Path",
+        "Scanned Profile",
+        "Actions"
+      ],
+      "cards": [
+        "Agents"
+      ],
+      "primaryFlow": null,
+      "reachedFrom": "/settings/identify",
+      "state": "Identify settings: source agents",
+      "source": "src/settings/categories/identify/",
+      "screenshot": "screens/settings-identify-source-agents.webp"
+    },
+    {
+      "id": "login",
+      "module": "Sign in",
+      "path": "/login",
+      "family": "/login",
+      "url": "https://lepide-with-new-design.vercel.app/",
+      "title": "Sign in to the console",
+      "crumbs": [],
+      "description": "",
+      "patterns": [
+        "sign-in"
+      ],
+      "actions": [],
+      "tabs": [],
+      "sectionNav": [],
+      "tableColumns": [],
+      "cards": [],
+      "primaryFlow": null,
+      "reachedFrom": null,
+      "state": null,
+      "source": "src/pages/Login.tsx",
+      "screenshot": "screens/login.webp"
+    }
+  ]
+}

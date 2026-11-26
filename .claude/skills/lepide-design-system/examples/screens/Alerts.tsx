@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import {
   Banner, Button, ConfirmDialog, DataTable, Drawer, EmptyState, IconButton, KeyValues, Menu, PageHeader, Person,
   SearchField, Segmented, ToneTag, useToast, type Column, type StatusTone,
+  fmtDateTime,
 } from '@lepide/ds-react';
 
 /* Golden example — Alerts (Detect › Alert status).
@@ -52,9 +53,6 @@ const SEVERITY_TONE: Record<Severity, StatusTone> = { High: 'bad', Medium: 'warn
 const SEVERITY_RANK: Record<Severity, number> = { High: 3, Medium: 2, Low: 1 };
 const STATUS_TONE: Record<Status, StatusTone> = { Open: 'info', Snoozed: 'none', Resolved: 'good' };
 
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-/** "2026-11-03 09:42" → "3 Nov 2026, 09:42" */
-const fmt = (s: string) => { const [d, t] = s.split(' '); const [y, m, day] = d.split('-'); return `${Number(day)} ${MONTHS[Number(m) - 1]} ${y}, ${t}`; };
 
 const columns: Column<Alert>[] = [
   { key: 'name', header: 'Alert', sortable: true, minWidth: 260 },
@@ -62,7 +60,7 @@ const columns: Column<Alert>[] = [
     render: (a) => <ToneTag tone={SEVERITY_TONE[a.severity]}>{a.severity}</ToneTag> },
   { key: 'source', header: 'Source', sortable: true, mono: true, minWidth: 170 },
   { key: 'user', header: 'User', sortable: true, minWidth: 190, render: (a) => <Person name={a.user} /> },
-  { key: 'raised', header: 'Raised', sortable: true, width: 170, render: (a) => fmt(a.raised), title: (a) => fmt(a.raised) },
+  { key: 'raised', header: 'Raised', sortable: true, width: 170, render: (a) => fmtDateTime(a.raised), title: (a) => fmtDateTime(a.raised) },
   { key: 'status', header: 'Status', sortable: true, width: 120, render: (a) => <ToneTag tone={STATUS_TONE[a.status]}>{a.status}</ToneTag> },
 ];
 
@@ -124,6 +122,7 @@ export default function Alerts() {
         rowKey={(a) => a.id}
         columns={columns}
         search={q}
+        filtered={filter !== 'all'}
         initialSort={{ key: 'raised', dir: 'desc' }}
         toolbar={<>
           <Segmented
@@ -163,7 +162,7 @@ export default function Alerts() {
         open={!!open}
         onClose={() => setOpenId(null)}
         title={open?.name ?? 'Alert'}
-        subtitle={open ? `${open.id} · Raised ${fmt(open.raised)}` : undefined}
+        subtitle={open ? `${open.id} · Raised ${fmtDateTime(open.raised)}` : undefined}
         footerNote={open?.note}
         footer={open && (open.status === 'Resolved'
           ? <Button onClick={() => setOpenId(null)}>Close</Button>
@@ -183,7 +182,7 @@ export default function Alerts() {
             { label: 'Status', value: <ToneTag tone={STATUS_TONE[open.status]}>{open.status}</ToneTag> },
             { label: 'Source', value: open.source },
             { label: 'User', value: open.user },
-            { label: 'Raised', value: fmt(open.raised) },
+            { label: 'Raised', value: fmtDateTime(open.raised) },
             { label: 'Matching events', value: open.events.toLocaleString() },
             { label: 'Rule', value: open.rule, wide: true },
           ]} />

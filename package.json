@@ -7,11 +7,15 @@
     "dev": "vite --port 5175 --strictPort",
     "build": "tsc -b && vite build",
     "typecheck": "tsc -b --noEmit",
-    "preview": "vite preview --port 5175"
+    "preview": "vite preview --port 5175",
+    "catalog": "node scripts/screens-catalog.mjs",
+    "screens:ad": "node scripts/screens-ad.mjs",
+    "check:ai": "node scripts/check-ai.mjs",
+    "check:ai:online": "node scripts/check-ai.mjs --online"
   },
   "dependencies": {
-    "@lepide/ds-css": "file:../lepide-design-system/packages/css",
-    "@lepide/ds-react": "file:../lepide-design-system/packages/react",
+    "@lepide/ds-css": "https://lepide-new-ds.vercel.app/ds/lepide-ds-css.tgz",
+    "@lepide/ds-react": "https://lepide-new-ds.vercel.app/ds/lepide-ds-react.tgz",
     "highcharts": "^13.1.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",

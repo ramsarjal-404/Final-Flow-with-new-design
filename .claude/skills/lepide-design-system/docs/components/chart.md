@@ -1,6 +1,6 @@
 ---
 title: Chart
-exports: [Chart, Sparkline]
+exports: [Chart, Sparkline, chartColor, PALETTE]
 category: data
 status: stable
 summary: Highcharts-based charts in the Lepide Design System theme — one Chart component with a kind per product chart type (columns, stacked, bars, areas, lines, donuts, gauges, rings, bubbles), plus a borderless Sparkline. Imported from '@lepide/ds-react/charts'.
@@ -28,13 +28,25 @@ Set-up:
 ## Anatomy
 `Chart` renders `<figure class="atl-chart">` containing:
 1. The Highcharts plot, `height` px tall (default 270; use 300 in a wide panel). No chart title — the card header (`.lf-card__title`) is the title. Transparent background, Manrope, no credits.
-2. Axes: labels 11 px `--chart-text` (`#666b74`), no axis lines or ticks, horizontal grid `--chart-grid` (`#eceef1`). Category labels wrap under their column instead of tilting; `dd-mm-yyyy` (or `/`) labels are shortened to `20 Nov`.
+2. Axes: labels 11 px `--chart-text` (`#666b74`), no axis lines or ticks, horizontal grid `--chart-grid` (`#eceef1`). Category labels wrap under their column instead of tilting; `dd-mm-yyyy` (or `/`) and `yyyy-mm-dd` labels are shortened to `20 Nov`; other labels (`28 Oct`, `Mon`) show as written.
 3. Legend: top-left, 600 12 px `#4a4f58`, 8 px round symbols, 22 px between items. Shown when there is more than one series, and always for donuts and rings (bottom centre there). `options.legend` forces it on or off.
 4. Tooltip `.atl-tip`: white card, 1 px `--border`, radius 12, `--sh-md`; head row on `--surface-2` with the category in 700 ink; rows of an 8 px colour dot, series name and value (700, tabular). Multi-series kinds share one tooltip per category. Donut, gauge and ring kinds have no tooltip — the centre label shows the hovered part.
 5. Centre label `.atl-chart__center` (donuts, speedometer, rings): value 600 28 px ink over a 500 12 px `--ink-3` caption. `.is-big` (speedometer): 36 px value, caption in the band colour. `.is-small` (rings): 19 px value, 80 px max width.
 6. A visually hidden data table (`.sr-only`) with `title` as its caption.
 
-Series colours follow `--c1`…`--c6`: `#1c4599`, `#ee8a5f`, `#b8c8f0`, `#4f72c4`, `#f5c39e`, `#8aa3dc`. Any `color` in the data may be a hex value or a product colour name written as `var(--chart-red)`, `var(--dch-orange)` etc. (mapped to Lepide Design System values); anything else, including `var(--c2)`, falls back to the palette by position.
+Series colours follow `--c1`…`--c6`: `#1c4599`, `#ee8a5f`, `#b8c8f0`, `#4f72c4`, `#f5c39e`, `#8aa3dc`. Leave `color` out to take them in order, or name one as `var(--c1)` … `var(--c6)`. Older screens use product colour names; they map into the same palette, so the names don't mean the hue:
+
+| Name | Colour |
+|---|---|
+| `var(--chart-green)`, `var(--dch-emerald)` | `#1c4599` blue |
+| `var(--chart-red)`, `var(--dch-orange)` | `#ee8a5f` coral |
+| `var(--chart-yellow)`, `var(--dch-violet)`, `var(--dch-lime)` | `#b8c8f0` light blue |
+| `var(--dch-blue)`, `var(--dch-bubble-blue)` | `#4f72c4` |
+| `var(--dch-salmon)` | `#f5c39e` peach |
+| `var(--dch-blue-soft)`, `var(--dch-lime-side)` | `#8aa3dc` |
+| `var(--dch-crimson)` | `#cf3a3f` red — only for the worst band of a risk gauge |
+
+Red, amber and green mean status, so a chart uses them only where the value is a status (a risk gauge's bands). A hex written in `color` is drawn as given: keep it to the palette. Unknown names fall back to the palette by position.
 
 `Sparkline`: `<div class="atl-chart">`, an area spline with a 2 px line and a 22 % → 0 % fill gradient, no axes, legend or grid; default 56 px tall, colour `#1c4599`; hover shows a "Value" tooltip.
 
@@ -93,7 +105,7 @@ Every `ChartKind`, its `data` shape and when to use it:
 |---|---|
 | Put the chart in a card whose header is the title; pass the same text as `title` | Add a title inside the chart |
 | Choose the kind by the question: share → `donut`, trend → `multiArea`/`line`, ranking → `pairedBars` | Donuts for trends, or lines for unordered categories |
-| Use the palette order or the product colour names | Hard-code arbitrary hex colours, or `var(--c1)` (not resolved) |
+| Use the palette order, `var(--c1)` … `var(--c6)` or the product colour names | Hard-code hex colours outside the palette, or pick colours by their names' hue (`--chart-red` is coral, not red) |
 | `height={300}` in wide panels, default 270 elsewhere | Very short charts that squash the axis |
 | An `EmptyState` when there is no data | An empty plot with only axes |
 | Get a Highcharts licence before shipping | Ship Highcharts in a product unlicensed |
@@ -124,7 +136,7 @@ import { Chart } from '@lepide/ds-react/charts';
 
 <Chart kind="speedometer" title="Risk score" height={220}
   data={{ value: 68, name: 'Risk', bands: [
-    { to: 40, label: 'Low', color: '#1c4599' }, { to: 70, label: 'Medium', color: '#ee8a5f' }, { to: 100, label: 'High', color: 'var(--dch-crimson)' },
+    { to: 40, label: 'Low', color: 'var(--c1)' }, { to: 70, label: 'Medium', color: 'var(--c2)' }, { to: 100, label: 'High', color: 'var(--dch-crimson)' },
   ] }} />
 ```
 
@@ -136,11 +148,11 @@ import { Chart } from '@lepide/ds-react/charts';
 
 | Prop | Type | Default | Notes |
 |---|---|---|---|
-| `kind` * | `ChartKind` | — |  |
-| `data` * | `D` | — |  |
+| `kind` * | `keyof ChartData` | — | Which chart to draw; it decides the shape of `data` (see ChartData). |
+| `data` * | `keyof ChartData extends K ? Record<string, unknown> : ChartData[kind]` | — | The shape for this `kind` (ChartData), checked when `kind` is a literal. A `kind` only known as ChartKind accepts any object. |
 | `height` | `number` | `270` |  |
-| `title` | `string` | — |  |
-| `onSelect` | `((label: string, index: number) => void)` | — |  |
+| `title` | `string` | — | Accessible name and the caption of the text alternative (the card header stays the visible title). |
+| `onSelect` | `((label: string, index: number) => void)` | — | Click-through from a category or segment. |
 | `options` | `ChartOptions` | — |  |
 
 ### `Sparkline`
@@ -151,11 +163,29 @@ import { Chart } from '@lepide/ds-react/charts';
 | `color` | `string` | `'#1c4599'` |  |
 | `height` | `number` | `56` |  |
 
+### `chartColor` (function)
+
+```ts
+function chartColor(c: string | undefined, i?: number): string
+```
+
+Resolve a product colour (`var(--chart-red)`, a hex, or nothing) to an Lepide Design System colour.
+
+### `PALETTE` (constant)
+
+```ts
+const PALETTE: string[]
+```
+
 ### Types
 
 ```ts
-// import type { ChartKind } from '@lepide/ds-react/charts'
-type ChartKind = 'speedometer' | 'stacked' | 'columns' | 'dateColumns' | 'pairedBars' | 'areaBars' | 'multiArea' | 'gaugeDonut' | 'calloutDonut' | 'donut3d' | 'rings' | 'bubbles' | 'line' | 'donut';
+// import type { ChartColor } from '@lepide/ds-react/charts'
+type ChartColor = string;
+// import type { ChartSeries } from '@lepide/ds-react/charts'
+type ChartSeries = { name: string; values: number[]; color?: ChartColor };
+// import type { ChartData } from '@lepide/ds-react/charts'
+type ChartData = { /** One series, one colour per bar (categories). */ columns: { labels: string[]; values: number[]; name?: string; colors?: (ChartColor | undefined)[] }; /** One series over time (a count per day or week), one colour. */ dateColumns: { labels: string[]; values: number[]; name?: string; color?: ChartColor }; /** Several series per category, stacked (or side by side with `options.stacked = false`). `cats` is the older name of `labels`. */ stacked: { labels?: string[]; cats?: string[]; series: ChartSeries[] }; /** Horizontal bars, several series per row. */ pairedBars: { rows: string[]; series: ChartSeries[] }; /** Soft bars with a trend line over them. One label per bar (`labels.length === bars.length`) labels every bar; * to label only some bars, give `markers` (bar indexes) and one label per marker: `labels[k]` labels bar `markers[k]`. */ areaBars: { bars: number[]; line: number[]; labels: string[]; markers?: number[]; barName?: string; lineName?: string }; /** Filled areas, several series over time. */ multiArea: { labels: string[]; series: (ChartSeries & { legendColor?: ChartColor })[] }; /** Lines, several series over time. */ line: { labels: string[]; series: ChartSeries[] }; donut: DonutData; /** Donut with percentages on the slices. */ calloutDonut: DonutData; /** Donut that reads as a gauge (e.g. a score out of a total). */ gaugeDonut: DonutData; /** Drawn as a flat donut with percentages. */ donut3d: DonutData; /** Concentric percentage rings, 0–100 each. */ rings: { rings: { label: string; value: number; color?: ChartColor }[] }; /** Scatter of sized points, grouped by `label`. */ bubbles: { points: { label: string; x: number; y: number; size: number; color?: ChartColor }[] }; /** A score on a 240° gauge; the band the value falls in names and colours it. */ speedometer: { value: number; max?: number; name?: string; bands: { to: number; label: string; color?: ChartColor }[] }; };
 // import type { ChartOptions } from '@lepide/ds-react/charts'
 type ChartOptions = { /** Fixed value axis: `ticks` is the number of intervals between min and max. */ y?: { min?: number; max?: number; ticks?: number; format?: (v: number) => string }; /** Force the legend on or off (default: on when there's more than one series). */ legend?: boolean; /** Always show point markers on line and area series (default: only on hover). */ markers?: boolean; /** `stacked` kind only: false draws the series side by side. */ stacked?: boolean; /** Click on any point: series and point index. */ onPoint?: (series: number, point: number) => void; /** Last-resort Highcharts options, merged last. */ raw?: Highcharts.Options; };
 ```

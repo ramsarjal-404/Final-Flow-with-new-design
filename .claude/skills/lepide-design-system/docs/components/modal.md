@@ -65,6 +65,8 @@ All widths are `min(width, 100%)` inside a 16 px window padding.
 - The card is `role="dialog"` with `aria-modal="true"`. It is named by its title heading (`aria-labelledby`), so a string or a node `title` both work.
 - Focus is trapped: Tab and Shift+Tab wrap between the first and last visible focusable elements. Escape only reaches the top-most overlay (`[data-overlay]`), so a dialog over a drawer closes on its own.
 - Forms: pass `onSubmit` and give the primary footer button `type="submit"`. Body and footer become one `<form>` (`.modal__submit`, `display: contents`), so Enter in a field submits; validate inside `onSubmit`.
+- Multi-step: one `onSubmit` that checks the current step, then either advances (`setStep(step + 1)`) or finishes on the last step. Every step's primary is `type="submit"` ("Next", then the verb), so Enter always moves forward. Back and Cancel are plain buttons; in a dialog Back sits left of Cancel (in `WizardCard`, Back is at the far left of the footer).
+- Validation: on submit, not while typing. Put each message on its field (`error`), focus the first invalid field, and clear a field's error when it's edited. A step with no field to mark (no tile picked) shows an error `toast`, which appears beside the button.
 - `ConfirmDialog` starts focus on Cancel when `destructive` (the default), so Enter can't confirm by accident; with `destructive={false}` focus starts on the confirm button. Word `confirmLabel` as the exact action ("Delete 3 reports").
 - `Steps` is an ordered list with `aria-label="Progress"`; the current step has `aria-current="step"`. Step labels are used as React keys, so they must be unique.
 - Never put the only explanation of a consequence in the icon colour: the `message` says what happens.
@@ -85,53 +87,81 @@ import { useState } from 'react';
 import { Modal, ConfirmDialog, Button, TextField, useToast } from '@lepide/ds-react';
 
 function CreateReport({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const toast = useToast();
   const [name, setName] = useState('');
+  const [nameError, setNameError] = useState('');
   const [step, setStep] = useState(0);
   const steps = ['Details', 'Columns', 'Schedule'];
   const last = step === steps.length - 1;
+  const submit = () => {
+    if (step === 0 && !name.trim()) { setNameError('Enter a report name'); return; }
+    if (!last) { setStep(step + 1); return; }
+    onClose();
+    toast({ variant: 'success', title: 'Report created', message: `${name} is under My reports.` });
+  };
   return (
     <Modal open={open} onClose={onClose} title="Create report" subtitle="Saved reports appear under My reports."
-      icon="file" steps={steps} step={step} footerHint={`Step ${step + 1} of ${steps.length}`}
+      icon="file" steps={steps} step={step} footerHint={`Step ${step + 1} of ${steps.length}`} onSubmit={submit}
       footer={<>
         {step > 0 && <Button onClick={() => setStep(step - 1)}>Back</Button>}
         <Button onClick={onClose}>Cancel</Button>
-        <Button variant="primary" onClick={() => (last ? onClose() : setStep(step + 1))}>{last ? 'Create report' : 'Next'}</Button>
+        <Button variant="primary" type="submit">{last ? 'Create report' : 'Next'}</Button>
       </>}>
-      {step === 0 && <TextField label="Report name" value={name} onChange={setName} placeholder="e.g. Failed logons" />}
+      {step === 0 && <TextField label="Report name" value={name} error={nameError}
+        onChange={(v) => { setName(v); setNameError(''); }} placeholder="e.g. Failed logons" />}
     </Modal>
   );
 }
 
 function DeleteReports({ ids, open, onClose }: { ids: string[]; open: boolean; onClose: () => void }) {
   const toast = useToast();
-  const [busy, setBusy] = useState(false);
   return (
-    <ConfirmDialog open={open} onClose={onClose} busy={busy}
+    <ConfirmDialog open={open} onClose={onClose}
       title={`Delete ${ids.length} reports?`} message="Their schedules stop as well. This can't be undone."
       confirmLabel={`Delete ${ids.length} reports`}
-      onConfirm={async () => { setBusy(true); await api.deleteReports(ids); setBusy(false); onClose(); toast({ variant: 'success', message: 'Reports deleted' }); }} />
+      // A promise keeps the button spinning until it settles; close the dialog yourself.
+      onConfirm={async () => { await api.deleteReports(ids); onClose(); toast({ variant: 'success', message: 'Reports deleted' }); }} />
   );
 }
 ```
 
-Plain HTML (with `@lepide/ds-css`):
+Plain HTML (with `@lepide/ds-css` and its optional `lepide.js`). `.modal` is the fixed scrim and holds the card;
+`hidden` hides it. `lepide.js` opens it from any `[data-open="<id>"]`, moves focus to the first field, keeps Tab inside,
+and closes it on Escape, a scrim click or any `[data-close]`, giving focus back to the opener. The body and footer sit in
+a `<form class="modal__submit">` (`display: contents`), so Enter in a field submits:
 ```html
-<div class="modal lf">
-  <div class="modal__card modal__card--sm" role="dialog" aria-modal="true" aria-label="Rename dashboard">
+<button type="button" class="lf-btn lf-btn--primary" data-open="rename">Rename</button>
+
+<div class="modal lf" id="rename" hidden>
+  <div class="modal__card modal__card--sm" role="dialog" aria-modal="true" aria-labelledby="rename-title">
     <div class="mhead">
       <span class="mhead__ic"><!-- 18 px icon --></span>
-      <div class="mhead__text"><h3>Rename dashboard</h3><small>Everyone with access sees the new name.</small></div>
-      <button type="button" class="lf-btn lf-btn--icon" aria-label="Close"><!-- x icon --></button>
+      <div class="mhead__text"><h3 id="rename-title">Rename dashboard</h3><small>Everyone with access sees the new name.</small></div>
+      <button type="button" class="lf-btn lf-btn--icon" aria-label="Close" data-close><!-- x icon --></button>
     </div>
-    <div class="modal__form">
-      <div class="fld"><label class="fld__lbl" for="n">Name</label><input id="n" /></div>
-    </div>
-    <div class="mfoot">
-      <span class="mfoot__hint"></span>
-      <div class="mfoot__btns"><button class="lf-btn">Cancel</button><button class="lf-btn lf-btn--primary">Save</button></div>
-    </div>
+    <form class="modal__submit" id="rename-form" novalidate>
+      <div class="modal__form">
+        <div class="fld"><label class="fld__lbl" for="n">Name</label><input id="n"></div>
+      </div>
+      <div class="mfoot">
+        <span class="mfoot__hint"></span>
+        <div class="mfoot__btns"><button type="button" class="lf-btn" data-close>Cancel</button><button type="submit" class="lf-btn lf-btn--primary">Save</button></div>
+      </div>
+    </form>
   </div>
 </div>
+
+<script src="lepide.js" defer></script>
+<script>
+  document.getElementById('rename-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('n');
+    Lepide.setError(name, name.value.trim() ? null : 'Enter a name.');
+    if (!name.value.trim()) return Lepide.focusFirstError();
+    Lepide.closeDialog('rename');
+    Lepide.toast({ variant: 'success', message: 'Dashboard renamed' });
+  });
+</script>
 ```
 
 ## Props
@@ -146,7 +176,7 @@ Plain HTML (with `@lepide/ds-css`):
 | `onClose` * | `() => void` | — |  |
 | `title` * | `ReactNode` | — |  |
 | `subtitle` | `ReactNode` | — |  |
-| `icon` | `"settings" \| "chevron" \| "arrow" \| "plus" \| "search" \| "calendar" \| "refresh" \| "external" \| "share" \| "up" \| "down" \| "eye" \| "folder" \| "file" \| "filter" \| "download" \| "user" \| "logout" \| "collapse" \| "chevron-right" \| "chevrons-left" \| "chevrons-right" \| "check" \| "x" \| "minus" \| "sort" \| "trash" \| "chevron-left" \| "lock" \| "sparkles" \| "star" \| "bell" \| "users" \| "clipboard" \| "home" \| "mail" \| "file-search" \| "edit" \| "more" \| "info" \| "alert" \| "upload" \| "server" \| "database" \| "globe" \| "key" \| "shield" \| "clock" \| "play" \| "pause" \| "link" \| "copy" \| "layers" \| "archive" \| "list" \| "sliders" \| "plug" \| "card" \| "history" \| "restore" \| "send" \| "terminal" \| "cpu" \| "tag" \| "cloud" \| "building" \| "user_plus" \| "save" \| "grid" \| null` | `'plus'` |  |
+| `icon` | `IconName \| null` | `'plus'` |  |
 | `tone` | `"danger"` | — |  |
 | `size` | `"sm" \| "md" \| "lg" \| "xs"` | `'md'` |  |
 | `steps` | `string[]` | — |  |
@@ -163,15 +193,15 @@ Plain HTML (with `@lepide/ds-css`):
 | Prop | Type | Default | Notes |
 |---|---|---|---|
 | `open` * | `boolean` | — |  |
-| `onClose` * | `() => void` | — |  |
-| `onConfirm` * | `() => void` | — |  |
-| `confirmLabel` * | `string` | — |  |
+| `onClose` * | `() => void` | — | Cancel, Escape and the close button. The dialog doesn't close itself after confirming: close it in `onConfirm`. |
+| `onConfirm` * | `() => unknown` | — | May return a promise: the confirm button shows a spinner until it settles. |
+| `confirmLabel` * | `string` | — | The verb, e.g. "Remove data source". |
 | `title` | `ReactNode` | `'Are you sure?'` |  |
-| `message` | `ReactNode` | — |  |
+| `message` | `ReactNode` | — | The consequence, shown under the title ("Auditing stops and its history is deleted."). |
 | `cancelLabel` | `string` | `'Cancel'` |  |
-| `destructive` | `boolean` | `true` |  |
-| `icon` | `"settings" \| "chevron" \| "arrow" \| "plus" \| "search" \| "calendar" \| "refresh" \| "external" \| "share" \| "up" \| "down" \| "eye" \| "folder" \| "file" \| "filter" \| "download" \| "user" \| "logout" \| "collapse" \| "chevron-right" \| "chevrons-left" \| "chevrons-right" \| "check" \| "x" \| "minus" \| "sort" \| "trash" \| "chevron-left" \| "lock" \| "sparkles" \| "star" \| "bell" \| "users" \| "clipboard" \| "home" \| "mail" \| "file-search" \| "edit" \| "more" \| "info" \| "alert" \| "upload" \| "server" \| "database" \| "globe" \| "key" \| "shield" \| "clock" \| "play" \| "pause" \| "link" \| "copy" \| "layers" \| "archive" \| "list" \| "sliders" \| "plug" \| "card" \| "history" \| "restore" \| "send" \| "terminal" \| "cpu" \| "tag" \| "cloud" \| "building" \| "user_plus" \| "save" \| "grid"` | — |  |
-| `busy` | `boolean` | — |  |
+| `destructive` | `boolean` | `true` | Default true: danger icon tile and a red confirm button, focus starts on Cancel. false: primary confirm. |
+| `icon` | `IconName` | — |  |
+| `busy` | `boolean` | — | Show the spinner yourself (not needed when `onConfirm` returns a promise). |
 | `children` | `ReactNode` | — |  |
 
 ### `Steps`
@@ -182,6 +212,13 @@ Plain HTML (with `@lepide/ds-css`):
 | `current` * | `number` | — |  |
 | `onStep` | `((i: number) => void)` | — |  |
 | `page` | `boolean` | — |  |
+
+### Types
+
+```ts
+// import type { IconName } from '@lepide/ds-react'
+type IconName = keyof typeof icons.line;
+```
 
 `*` required.
 <!-- props:end -->

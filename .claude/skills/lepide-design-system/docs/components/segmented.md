@@ -45,6 +45,11 @@ Any combination works: both layouts (`.seg` full width, `.dash-switch` with `hug
 counts — "All 6 · Open 4 · Resolved 2" above a table — is `mode="pressed"` (usually with `hug`), placed under the
 page header (`PageHeader` children) or in the table card's toolbar.
 
+**Page tabs and sub-tabs.** A page with views (e-Discovery: Cases | Settings) puts a `<Segmented hug>` in `PageHeader`'s
+children. When a tab has views of its own (Settings › Agents | Indexed locations), a second `<Segmented hug>` follows
+on the same line, shown only while that tab is selected; wrap both in `<div className="row row--wrap">`. Sub-tab items
+may take an `icon` (14 px, before the label) and a `count`. Two levels at most.
+
 One size: 32 px segments in a 42 px track.
 
 ## States
@@ -91,6 +96,20 @@ const [period, setPeriod] = useState('7d');
   ]}
 />
 
+// Page tabs with sub-tabs (e-Discovery)
+<PageHeader crumbs={crumbs} title="e-Discovery" actions={action}>
+  <div className="row row--wrap">
+    <Segmented hug ariaLabel="e-Discovery" value={tab} onChange={setTab}
+      items={[{ value: 'cases', label: 'Cases' }, { value: 'settings', label: 'Settings' }]} />
+    {tab === 'settings' && (
+      <Segmented hug ariaLabel="Settings" value={sub} onChange={setSub} items={[
+        { value: 'agents', label: 'Agents', icon: 'server', count: agents.length },
+        { value: 'locations', label: 'Indexed locations', icon: 'folder', count: locations.length },
+      ]} />
+    )}
+  </div>
+</PageHeader>
+
 <Segmented
   mode="pressed"
   hug
@@ -132,8 +151,10 @@ Plain HTML (with `@lepide/ds-css`):
 ### Types
 
 ```ts
+// import type { IconName } from '@lepide/ds-react'
+type IconName = keyof typeof icons.line;
 // import type { SegItem } from '@lepide/ds-react'
-type SegItem = { value: string; label: ReactNode; count?: number; disabled?: boolean };
+type SegItem = { value: string; label: ReactNode; icon?: IconName; count?: number; disabled?: boolean };
 ```
 
 `*` required.

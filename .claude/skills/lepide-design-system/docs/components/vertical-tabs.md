@@ -1,5 +1,5 @@
 ---
-title: VerticalTabs
+title: Vertical tabs
 exports: [VerticalTabs]
 category: navigation
 status: stable
@@ -9,7 +9,7 @@ tokens: [--sel-fill, --sel-shadow, --surface-2, --ink-3, --ink, --r-md, --focus-
 related: [segmented, modal, icon]
 ---
 
-# VerticalTabs
+# Vertical tabs
 
 ## When to use
 - The section list inside a settings-style `Modal`, beside the content pane ("General · Schedule · Recipients · Permissions").
@@ -61,7 +61,7 @@ import { Modal, VerticalTabs, TextField } from '@lepide/ds-react';
 const [tab, setTab] = useState('general');
 
 <Modal open={open} onClose={close} title="Report settings" icon="settings" size="lg" footer={footer}>
-<div style={{ display: 'grid', gridTemplateColumns: '200px minmax(0, 1fr)', gap: 20 }}>
+<div style={{ display: 'grid', gridTemplateColumns: '200px minmax(0, 1fr)', gap: 'var(--s5)' }}>
   <VerticalTabs
     ariaLabel="Report settings sections"
     value={tab}
@@ -95,10 +95,17 @@ Plain HTML (with `@lepide/ds-css`):
 
 | Prop | Type | Default | Notes |
 |---|---|---|---|
-| `items` * | `{ value: string; label: string; icon?: "settings" \| "chevron" \| "arrow" \| "plus" \| "search" \| "calendar" \| "refresh" \| "external" \| "share" \| "up" \| "down" \| "eye" \| "folder" \| "file" \| "filter" \| "download" \| "user" \| "logout" \| "collapse" \| "chevron-right" \| "chevrons-left" \| "chevrons-right" \| "check" \| "x" \| "minus" \| "sort" \| "trash" \| "chevron-left" \| "lock" \| "sparkles" \| "star" \| "bell" \| "users" \| "clipboard" \| "home" \| "mail" \| "file-search" \| "edit" \| "more" \| "info" \| "alert" \| "upload" \| "server" \| "database" \| "globe" \| "key" \| "shield" \| "clock" \| "play" \| "pause" \| "link" \| "copy" \| "layers" \| "archive" \| "list" \| "sliders" \| "plug" \| "card" \| "history" \| "restore" \| "send" \| "terminal" \| "cpu" \| "tag" \| "cloud" \| "building" \| "user_plus" \| "save" \| "grid" \| undefined; }[]` | — |  |
+| `items` * | `{ value: string; label: string; icon?: IconName \| undefined; }[]` | — |  |
 | `value` * | `string` | — |  |
 | `onChange` * | `(v: string) => void` | — |  |
 | `ariaLabel` | `string` | — |  |
+
+### Types
+
+```ts
+// import type { IconName } from '@lepide/ds-react'
+type IconName = keyof typeof icons.line;
+```
 
 `*` required.
 <!-- props:end -->

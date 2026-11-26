@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {
   Button, Checkbox, ConfirmDialog, DataTable, EmptyState, IconButton, Menu, Modal, NumberField, PageHeader, Person,
   SearchField, SelectField, SetCard, SettingRow, TextField, ToneTag, useToast, type Column, type StatusTone,
+  fmtDateTime,
 } from '@lepide/ds-react';
 import { KpiCard } from '@lepide/ds-react/charts';
 
@@ -31,9 +32,6 @@ const USERS: User[] = [
   { id: 'u12', name: 'Daniel Brooks', email: 'daniel.brooks@corp.com', role: 'Administrator', status: 'Active', lastSignIn: '2026-10-27 13:58' },
 ];
 
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-/** "2026-11-03 09:12" → "3 Nov 2026, 09:12" */
-const fmt = (s: string) => { const [d, t] = s.split(' '); const [y, m, day] = d.split('-'); return `${Number(day)} ${MONTHS[Number(m) - 1]} ${y}, ${t}`; };
 
 const columns: Column<User>[] = [
   { key: 'name', header: 'Name', sortable: true, minWidth: 220, render: (u) => <Person name={u.name} /> },
@@ -41,8 +39,8 @@ const columns: Column<User>[] = [
   { key: 'role', header: 'Role', sortable: true, width: 160 },
   { key: 'status', header: 'Status', sortable: true, width: 120, render: (u) => <ToneTag tone={STATUS_TONE[u.status]}>{u.status}</ToneTag> },
   { key: 'lastSignIn', header: 'Last sign-in', sortable: true, width: 170,
-    render: (u) => (u.lastSignIn ? fmt(u.lastSignIn) : <span className="lf-na">—</span>),
-    title: (u) => (u.lastSignIn ? fmt(u.lastSignIn) : 'Never signed in') },
+    render: (u) => (u.lastSignIn ? fmtDateTime(u.lastSignIn) : <span className="lf-na">—</span>),
+    title: (u) => (u.lastSignIn ? fmtDateTime(u.lastSignIn) : 'Never signed in') },
 ];
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -128,7 +126,7 @@ export default function Users() {
                 onSelect: () => { update(u.id, { status: 'Active' }); toast({ variant: 'success', title: 'Account unlocked', message: `${u.name} can sign in again.` }); } },
               { label: 'Reset MFA', icon: 'key', disabled: u.status !== 'Active', reason: 'Only active users have MFA set up',
                 onSelect: () => toast({ title: 'MFA reset', message: `${u.name} sets up MFA again at the next sign-in.` }) },
-              { separator: true, label: '' },
+              { separator: true },
               u.status === 'Disabled'
                 ? { label: 'Enable user', icon: 'check',
                   onSelect: () => { update(u.id, { status: 'Active' }); toast({ variant: 'success', title: 'User enabled', message: `${u.name} can sign in again.` }); } }
@@ -137,7 +135,7 @@ export default function Users() {
           />
         )}
         empty={<EmptyState icon="users" title="No users yet" message="Invite the people who run audits and respond to alerts."
-          action={<Button variant="primary" icon="user_plus" onClick={openInvite}>Invite user</Button>} />}
+          action={<Button icon="user_plus" onClick={openInvite}>Invite user</Button>} />}
         noResults="No users match this search."
       />
 

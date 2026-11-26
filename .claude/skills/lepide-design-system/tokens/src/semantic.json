@@ -97,7 +97,7 @@
   },
 
   "typography": {
-    "font": { "$type": "fontFamily", "$value": ["Manrope", "ui-sans-serif", "system-ui", "Segoe UI", "sans-serif"], "$description": "Everything (Google Fonts, weights 400–800)" },
+    "font": { "$type": "fontFamily", "$value": ["Manrope", "ui-sans-serif", "system-ui", "Segoe UI", "sans-serif"], "$description": "Everything (embedded in @lepide/ds-css, weights 200–800)" },
     "mono": { "$type": "fontFamily", "$value": ["Geist Mono", "ui-monospace", "SFMono-Regular", "Consolas", "monospace"], "$description": "Code, IDs, mono table cells (weights 400/500)" }
   },
 

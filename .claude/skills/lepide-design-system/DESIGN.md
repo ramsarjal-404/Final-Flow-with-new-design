@@ -2,20 +2,46 @@
 
 This file is a complete, self-contained description of the **Lepide Design System**, the look and feel of the
 Lepide console. A designer, a developer or an AI model should be able to rebuild any screen in the same style
-from this file alone. Every value below is copied from the code; where the code and this file disagree, the
-code wins and this file is out of date.
+from this file alone: §1–§8 describe the look and how to compose screens, and §9 lists every React export with its
+props, types and helper signatures. Every value below is copied from the code; where the code and this file
+disagree, the code wins and this file is out of date.
 
 ## 0. Using the Lepide Design System
+
+**Before you design a screen, check the prototype (§10).** If the Lepide console prototype already has it ("create the
+file server section", "alert status page"), build it like the prototype: same layout, sections, table columns, actions
+and flow. Sign-in is always the prototype's sign-in. Only screens the prototype doesn't have are composed from §4.
+
+| Prototype | Address | Use it for |
+|---|---|---|
+| Console (no sign-in) | https://lepide-new-ui.vercel.app | Every screen: layout, sections, columns, actions, flow |
+| Sign-in | https://lepide-with-new-design.vercel.app/login | The sign-in screen and flow |
+
+Open the live screen when you can; the catalog in `prototype/` (screenshots and facts for all 55 screens) is the copy
+to use when you can't. `npm run prototype:check` confirms both sites answer and still have every catalogued screen.
+
+**Light is the primary theme.** Every screen starts in light: design it, build it, review it and take screenshots in
+light first, then check dark and high contrast. A page opens in light unless the user has chosen another theme
+(`ThemeProvider` reads the saved choice, and with none it uses light); don't follow the computer's dark-mode setting
+(`prefers-color-scheme`) and don't make dark the default. Dark and high contrast are options the user switches to.
 
 Pick one route. All three give the same look because they share one stylesheet and one set of tokens.
 
 | Route | When | Setup |
 |---|---|---|
-| **React** (preferred) | React 18 apps | `@lepide/ds-react` + `@lepide/ds-css`. Build every screen from the kit's components (§3, and one page per component in `docs/components/`) |
-| **Plain HTML / CSS** | Prototypes, other frameworks, static pages | `@lepide/ds-css` only (`dist/lepide.css`). Use the CSS classes named in §3 and the markup in §4.1 and §7 |
+| **React** (preferred) | React 18 apps, POCs | `@lepide/ds-react` + `@lepide/ds-css` (not on npm: install them from the website, below). Build every screen from the kit's components (§3, and one page per component in `docs/components/`) |
+| **Plain HTML / CSS** | Prototypes, POCs, other frameworks, static pages | `@lepide/ds-css` (`dist/lepide.css`), plus its optional `dist/lepide.js` for dialogs, field errors and toasts and `dist/lepide-art.js` for the Lepide AI orb and the sign-in animation (no framework). **Nothing installed?** Link the hosted copies: `https://lepide-new-ds.vercel.app/ds/lepide.css`, `https://lepide-new-ds.vercel.app/ds/lepide.js`, `https://lepide-new-ds.vercel.app/ds/lepide-art.js` (and `https://lepide-new-ds.vercel.app/ds/lepide-mark.svg`). Never write your own stylesheet instead. Use the CSS classes named in §3 and the markup in §4.1 and §7; each component page has a Plain HTML example |
 | **Tokens only** | A product with its own components that must match | `@lepide/ds-css/tokens.css` or `tokens/build/json/tokens.json` |
 
-Always load the fonts: `https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap`.
+The fonts come with the stylesheet: `@lepide/ds-css` embeds Manrope and Geist Mono (Latin and Latin Extended, SIL Open
+Font License), so a page loads nothing from another site. The tokens-only route adds `@lepide/ds-css/fonts.css`.
+
+React install (the packages aren't on the npm registry; the website serves the latest build, no account needed):
+
+```bash
+npm install https://lepide-new-ds.vercel.app/ds/lepide-ds-css.tgz https://lepide-new-ds.vercel.app/ds/lepide-ds-react.tgz react@18 react-dom@18
+npm install highcharts   # only for charts and KPI cards (@lepide/ds-react/charts; commercial licence)
+```
 
 React setup, once at the root:
 
@@ -48,7 +74,7 @@ import { LepideProvider, ThemeProvider, ToastProvider, TooltipHost } from '@lepi
 | `llms.txt`, `llms-full.txt` | Index and full text for AI tools |
 | `ai/` | Rules files for AI coding tools and the Claude skill; `ai/install.mjs` puts them and the MCP server into an app |
 | `packages/mcp` (`@lepide/ds-mcp`) | MCP server: components, tokens, icons, spec sections, golden screens, search and a code checker (`validate_code`) |
-| `examples/` | **Golden screens** — dashboard, reports hub, alerts (list → drawer → confirm → toast), users admin, settings, wizard, sign-in. React: `examples/screens/*.tsx`; complete static HTML: `examples/html/*.html`. Start new screens from the closest one. `npm run examples` opens the gallery |
+| `examples/` | **Golden screens** — home (Lepide AI card with the orb, module tiles), dashboard, reports hub, alerts (list → drawer → confirm → toast), users admin, settings, file server settings with tabs, e-Discovery (tabs and sub-tabs, create dialogs, confirm), wizard, sign-in. React: `examples/screens/*.tsx`; complete static HTML: `examples/html/*.html` (all but e-Discovery and file server). Start new screens from the closest one. |
 | Figma | [Lepide Design System](https://www.figma.com/design/GdZc2Hux1DgdJXCVQxjflx) — variables (Light / Dark / High contrast), text and effect styles, 78 icons and the core components, generated from these tokens |
 
 ---
@@ -157,7 +183,8 @@ background:
 
 ### 2.2 Colour — dark and high-contrast themes
 
-Set with `<html data-theme="dark">` or `data-theme="hc"` (stored in `localStorage['lepide.theme']`).
+Light (§2.1) is the default and primary theme; these two are options the user picks. Set with `<html data-theme="dark">`
+or `data-theme="hc"` (stored in `localStorage['lepide.theme']`); no attribute means light.
 **Status: all three themes are stable.** Every text and icon colour pair meets WCAG 2.2 AA in each theme; `npm run contrast` (`tokens/contrast.mjs`) checks them and runs in `npm test`.
 
 | Token | Dark | High contrast |
@@ -192,11 +219,12 @@ Ordered series colours `--c1`…`--c6`: **`#1c4599`, `#ee8a5f`, `#b8c8f0`, `#4f7
 | `dch-blue-soft` | `#8aa3dc` | `dch-purple` | `#c7d4ef` |
 
 Chart chrome: text `--chart-text` `#666b74` 11 px (AA), grid `--chart-grid` `#eceef1`, ink `#121417`, gauge
-track `--chart-track` `#eff1f3`. Highcharts needs literal colours, so `packages/react/src/charts.tsx` repeats these values.
+track `--chart-track` `#eff1f3` (light values; dark and high contrast have their own). `Chart` reads these tokens
+from the page when it draws and redraws when `data-theme` changes, so charts follow the theme by themselves.
 
 ### 2.4 Typography
 
-Fonts (Google Fonts): **Manrope** 400/500/600/700/800 and **Geist Mono** 400/500.
+Fonts (embedded in `@lepide/ds-css`): **Manrope** 400/500/600/700/800 and **Geist Mono** 400/500.
 
 ```css
 --font: "Manrope", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
@@ -321,11 +349,29 @@ upload server database globe key shield clock play pause link copy layers archiv
 card history restore send terminal cpu tag cloud building user_plus save grid`, plus module icons `ai auditor
 trust detect protect identify mylepide dashboards settings`. Use only these names (note the underscore in
 `user_plus`). In plain HTML copy the icon's value from `line` in `packages/react/src/assets/icons.json` into
-`<svg class="lf-i" viewBox="0 0 24 24" aria-hidden="true">…</svg>` — every name above is there.
+`<svg class="lf-i" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">…</svg>` (set `width`/`height` to the
+size you need from the list above). The module icons (`ai`, `auditor` … `settings`) are multi-colour drawings under
+`module` in the same file, not `line`: copy them as `<svg viewBox="0 0 24 24" width="19" height="19" fill="none"
+aria-hidden="true">…</svg>`. The golden HTML sidebar (`examples/html/*.html`) has every module icon in place.
 
-Brand mark: the Lepide mark in a single sky blue, `#2996D3` (`packages/react/src/assets/lepide-mark.svg`), shown in a 36 px white tile with an
-11 px radius (`--sh-xs` + inset `--border-soft` ring), beside **Lepide** (800 16/20, −0.02em) and
-*Data Security Platform* (500 11.5/15 ink-3).
+**Brand files — always take the logo from `brand/`** (never redraw it, recolour it or rebuild it from text):
+
+<img src="brand/lepide-mark.svg" alt="The Lepide mark" width="56" height="56"> &nbsp; <img src="brand/lepide-logo.png" alt="The Lepide logo" height="56">
+
+| File | What it is | Use |
+|---|---|---|
+| [`brand/lepide-mark.svg`](brand/lepide-mark.svg) | The Lepide mark, vector, sky blue `#2498D4` on transparent | The sidebar brand tile, favicons, small spaces; any size |
+| [`brand/lepide-logo.svg`](brand/lepide-logo.svg) | The full logo (mark + "Lepide" wordmark) as supplied — an SVG wrapping a 4096 × 1690 PNG | Sign-in, title slides, documents, anywhere the name should show |
+| [`brand/lepide-logo.png`](brand/lepide-logo.png) | The same full logo as a plain PNG (4096 × 1690, transparent) | Where an SVG can't be used (email, Office) |
+
+The kit's `BrandMark`, `MARK_URL` and the MCP server's `search_icons("lepide")` all use `brand/lepide-mark.svg` (the
+build copies it into `packages/react/src/assets/`). In a static page, point `src` at the file or copy it next to the
+page as the golden HTML does. Rules: keep the mark's proportions and its one colour; on dark surfaces it sits in its
+white tile; give it clear space of at least a quarter of its height; don't add effects, outlines or other colours. See
+[brand/README.md](brand/README.md).
+
+In the console the mark is shown in a 36 px white tile with an 11 px radius (`--sh-xs` + inset `--border-soft` ring),
+beside **Lepide** (800 16/20, −0.02em) and *Data Security Platform* (500 11.5/15 ink-3).
 
 ---
 
@@ -413,14 +459,22 @@ Never use a native `<select>`.
   count badge: 18 tall pill, 700 10.5, `rgba(18,20,23,.07)` (white 18 % when selected).
 * **Vertical tabs** `.tabs` (inside dialogs): items 40 tall, padding 0 12, radius 14, 600 13 ink-3; hover
   `--surface-2`; current: selected finish.
+* **Page tabs** (a page with views, e.g. e-Discovery Cases | Settings): a `<Segmented hug>` passed as `PageHeader`'s
+  children, so it sits under the title, left-aligned (on a settings page with a section nav, a full-width `Segmented`
+  at the top of the settings body instead, §4.2); the header's primary action follows the tab on show.
+  **Sub-tabs** (a tab with its own views, e.g. Settings › Agents | Indexed locations): a second `<Segmented hug>` on
+  the same line, after the first, shown only while its parent tab is selected — wrap both in `<div className="row
+  row--wrap">`. Sub-tab items may carry an icon (`{ value, label, icon: 'server' }`) and a `count`. Never nest
+  more than two levels.
 
 ### 3.7 Cards
 
 * **Card** `.lf-card`: white, 1 px `--border-soft`, **radius 20, padding 20, `--sh-sm`**. `--lift`: hover `--sh-md`
   and `--border`. Title `.lf-card__title` 700 15/22 −0.01em, margin-bottom 14, optional `small` subtitle
   500 12.5/18 ink-3 (in panels the subtitle sits under the title).
-* **Panel** (chart card): flex column, min-height 330. Grid `.panels`: 3 columns, gap 16 (2 under 1280 px,
-  1 under 860 px); `--wide` spans 2.
+* **Panel** (chart card) `.panel` on a card (`<Card className="panel" title=… sub=…>`): flex column, min-height 330.
+  Grid `.panels`: 3 columns, gap 16 (2 under 1280 px, 1 under 860 px); `.panel--wide` spans 2. Two equal panels
+  side by side: `.panels.panels--2` (1 column under 860 px).
 * **Settings card** `.set-card`: no padding; head 18 20 14 with a bottom hairline (title 700 15/22, text
   400 13/19 ink-3); body padding 20, gap 16; foot 14 20 on `--surface-2` with a top hairline, buttons right.
 * **Key/value grid** `.kv`: 2 columns, gap 8; each cell `--surface-2`, radius 14, padding 12 14; `dt` 600 12
@@ -543,8 +597,31 @@ error.
 
 ### 3.17 Charts (`<Chart kind=…>`, Highcharts 13)
 
-Built on Highcharts (`highcharts`, `highcharts-more` for bubbles, `solid-gauge` for gauges and rings).
-Highcharts needs a commercial licence before it ships in a product.
+Built on Highcharts (`highcharts`, `highcharts-more` for bubbles, `solid-gauge` for gauges and rings), which
+`@lepide/ds-react/charts` imports for you. Highcharts needs a commercial licence before it ships in a product:
+the kit doesn't include one, so the product that ships it buys it.
+
+`kind` decides the shape of `data`, and TypeScript checks it (`ChartData` in §9 has every shape):
+
+| `kind` | Use it for | `data` |
+|---|---|---|
+| `columns` | A value per category, one colour per bar | `{ labels, values, name?, colors? }` |
+| `dateColumns` | A count per day or week | `{ labels, values, name?, color? }` — labels like `28-10-2026`, `2026-10-28` or `28 Oct` |
+| `stacked` | Several series per category | `{ labels, series: [{ name, values, color? }] }` |
+| `pairedBars` | Horizontal bars, several series per row | `{ rows, series }` |
+| `areaBars` | Bars with a trend line over them | `{ bars, line, labels, markers?, barName?, lineName? }`. One label per bar labels every bar. To label only some bars, `markers` lists their indexes and `labels` has one entry per marker: `labels[k]` labels bar `markers[k]` |
+| `multiArea`, `line` | Series over time | `{ labels, series }` |
+| `donut`, `calloutDonut`, `gaugeDonut`, `donut3d` | Parts of a whole (`calloutDonut` prints %; `donut3d` draws flat) | `{ segments: [{ label, value, color? }], value?, caption? }` |
+| `rings` | Up to four percentages | `{ rings: [{ label, value, color? }] }` |
+| `bubbles` | x / y / size points | `{ points: [{ label, x, y, size, color? }] }` |
+| `speedometer` | One score against bands | `{ value, max?, name?, bands: [{ to, label, color? }] }` |
+
+Colours: leave `color` out and series take the palette in order (`#1c4599`, `#ee8a5f`, `#b8c8f0`, `#4f72c4`,
+`#f5c39e`, `#8aa3dc`). To pick one, use its name `var(--c1)` … `var(--c6)` (same order). The product colour
+names older screens use are mapped into the same palette, so **`var(--chart-green)` is blue `#1c4599`,
+`var(--chart-red)` is coral `#ee8a5f` and `var(--chart-yellow)` is light blue `#b8c8f0`**. Red, amber and green
+mean status, so charts use them only where the value is a status (the worst band of a risk gauge,
+`var(--dch-crimson)`). A hex in `color` is drawn as given: keep it to the palette.
 
 | Setting | Value |
 |---|---|
@@ -595,7 +672,8 @@ Hover motion (150–280 ms):
 * `.console`: grid `256px | 1fr`, padding 12 0 12 12 (the sidebar floats 12 px from the window).
 * **Sidebar** `.lf-dock`: `--glass` with `blur(22px) saturate(160%)`, 1 px `rgba(255,255,255,.9)` border,
   radius 26, padding 14 12 12, `--sh-sm`. Top: brand block. Then **Home**, and groups with labels
-  **Assistant** (Lepide AI), **Modules** (Auditor, Trust, Detect, Protect, Identify), **Workspace** (My
+  **Assistant** (Lepide AI), **Modules** (AI Shield, Auditor, Trust, Detect, Protect, Identify — AI Shield is a parent
+  with sub-pages and uses the line icon `shield`), **Workspace** (My
   Lepide, Dashboards). Footer above a hairline: Settings and the account (avatar + name).
 * Nav item: 40 tall, padding 0 12, radius 14, 600 13.5 ink-2, 19 px icon in ink-3. Hover
   `rgba(18,20,23,.045)`. **Current page: white card, `--border-soft` border, `--sh-sm`, ink text, brand
@@ -661,13 +739,13 @@ header, filters, cards) in a column with a 20 px gap — don't add spacing betwe
 </button>
 <div class="lf-dock__sub is-open" data-title="Detect">
   <div class="lf-dock__sub-in" role="group" aria-label="Detect pages">
-    <button type="button" class="lf-dock__subitem"><svg class="lf-i" viewBox="0 0 24 24" aria-hidden="true">…</svg><span>Alert Configuration</span></button>
-    <button type="button" class="lf-dock__subitem"><svg class="lf-i" viewBox="0 0 24 24" aria-hidden="true">…</svg><span>Alert Status</span></button>
+    <button type="button" class="lf-dock__subitem"><svg class="lf-i" viewBox="0 0 24 24" aria-hidden="true">…</svg><span>Alert configuration</span></button>
+    <button type="button" class="lf-dock__subitem"><svg class="lf-i" viewBox="0 0 24 24" aria-hidden="true">…</svg><span>Alert status</span></button>
   </div>
 </div>
 ```
 
-The brand mark (`lepide-mark.svg`) is in `packages/react/src/assets/`; the MCP server returns it from
+The brand mark (`lepide-mark.svg`) comes from `brand/` (§2.7; the build copies it into `packages/react/src/assets/`); the MCP server returns it from
 `search_icons("lepide")`, and every icon's SVG from `search_icons("<name>")`.
 
 ### 4.2 Page patterns
@@ -679,19 +757,50 @@ The brand mark (`lepide-mark.svg`) is in `packages/react/src/assets/`; the MCP s
   with a primary Ask button; suggestion chips); then module tiles in a 10-column grid (tiles span 2,
   min-height 196, padding 18, 40 px icon tile, title 700 15.5, 3-line description, arrow circle that turns
   into the selected finish on hover, plus a two-tone pastel wash per module).
-* **Dashboard**: header + switcher dropdown + Refresh; an optional KPI row; chart panels in a 3-column grid; each
-  panel: title, "Last Updated on …" caption, small icon tools at the right.
+  Copy the golden screen `get_example("home")` (React) or `get_example("home", "html")`: classes `sub--home`,
+  `home-head`, `hero__title`, `ai-hero*`, `mods__grid`, `mods__label`, `mod mod--<module>` (+ `mod--featured` for AI Shield,
+  `mod--ws` for workspace tiles), `mod__ic`, `mod__text`, `mod__arrow`; module icons `ModuleIcon` / `shield` for AI Shield.
+  The orb at the left of the Lepide AI card is the prototype's WebGL orb: `<AiOrb className="ai-hero__orb" />`
+  ([docs](docs/components/ai-orb.md)), in plain HTML `<div class="ai-hero__orb" data-lepide-orb></div>` with
+  `lepide-art.js`. Never draw it with CSS gradients or a spinning border; `validate_code` reports it (`ai-orb`).
+* **Dashboard**: header with the dashboard name as a brand `Chip` under the title (`PageHeader` children; the `chip`
+  prop is for a status beside the title), and actions: a visible label "Dashboards list" (`<span className="lf-muted"
+  id=…>`) + a pill `Dropdown` linked to it with `ariaLabelledby` (width `calc(var(--s10) * 5)`) + Refresh. No primary.
+  An optional KPI row; chart panels in a 3-column `.panels` grid (2 under 1280 px, 1 under 860 px). Each panel is a
+  `Card className="panel"`: title, `sub="Last updated on " + fmtDateTime(…)`, and icon tools in `actions` —
+  `IconButton`s labelled "Select date range" (`calendar`: a `Menu` of `DATE_PRESETS` for that panel), "Filter"
+  (`filter`) and "View as list" (`list`: shows the chart's data as a table); panels that come from a report end with
+  a "View report" link (`.lf-link`).
 * **Reports hub**: 288 px folder tree card (`<Tree>` inside `<Card className="folders">`) + table card. Tree items
   38 tall, radius 10, 600 13 ink-2; current folder uses the selected finish with a white count; nested lists indent
   behind a hairline.
+* **Settings page with tabs** (Add data source › File server): the page tabs are a full-width `<Segmented>` at the top of
+  `settings__body` (not in the header, because the section nav is beside them); under it, each tab opens with a
+  `<h3 className="section-title">` and a `.lf-muted` description, then its cards. A narrow card beside a table (the
+  file servers "Actions") sits in a nested `<div class="settings">`, and a list of commands in a card is
+  `<div className="action-list">` of `<button className="action-list__item"><Icon …/>Install agent</button>` rows
+  (disabled until something is selected, with a `.lf-muted` line under them saying what to select). Going back from
+  a sub-view to its parent (the file server page back to all data sources) is a ghost "All data sources" button
+  (`icon="chevron-left"`) first in the header actions, and the parent's section nav item.
 * **Settings**: `<div class="settings">` = 260 px sticky section nav (`<SectionNav>`, items 38 tall, current = selected
   finish; a dropdown replaces it under 860 px) + `<section class="settings__body">` with `SetCard`s.
-* **Choosing a type** (first wizard step, "Add data source"): `<TilePicker>` — tiles with icon or logo, title and one line.
-* **Wizard**: steps at the top of a card; body padding 24; footer `--surface-2` with Back · Cancel · Next
-  (Finish on the last step).
-* **Sign in** (`<SignIn>`, [docs](docs/components/sign-in.md)): a 1120 px glass card (radius 32) split into the form (logo tile 52, eyebrow, 30/38 title,
-  48 px fields radius 14, a 50 px primary pill button with a ripple and arrow) and an illustration panel
-  (radius 24, radial blue gradient, animated canvas, progress dots).
+* **Choosing a type** ("Add data source"): `<TilePicker>` — tiles with icon or logo, title and one line. Where the
+  prototype makes the tiles a page of their own (choosing one opens that source's settings), keep that: no Next.
+  Inside a wizard it is the first step. The kit has no vendor logos: use a line icon, or `image` when you have the
+  product's logo file.
+* **Wizard**: steps at the top of a card; body padding 24; footer `--surface-2` with Back on the left, then
+  Cancel · Next at the right (Finish on the last step); Next/Finish is the step's one primary, so on a page that holds
+  a wizard every other action (in the header or inside a step) is secondary. `WizardCard` moves focus to the new
+  step's body itself. Steps that can be done in any order are tabs, not a wizard (as on a data source's settings).
+* **Investigation page** (e.g. File activity): header with a `DateRangePicker` and secondary actions (no primary is
+  needed), a KPI row, chart panels, then the events table; a row opens a `Drawer` with the details.
+* **Sign in** (`<SignIn>`, [docs](docs/components/sign-in.md)): a 1120 px glass card (radius 32) split into the form (logo tile 52, eyebrow
+  "Lepide · Data Security Platform", title "Sign in to the console" 30/38, 48 px fields radius 14, a 50 px primary pill
+  button with a ripple and arrow, footer "Need access? Ask an administrator.") and an illustration panel (radius 24,
+  radial blue gradient) with the prototype's **particle animation**: data particles form the Lepide mark, then each
+  module's icon, one captioned slide each, with progress dots; the pointer scatters them. It is code, not a picture:
+  use `<SignIn>` as it is, or in plain HTML `examples/html/sign-in.html` with `lepide-art.js`. Never draw your own
+  panel (a dotted logo, rings, a static SVG); `validate_code` reports it (`sign-in-art`).
 
 ### 4.3 Responsive
 
@@ -702,13 +811,132 @@ The brand mark (`lepide-mark.svg`) is in `packages/react/src/assets/`; the MCP s
 | ≤ 860 | **Sidebar becomes a floating bottom tab bar** (fixed 10 px from the edges, 64 tall, radius 22, icons only 48 × 48); top bar shows the brand; main padding 4 16 100; title 26/32; panels 1 column; drawers become bottom sheets; settings nav becomes a dropdown; notifications sit 92 px up |
 | ≤ 620 | KPIs 1 column; module tiles 2 columns; form rows 1 column; dialog tabs scroll sideways |
 
+### 4.4 Composing page content (React)
+
+The shell (sidebar, top bar, `LepideProvider`, `ThemeProvider`, `ToastProvider`, `TooltipHost` and the
+stylesheet import) is set up once by the app (§0); a screen renders only its page content.
+
+| Need | Use |
+|---|---|
+| Page content wrapper | `<div className="sub">` (column, gap 20, fades up on entry); everything below goes inside it |
+| Header | `<PageHeader crumbs title description actions>` — actions right, at most one primary, rightmost |
+| KPI row | `<div className="kpis">` (4 across; `kpis kpis--3` for three) of `<KpiCard>` |
+| Chart panels | `<div className="panels">` (or `panels panels--2`) of `<Card className="panel" title=… sub=…>` with a `<Chart>` inside |
+| A list | `<DataTable>` — it is the table card; put a `SearchField` and filters in its `toolbar` |
+| List + detail side by side | `<div className="with-detail">` = content + a `<DetailPanel>` (420 px; stacks under 1100 px). For details that open over the page from a row, use `<Drawer>` |
+| Forms on a page | `<SetCard form>` (its body becomes `.page-form`), or your own `<div className="page-form">`; fields in pairs: `<div className="fld-row">` |
+| Monospace text (paths, IDs) | `mono: true` on a table column; elsewhere `<code>` |
+
+**Lists and their empty states.** Give `DataTable` all rows and the search text (`search={query}`): it filters,
+sorts and pages itself. `empty` shows only on first use, when there are no rows at all (an `EmptyState` saying how
+to add the first one). When search or filters leave nothing, the table shows `noResults`, a line that names what
+is missing (`No events match "finance".`). If you filter rows yourself (a `Segmented` above the table), pass
+`filtered` so the table shows `noResults`, not `empty`. Don't put an `EmptyState` inside the table for
+no-results.
+
+**Dialogs with forms.** A `Modal` body is already `.modal__form`, so fields inside it are styled. Pass `onSubmit`
+and make the primary footer button `type="submit"`: Enter in a field then submits. For a two-step dialog, use the
+Modal's own `steps={['Type', 'Details']} step={i}` (not a separate `Steps`); the primary is "Next" on the first step
+and the verb ("Add data source") on the last, Back sits left of Cancel, and `onSubmit` advances or finishes. An
+option that is applied when the dialog's verb is pressed ("Start auditing now") is a `Checkbox`; `Toggle` is only for
+settings that apply the moment they flip.
+
+**Validation.** Validate on submit, not while the user types. Show each problem on its field (`error="Enter the
+server name"`), call `focusFirstError()` (it moves focus to the first field marked invalid, inside the open dialog
+or the page), and clear a field's error as soon as it is edited. Field errors never also raise a toast. A choice
+that has no field (no tile picked) gets an error `toast` from the button, which appears as a nudge beside it. A bulk
+action that needs a selection (Uninstall agent, Export 3) is `disabled` until something is selected.
+
+**A second action inside a dialog** (Install agent: type a server, *Add server*, then *Install* the list): the inner
+action is a secondary `Button` beside its field, inside `<div className="fld-inline">` (the button lines up with the
+input). It validates only its own field and adds to a list in the body; it never submits the dialog. The footer's
+primary submits the whole dialog, and if the list it needs is empty, that shows as the list's field error.
+
+```tsx
+<div className="fld-inline">
+  <TextField label="Server name" value={server} onChange={setServer} error={serverError} />
+  <Button icon="plus" onClick={addServer}>Add server</Button>
+</div>
+```
+
+When a list is what's missing (no users added to a group), wrap the list in `<Field label=… error=…>`:
+the error shows under it and `focusFirstError()` moves focus there. If a step's Next needs rows chosen in a table,
+the error is a toast from Next (a table is not a field).
+
+**A primary that opens a menu** ("Add file server ▾" with one entry per server type): `<Menu trigger={(p) => <Button
+{...p} variant="primary" icon="plus" iconEnd="chevron">Add file server</Button>} items={…} />`.
+
+**Grouped rows** (users under their group): `DataTable` has no grouping. Give it flat rows where a group row comes
+first, with an `IconButton` ("Collapse Ankits" / "Expand Ankits", icon `chevron`) and the group's summary, then its
+members; turn sorting and column filters off on that table so the groups stay together.
+
+**Short lists inside a dialog or card** (the locations a new case searches, servers to install on): a flat
+`DataTable` with `pager={false}` — every row shows and there is no pager — and an `empty` line saying what to add.
+
+**Dates and times.** Show a date as `fmtDate(d)` → "3 Nov 2026" and a date with time as `fmtDateTime(v)` → "3 Nov
+2026, 09:42" (it takes a `Date`, "yyyy-mm-dd hh:mm" or "dd-mm-yyyy hh:mm"; seconds are dropped), in tables,
+details and captions alike. Date inputs take `dd-mm-yyyy`. Don't write your own formatter.
+
+**Letter case.** Sentence case for everything the interface writes: titles, labels, column headers, buttons,
+tabs, menu items, options in a dropdown, status words ("Update completed", "Connection timed out") and messages.
+Proper names keep their capitals: products and platforms (Lepide Auditor, Windows, SharePoint Online, Exchange
+Online, Active Directory, NetApp), so "Windows file server", not "Windows File Server". Data shows as it is
+stored: case and file names, paths, server and user names. Options and settings the product defines (scopes, rule
+types, account kinds) are interface words: sentence case. Write "and", not "&" ("Backup and restore"), except
+inside a name, and "or" for a slash between alternatives ("File server name or IP", not "Name/IP"). Labels don't end with a colon. Fix stray punctuation in prototype titles ("Dashboard- Auditor" →
+"Dashboard - Auditor"). Where the prototype uses Title Case, this rule wins (§10).
+
+**Layout helpers** (in `@lepide/ds-css`; use them instead of inline flex styles):
+
+| Class | Does |
+|---|---|
+| `.row` | Inline flex row, items centred, 8 px gap; add `.row--wrap`, `.row--between` (space between) or `.row--end` (right-aligned) |
+| `.grow` | Takes the remaining width in a row |
+| `.stack` | A column of blocks with a 16 px gap |
+| `.grid2`, `.grid3` | Two or three equal columns with a 16 px gap (one column under 860 px) — e.g. three short fields in a row |
+| `.fld-inline` | A field with a button beside it, the button level with the input |
+| `.section-label` | A small bold heading inside a dialog or card body ("New case and object selection") |
+| `.lf-muted` | Secondary text in `--ink-3` (a footer note, "Last saved 2 hours ago") |
+| `.lf-na` | The "—" shown for a missing value (KeyValues and DataTable add it themselves) |
+| `.section-title` | The heading that opens a tab's or section's content (18 px), with an optional `<small>` |
+| `.action-list`, `.action-list__item` | A card's list of commands as plain rows with an icon (§4.2 Settings page with tabs) |
+
+A search field in the page header (where the prototype has one, beside the primary) is a `SearchField` in
+`PageHeader` `actions`; it is 240 px wide there. In a table card's toolbar it is 280 px.
+
+**Feedback after an action.** `const toast = useToast()` then `toast({ variant: 'success', title: 'Data
+source added', message: 'Auditing starts in a few minutes.' })`; `message` is required plain text. Destructive
+actions go through `ConfirmDialog` first (`confirmLabel` is the verb; `onConfirm` may return a promise and the
+button spins until it settles; close the dialog yourself), then a success toast. Offer "Undo" (`actions`) only
+when the action really can be undone.
+
+**Tone words per component.** Each component takes the words that fit it:
+
+| Component | Prop | Values |
+|---|---|---|
+| `ToneTag` (status dot + text) | `tone` | `good` · `warn` · `bad` · `info` · `none` (grey, for off states) — `toneFor(label)` picks it |
+| `Chip` | `tone` | `neutral` · `brand` · `good` · `warn` · `bad` · `flat` |
+| `KpiCard` delta | `deltaTone` | `good` · `warn` · `bad` · `flat` · `brand` — by meaning (more deletions is `bad` even though it went up) |
+| `useToast` | `variant` | `info` · `success` · `warning` · `error` |
+| `Banner` | `tone` | `info` · `success` · `warning` · `error` |
+| `Modal` | `tone` | `danger` (`ConfirmDialog` sets it when `destructive`) |
+| `EmptyState` | `tone` | `error` (when loading failed) |
+
+Actions in an activity log (Created, Modified, Deleted …) are shown with `ToneTag` like a status: Deleted `bad`,
+Permission changed `warn`, Created `good`, Modified `info`, Renamed and anything else `none`.
+
+**Accessible names.** Icon-only buttons take `label` (`<IconButton icon="more" label="Row actions" />`). Groups and
+inputs without a visible label take `ariaLabel` (camelCase: `SearchField`, `Segmented`, `Dropdown`, `TilePicker`).
+Don't write a hyphenated `aria-label` on these components: TypeScript doesn't check it, and `validate_code` flags it.
+
 ---
 
 ## 5. Accessibility
 
 * Text tones meet 4.5:1 (that's why `--ink-3` is `#666b74` and tone text uses the `-text` values).
-* Focus: `outline: 2px solid rgba(28,69,153,.6); outline-offset: 2px` on everything; fields use the 3 px
-  `--ring` instead. High contrast: 3 px black.
+* Focus: `outline: var(--focus-outline); outline-offset: 2px` on everything (light `2px solid rgba(28,69,153,.6)`,
+  dark a lighter `rgba(143,171,235,.7)`, high contrast 3 px black); text fields use the 3 px `--ring` instead.
+  Radios keep the outline; custom checkboxes and toggles draw it on their box.
 * Icon-only buttons need `aria-label`; dialogs trap focus and close on Escape; menus and dropdowns follow
   the WAI-ARIA patterns; tables use real `<table>` markup; charts carry a hidden data table.
 * Selected state is never colour alone: selected rows add a left bar, selected options a check.
@@ -729,7 +957,7 @@ The brand mark (`lepide-mark.svg`) is in `packages/react/src/assets/`; the MCP s
 | Lucide outlines at 1.6 stroke | Filled or mixed icon styles |
 | 150–250 ms eased motion, small distances | Bounces, long animations, motion without a reduced-motion fallback |
 | Status colours only for status | Red/green/amber as decoration |
-| Sentence-case labels; no-results text that names the thing: `No reports match "finance".`, generic `No results match your search or filters.` | Title Case labels, apologies ("Sorry, …"), exclamation marks in system messages |
+| Sentence case everywhere the interface writes (labels, options, status words); proper names keep capitals (§4.4); no-results text that names the thing: `No reports match "finance".`, generic `No results match your search or filters.` | Title Case labels, apologies ("Sorry, …"), exclamation marks in system messages |
 
 ---
 
@@ -738,8 +966,10 @@ The brand mark (`lepide-mark.svg`) is in `packages/react/src/assets/`; the MCP s
 The page content that goes inside `.main` of the shell (§4.1), using only `@lepide/ds-css` classes — no custom CSS.
 
 ```html
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="node_modules/@lepide/ds-css/dist/lepide.css">
+<!-- With the package installed: node_modules/@lepide/ds-css/dist/…; without it, the hosted copies below. -->
+<link rel="stylesheet" href="https://lepide-new-ds.vercel.app/ds/lepide.css">
+<script src="https://lepide-new-ds.vercel.app/ds/lepide.js" defer></script>      <!-- only if the page opens dialogs or shows toasts -->
+<script src="https://lepide-new-ds.vercel.app/ds/lepide-art.js" defer></script>  <!-- only for the Lepide AI orb or the sign-in page -->
 
 <div class="sub">
   <nav class="crumbs" aria-label="Breadcrumb">
@@ -783,11 +1013,9 @@ import { Button, PageHeader, SetCard, TextField, Chip } from '@lepide/ds-react';
     actions={<Button icon="download">Export</Button>} />
   <SetCard title="SMTP settings" description="Used for every email the console sends."
     actions={<Chip tone="good">Connected</Chip>}
-    footer={<><Button>Cancel</Button><Button variant="primary">Save changes</Button></>}>
-    <div className="page-form" style={{ display: 'grid', gap: 16 }}>
-      <div className="fld-row"><TextField label="Server" defaultValue="smtp.corp.com" /><TextField label="Port" note="Usually 587" defaultValue="587" /></div>
-      <TextField label="Sender address" placeholder="alerts@corp.com" />
-    </div>
+    footer={<><Button>Cancel</Button><Button variant="primary">Save changes</Button></>} form>
+    <div className="fld-row"><TextField label="Server" defaultValue="smtp.corp.com" /><TextField label="Port" note="Usually 587" defaultValue="587" /></div>
+    <TextField label="Sender address" placeholder="alerts@corp.com" />
   </SetCard>
 </div>
 ```
@@ -796,9 +1024,10 @@ import { Button, PageHeader, SetCard, TextField, Chip } from '@lepide/ds-react';
 
 ## 8. Checklist for generating a new screen
 
-1. Load Manrope + Geist Mono and `@lepide/ds-css` (tokens, themes and every class). Use the React kit when you can.
+1. Load `@lepide/ds-css` (fonts, tokens, themes and every class). Use the React kit when you can.
 2. Put the page inside the shell (§4.1 markup): floating glass sidebar (256, radius 26) and the 64 px top bar.
-   Look up each component in `docs/components/<name>.md` (or `docs/components.json`) before using it.
+   Look up each component's props in §9 (more detail per component: `docs/components/<name>.md`, or
+   `get_component` on the MCP server).
 3. Start the content with breadcrumbs, a 30/38 title, an optional 14/21 ink-3 description, actions right.
 4. Group content in white cards (radius 20, padding 20, `--sh-sm`), gap 16–20.
 5. Controls: pill buttons (38 tall), one primary with the blue gradient; 46 px rounded fields on
@@ -821,39 +1050,648 @@ Every component in `@lepide/ds-react`, with its page in `docs/components/`. Char
 <!-- Generated by docs/build.mjs — do not edit by hand. -->
 | Category | Page | Exports | Use it for |
 |---|---|---|---|
-| patterns | [Sign in](docs/components/sign-in.md) | `SignIn` | The whole sign-in page — glass card with the form (email, password, keep me signed in) and an illustration panel with highlight slides. Validation, loading and error states are built in. |
-| foundation | [Providers](docs/components/providers.md) | `LepideProvider`, `ThemeProvider` | App-root setup. LepideProvider plugs in your router's link; ThemeProvider stores the light, dark or hc theme and applies it as <html data-theme>. Mount ToastProvider and TooltipHost once beside them. |
+| foundation | [Providers](docs/components/providers.md) | `LepideProvider`, `ThemeProvider`, `useTheme`, `useLepideLink` | App-root setup. LepideProvider plugs in your router's link; ThemeProvider stores the light, dark or hc theme and applies it as <html data-theme>. Mount ToastProvider and TooltipHost once beside them. |
 | actions | [Button](docs/components/button.md) | `Button`, `IconButton` | Pill-shaped buttons for actions. One blue primary per view, rightmost; everything else secondary, ghost or danger. |
 | forms | [Checkbox](docs/components/checkbox.md) | `Checkbox` | 16 px checkbox with a label for independent on/off choices in forms, lists and table selection; supports an indeterminate state. |
-| forms | [Date range picker](docs/components/date-range-picker.md) | `DateRangePicker`, `Calendar` | Ghost-button popover with date presets (Today … Last Month) and a Custom Range month calendar; the change is applied only on Apply. |
+| forms | [Date range picker](docs/components/date-range-picker.md) | `DateRangePicker`, `Calendar`, `rangeFor`, `DATE_PRESETS`, `fmtDate`, `fmtDateTime`, `fmtRange` | Ghost-button popover with date presets (Today … Last month) and a Custom range month calendar; the change is applied only on Apply. |
 | forms | [Dropdown](docs/components/dropdown.md) | `Dropdown`, `SelectField`, `FloatingPop` | Select-only combobox that replaces the native select — 46 px trigger, floating rounded panel, brand tint and check on the selected row, full keyboard support. |
 | forms | [File upload](docs/components/file-upload.md) | `FileUpload` | Dashed drop zone for choosing or dropping one file; once a file is set it turns into a file card with name, size and a remove button. |
 | forms | [Pill input](docs/components/pill-input.md) | `PillInput`, `SearchField` | 40 px pill-shaped text input for toolbars and searches, with an optional leading icon; SearchField is the soft-filled search variant. |
 | forms | [Radio group](docs/components/radio-group.md) | `RadioGroup` | A set of 36 px radio option rows for choosing exactly one value; stacked by default or wrapped in a row. |
-| forms | [Search select](docs/components/search-select.md) | `SearchSelect`, `MultiSelect` | Labelled select fields for long lists — SearchSelect picks one value with a search box past 8 options; MultiSelect picks several with checkboxes and an optional Select All. |
+| forms | [Search select](docs/components/search-select.md) | `SearchSelect`, `MultiSelect` | Labelled select fields for long lists — SearchSelect picks one value with a search box past 8 options; MultiSelect picks several with checkboxes and an optional Select all row. |
 | forms | [Setting row](docs/components/setting-row.md) | `SettingRow` | A settings list row with a title and help text on the left and a control (usually a Toggle) on the right, separated by hairlines. |
-| forms | [Text field](docs/components/text-field.md) | `Field`, `TextField`, `PasswordField`, `NumberField`, `TextAreaField` | Labelled form fields for dialogs and page forms — 46 px soft-filled controls with a label, optional note, help text and inline error. |
+| forms | [Text field](docs/components/text-field.md) | `Field`, `TextField`, `PasswordField`, `NumberField`, `TextAreaField`, `focusFirstError` | Labelled form fields for dialogs and page forms — 46 px soft-filled controls with a label, optional note, help text and inline error. |
 | forms | [Tile picker](docs/components/tile-picker.md) | `TilePicker` | A grid of selectable tiles (icon or logo, title, one-line description) for choosing a type or source — single choice by default, or several with multiple. |
 | forms | [Toggle](docs/components/toggle.md) | `Toggle` | 38 × 22 on/off switch for settings that take effect immediately; always has an accessible label. |
 | forms | [Wizard card](docs/components/wizard-card.md) | `WizardCard` | Full-page multi-step form — a step indicator above a card holding one step's fields, with Back, Cancel and Next/Finish in the footer. |
 | navigation | [Menu](docs/components/menu.md) | `Menu` | A trigger plus an anchored popover menu of actions (.pop), with icons, separators, selected and danger items, and disabled items that explain why. |
-| navigation | [PageHeader](docs/components/page-header.md) | `PageHeader` | The top of every page — optional breadcrumbs, eyebrow, the page title (h2), an optional chip and description, and the page actions at the right. |
+| navigation | [Page header](docs/components/page-header.md) | `PageHeader` | The top of every page — optional breadcrumbs, eyebrow, the page title (h2), an optional chip and description, and the page actions at the right. |
 | navigation | [Section nav](docs/components/section-nav.md) | `SectionNav` | Left-hand section navigation for settings-style pages, with a built-in dropdown that replaces it under 860 px. The current section gets the selected finish. |
 | navigation | [Segmented](docs/components/segmented.md) | `Segmented` | Pill-shaped segmented control that switches between two to five sibling views (tabs mode) or data filters (pressed mode). |
 | navigation | [Tree](docs/components/tree.md) | `Tree` | Folder / report tree for a hub page — top-level folders with counts, expandable groups and nested items. The current row gets the selected finish. |
-| navigation | [VerticalTabs](docs/components/vertical-tabs.md) | `VerticalTabs` | A vertical list of section buttons for the left column of settings-style dialogs; the current section gets the selected finish. |
-| display | [Avatar](docs/components/avatar.md) | `Avatar`, `Person` | Round initials avatar with a tint picked from the name, and Person, an avatar plus name and optional detail on one line. |
+| navigation | [Vertical tabs](docs/components/vertical-tabs.md) | `VerticalTabs` | A vertical list of section buttons for the left column of settings-style dialogs; the current section gets the selected finish. |
+| display | [AI orb](docs/components/ai-orb.md) | `AiOrb` | The Lepide AI orb — the prototype's WebGL ring that glows, drifts and follows the pointer, in the theme's brand colours. The only way to show Lepide AI's mark; never redraw it with CSS. |
+| display | [Avatar](docs/components/avatar.md) | `Avatar`, `Person`, `initialsOf` | Round initials avatar with a tint picked from the name, and Person, an avatar plus name and optional detail on one line. |
 | display | [Card](docs/components/card.md) | `Card`, `SetCard`, `KeyValues` | White rounded containers. Card for content panels, SetCard for settings sections with head, body and footer, KeyValues for read-only field tiles. |
-| display | [Chip](docs/components/chip.md) | `Chip`, `ToneTag`, `Counter` | Small read-only pills. Chip labels a thing, ToneTag shows a status with a dot and text, Counter shows a number. |
+| display | [Chip](docs/components/chip.md) | `Chip`, `ToneTag`, `Counter`, `toneFor`, `STATUS_TONES` | Small read-only pills. Chip labels a thing, ToneTag shows a status with a dot and text, Counter shows a number. |
 | display | [Icon](docs/components/icon.md) | `Icon`, `ModuleIcon`, `BrandMark`, `MARK_URL` | Thin Lucide-style line icons (1.6 stroke, currentColor), the product module glyphs, and the Lepide mark in its white tile. |
 | feedback | [Banner](docs/components/banner.md) | `Banner` | Inline tinted message strip with a tone icon, text, an optional action and an optional dismiss button — for persistent notices inside a page, card or dialog. |
-| feedback | [EmptyState](docs/components/empty-state.md) | `EmptyState` | Centred block on a dotted field with an icon tile, a title, an optional message and an action — for empty lists, no results and load errors. |
+| feedback | [Empty state](docs/components/empty-state.md) | `EmptyState` | Centred block on a dotted field with an icon tile, a title, an optional message and an action — for empty lists, no results and load errors. |
 | feedback | [Loading](docs/components/loading.md) | `SkeletonRows`, `PageLoader`, `ProgressBar` | Loading feedback — shimmering skeleton table rows, a centred page spinner, and a determinate or indeterminate progress bar. |
 | feedback | [Toast](docs/components/toast.md) | `ToastProvider`, `useToast` | Notifications from one call, toast({...}). They show as a card stack in the bottom-right corner, or as a nudge callout beside the control the user just clicked when an error or warning answers that click. |
 | overlays | [Drawer](docs/components/drawer.md) | `Drawer`, `DetailPanel` | Floating side panel that slides in from the right over a scrim (Drawer), and the non-modal sticky panel beside a list (DetailPanel). |
 | overlays | [Modal](docs/components/modal.md) | `Modal`, `ConfirmDialog`, `Steps` | Centred dialog with icon-tile head, scrolling form body and a footer of buttons; ConfirmDialog for yes/no questions; Steps for multi-step progress. |
 | overlays | [Tooltip](docs/components/tooltip.md) | `TooltipHost` | One floating tooltip for the whole app. Mount TooltipHost once; any element with data-tip, and every icon-only button with an aria-label, shows its label on hover or keyboard focus. |
-| data | [Chart](docs/components/chart.md) | `Chart`, `Sparkline` | Highcharts-based charts in the Lepide Design System theme — one Chart component with a kind per product chart type (columns, stacked, bars, areas, lines, donuts, gauges, rings, bubbles), plus a borderless Sparkline. Imported from '@lepide/ds-react/charts'. |
+| data | [Chart](docs/components/chart.md) | `Chart`, `Sparkline`, `chartColor`, `PALETTE` | Highcharts-based charts in the Lepide Design System theme — one Chart component with a kind per product chart type (columns, stacked, bars, areas, lines, donuts, gauges, rings, bubbles), plus a borderless Sparkline. Imported from '@lepide/ds-react/charts'. |
 | data | [Data table](docs/components/data-table.md) | `DataTable`, `Pager` | Table card with title and count, sortable headers, an optional column filter row, checkbox selection, row open and row actions, client-side paging, skeleton loading and empty states, and a sticky first column. |
 | data | [KPI card](docs/components/kpi-card.md) | `KpiCard` | Stat card with a label, a large value that counts up once, an optional delta chip, a foot line and a full-bleed sparkline. Imported from '@lepide/ds-react/charts'. |
+| patterns | [Sign in](docs/components/sign-in.md) | `SignIn` | The whole sign-in page, exactly the prototype's — glass card with the form (email, password) and the illustration panel, where data particles form the Lepide mark and each module's icon, one slide each. Validation, loading and error states are built in. |
+
+### API reference
+
+Every export of `@lepide/ds-react` (charts: `@lepide/ds-react/charts`), generated from the TypeScript source.
+`?` = optional, `= x` = default. "+ native" means the component also takes the native attributes of that
+element (`placeholder`, `autoComplete`, `required` …). The component pages add when-to-use, states and examples.
+
+```ts
+// Providers — App-root setup. LepideProvider plugs in your router's link; ThemeProvider stores the light, dark or hc theme and applies it as <html data-theme>. Mount ToastProvider and TooltipHost once beside them.
+<LepideProvider>
+  children: ReactNode
+  link?: LinkComponent
+<ThemeProvider>
+  children: ReactNode
+  storageKey?: string = 'lepide.theme'
+function useTheme(): { theme: Theme; setTheme: (t: Theme) => void; }
+function useLepideLink(): LinkComponent  // The link component internal navigation uses (breadcrumbs).
+
+// Button — Pill-shaped buttons for actions. One blue primary per view, rightmost; everything else secondary, ghost or danger.
+<Button>  + native Button
+  variant?: ButtonVariant = 'secondary'
+  size?: "sm" | "md" | "lg" = 'md'
+  icon?: IconName
+  iconEnd?: IconName
+  loading?: boolean
+  dot?: boolean  // Brand dot at the top right (e.g. "Modify filters" while filters are applied).
+  block?: boolean
+<IconButton>  + native Button
+  icon: IconName
+  label: string  // Required accessible name; the floating tooltip shows it.
+  bordered?: boolean
+  danger?: boolean
+  size?: number = 16
+
+// Checkbox — 16 px checkbox with a label for independent on/off choices in forms, lists and table selection; supports an indeterminate state.
+<Checkbox>
+  checked: boolean
+  onChange: (v: boolean) => void
+  label?: ReactNode
+  disabled?: boolean
+  indeterminate?: boolean
+  ariaLabel?: string
+
+// Date range picker — Ghost-button popover with date presets (Today … Last month) and a Custom range month calendar; the change is applied only on Apply.
+<DateRangePicker>
+  value: DateRange
+  onApply: (r: DateRange) => void
+  presets?: string[] = DATE_PRESETS
+  label?: string = 'Date range'
+  align?: "right" | "left" = 'right'
+<Calendar>
+  from: Date | null
+  to: Date | null
+  onPick: (from: Date, to: Date | null) => void
+function rangeFor(preset: string, now?: Date): { from: Date; to: Date; }  // The span a preset covers, ending today (`now`).
+const DATE_PRESETS: readonly ["Today", "Yesterday", "Last 7 days", "Last 30 days", "This month", "Last month", "Custom range"]  // The preset labels (sentence case). `rangeFor` also accepts them in any letter case.
+function fmtDate(d: Date): string  // "3 Nov 2026" — how a date reads anywhere in the console (inputs take dd-mm-yyyy).
+function fmtDateTime(v: string | Date): string  // "3 Nov 2026, 09:42" — date and time in tables, details and captions.
+function fmtRange(r: { from: Date; to: Date; }): string
+
+// Dropdown — Select-only combobox that replaces the native select — 46 px trigger, floating rounded panel, brand tint and check on the selected row, full keyboard support.
+<Dropdown>
+  value: string
+  onChange: (v: string) => void
+  options: readonly (string | Option)[]
+  placeholder?: string  // Shown when nothing is chosen.
+  clearable?: boolean
+  disabled?: boolean
+  invalid?: boolean
+  id?: string
+  ariaLabel?: string
+  ariaLabelledby?: string
+  search?: boolean  // Search box at the top of the list: on, off, or (default) automatically past `searchFrom` options.
+  searchFrom?: number = 8
+  size?: "sm" | "md" = 'md'  // sm = 36 px compact trigger for inline use (time pickers, table cells). pill = rounded toolbar trigger.
+  pill?: boolean
+  className?: string
+  style?: CSSProperties
+<SelectField>
+  options: readonly (string | Option)[]
+  label?: ReactNode
+  note?: ReactNode
+  error?: string | null
+  help?: ReactNode
+  placeholder?: string
+  onChange?: ((v: string) => void)
+  id?: string
+  className?: string
+  value?: string | number
+  disabled?: boolean
+  style?: CSSProperties
+  search?: boolean
+  size?: "sm" | "md"
+  aria-label?: string
+  aria-labelledby?: string
+  aria-invalid?: boolean | "true" | "false"
+<FloatingPop>
+  anchor: RefObject<HTMLElement>
+  popRef: RefObject<HTMLDivElement>
+  children: ReactNode
+  className?: string = ''
+  role?: string
+  multi?: boolean
+  id?: string
+  onKeyDown?: ((e: KeyboardEvent<HTMLElement>) => void)
+  maxHeight?: number = 320
+
+// File upload — Dashed drop zone for choosing or dropping one file; once a file is set it turns into a file card with name, size and a remove button.
+<FileUpload>
+  onFile: (f: File) => void
+  accept?: string
+  file?: { name: string; size?: number | undefined; } | null
+  rules?: ReactNode
+  label?: string = 'Choose a file or drop it here'
+  onClear?: (() => void)
+
+// Pill input — 40 px pill-shaped text input for toolbars and searches, with an optional leading icon; SearchField is the soft-filled search variant.
+<PillInput>
+  value: string
+  onChange: (v: string) => void
+  icon?: IconName
+  soft?: boolean
+  placeholder?: string
+  label?: string
+  ariaLabel?: string
+  type?: string = 'text'
+  maxLength?: number
+  className?: string
+  style?: CSSProperties
+  autoFocus?: boolean
+<SearchField>
+  value: string
+  onChange: (v: string) => void
+  placeholder?: string
+  ariaLabel?: string
+  className?: string
+  style?: CSSProperties
+  maxLength?: number
+  soft?: boolean
+
+// Radio group — A set of 36 px radio option rows for choosing exactly one value; stacked by default or wrapped in a row.
+<RadioGroup>
+  value: string
+  onChange: (v: string) => void
+  options: readonly (string | Option)[]
+  name?: string
+  row?: boolean
+  ariaLabel?: string
+
+// Search select — Labelled select fields for long lists — SearchSelect picks one value with a search box past 8 options; MultiSelect picks several with checkboxes and an optional Select all row.
+<SearchSelect>
+  value: string
+  onChange: (v: string) => void
+  options: readonly (string | Option)[]
+  label?: ReactNode
+  note?: ReactNode
+  error?: string | null
+  help?: ReactNode
+  placeholder?: string = 'Select'
+  disabled?: boolean
+  pill?: boolean
+  searchFrom?: number = 8
+  ariaLabel?: string
+  className?: string
+<MultiSelect>
+  value: string[]
+  onChange: (v: string[]) => void
+  options: readonly (string | Option)[]
+  label?: ReactNode
+  note?: ReactNode
+  error?: string | null
+  help?: ReactNode
+  placeholder?: string = 'Select'
+  disabled?: boolean
+  selectAll?: boolean
+  ariaLabel?: string
+  className?: string
+
+// Setting row — A settings list row with a title and help text on the left and a control (usually a Toggle) on the right, separated by hairlines.
+<SettingRow>
+  title: ReactNode
+  children: ReactNode
+  help?: ReactNode
+
+// Text field — Labelled form fields for dialogs and page forms — 46 px soft-filled controls with a label, optional note, help text and inline error.
+<Field>
+  children: ReactNode
+  label?: ReactNode
+  note?: ReactNode
+  error?: string | null
+  help?: ReactNode
+  htmlFor?: string
+  className?: string
+<TextField>  + native Input
+  label?: ReactNode
+  note?: ReactNode  // Small grey text after the label ("Optional", "Usually 587").
+  error?: string | null  // The message under the field; also marks it invalid.
+  help?: ReactNode
+  onChange?: ((v: string) => void)  // Called with the new text, not the event (it replaces the native onChange). `value`, `placeholder`, `type`, `required`, `autoComplete` and the other input attributes pass straight through.
+<PasswordField>  + native Input
+  label?: ReactNode
+  note?: ReactNode  // Small grey text after the label ("Optional", "Usually 587").
+  error?: string | null  // The message under the field; also marks it invalid.
+  help?: ReactNode
+  onChange?: ((v: string) => void)  // Called with the new text, not the event (it replaces the native onChange). `value`, `placeholder`, `type`, `required`, `autoComplete` and the other input attributes pass straight through.
+<NumberField>
+  value: number | ""
+  onChange: (v: number | "") => void
+  label?: ReactNode
+  note?: ReactNode
+  error?: string | null
+  help?: ReactNode
+  min?: number
+  max?: number
+  step?: number = 1
+  id?: string
+  disabled?: boolean
+  className?: string
+  suffix?: ReactNode
+<TextAreaField>  + native Textarea
+  label?: ReactNode
+  note?: ReactNode
+  error?: string | null
+  help?: ReactNode
+  onChange?: ((v: string) => void)
+function focusFirstError(root?: ParentNode | null | undefined): void  // After a failed submit, move focus to the first field that shows an error (DESIGN.md §4.4 Validation).
+
+// Tile picker — A grid of selectable tiles (icon or logo, title, one-line description) for choosing a type or source — single choice by default, or several with multiple.
+<TilePicker>
+  options: TileOption[]
+  ariaLabel: string  // Accessible name of the group, e.g. "Data source type".
+  value: string | string[]
+  onChange: ((value: string) => void) | ((value: string[]) => void)
+  multiple?: boolean  // Leave out for a single choice: `value` is a string ('' until one is chosen) and `onChange` gets a string. `true` for several: `value` and `onChange` use `string[]`.
+
+// Toggle — 38 × 22 on/off switch for settings that take effect immediately; always has an accessible label.
+<Toggle>
+  checked: boolean
+  onChange: (v: boolean) => void
+  label: string
+  disabled?: boolean
+  id?: string
+
+// Wizard card — Full-page multi-step form — a step indicator above a card holding one step's fields, with Back, Cancel and Next/Finish in the footer.
+<WizardCard>
+  steps: string[]
+  step: number
+  onNext: () => void
+  onCancel: () => void
+  children: ReactNode
+  onStep?: ((i: number) => void)
+  onBack?: (() => void)
+  nextLabel?: string
+  finishLabel?: string = 'Finish'
+  busy?: boolean
+  extraFooter?: ReactNode
+
+// Menu — A trigger plus an anchored popover menu of actions (.pop), with icons, separators, selected and danger items, and disabled items that explain why.
+<Menu>
+  trigger: (p: { onClick: () => void; 'aria-expanded': boolean; 'aria-haspopup': "menu"; }) => ReactNode  // Render the button that opens the menu and spread `p` onto it: `trigger={(p) => <IconButton icon="more" label="Actions" {...p} />}`.
+  items?: MenuItem[]  // The entries; `{ separator: true }` draws a divider.
+  align?: "up" | "right" | "left" = 'right'
+  label?: string
+  width?: number
+  children?: ((close: () => void) => ReactNode)
+
+// Page header — The top of every page — optional breadcrumbs, eyebrow, the page title (h2), an optional chip and description, and the page actions at the right.
+<PageHeader>
+  title: ReactNode
+  crumbs?: Crumb[]
+  eyebrow?: ReactNode
+  chip?: ReactNode
+  description?: ReactNode
+  actions?: ReactNode
+  children?: ReactNode
+
+// Section nav — Left-hand section navigation for settings-style pages, with a built-in dropdown that replaces it under 860 px. The current section gets the selected finish.
+<SectionNav>
+  items: SectionNavItem[]
+  value: string
+  onChange?: ((value: string) => void)
+  title?: string
+  ariaLabel?: string
+  selectLabel?: string = 'Section'
+
+// Segmented — Pill-shaped segmented control that switches between two to five sibling views (tabs mode) or data filters (pressed mode).
+<Segmented>
+  items: SegItem[]
+  value: string
+  onChange: (v: string) => void
+  mode?: "tabs" | "pressed" = 'tabs'
+  ariaLabel?: string
+  hug?: boolean
+  className?: string
+
+// Tree — Folder / report tree for a hub page — top-level folders with counts, expandable groups and nested items. The current row gets the selected finish.
+<Tree>
+  items: TreeItem[]
+  value?: string
+  onSelect?: ((item: TreeItem) => void)
+  ariaLabel?: string = 'Folders'
+  defaultExpanded?: string[] = []
+
+// Vertical tabs — A vertical list of section buttons for the left column of settings-style dialogs; the current section gets the selected finish.
+<VerticalTabs>
+  items: { value: string; label: string; icon?: IconName | undefined; }[]
+  value: string
+  onChange: (v: string) => void
+  ariaLabel?: string
+
+// AI orb — The Lepide AI orb — the prototype's WebGL ring that glows, drifts and follows the pointer, in the theme's brand colours. The only way to show Lepide AI's mark; never redraw it with CSS.
+<AiOrb>
+  size?: number  // Width and height in px.
+  className?: string
+  options?: OrbOptions  // Shader settings; the defaults are the home card's (glow 2, thickness 1.2, highlight 1.6).
+  style?: CSSProperties
+
+// Avatar — Round initials avatar with a tint picked from the name, and Person, an avatar plus name and optional detail on one line.
+<Avatar>
+  name: string
+  size?: number = 28
+<Person>
+  name: string
+  sub?: string
+function initialsOf(name: string): string
+
+// Card — White rounded containers. Card for content panels, SetCard for settings sections with head, body and footer, KeyValues for read-only field tiles.
+<Card>
+  title?: ReactNode
+  sub?: ReactNode
+  actions?: ReactNode
+  children?: ReactNode
+  className?: string
+  style?: CSSProperties
+  flush?: boolean
+<SetCard>
+  title?: ReactNode
+  description?: ReactNode
+  actions?: ReactNode
+  children?: ReactNode
+  footer?: ReactNode
+  form?: boolean  // The body holds form fields: makes it a `.page-form`, so TextField, SelectField … get their field styles.
+  bodyStyle?: CSSProperties
+<KeyValues>
+  items: { label: string; value: ReactNode; wide?: boolean | undefined; }[]
+  cols?: 2 | 3 = 2
+
+// Chip — Small read-only pills. Chip labels a thing, ToneTag shows a status with a dot and text, Counter shows a number.
+<Chip>
+  children: ReactNode
+  tone?: Tone = 'neutral'
+  icon?: IconName
+  title?: string
+<ToneTag>
+  children: ReactNode
+  tone?: StatusTone = 'none'
+<Counter>
+  children: ReactNode
+function toneFor(status: string): StatusTone  // Tone for a status label: STATUS_TONES first, then whole words in the order bad → warn → info → none → good, so "Completed with errors" is bad and "Unhealthy" never matches "healthy".
+const STATUS_TONES: Record<string, StatusTone>  // Lepide status words and their tone.
+
+// Icon — Thin Lucide-style line icons (1.6 stroke, currentColor), the product module glyphs, and the Lepide mark in its white tile.
+<Icon>
+  name: IconName
+  size?: number = 16
+  className?: string
+<ModuleIcon>
+  name: ModuleIconName
+  size?: number = 20
+<BrandMark>
+  size?: number = 36
+const MARK_URL: string  // URL of the Lepide mark SVG (a data URL), for <img>, favicons or a plain-HTML page.
+
+// Banner — Inline tinted message strip with a tone icon, text, an optional action and an optional dismiss button — for persistent notices inside a page, card or dialog.
+<Banner>
+  children: ReactNode
+  tone?: "info" | "error" | "success" | "warning" = 'info'
+  onClose?: (() => void)
+  action?: ReactNode
+
+// Empty state — Centred block on a dotted field with an icon tile, a title, an optional message and an action — for empty lists, no results and load errors.
+<EmptyState>
+  title: ReactNode
+  icon?: IconName
+  message?: ReactNode
+  action?: ReactNode
+  compact?: boolean
+  tone?: "error"
+
+// Loading — Loading feedback — shimmering skeleton table rows, a centred page spinner, and a determinate or indeterminate progress bar.
+<SkeletonRows>
+  rows?: number = 7
+  cols?: number = 5
+<PageLoader>
+  text?: string
+<ProgressBar>
+  value?: number
+  label?: string
+  indeterminate?: boolean
+
+// Toast — Notifications from one call, toast({...}). They show as a card stack in the bottom-right corner, or as a nudge callout beside the control the user just clicked when an error or warning answers that click.
+<ToastProvider>
+  children: ReactNode
+  duration?: number = 5000
+function useToast(): (input: ToastInput) => ToastHandle  // Returns toast(input): shows a card or nudge and returns a handle to update or dismiss it.
+
+// Drawer — Floating side panel that slides in from the right over a scrim (Drawer), and the non-modal sticky panel beside a list (DetailPanel).
+<Drawer>
+  open: boolean
+  onClose: () => void
+  title: ReactNode
+  subtitle?: ReactNode
+  footer?: ReactNode
+  footerNote?: ReactNode
+  children?: ReactNode
+  width?: number | "md" | "chat" | "rec" = 'md'
+  head?: ReactNode
+<DetailPanel>
+  title: ReactNode
+  onClose: () => void
+  subtitle?: ReactNode
+  footer?: ReactNode
+  children?: ReactNode
+
+// Modal — Centred dialog with icon-tile head, scrolling form body and a footer of buttons; ConfirmDialog for yes/no questions; Steps for multi-step progress.
+<Modal>
+  open: boolean
+  onClose: () => void
+  title: ReactNode
+  subtitle?: ReactNode
+  icon?: IconName | null = 'plus'
+  tone?: "danger"
+  size?: "sm" | "md" | "lg" | "xs" = 'md'
+  steps?: string[]
+  step?: number
+  footerHint?: ReactNode
+  footer?: ReactNode
+  children?: ReactNode
+  escapeCloses?: boolean = true
+  bodyClassName?: string
+  onSubmit?: (() => void)  // Makes body + footer a <form>: Enter in a field and a footer <Button type="submit"> call it (default submit is prevented).
+<ConfirmDialog>
+  open: boolean
+  onClose: () => void  // Cancel, Escape and the close button.
+  onConfirm: () => unknown  // May return a promise: the confirm button shows a spinner until it settles.
+  confirmLabel: string  // The verb, e.g. "Remove data source".
+  title?: ReactNode = 'Are you sure?'
+  message?: ReactNode  // The consequence, shown under the title ("Auditing stops and its history is deleted.").
+  cancelLabel?: string = 'Cancel'
+  destructive?: boolean = true  // Default true: danger icon tile and a red confirm button, focus starts on Cancel. false: primary confirm.
+  icon?: IconName
+  busy?: boolean  // Show the spinner yourself (not needed when `onConfirm` returns a promise).
+  children?: ReactNode
+<Steps>
+  steps: string[]
+  current: number
+  onStep?: ((i: number) => void)
+  page?: boolean
+
+// Tooltip — One floating tooltip for the whole app. Mount TooltipHost once; any element with data-tip, and every icon-only button with an aria-label, shows its label on hover or keyboard focus.
+<TooltipHost />
+
+// Chart — Highcharts-based charts in the Lepide Design System theme — one Chart component with a kind per product chart type (columns, stacked, bars, areas, lines, donuts, gauges, rings, bubbles), plus a borderless Sparkline. Imported from '@lepide/ds-react/charts'.
+<Chart>  // from '@lepide/ds-react/charts'
+  kind: keyof ChartData  // Which chart to draw; it decides the shape of `data` (see ChartData).
+  data: keyof ChartData extends K ? Record<string, unknown> : ChartData[kind]  // The shape for this `kind` (ChartData), checked when `kind` is a literal.
+  height?: number = 270
+  title?: string  // Accessible name and the caption of the text alternative (the card header stays the visible title).
+  onSelect?: ((label: string, index: number) => void)  // Click-through from a category or segment.
+  options?: ChartOptions
+<Sparkline>  // from '@lepide/ds-react/charts'
+  data: number[]
+  color?: string = '#1c4599'
+  height?: number = 56
+function chartColor(c: string | undefined, i?: number): string  // Resolve a product colour (`var(--chart-red)`, a hex, or nothing) to an Lepide Design System colour.
+const PALETTE: string[]
+
+// Data table — Table card with title and count, sortable headers, an optional column filter row, checkbox selection, row open and row actions, client-side paging, skeleton loading and empty states, and a sticky first column.
+<DataTable>
+  columns: Column<T>[]
+  rows: T[]
+  rowKey: (row: T) => string
+  title?: ReactNode  // Card toolbar: title (left), count noun, extra controls (right).
+  noun?: [string, string] = ['record', 'records']
+  toolbar?: ReactNode
+  search?: string = ''  // Search text: the table filters `rows` by it across all columns (pass a SearchField's value; don't pre-filter for search).
+  pageSizes?: number[] = [10, 25, 50, 100]
+  pager?: boolean = true  // false = no pager and every row shown: for short lists inside a dialog or card (a few chosen items).
+  defaultPageSize?: number
+  selectable?: "multi" | "single"  // Selection: 'multi' shows checkboxes; selected keys are controlled.
+  selected?: string[] = []
+  onSelectedChange?: ((keys: string[]) => void)
+  onRowOpen?: ((row: T) => void)  // Row activation (click / Enter) — e.g. open a detail panel.
+  activeKey?: string | null
+  rowActions?: ((row: T) => ReactNode)
+  isRowDisabled?: ((row: T) => boolean)
+  loading?: boolean
+  empty?: ReactNode  // First use: shown when `rows` is empty and nothing filters them (an `EmptyState` that says how to add the first one).
+  noResults?: string = 'No results match your search or filters.'  // Shown when `search`, a column filter or `filtered` leaves no rows.
+  filtered?: boolean  // Set when you filter `rows` yourself (e.g. a Segmented above the table), so an empty list shows `noResults`, not `empty`.
+  flat?: boolean
+  maxHeight?: number
+  initialSort?: { key: string; dir: "asc" | "desc"; }
+  className?: string
+<Pager>
+  total: number
+  noun: [string, string]
+  page: number
+  pages: number
+  size: number
+  sizes: number[]
+  onPage: (p: number) => void
+  onSize: (s: number) => void
+
+// KPI card — Stat card with a label, a large value that counts up once, an optional delta chip, a foot line and a full-bleed sparkline. Imported from '@lepide/ds-react/charts'.
+<KpiCard>  // from '@lepide/ds-react/charts'
+  label: string
+  value: string | number
+  delta?: string
+  deltaTone?: "brand" | "good" | "warn" | "bad" | "flat" = 'flat'
+  deltaDir?: "up" | "down"
+  foot?: string
+  spark?: number[]
+  sparkColor?: string
+  onClick?: (() => void)
+
+// Sign in — The whole sign-in page, exactly the prototype's — glass card with the form (email, password) and the illustration panel, where data particles form the Lepide mark and each module's icon, one slide each. Validation, loading and error states are built in.
+<SignIn>
+  onSubmit: (values: SignInValues) => void | Promise<void>  // Called with valid input.
+  eyebrow?: string = 'Lepide · Data Security Platform'
+  title?: string = 'Sign in to the console'
+  subtitle?: ReactNode
+  forgotPasswordTo?: string  // Link for "Forgot password?" (rendered through LepideProvider's link).
+  requestAccessTo?: string  // Link for "Request access" in the footer.
+  slides?: SignInSlide[]  // Slides on the illustration panel.
+  art?: ReactNode  // Replaces the particle animation with your own (static) illustration; `slides` then switch with the dots only.
+  showKeepSignedIn?: boolean = false  // Show a "Keep me signed in" checkbox (the prototype has none).
+  defaultKeepSignedIn?: boolean = true  // Initial state of "Keep me signed in".
+
+// Types used above
+type LinkComponent = ComponentType<LinkProps>;
+type LinkProps = { to: string; className?: string; children?: ReactNode; 'aria-current'?: 'page' | 'step' | 'location' | 'true'; onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void; };
+type Theme = 'light' | 'dark' | 'hc';
+type IconName = keyof typeof icons.line;  // a line icon name from §2.7
+type ModuleIconName = keyof typeof icons.module;  // a module icon name from §2.7
+type ButtonVariant = 'secondary' | 'primary' | 'danger' | 'danger-solid' | 'ghost';
+type MenuItem = { label?: string; icon?: IconName; onSelect?: () => void; disabled?: boolean; reason?: string; danger?: boolean; selected?: boolean; separator?: boolean; };
+type Option = { value: string; label: string; disabled?: boolean };
+type SegItem = { value: string; label: ReactNode; icon?: IconName; count?: number; disabled?: boolean };
+type Tone = 'neutral' | 'brand' | 'good' | 'warn' | 'bad' | 'flat';
+type StatusTone = 'good' | 'warn' | 'bad' | 'info' | 'none';
+type Crumb = { label: string; to?: string };
+type ToastAction = { label: string; onClick?: () => void; primary?: boolean };
+type ToastHandle = { update: (patch: Partial<ToastInput>) => void; dismiss: () => void };
+type ToastInput = { variant?: ToastVariant; title?: string; message: string; actions?: ToastAction[]; loading?: boolean; duration?: number; anchor?: 'auto' | 'corner' | HTMLElement | string | null; };
+type ToastVariant = 'info' | 'success' | 'warning' | 'error';
+type Column<T> = { key: string; header: string; value?: (row: T) => string | number | boolean | null | undefined; render?: (row: T) => ReactNode; title?: (row: T) => string | undefined; width?: number; minWidth?: number; sortable?: boolean; filterable?: boolean; mono?: boolean; wrap?: boolean; align?: 'left' | 'right' | 'center'; };
+type DateRange = { preset: string; from: Date; to: Date };
+type TileOption = { value: string; label: string; description?: ReactNode; icon?: IconName; image?: string; disabled?: boolean };
+type SignInSlide = { kicker: string; title: string; text: string; shape?: LoginArtShape };
+type SignInValues = { email: string; password: string; keepSignedIn: boolean };
+type SectionNavItem = { value: string; label: string; icon?: IconName; badge?: ReactNode; to?: string; group?: string; };
+type TreeItem = { id: string; label: string; icon?: IconName; count?: number; children?: TreeItem[]; disabled?: boolean; };
+type ChartColor = string;  // from '@lepide/ds-react/charts'
+type ChartSeries = { name: string; values: number[]; color?: ChartColor };  // from '@lepide/ds-react/charts'
+type ChartData = { columns: { labels: string[]; values: number[]; name?: string; colors?: (ChartColor | undefined)[] }; dateColumns: { labels: string[]; values: number[]; name?: string; color?: ChartColor }; stacked: { labels?: string[]; cats?: string[]; series: ChartSeries[] }; pairedBars: { rows: string[]; series: ChartSeries[] }; areaBars: { bars: number[]; line: number[]; labels: string[]; markers?: number[]; barName?: string; lineName?: string }; multiArea: { labels: string[]; series: (ChartSeries & { legendColor?: ChartColor })[] }; line: { labels: string[]; series: ChartSeries[] }; donut: DonutData; calloutDonut: DonutData; gaugeDonut: DonutData; donut3d: DonutData; rings: { rings: { label: string; value: number; color?: ChartColor }[] }; bubbles: { points: { label: string; x: number; y: number; size: number; color?: ChartColor }[] }; speedometer: { value: number; max?: number; name?: string; bands: { to: number; label: string; color?: ChartColor }[] }; };  // from '@lepide/ds-react/charts'
+type ChartOptions = { y?: { min?: number; max?: number; ticks?: number; format?: (v: number) => string }; legend?: boolean; markers?: boolean; stacked?: boolean; onPoint?: (series: number, point: number) => void; raw?: Highcharts.Options; };  // from '@lepide/ds-react/charts'
+```
 <!-- components:end -->
+
+## 10. The prototype: screens to follow
+
+The Lepide console prototype is the reference for *what is on each screen and how its flow goes*. This design system
+says *how it looks and which components build it*. Use them together.
+
+| | Where |
+|---|---|
+| Live prototype, no sign-in | https://lepide-new-ui.vercel.app — every screen |
+| Live prototype with sign-in | https://lepide-with-new-design.vercel.app/login — the sign-in screen and flow |
+| Screen catalog (in this repository) | [prototype/README.md](prototype/README.md) — every screen with its path, patterns, header actions, tabs, table columns, cards, what its primary action opens, the prototype source folder and a screenshot; machine-readable: [prototype/screens.json](prototype/screens.json); MCP: `find_screen("file server")` |
+
+**The rule.**
+1. Look the request up in the catalog first (or `find_screen`). "Create the file server section for me" →
+   Settings › Add data source › File server.
+2. **The screen exists:** rebuild it as it is there. Keep its layout and section order, its header actions (and which one
+   is primary), tabs, table columns, cards, and the flow its primary action starts (the dialog, its steps and fields).
+   Don't add, drop or reorder sections, and don't invent another flow.
+3. **Sign-in:** always the prototype's sign-in (`SignIn` from `@lepide/ds-react`, [screenshot](prototype/screens/login.webp)). Never design a new
+   login page.
+4. **The screen doesn't exist:** start from the closest screen in the same module (same header, table and dialog
+   patterns), then §4.2 / §4.4 and the golden examples.
+5. **Details follow this file.** The screenshots show layout and flow; copy rules (sentence case, no-results wording),
+   tokens and kit components come from this spec where the prototype is older. In particular:
+   * **Dialog titles** are the action in sentence case ("Create case"), with what it acts on in the subtitle if
+     needed. Not the prototype's breadcrumb titles ("e-Discovery / Create New Case") and no back chevron in the title
+     (Back goes in the footer of a multi-step dialog).
+   * **The primary button names the action** ("Create case", "Install", "Save changes"), not "Done", "OK" or "Submit".
+     "Next" is right on every step but the last of a multi-step dialog or wizard.
+   * **Page description:** keep it where the prototype has one; don't add one where it hasn't.
+   * **Dialog size** comes from the Modal page (`sm` for 2–4 fields, `md` for more or for a list, `lg` for side tabs),
+     not from the prototype's width.
+6. **Parts the prototype doesn't show** (a details drawer, later steps of a dialog, an error state): build them from
+   the closest golden screen's pattern (`examples/screens`, e.g. the alerts drawer, the wizard steps), using only the
+   data the screen already has. Keep them minimal and don't invent new features; say in your summary which parts
+   you composed this way, so a designer can check them.
+
+The screenshots and facts are copies in this repository, so §10 keeps working if the live sites change or go away.
+To refresh them after the prototype changes: `npm run prototype:capture` (it crawls the live prototype in headless
+Chrome), then `npm run build`.
