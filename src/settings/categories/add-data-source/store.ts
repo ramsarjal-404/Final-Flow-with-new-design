@@ -1,5 +1,7 @@
 import ds from '../../../data/settings/datasource.json';
 import { createStore, uid } from '../../../stores/createStore';
+import { defaultConfig } from './adData';
+import type { AdConfig } from './adData';
 
 /* MOD-SDS Part 1 (data-model.md): AdDomain, FileServer, AuditRule, AuditPolicy, UserGroup, Backup,
    FsGeneralSettings. Module-level store = session scope (GAP-SDS-18 intended: survive navigation;
@@ -10,7 +12,7 @@ export type AgentStatus = 'Installed' | 'Not Installed' | 'File Server Unavailab
 export type AuditStatus = 'Auditing Started' | 'Auditing Stopped';
 
 export type DataSourceTile = { id: string; label: string; logo: string; activeDirectory?: boolean; fileServerType?: 'list' | ServerType };
-export type AdDomain = { id: string; domain: string; controller: string; logon: string };
+export type AdDomain = { id: string; domain: string; controller: string; logon: string; config: AdConfig };
 export type FileServer = {
   id: string; name: string; type: ServerType; domain: string; agentStatus: AgentStatus; auditStatus: AuditStatus; lastUpdate: string;
   communication: 'agent' | 'winrm'; logonUser: string; logonPassword?: string; sharePath: string; sqlServer: string; database: string;
@@ -55,9 +57,13 @@ type DsState = {
 };
 
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x));
+const seedConfig = (domain: string): AdConfig => {
+  const c = defaultConfig(domain);
+  return { ...c, added: 'Nov 03 2026, 09:12 AM', servers: c.servers.map((s) => ({ ...s, agent: 'Installed', health: s.group === 'ad' })), components: [...c.components, 'health'] };
+};
 
 export const dsStore = createStore<DsState>({
-  adDomains: clone(X.AD_DOMAINS) as AdDomain[],
+  adDomains: (clone(X.AD_DOMAINS) as Omit<AdDomain, 'config'>[]).map((d) => ({ ...d, config: seedConfig(d.domain) })),
   servers: (clone(X.FILE_SERVERS) as FileServer[]).map((s) => ({ ...s, domainController: s.domainController ?? undefined })),
   rules: clone(X.AUDIT_RULES) as AuditRule[],
   policies: clone(X.AUDIT_POLICIES) as AuditPolicy[],

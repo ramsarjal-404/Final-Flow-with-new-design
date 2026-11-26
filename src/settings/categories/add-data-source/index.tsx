@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Picker from './Picker';
 import FileServers from './FileServers';
+import ActiveDirectory from './ActiveDirectory';
 import ServerDetail from './ServerDetail';
 import AuditRules from './AuditRules';
 import UserGroups from './UserGroups';
@@ -13,6 +14,7 @@ export default function AddDataSourcePage() {
   return (
     <Routes>
       <Route index element={<Picker />} />
+      <Route path="active-directory" element={<ActiveDirectory />} />
       <Route path="file-server" element={<FileServers />} />
       <Route path="file-server/rules" element={<AuditRules />} />
       <Route path="file-server/users" element={<UserGroups />} />
