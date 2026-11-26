@@ -3,7 +3,6 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { RequireAuth } from './app/auth';
 import { ConsoleShell } from './app/Shell';
 import { PageLoader } from './ui';
-import Login from './pages/Login';
 import Home from './pages/Home';
 import SettingsFrame from './settings/SettingsFrame';
 import { MODULE_ROUTES } from './modules/registry';
@@ -12,7 +11,7 @@ import { MODULE_ROUTES } from './modules/registry';
 export default function App() {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Navigate to="/" replace />} />
       <Route element={<RequireAuth><ConsoleShell /></RequireAuth>}>
         <Route path="/" element={<Home />} />
         <Route path="/settings" element={<Navigate to="/settings/role-management" replace />} />

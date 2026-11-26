@@ -3,7 +3,7 @@
 A clickable React prototype of the whole Lepide (LDSP) console, built from the product architecture
 (`product-blueprint/modules/**`) and drawn in the **Lepide Design System** (https://lepide-new-ds.vercel.app).
 
-**Live demo:** https://lepide-new-ui-gray.vercel.app (any e-mail and password sign in; deep links work).
+**Live demo:** https://lepide-new-ui-gray.vercel.app (built from `main`, where any e-mail and password sign in; deep links work).
 
 **Building with an AI tool?** Read [AGENTS.md](AGENTS.md) for the design rules and [flows/](flows/README.md) for documented flows such as
 [Active Directory](flows/active-directory/FLOW.md).
@@ -15,7 +15,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5175 and sign in with **any email and any password** (prototype sign-in).
+Open http://localhost:5175: the console opens straight away (this `Without-login` branch has no sign-in page).
 The password `locked` shows the locked-account message.
 
 Other scripts: `npm run build` (type check + production build), `npm run typecheck`, `npm run preview`.

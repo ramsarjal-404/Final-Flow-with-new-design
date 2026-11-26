@@ -1,6 +1,5 @@
 import { createContext, useCallback, useContext, useState } from 'react';
 import type { ReactNode } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
 
 /* ENT-PLAT-User / ENT-PLAT-Session (modules/platform/data-model.md). Prototype authentication. */
 export type Permission =
@@ -32,8 +31,10 @@ function read(): User | null {
       if (raw) { const u = JSON.parse(raw) as User; return { ...u, permissions: buildUser(u.email || 'user').permissions }; }
     } catch { /* unreadable → no session */ }
   }
-  return null;
+  // Without-login branch: no sign-in page; everyone opens the console as the prototype user.
+  return DEFAULT_USER;
 }
+const DEFAULT_USER = buildUser('console.user@example.com');
 
 type Auth = {
   user: User | null;
@@ -57,16 +58,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
   const signOut = useCallback(() => {
     try { sessionStorage.removeItem(KEY); localStorage.removeItem(KEY); } catch { /* ignore */ }
-    setUser(null);
+    setUser(DEFAULT_USER);
   }, []);
   const hasPermission = useCallback((p: Permission) => !!user && user.permissions.includes(p), [user]);
   return <Ctx.Provider value={{ user, signIn, signOut, hasPermission }}>{children}</Ctx.Provider>;
 }
 
-/** Route guard: no session → /login with { from }. */
+/** Route guard. Without-login branch: there is always a user, so it only renders its children. */
 export function RequireAuth({ children }: { children: ReactNode }) {
-  const { user } = useAuth();
-  const loc = useLocation();
-  if (!user) return <Navigate to="/login" replace state={{ from: loc.pathname + loc.search }} />;
   return <>{children}</>;
 }

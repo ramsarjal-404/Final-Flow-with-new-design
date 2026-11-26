@@ -110,7 +110,7 @@ function Sidebar({ collapsed, onAccount, accountOpen }: { collapsed: boolean; on
 
 /* ------------------------------------------------------------------ Account menu (02 § 4, DLG-PLAT-02) */
 export function AccountMenu({ anchor, side, onClose }: { anchor: HTMLElement; side: 'below' | 'right'; onClose: () => void }) {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
   const { theme, setTheme } = useTheme();
   const nav = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
@@ -149,11 +149,6 @@ export function AccountMenu({ anchor, side, onClose }: { anchor: HTMLElement; si
       </div>
       <div className="umenu__sep" />
       <button type="button" className="umenu__item" role="menuitem" onClick={() => { onClose(); nav('/'); }}><Icon name="home" size={15} /><span>Console home</span></button>
-      <div className="umenu__sep" />
-      <button type="button" className="umenu__item umenu__item--out" role="menuitem"
-        onClick={() => { onClose(); signOut(); nav('/login', { replace: true, state: { reason: 'signed-out' } }); }}>
-        <Icon name="logout" size={15} /><span>Sign out</span><kbd>{user.email.split('@')[1] ?? ''}</kbd>
-      </button>
     </div>, document.body);
 }
 
