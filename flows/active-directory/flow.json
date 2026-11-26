@@ -29,6 +29,7 @@
     "routes": "src/settings/categories/add-data-source/index.tsx",
     "entry": "src/settings/categories/add-data-source/Picker.tsx"
   },
+  "demo": "https://lepide-new-ui-gray.vercel.app/settings/add-data-source/active-directory",
   "routes": [
     {
       "path": "/settings/add-data-source",

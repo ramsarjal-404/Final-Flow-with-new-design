@@ -3,6 +3,8 @@
 A clickable React prototype of the whole Lepide (LDSP) console, built from the product architecture
 (`product-blueprint/modules/**`) and drawn in the **Lepide Design System** (https://lepide-new-ds.vercel.app).
 
+**Live demo:** https://lepide-new-ui-gray.vercel.app (any e-mail and password sign in; deep links work).
+
 **Building with an AI tool?** Read [AGENTS.md](AGENTS.md) for the design rules and [flows/](flows/README.md) for documented flows such as
 [Active Directory](flows/active-directory/FLOW.md).
 

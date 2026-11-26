@@ -16,5 +16,6 @@ depends on a local folder outside it.
    https://lepide-new-ds.vercel.app/mcp, already registered for Claude Code, VS Code, Cursor and Codex).
 4. **Kit:** `@lepide/ds-react` and `@lepide/ds-css`, installed from https://lepide-new-ds.vercel.app/ds/lepide-ds-react.tgz
    and https://lepide-new-ds.vercel.app/ds/lepide-ds-css.tgz. Import UI only from `src/ui` (it re-exports the kit).
-5. **Run and check:** `npm install`, `npm run dev` (http://localhost:5175, any e-mail signs in), `npm run build`,
+5. **Live demo:** https://lepide-new-ui-gray.vercel.app (any e-mail signs in). It's a JavaScript app, so read the docs above rather than the page.
+6. **Run and check:** `npm install`, `npm run dev` (http://localhost:5175, any e-mail signs in), `npm run build`,
    `npm run check:ai` (fails on any broken link, missing file or reference outside the repository).

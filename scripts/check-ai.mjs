@@ -28,6 +28,7 @@ const ALLOWED = [
   [/^https:\/\/www\.figma\.com\/design\/(sPRioBwcfFrdLOXUFRvSV9|GdZc2Hux1DgdJXCVQxjflx)\b/, 'Figma sources: content reference only'],
   [/^https?:\/\/localhost(:\d+)?\b/, 'the local dev server'],
   [/^https:\/\/lepide-new-ui\.vercel\.app\/?$|^https:\/\/lepide-with-new-design\.vercel\.app(\/|\/login)?$/, 'the live prototype root and its sign-in (deep links 404 there, so none are used)'],
+  [/^https:\/\/lepide-new-ui-gray\.vercel\.app(\/|$)/, 'the live demo of this repository (deployed from it by Vercel)'],
   [/^https:\/\/lepide\.vercel\.app\/blueprint\//, 'product images used by the seed data'],
   [/^https:\/\/json-schema\.org\//, 'JSON schema standard'],
   [/^http:\/\/www\.microsoft\.com\/en-in\/download\//, 'SQL Express download link shown in the UI'],

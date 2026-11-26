@@ -9,8 +9,8 @@ structured data is in [flow.json](flow.json); screenshots are in [screens/](scre
 - **Content source:** the Figma file "Active Directory config › Final Flow"
   (https://www.figma.com/design/sPRioBwcfFrdLOXUFRvSV9/Active-Directory-config?node-id=13-1659). Figma gives the
   flow and the words only. **Never copy Figma's styling**: build every part from the design-system components below.
-- **Try it:** `npm install && npm run dev`, then open http://localhost:5175/settings/add-data-source and click
-  **Active Directory**.
+- **Try it live:** https://lepide-new-ui-gray.vercel.app/settings/add-data-source/active-directory (any e-mail and password sign in), or locally:
+  `npm install && npm run dev`, then open http://localhost:5175/settings/add-data-source and click **Active Directory**.
 
 ## The flow at a glance
 
